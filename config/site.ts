@@ -1,9 +1,9 @@
 export const siteConfig = {
   name: 'ui/topia',
-  url: 'https://uitopia.vercel.app/',
-  ogImage: 'https://uitopia.vercel.app/opengraph-image.png',
+  url: 'https://ui-topia.vercel.app/',
+  ogImage: 'https://ui-topia.vercel.app/opengraph-image.png',
   description:
-    'An open source project that helps you build beautiful websites and apps with React, Next.js, and Tailwind CSS.',
+    'An open source project that helps you build beautiful websites with simply copy and paste. Crafted with Tailwind CSS.',
   links: {
     portfolio: 'https://cahyawibawa.dev/',
     github: 'https://github.com/ui-topia',
