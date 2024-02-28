@@ -1,7 +1,7 @@
+import { CheckIcon, CopyIcon, EyeOpenIcon } from '@radix-ui/react-icons'
 import {
   BookOpenIcon,
   ChevronRight,
-  CopyIcon,
   FolderTreeIcon,
   Leaf,
   MessagesSquare,
@@ -13,12 +13,14 @@ import {
 type IconProps = React.HTMLAttributes<SVGElement>
 export const Icons = {
   copy: CopyIcon,
+  check: CheckIcon,
   book: BookOpenIcon,
   api: WebhookIcon,
   sdk: FolderTreeIcon,
   chat: MessagesSquare,
   arrow: ChevronRight,
   leaf: Leaf,
+  preview: EyeOpenIcon,
   reset: RotateCw,
   scan: ScanEye,
   logo: (props: IconProps) => (
