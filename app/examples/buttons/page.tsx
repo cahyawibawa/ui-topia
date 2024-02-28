@@ -1,4 +1,4 @@
-import { CardComponent } from '@/components/card-btn'
+import { CardComponent } from '@/app/examples/buttons/components/card-btn'
 import { BUTTONS } from '@/data/buttons'
 import React from 'react'
 

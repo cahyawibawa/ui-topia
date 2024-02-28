@@ -6,7 +6,7 @@ import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://uitopia.vercel.app/'),
+  metadataBase: new URL('https://ui-topia.vercel.app/'),
   title: {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`,

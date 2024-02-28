@@ -1,13 +1,14 @@
-'use client';
-import Link from 'next/link';
-import { Menu } from './main-nav';
-import { Icons } from '../icons';
-import { cn } from '@/lib/utils';
-import { siteConfig } from '@/config/site';
+'use client'
 
-type RootProps = React.ComponentPropsWithoutRef<'header'>;
+import { siteConfig } from '@/config/site'
+import { cn } from '@/lib/utils'
+import Link from 'next/link'
+import { Icons } from '../icons'
+import { Menu } from './main-nav'
 
-type TopbarProps = RootProps;
+type RootProps = React.ComponentPropsWithoutRef<'header'>
+
+type TopbarProps = RootProps
 export const Header: React.FC<Readonly<TopbarProps>> = ({
   className,
   ...props
@@ -19,12 +20,12 @@ export const Header: React.FC<Readonly<TopbarProps>> = ({
     )}
     {...props}
   >
-    <div className='mr-4 md:flex lg:gap-x-12'>
-      <Link href='/' className='mr-6 flex items-center space-x-2'>
-        <Icons.logo className='size-5' />
-        <span className='font-bold sm:inline-block'>{siteConfig.name}</span>
+    <div className="mr-4 md:flex lg:gap-x-12">
+      <Link href="/" className="mr-6 flex items-center space-x-2">
+        <Icons.logo className="size-5" />
+        <span className="font-bold sm:inline-block">{siteConfig.name}</span>
       </Link>
     </div>
     <Menu />
   </header>
-);
+)

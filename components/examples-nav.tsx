@@ -10,10 +10,10 @@ const examples = [
     name: 'Buttons',
     href: '/examples/buttons',
   },
-  // {
-  //   name: 'Background',
-  //   href: '/examples/background',
-  // },
+  {
+    name: 'Background',
+    href: '/examples/backgrounds',
+  },
 ]
 
 interface ExamplesNavProps extends React.HTMLAttributes<HTMLDivElement> {}
@@ -30,7 +30,7 @@ export function ExamplesNav({ className, ...props }: ExamplesNavProps) {
               href={example.href}
               key={example.href}
               className={cn(
-                'flex h-7 items-center justify-center rounded-full px-4 text-center text-sm transition-colors hover:text-primary',
+                'flex h-7 items-center justify-center rounded-full px-4 text-center font-medium transition-colors hover:text-primary',
                 pathname?.startsWith(example.href) ||
                   (index === 0 && pathname === '/')
                   ? 'bg-muted font-medium text-primary'

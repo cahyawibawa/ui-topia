@@ -6,9 +6,9 @@ import * as React from 'react'
 export const Menu: React.FC = () => (
   <nav className="flex items-center gap-2">
     <ul className="flex gap-2">
-      <MenuItem className="w-full px-2" href={siteConfig.links.docs}>
+      {/* <MenuItem className="w-full px-2" href={siteConfig.links.docs}>
         Docs
-      </MenuItem>
+      </MenuItem> */}
       {/* <MenuItem className='w-full px-2' href='/examples'>
         Examples
       </MenuItem> */}

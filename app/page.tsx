@@ -3,6 +3,7 @@
 import { Announcement } from '@/components/announcement'
 import { ExamplesNav } from '@/components/examples-nav'
 import { Icons } from '@/components/icons'
+import Footer from '@/components/layouts/footer'
 import { Header } from '@/components/layouts/header'
 import {
   PageActions,
@@ -23,10 +24,10 @@ export default function Home() {
       <Header />
       <PageHeader>
         <Announcement />
-        <PageHeaderHeading>Your Utopia of UI Components</PageHeaderHeading>
+        <PageHeaderHeading>Your Utopia of UI Elements</PageHeaderHeading>
         <PageHeaderDescription>
-          Ready-to-use, simply copy and paste into your next project. All
-          snippets crafted with{' '}
+          Discover a world of ready-to-use elements, simply copy and paste into
+          your next project. All snippets crafted with{' '}
           <span>
             Tailwind CSS{' '}
             <Badge variant="secondary">
@@ -41,7 +42,7 @@ export default function Home() {
             target="_blank"
             rel="noreferrer"
             href={siteConfig.links.github}
-            className={cn(buttonVariants({ variant: 'outline' }))}
+            className={cn(buttonVariants({ variant: 'default' }))}
           >
             <Icons.gitHub className="mr-2 size-4" />
             GitHub
@@ -56,21 +57,7 @@ export default function Home() {
           </section>
         </div>
       </section>
-      <footer>
-        <div className="flex items-center justify-center py-8">
-          <span className="text-sm font-medium">
-            Made by
-            <a
-              href={siteConfig.links.portfolio}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ml-1"
-            >
-              @cahya
-            </a>
-          </span>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

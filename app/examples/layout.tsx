@@ -1,5 +1,6 @@
 import { ExamplesNav } from '@/components/examples-nav'
 import { Icons } from '@/components/icons'
+import Footer from '@/components/layouts/footer'
 import { Header } from '@/components/layouts/header'
 import {
   PageActions,
@@ -28,13 +29,13 @@ export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
     <div className="relative mx-auto h-screen w-full max-w-7xl px-6 md:px-8 lg:px-12">
       <Header />
       <PageHeader>
-        <PageHeaderHeading className="hidden md:block">
+        <PageHeaderHeading className="hidden text-primary md:block">
           Check out some examples
         </PageHeaderHeading>
         <PageHeaderHeading className="md:hidden">
-          Examples - Buttons
+          Examples - Elements
         </PageHeaderHeading>
-        <PageHeaderDescription>
+        <PageHeaderDescription className="text-gray-600 dark:text-gray-200">
           Ready-to-use, simply copy and paste into your next project. All
           snippets crafted with{' '}
           <span>
@@ -50,7 +51,7 @@ export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
             target="_blank"
             rel="noreferrer"
             href={siteConfig.links.github}
-            className={cn(buttonVariants({ variant: 'outline' }))}
+            className={cn(buttonVariants({ variant: 'default' }))}
           >
             <Icons.gitHub className="mr-2 size-4" />
             GitHub
@@ -59,10 +60,11 @@ export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
       </PageHeader>
       <section>
         <ExamplesNav />
-        <div className="overflow-hidden rounded-[0.5rem] border bg-background shadow-md md:shadow-xl">
+        <div className="overflow-hidden rounded-[0.5rem] border shadow-md md:shadow-xl">
           {children}
         </div>
       </section>
+      <Footer />
     </div>
   )
 }
