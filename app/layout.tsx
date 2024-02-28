@@ -1,5 +1,6 @@
 import { Toaster } from '@/components/ui/sonner'
 import { fontSans } from '@/lib/font'
+import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import './globals.css'
 import { siteConfig } from '@/config/site'
@@ -62,6 +63,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         )}
       >
         {children}
+        <Analytics />
         <Toaster />
       </body>
     </html>
