@@ -22,6 +22,7 @@ import { BlackIcon7 } from "@/components/buttons/black-icon-7";
 import { BlackIcon8 } from "@/components/buttons/black-icon-8";
 import { BlackIcon9 } from "@/components/buttons/black-icon-9";
 import { BlackIcon10 } from "@/components/buttons/black-icon-10";
+import { BlackIcon11 } from "@/components/buttons/black-icon-11";
 import { BlackLoading1 } from "@/components/buttons/black-loading-1";
 import { BlackRound1 } from "@/components/buttons/black-round-1";
 import { BlackRound2 } from "@/components/buttons/black-round-2";
@@ -125,6 +126,7 @@ export const BUTTONS = [
   BlackIcon8,
   BlackIcon9,
   BlackIcon10,
+  BlackIcon11,
   BlackSm1,
   BlackSm2,
   BlackSmLoading1,
