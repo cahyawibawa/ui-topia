@@ -31,9 +31,9 @@ export const Icons = {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       {...props}
     >
       <path d="M5.5 8.5 9 12l-3.5 3.5L2 12l3.5-3.5Z" />
@@ -138,8 +138,8 @@ export const Icons = {
           y2="67.556%"
           id="gradient"
         >
-          <stop stop-color="#2298BD" offset="0%"></stop>
-          <stop stop-color="#0ED7B5" offset="100%"></stop>
+          <stop stopColor="#2298BD" offset="0%"></stop>
+          <stop stopColor="#0ED7B5" offset="100%"></stop>
         </linearGradient>
       </defs>
       <path
