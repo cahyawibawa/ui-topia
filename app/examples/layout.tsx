@@ -1,3 +1,4 @@
+import { Shimmer } from '@/components/buttons/shimmer-1'
 import { ExamplesNav } from '@/components/examples-nav'
 import { Icons } from '@/components/icons'
 import Footer from '@/components/layouts/footer'
@@ -9,11 +10,7 @@ import {
   PageHeaderHeading,
 } from '@/components/page-header'
 import { Badge } from '@/components/ui/badge'
-import { buttonVariants } from '@/components/ui/button'
-import { siteConfig } from '@/config/site'
-import { cn } from '@/lib/utils'
 import { type Metadata } from 'next'
-import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Examples - Buttons',
@@ -47,7 +44,8 @@ export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
           for easy integration.
         </PageHeaderDescription>
         <PageActions>
-          <Link
+          <Shimmer />
+          {/* <Link
             target="_blank"
             rel="noreferrer"
             href={siteConfig.links.github}
@@ -55,7 +53,7 @@ export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
           >
             <Icons.gitHub className="mr-2 size-4" />
             GitHub
-          </Link>
+          </Link> */}
         </PageActions>
       </PageHeader>
       <section>

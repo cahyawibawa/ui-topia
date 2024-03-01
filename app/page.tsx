@@ -1,6 +1,5 @@
-'use client'
-
 import { Announcement } from '@/components/announcement'
+import { Shimmer } from '@/components/buttons/shimmer-1'
 import { ExamplesNav } from '@/components/examples-nav'
 import { Icons } from '@/components/icons'
 import Footer from '@/components/layouts/footer'
@@ -12,10 +11,6 @@ import {
   PageHeaderHeading,
 } from '@/components/page-header'
 import { Badge } from '@/components/ui/badge'
-import { buttonVariants } from '@/components/ui/button'
-import { siteConfig } from '@/config/site'
-import { cn } from '@/lib/utils'
-import Link from 'next/link'
 import ButtonsPage from './examples/buttons/page'
 
 export default function Home() {
@@ -37,16 +32,7 @@ export default function Home() {
           for easy integration.
         </PageHeaderDescription>
         <PageActions>
-          {/* <Button variant={'default'}>Docs</Button> */}
-          <Link
-            target="_blank"
-            rel="noreferrer"
-            href={siteConfig.links.github}
-            className={cn(buttonVariants({ variant: 'default' }))}
-          >
-            <Icons.gitHub className="mr-2 size-4" />
-            GitHub
-          </Link>
+          <Shimmer />
         </PageActions>
       </PageHeader>
       <ExamplesNav className="[&>a:first-child]:text-primary" />
