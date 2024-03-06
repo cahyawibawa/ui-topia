@@ -19,7 +19,8 @@ export default function Home() {
       <Header />
       <PageHeader>
         <Announcement />
-        <PageHeaderHeading>Your Utopia of UI Elements</PageHeaderHeading>
+        <PageHeaderHeading>Make your website better. </PageHeaderHeading>
+        <PageHeaderHeading>Instantly. </PageHeaderHeading>
         <PageHeaderDescription>
           Discover a world of ready-to-use elements, simply copy and paste into
           your next project. All snippets crafted with{' '}
