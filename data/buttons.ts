@@ -68,8 +68,10 @@ import { SubtleSkeuomorphic2 } from "@/components/buttons/subtle-skeumorphic-2";
 import { SubtleSkeuomorphic3 } from "@/components/buttons/subtle-skeumorphic-3";
 import { SubtleSkeuomorphic4 } from "@/components/buttons/subtle-skeumorphic-4";
 import { SubtleSkeuomorphic5 } from "@/components/buttons/subtle-skeumorphic-5";
+import { Neumorphism } from "@/components/buttons/neumorphism";
 
 export const BUTTONS = [
+  Neumorphism,
   White1,
   White2,
   White3,
