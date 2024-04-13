@@ -32,7 +32,7 @@ export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
         <PageHeaderHeading className="md:hidden">
           Examples - Elements
         </PageHeaderHeading>
-        <PageHeaderDescription className="text-gray-600 dark:text-gray-200">
+        <PageHeaderDescription>
           Ready-to-use, simply copy and paste into your next project. All
           snippets crafted with{' '}
           <span>

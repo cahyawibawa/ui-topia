@@ -19,11 +19,12 @@ export default function Home() {
       <Header />
       <PageHeader>
         <Announcement />
-        <PageHeaderHeading>Make your website better. </PageHeaderHeading>
-        <PageHeaderHeading>Instantly. </PageHeaderHeading>
+        <PageHeaderHeading>
+          Make your website better, Instantly{' '}
+        </PageHeaderHeading>
         <PageHeaderDescription>
-          Discover a world of ready-to-use elements, simply copy and paste into
-          your next project. All snippets crafted with{' '}
+          Beautifully ready-to-use elements, simply copy and paste into your
+          apps. All snippets crafted with{' '}
           <span>
             Tailwind CSS{' '}
             <Badge variant="secondary">
@@ -39,9 +40,7 @@ export default function Home() {
       <ExamplesNav className="[&>a:first-child]:text-primary" />
       <section className="md:block">
         <div className="overflow-hidden rounded-md border bg-popover shadow-sm">
-          <section>
-            <ButtonsPage />
-          </section>
+          <ButtonsPage />
         </div>
       </section>
       <Footer />

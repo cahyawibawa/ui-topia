@@ -17,7 +17,10 @@ export const metadata: Metadata = {
     'Next.js',
     'React',
     'Tailwind CSS',
+    'UI Library',
+    'UI Kit',
     'UI Components',
+    'UI Elements',
     'Open Source',
     'shadcn/ui',
   ],
@@ -41,7 +44,7 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     images: [`${siteConfig.url}/opengraph-image.png`],
-    creator: '@radianescence',
+    creator: '@kyuotaka',
   },
   icons: {
     icon: '/favicon.ico',
@@ -58,8 +61,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en">
       <body
         className={cn(
-          'absolute inset-0 -z-10 size-full bg-background bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]',
-          fontSans.className
+          'min-h-screen bg-background font-sans antialiased',
+          fontSans.variable
         )}
       >
         {children}

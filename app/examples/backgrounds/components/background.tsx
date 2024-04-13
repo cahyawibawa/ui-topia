@@ -222,49 +222,49 @@ export const BACKGROUND_OPTIONS = [
     component: <BgLightGrid5 />,
     theme: 'light',
   },
-  {
-    name: 'Background Dark Gradient',
-    component: <BgDarkGradient1 />,
-    theme: 'dark',
-  },
-  {
-    name: 'Background Dark Gradient 2',
-    component: <BgDarkGradient2 />,
-    theme: 'dark',
-  },
-  {
-    name: 'Background Dark Gradient 3',
-    component: <BgDarkGradient3 />,
-    theme: 'dark',
-  },
-  {
-    name: 'Background Dark Gradient 4',
-    component: <BgDarkGradient4 />,
-    theme: 'dark',
-  },
-  {
-    name: 'Background Dark Gradient 5',
-    component: <BgDarkGradient5 />,
-    theme: 'dark',
-  },
-  {
-    name: 'Background Dark Grid Gradient 1',
-    component: <BgDarkGridGradient1 />,
-    theme: 'dark',
-  },
-  {
-    name: 'Background Dark Grid 1',
-    component: <BgDarkGrid1 />,
-    theme: 'dark',
-  },
-  {
-    name: 'Background Dark Grid 2',
-    component: <BgDarkGrid2 />,
-    theme: 'dark',
-  },
-  {
-    name: 'Background Dark Grid 3',
-    component: <BgDarkGrid3 />,
-    theme: 'dark',
-  },
+  // {
+  //   name: 'Background Dark Gradient',
+  //   component: <BgDarkGradient1 />,
+  //   theme: 'dark',
+  // },
+  // {
+  //   name: 'Background Dark Gradient 2',
+  //   component: <BgDarkGradient2 />,
+  //   theme: 'dark',
+  // },
+  // {
+  //   name: 'Background Dark Gradient 3',
+  //   component: <BgDarkGradient3 />,
+  //   theme: 'dark',
+  // },
+  // {
+  //   name: 'Background Dark Gradient 4',
+  //   component: <BgDarkGradient4 />,
+  //   theme: 'dark',
+  // },
+  // {
+  //   name: 'Background Dark Gradient 5',
+  //   component: <BgDarkGradient5 />,
+  //   theme: 'dark',
+  // },
+  // {
+  //   name: 'Background Dark Grid Gradient 1',
+  //   component: <BgDarkGridGradient1 />,
+  //   theme: 'dark',
+  // },
+  // {
+  //   name: 'Background Dark Grid 1',
+  //   component: <BgDarkGrid1 />,
+  //   theme: 'dark',
+  // },
+  // {
+  //   name: 'Background Dark Grid 2',
+  //   component: <BgDarkGrid2 />,
+  //   theme: 'dark',
+  // },
+  // {
+  //   name: 'Background Dark Grid 3',
+  //   component: <BgDarkGrid3 />,
+  //   theme: 'dark',
+  // },
 ] as const
