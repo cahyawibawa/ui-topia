@@ -20,11 +20,11 @@ export default function Home() {
       <PageHeader>
         <Announcement />
         <PageHeaderHeading>
-          Make your website better, Instantly{' '}
+          Make your website look better, Instantly{' '}
         </PageHeaderHeading>
         <PageHeaderDescription>
-          Beautifully ready-to-use elements, simply copy and paste into your
-          apps. All snippets crafted with{' '}
+          Ready-to-use, simply copy and paste into your next project. All
+          snippets crafted with{' '}
           <span>
             Tailwind CSS{' '}
             <Badge variant="secondary">
