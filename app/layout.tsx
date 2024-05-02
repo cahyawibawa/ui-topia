@@ -3,6 +3,8 @@ import { fontSans } from '@/lib/font'
 import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import './globals.css'
+import { Footer } from '@/components/layouts/footer'
+import { Header } from '@/components/layouts/header'
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 
@@ -65,7 +67,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fontSans.variable
         )}
       >
-        {children}
+        <div className="relative flex min-h-screen flex-col">
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
         <Analytics />
         <Toaster />
       </body>

@@ -1,8 +1,5 @@
-import { Shimmer } from '@/components/buttons/shimmer-1'
 import { ExamplesNav } from '@/components/examples-nav'
 import { Icons } from '@/components/icons'
-import Footer from '@/components/layouts/footer'
-import { Header } from '@/components/layouts/header'
 import {
   PageActions,
   PageHeader,
@@ -10,11 +7,16 @@ import {
   PageHeaderHeading,
 } from '@/components/page-header'
 import { Badge } from '@/components/ui/badge'
+import { buttonVariants } from '@/components/ui/button'
+import { siteConfig } from '@/config/site'
+import { cn } from '@/lib/utils'
 import { type Metadata } from 'next'
+import Image from 'next/image'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Examples - Buttons',
-  description: 'Check out some examples app built using the components.',
+  title: 'Examples',
+  description: 'Check out some examples elements.',
 }
 
 interface ExamplesLayoutProps {
@@ -23,46 +25,54 @@ interface ExamplesLayoutProps {
 
 export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
   return (
-    <div className="relative mx-auto h-screen w-full max-w-7xl px-6 md:px-8 lg:px-12">
-      <Header />
-      <PageHeader>
-        <PageHeaderHeading className="hidden text-primary md:block">
-          Check out some examples
-        </PageHeaderHeading>
-        <PageHeaderHeading className="md:hidden">
-          Examples - Elements
-        </PageHeaderHeading>
-        <PageHeaderDescription>
-          Ready-to-use, simply copy and paste into your next project. All
-          snippets crafted with{' '}
-          <span>
-            Tailwind CSS{' '}
-            <Badge variant="secondary">
-              <Icons.tailwind className="size-4" />
-            </Badge>
-          </span>{' '}
-          for easy integration.
-        </PageHeaderDescription>
-        <PageActions>
-          <Shimmer />
-          {/* <Link
-            target="_blank"
-            rel="noreferrer"
-            href={siteConfig.links.github}
-            className={cn(buttonVariants({ variant: 'default' }))}
-          >
-            <Icons.gitHub className="mr-2 size-4" />
-            GitHub
-          </Link> */}
-        </PageActions>
-      </PageHeader>
-      <section>
+    <>
+      <div className="mb-8 overflow-hidden border-b border-muted text-center md:h-[580px]">
+        <div className="relative flex size-full flex-col items-center justify-between pb-6">
+          <Image
+            className="absolute top-0 -z-10 mt-16 hidden h-full w-[1560px] max-w-[unset] scale-90 object-contain md:block"
+            src="/images/hero-banner-2.webp"
+            alt="ConversionRateExpert"
+            width={1513}
+            height={480}
+          />
+          <PageHeader className="mt-10">
+            <Badge variant={'outline'}>NEW DROPS WEEKLY</Badge>
+            <PageHeaderHeading className="hidden text-primary md:block">
+              Check out some examples
+            </PageHeaderHeading>
+            <PageHeaderHeading className="md:hidden">
+              Examples - Elements
+            </PageHeaderHeading>
+            <PageHeaderDescription>
+              <span>
+                Ready-to-use, simply copy and paste into your next project. All
+                snippets crafted with Tailwind CSS for easy integration.
+              </span>
+            </PageHeaderDescription>
+
+            <PageActions>
+              <Link
+                target="_blank"
+                rel="noreferrer"
+                href={siteConfig.links.github}
+                className={cn(buttonVariants({ variant: 'default' }))}
+              >
+                <Icons.gitHub className="mr-2 size-4" />
+                GitHub
+              </Link>
+              {/* <Button variant="outline" size="lg">
+              <Link href="/">Learn more</Link>
+            </Button> */}
+            </PageActions>
+          </PageHeader>
+        </div>
+      </div>
+      <section className="container relative">
         <ExamplesNav />
         <div className="overflow-hidden rounded-[0.5rem] border shadow-md md:shadow-xl">
           {children}
         </div>
       </section>
-      <Footer />
-    </div>
+    </>
   )
 }
