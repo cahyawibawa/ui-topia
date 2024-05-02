@@ -7,8 +7,10 @@
 
 ## Roadmap
 
+- [x] add static & [carousel](https://ui.shadcn.com/docs/components/carousel) hero
 - [ ] Add Documentation for the variants of UI components
+- [ ] Add Newsletter subscription
 
 ## Credits
 
-- Julien Thibeut ([@ibelick](https://twitter.com/ibelick)) for the most original UI elements behind this repository
+- Julien Thibeut ([@ibelick](https://twitter.com/ibelick)) for the most original UI elements behind this repository.
