@@ -23,6 +23,10 @@
     "@vercel/analytics": "^1.2.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "embla-carousel": "^8.0.2",
+    "embla-carousel-autoplay": "^8.0.2",
+    "embla-carousel-class-names": "^8.0.2",
+    "embla-carousel-react": "^8.0.2",
     "framer-motion": "^11.0.8",
     "lucide-react": "^0.312.0",
     "next": "14.1.0",
@@ -34,7 +38,8 @@
     "sharp": "^0.33.3",
     "sonner": "^1.3.1",
     "tailwind-merge": "^2.2.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
