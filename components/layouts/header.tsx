@@ -4,7 +4,6 @@ import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import { Icons } from '../icons'
-import { Logo } from './logo'
 import { NavMenu } from './main-nav'
 
 type RootProps = React.ComponentPropsWithoutRef<'header'>
