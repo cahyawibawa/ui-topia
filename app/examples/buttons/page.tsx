@@ -1,7 +1,12 @@
 import { CardComponent } from '@/app/examples/buttons/components/card-btn'
 import { BUTTONS } from '@/data/buttons'
+import { type Metadata } from 'next'
 import React from 'react'
 
+export const metadata: Metadata = {
+  title: 'Buttons',
+  description: 'Check out some buttons.',
+}
 export default function ButtonsPage() {
   return (
     <section className="mx-auto">

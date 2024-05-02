@@ -1,8 +1,13 @@
 import { CodeIcon, ExternalLinkIcon } from '@radix-ui/react-icons'
+import { type Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { work } from '../../../data/playground'
 
+export const metadata: Metadata = {
+  title: 'Playground',
+  description: 'Check out some playground built using the components.',
+}
 export default function PlaygroundPage() {
   return (
     <div className="bg-background">
