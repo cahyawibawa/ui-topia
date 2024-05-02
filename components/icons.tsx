@@ -1,5 +1,6 @@
 import { CheckIcon, CopyIcon, EyeOpenIcon } from '@radix-ui/react-icons'
 import {
+  ArrowUpRight,
   BookOpenIcon,
   ChevronRight,
   FolderTreeIcon,
@@ -7,11 +8,13 @@ import {
   MessagesSquare,
   RotateCw,
   ScanEye,
+  UsersRound,
   WebhookIcon,
 } from 'lucide-react'
 
 type IconProps = React.HTMLAttributes<SVGElement>
 export const Icons = {
+  arrowUpRight: ArrowUpRight,
   copy: CopyIcon,
   check: CheckIcon,
   book: BookOpenIcon,
@@ -22,6 +25,7 @@ export const Icons = {
   leaf: Leaf,
   preview: EyeOpenIcon,
   reset: RotateCw,
+  teams: UsersRound,
   scan: ScanEye,
   logo: (props: IconProps) => (
     <svg
@@ -42,6 +46,30 @@ export const Icons = {
         d="M19.2.9s2.6 4 7.2 6.4c0 0 4.3 2.4 6.7 5 0 0 2.2 2 3.7 6.2 0 0 .9 2.3 1.2 7.3 0 0-2-3.6-3.8-4.8 0 0-2-1.6-4.5-2.9S25 15.8 23.1 14s-3.3-3.9-3.7-6.2-.4-5.3-.2-6.9z"
         fill="#4fbcf7"
       />
+    </svg>
+  ),
+  menu: (props: IconProps) => (
+    <svg
+      viewBox="0 0 16 16"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <title>menu icon</title>
+      <path
+        d="M3.19995 4.80005H12.8"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+      <path
+        d="M3.19995 11.2H12.8"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
     </svg>
   ),
   twitter: (props: IconProps) => (

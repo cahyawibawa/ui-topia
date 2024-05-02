@@ -41,7 +41,7 @@ function PageHeaderDescription({
   return (
     <Balance
       className={cn(
-        'text-center font-medium md:max-w-xl md:leading-loose',
+        'max-w-[750px] text-center text-lg font-normal text-foreground',
         className
       )}
       {...props}
