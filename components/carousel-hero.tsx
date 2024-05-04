@@ -101,7 +101,7 @@ export function CarouselProgressBar() {
   //   );
 
   return (
-    <section className="mb-8 h-[420px] w-full overflow-hidden border-b border-muted md:h-[480px]">
+    <section className="mb-8 h-[420px] w-full overflow-hidden border-b border-muted md:h-[580px]">
       <Carousel
         className="relative h-full"
         opts={{
@@ -157,7 +157,7 @@ export function CarouselProgressBar() {
                 <div
                   className={cn(
                     'relative z-10 h-full w-0 bg-primary',
-                    current === index ? 'animation-progress-bar w-full' : ''
+                    current === index ? 'w-full animate-progress-bar' : ''
                   )}
                   style={
                     current === index

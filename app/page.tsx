@@ -6,14 +6,12 @@ export default function Home() {
   return (
     <>
       <SwitcherHero />
-      <div className="container relative">
+      <section className="container relative">
         <ExamplesNav className="[&>a:first-child]:text-primary" />
-        <section className="md:block">
-          <div className="overflow-hidden rounded-md border bg-popover shadow-sm">
-            <ButtonsPage />
-          </div>
-        </section>
-      </div>
+        <div className="overflow-hidden rounded-[0.5rem] border shadow-md md:shadow-xl">
+          <ButtonsPage />
+        </div>
+      </section>
     </>
   )
 }
