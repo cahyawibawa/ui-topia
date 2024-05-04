@@ -1,4 +1,4 @@
- <a href="https://ui-topia.vercel.app">
+ <a href="https://git.new/ui/topia">
  <img src="public/images/og-gh.png" width="100%" />
  <h1 align="center">ui/topia</h1>
 </a>
