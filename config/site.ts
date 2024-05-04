@@ -6,8 +6,7 @@ export const siteConfig = {
     'An open source project that helps you build beautiful websites with simply copy and paste. Crafted with Tailwind CSS.',
   links: {
     portfolio: 'https://cahyawibawa.dev/',
-    github: 'https://github.com/cahyawibawa/ui-topia',
-    docs: 'https://overdocs.mintlify.app/'
+    github: 'https://git.new/ui/topia',
   },
 };
 
