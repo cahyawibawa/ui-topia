@@ -1,4 +1,4 @@
- <a href="https://git.new/ui/topia">
+ <a href="https://uitopia.vercel.app/">
  <img src="public/images/og-gh.png" width="100%" />
  <h1 align="center">ui/topia</h1>
 </a>
@@ -7,8 +7,8 @@
 
 ## Roadmap
 
-- [x] add static & [carousel](https://ui.shadcn.com/docs/components/carousel) hero
-- [ ] Add Documentation for the variants of UI components
+- [x] add hero variants static & [carousel](https://ui.shadcn.com/docs/components/carousel) 
+- [ ] Add code block for the variants of UI components
 - [ ] Add Newsletter subscription
 
 ## Credits
