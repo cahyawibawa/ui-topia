@@ -41,14 +41,8 @@ const slides = [
 const BlockInfos = () => (
   <PageHeader>
     <PageHeaderDescription>
-      <span className="hidden md:inline">
-        Ready-to-use, simply copy and paste into your next project. All snippets
-        crafted with Tailwind CSS for easy integration.
-      </span>
-      <span className="inline md:hidden">
-        Ready-to-use, simply copy and paste into your next project. All snippets
-        crafted with Tailwind CSS for easy integration.
-      </span>
+      <span className="hidden md:inline">{siteConfig.blockInfos}</span>
+      <span className="inline md:hidden">{siteConfig.blockInfos}</span>
     </PageHeaderDescription>
     <PageActions>
       <Link

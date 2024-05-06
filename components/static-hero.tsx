@@ -29,10 +29,7 @@ export const HeroHomepage = () => {
             Make your website look better, Instantly
           </PageHeaderHeading>
           <PageHeaderDescription>
-            <span>
-              Ready-to-use, simply copy and paste into your next project. All
-              snippets crafted with Tailwind CSS for easy integration.
-            </span>
+            <span>{siteConfig.blockInfos}</span>
           </PageHeaderDescription>
 
           <PageActions>
