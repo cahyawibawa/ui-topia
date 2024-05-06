@@ -1,5 +1,5 @@
 import { ExamplesNav } from '@/components/examples-nav'
-import { Icons } from '@/components/icons'
+import { GitButton } from '@/components/git-button'
 import {
   PageActions,
   PageHeader,
@@ -7,12 +7,9 @@ import {
   PageHeaderHeading,
 } from '@/components/page-header'
 import { Badge } from '@/components/ui/badge'
-import { buttonVariants } from '@/components/ui/button'
 import { siteConfig } from '@/config/site'
-import { cn } from '@/lib/utils'
 import { type Metadata } from 'next'
 import Image from 'next/image'
-import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Examples',
@@ -44,22 +41,11 @@ export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
               Examples - Elements
             </PageHeaderHeading>
             <PageHeaderDescription>
-              <span>
-                Ready-to-use, simply copy and paste into your next project. All
-                snippets crafted with Tailwind CSS for easy integration.
-              </span>
+              <span>{siteConfig.blockInfos}</span>
             </PageHeaderDescription>
 
             <PageActions>
-              <Link
-                target="_blank"
-                rel="noreferrer"
-                href={siteConfig.links.github}
-                className={cn(buttonVariants({ variant: 'default' }))}
-              >
-                <Icons.gitHub className="mr-2 size-4" />
-                GitHub
-              </Link>
+              <GitButton />
               {/* <Button variant="outline" size="lg">
               <Link href="/">Learn more</Link>
             </Button> */}
