@@ -1,8 +1,8 @@
 'use client'
 
 import React, { useState } from 'react'
-import { BACKGROUND_OPTIONS } from './components/background'
-import CardBg from './components/card-bg'
+import { BACKGROUND_OPTIONS } from './_components/background'
+import CardBg from './_components/card-bg'
 
 export default function BackgroundPage() {
   const [preview, setPreview] = useState<null | React.ReactNode>(null)

@@ -1,4 +1,4 @@
-import { CardComponent } from '@/app/examples/buttons/components/card-btn'
+import { CardComponent } from '@/app/examples/buttons/_components/card-btn'
 import { BUTTONS } from '@/data/buttons'
 import { type Metadata } from 'next'
 import React from 'react'
