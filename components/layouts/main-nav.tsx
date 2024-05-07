@@ -15,6 +15,7 @@ import {
 import { siteConfig } from '@/config/site'
 import Link from 'next/link'
 import { HeroCheckbox } from '../hero/switcher-hero'
+import ThemeToggle from '../theme-toggle'
 
 // import ThemeToggle from "./theme-toggle";
 
@@ -55,9 +56,10 @@ export function NavMenu() {
         </DropdownMenuGroup> */}
         <HeroCheckbox />
         <DropdownMenuSeparator />
-        {/* <DropdownMenuItem asChild>
+        <DropdownMenuItem asChild>
           <ThemeToggle />
-        </DropdownMenuItem> */}
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
           <Link
             className="flex items-center justify-between"
