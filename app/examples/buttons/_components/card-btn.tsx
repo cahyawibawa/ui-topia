@@ -36,13 +36,13 @@ export const CardComponent: React.FC<CardComponentProps> = ({ children }) => {
   }
 
   return (
-    <div className="relative flex items-center justify-center rounded-md border bg-neutral-50 px-0 py-24 md:px-2">
+    <div className="relative flex items-center justify-center rounded-md border bg-primary-foreground px-0 py-24 md:px-2">
       <div className="absolute right-3 top-3 cursor-pointer bg-transparent p-2">
         <div onClick={onCopy}>
           {isCopied ? (
-            <Icons.check className="size-4 text-neutral-600" />
+            <Icons.check className="size-4 text-foreground" />
           ) : (
-            <Icons.copy className="size-4 text-neutral-600" />
+            <Icons.copy className="size-4 text-foreground" />
           )}
         </div>
       </div>

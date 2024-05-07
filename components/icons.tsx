@@ -8,9 +8,11 @@ import {
   MessagesSquare,
   RotateCw,
   ScanEye,
+  TerminalIcon,
   UsersRound,
   WebhookIcon,
 } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 
 type IconProps = React.HTMLAttributes<SVGElement>
 export const Icons = {
@@ -263,4 +265,16 @@ export const Icons = {
       ></path>
     </svg>
   ),
+}
+
+export function create({
+  icon: Icon,
+}: {
+  icon?: LucideIcon
+}): React.ReactElement {
+  return (
+    <div className="rounded-md border bg-gradient-to-b from-secondary p-1 shadow-sm">
+      {Icon ? <Icon /> : <TerminalIcon />}
+    </div>
+  )
 }

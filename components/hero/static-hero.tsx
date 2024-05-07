@@ -10,7 +10,7 @@ import {
   PageHeaderHeading,
 } from '../page-header'
 import { Badge } from '../ui/badge'
-import { buttonVariants } from '../ui/button'
+import { Button, buttonVariants } from '../ui/button'
 
 export const HeroHomepage = () => {
   return (
@@ -43,7 +43,7 @@ export const HeroHomepage = () => {
               GitHub
             </Link>
             {/* <Button variant="outline" size="lg">
-              <Link href="/">Learn more</Link>
+              <Link href="/docs">Docs</Link>
             </Button> */}
           </PageActions>
         </PageHeader>

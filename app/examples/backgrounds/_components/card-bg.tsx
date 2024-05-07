@@ -42,13 +42,13 @@ const CardBg: React.FC<CardBgProps> = ({
               setTheme(theme)
             }}
           >
-            <Icons.preview className="size-4 text-neutral-600" />
+            <Icons.preview className="size-4 text-foreground" />
           </div>
           <div onClick={copyCode}>
             {isCopied ? (
-              <Icons.check className="size-4 text-neutral-600" />
+              <Icons.check className="size-4 text-foreground" />
             ) : (
-              <Icons.copy className="size-4 text-neutral-600" />
+              <Icons.copy className="size-4 text-foreground" />
             )}
           </div>
         </div>

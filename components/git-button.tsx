@@ -37,7 +37,7 @@ export async function GitButton() {
       Star on GitHub
       <div className="flex items-center gap-1 text-sm text-gray-500 md:flex">
         <StarIcon className="size-4 transition-all duration-300 group-hover:text-yellow-300" />
-        <CountingNumbers value={stars} className="font-medium text-white" />
+        <CountingNumbers value={stars} className="font-medium text-secondary" />
       </div>
     </Link>
   )

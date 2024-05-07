@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 'use client'
 
-import { buttonVariants } from '@/components/ui/button'
+import { Button, buttonVariants } from '@/components/ui/button'
 import {
   Carousel,
   CarouselContent,
@@ -55,7 +55,7 @@ const BlockInfos = () => (
         GitHub
       </Link>
       {/* <Button variant="outline" size="lg">
-        <Link href="/">Learn more</Link>
+        <Link href="/docs">Docs</Link>
       </Button> */}
     </PageActions>
   </PageHeader>
