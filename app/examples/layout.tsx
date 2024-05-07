@@ -1,3 +1,4 @@
+import { Announcement } from '@/components/announcement'
 import { ExamplesNav } from '@/components/examples-nav'
 import { GitButton } from '@/components/git-button'
 import {
@@ -6,7 +7,6 @@ import {
   PageHeaderDescription,
   PageHeaderHeading,
 } from '@/components/page-header'
-import { Badge } from '@/components/ui/badge'
 import { siteConfig } from '@/config/site'
 import { type Metadata } from 'next'
 import Image from 'next/image'
@@ -33,7 +33,7 @@ export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
             height={480}
           />
           <PageHeader className="mt-10">
-            <Badge variant={'outline'}>NEW DROPS WEEKLY</Badge>
+            <Announcement />
             <PageHeaderHeading className="hidden text-primary md:block">
               Check out some examples
             </PageHeaderHeading>
