@@ -15,7 +15,7 @@ export const Header: React.FC<Readonly<TopbarProps>> = ({
 }) => (
   <header
     className={cn(
-      'sticky top-0 z-50 flex h-16 w-full  border-b bg-background',
+      'sticky top-0 z-50 flex h-16 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60',
       className
     )}
     {...props}
