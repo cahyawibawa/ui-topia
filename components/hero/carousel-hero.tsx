@@ -16,13 +16,13 @@ import ClassNames from 'embla-carousel-class-names'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { Icons } from './icons'
+import { Icons } from '../icons'
 import {
   PageActions,
   PageHeader,
   PageHeaderDescription,
   PageHeaderHeading,
-} from './page-header'
+} from '../page-header'
 
 // import { useMounted } from "@/hooks/use-mounted";
 

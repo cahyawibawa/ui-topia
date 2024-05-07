@@ -2,15 +2,15 @@ import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Icons } from './icons'
+import { Icons } from '../icons'
 import {
   PageActions,
   PageHeader,
   PageHeaderDescription,
   PageHeaderHeading,
-} from './page-header'
-import { Badge } from './ui/badge'
-import { buttonVariants } from './ui/button'
+} from '../page-header'
+import { Badge } from '../ui/badge'
+import { buttonVariants } from '../ui/button'
 
 export const HeroHomepage = () => {
   return (

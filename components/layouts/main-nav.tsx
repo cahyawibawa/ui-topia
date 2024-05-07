@@ -14,7 +14,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { siteConfig } from '@/config/site'
 import Link from 'next/link'
-import { HeroCheckbox } from '../switcher-hero'
+import { HeroCheckbox } from '../hero/switcher-hero'
 
 // import ThemeToggle from "./theme-toggle";
 
