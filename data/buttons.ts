@@ -72,6 +72,7 @@ import { Neumorphism } from "@/components/buttons/neumorphism";
 
 export const BUTTONS = [
   Neumorphism,
+  BlackIcon11,
   White1,
   White2,
   White3,
@@ -88,6 +89,7 @@ export const BUTTONS = [
   Outline2,
   Outline3,
   Outline4,
+  SquareOutline1,
   Link1,
   Link2,
   Link3,
@@ -102,7 +104,6 @@ export const BUTTONS = [
   SubtleSkeuomorphic4,
   SubtleSkeuomorphic5,
   GreySm1,
-  SquareOutline1,
   Black1,
   Black2,
   Black3,
@@ -128,7 +129,6 @@ export const BUTTONS = [
   BlackIcon8,
   BlackIcon9,
   BlackIcon10,
-  BlackIcon11,
   BlackSm1,
   BlackSm2,
   BlackSmLoading1,

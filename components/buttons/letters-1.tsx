@@ -1,6 +1,6 @@
 export function Letters1() {
   return (
-    <button className="group relative h-12 overflow-hidden rounded-[8px] border border-neutral-200 bg-transparent px-4 text-neutral-950">
+    <button className="group relative h-12 overflow-hidden rounded-[8px] border border-neutral-200 bg-transparent px-4">
       <span className="relative inline-flex">
         <span className="duration-700 [transition-delay:0.02s] group-hover:[transform:rotateX(360deg)]">
           H
@@ -28,5 +28,5 @@ export function Letters1() {
         </span>
       </span>
     </button>
-  );
+  )
 }
