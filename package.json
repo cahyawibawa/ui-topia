@@ -28,6 +28,9 @@
     "embla-carousel-class-names": "^8.0.2",
     "embla-carousel-react": "^8.0.2",
     "framer-motion": "^11.0.8",
+    "fumadocs-core": "^11.0.5",
+    "fumadocs-mdx": "^8.2.14",
+    "fumadocs-ui": "^11.0.5",
     "lucide-react": "^0.312.0",
     "next": "14.1.0",
     "next-themes": "^0.2.1",
@@ -39,10 +42,12 @@
     "sonner": "^1.3.1",
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7",
+    "zod": "^3.23.8",
     "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
+    "@types/mdx": "^2.0.13",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
