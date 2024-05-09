@@ -6,6 +6,8 @@ import './globals.css'
 import { Footer } from '@/components/layouts/footer'
 import { Header } from '@/components/layouts/header'
 import { ThemeProvider } from '@/components/theme-provider'
+import { RootProvider } from 'fumadocs-ui/provider'
+import 'fumadocs-ui/style.css'
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 
@@ -75,20 +77,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fontSans.variable
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className="relative flex min-h-screen flex-col">
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
+        <RootProvider>
+          {/* <Header /> */}
+          <main className="flex-1">{children}</main>
+          <Footer />
+
           <Analytics />
           <Toaster />
-        </ThemeProvider>
+        </RootProvider>
       </body>
     </html>
   )

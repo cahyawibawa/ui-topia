@@ -1,6 +1,6 @@
 import { ExamplesNav } from '@/components/examples-nav'
 import { SwitcherHero } from '@/components/hero/switcher-hero'
-import ButtonsPage from './examples/buttons/page'
+import ButtonsPage from '../examples/buttons/page'
 
 export default function Home() {
   return (
