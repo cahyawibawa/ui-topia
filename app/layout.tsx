@@ -1,15 +1,14 @@
 import { Toaster } from '@/components/ui/sonner'
-import { fontSans } from '@/lib/font'
+import { fontHeading } from '@/lib/font'
 import { Analytics } from '@vercel/analytics/react'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import { Footer } from '@/components/layouts/footer'
-import { Header } from '@/components/layouts/header'
-import { ThemeProvider } from '@/components/theme-provider'
 import { RootProvider } from 'fumadocs-ui/provider'
 import 'fumadocs-ui/style.css'
 import { siteConfig } from '@/config/site'
-import { cn } from '@/lib/utils'
+import { GeistMono } from 'geist/font/mono'
+import { GeistSans } from 'geist/font/sans'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://uitopia.vercel.app/'),
@@ -32,7 +31,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: 'cahya wibawa',
-      url: 'https://github.com/cahyawibawa',
+      url: 'https://git.new/cahya',
     },
   ],
   creator: 'cahya wibawa',
@@ -70,18 +69,15 @@ interface RootLayoutProps {
 }
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
-      <body
-        className={cn(
-          'min-h-screen bg-background font-sans antialiased',
-          fontSans.variable
-        )}
-      >
+    <html
+      lang="en"
+      className={`${GeistSans.variable} ${GeistMono.variable} ${fontHeading.variable} `}
+      suppressHydrationWarning
+    >
+      <body className="flex min-h-screen flex-col">
         <RootProvider>
-          {/* <Header /> */}
           <main className="flex-1">{children}</main>
           <Footer />
-
           <Analytics />
           <Toaster />
         </RootProvider>

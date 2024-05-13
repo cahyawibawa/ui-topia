@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { getPages } from '@/app/source';
 import { createSearchAPI } from 'fumadocs-core/search/server';
 

@@ -1,8 +1,11 @@
 import { Layout } from 'fumadocs-ui/layout'
+import { type ReactNode } from 'react'
+import { layoutOptions } from '../layout-config'
 
-interface HomeLayoutProps {
-  children: React.ReactNode
-}
-export default function HomeLayout({ children }: HomeLayoutProps) {
-  return <Layout nav={{ title: 'ui/topia' }}>{children}</Layout>
+export default function HomeLayout({
+  children,
+}: {
+  children: ReactNode
+}): React.ReactElement {
+  return <Layout {...layoutOptions}>{children}</Layout>
 }
