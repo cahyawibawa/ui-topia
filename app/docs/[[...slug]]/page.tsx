@@ -1,17 +1,28 @@
-import { getPage, getPages } from '@/app/source'
+// import { getPage, getPages } from '@/app/source'
 import Preview from '@/components/preview'
+import { createMetadata } from '@/lib/metadata'
+import { utils, type Page } from '@/lib/radix'
+import { Card, Cards } from 'fumadocs-ui/components/card'
 import { DocsBody, DocsPage } from 'fumadocs-ui/page'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
+interface Param {
+  slug: string[]
+}
+
 export const dynamicParams = false
 
-export default function Page({ params }: { params: { slug?: string[] } }) {
-  const page = getPage(params.slug)
+export default function Page({
+  params,
+}: {
+  params: Param
+}): React.ReactElement {
+  const page = utils.getPage(params.slug)
 
-  if (page == null) {
-    notFound()
-  }
+  if (!page) notFound()
+
+  const path = `apps/docs/content/docs/${page.file.path}`
   const preview = page.data.preview
   const MDX = page.data.exports.default
   return (
@@ -24,48 +35,67 @@ export default function Page({ params }: { params: { slug?: string[] } }) {
       </p>
       <DocsBody>
         {preview && preview in Preview ? Preview[preview] : null}
-        {page.data.index ? null : <MDX />}
+        {page.data.index ? <Category page={page} /> : <MDX />}
       </DocsBody>
     </DocsPage>
   )
 }
 
-export const generateStaticParams = () => {
-  return getPages().map((page) => ({
+function Category({ page }: { page: Page }): React.ReactElement {
+  const filtered = utils
+    .getPages()
+    .filter(
+      (item) =>
+        item.file.dirname === page.file.dirname && item.file.name !== 'index'
+    )
+
+  return (
+    <Cards>
+      {filtered.map((item) => (
+        <Card
+          key={item.url}
+          title={item.data.title}
+          description={item.data.description ?? 'No Description'}
+          href={item.url}
+        />
+      ))}
+    </Cards>
+  )
+}
+
+export function generateStaticParams(): Param[] {
+  return utils.getPages().map<Param>((page) => ({
     slug: page.slugs,
   }))
 }
+export function generateMetadata({ params }: { params: Param }): Metadata {
+  const page = utils.getPage(params.slug)
 
-export const generateMetadata = ({
-  params,
-}: {
-  params: { slug?: string[] }
-}) => {
-  const post = getPage(params.slug)
-  if (post === undefined) return
+  if (!page) notFound()
 
-  const title = post.data.title
-  const description = post.data.description
+  const description =
+    page.data.description ?? 'The library for UI designed components'
+
   const imageParams = new URLSearchParams()
-  imageParams.set('title', title)
-  imageParams.set('description', description ?? '')
+  imageParams.set('title', page.data.title)
+  imageParams.set('description', description)
 
-  return {
-    metadataBase: new URL(
-      process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
-    ),
-    title: title,
-    description: description,
+  const image = {
+    alt: 'Banner',
+    url: `/api/og?${imageParams.toString()}`,
+    width: 1200,
+    height: 630,
+  }
+
+  return createMetadata({
+    title: page.data.title,
+    description,
     openGraph: {
-      title: title,
-      description: description,
-      images: `/api/og?${imageParams.toString()}`,
-      url: post.url,
+      url: `/docs/${page.slugs.join('/')}`,
+      images: image,
     },
     twitter: {
-      title: title,
-      description: description,
-      images: `/api/og?${imageParams.toString()}`,
+      images: image,
     },
-  } satisfies Metadata
+  })
 }

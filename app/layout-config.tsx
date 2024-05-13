@@ -1,10 +1,9 @@
 import { Icons } from '@/components/icons'
+import { utils } from '@/lib/radix'
 import type { DocsLayoutProps } from 'fumadocs-ui/layout'
-import { pageTree } from './source'
 
 export const layoutOptions: Omit<DocsLayoutProps, 'children'> = {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-  tree: pageTree,
+  tree: utils.pageTree,
   nav: {
     title: (
       <>

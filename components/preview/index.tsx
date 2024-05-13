@@ -1,20 +1,20 @@
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion'
 import { type ReactNode } from 'react'
-import ConnectModal from '../playground/connect-modal'
-import RippleCard from '../playground/ripple-card'
+// import ConnectModal from '../playground/connect-modal'
+// import RippleCard from '../playground/ripple-card'
 import { Wrapper } from './wrapper'
 
 export default {
-  rippleCard: (
-    <Wrapper className="flex h-[40rem] w-full items-center justify-center">
-      <RippleCard />
-    </Wrapper>
-  ),
-  connectModal: (
-    <Wrapper className="flex h-[40rem] w-full items-center justify-center">
-      <ConnectModal />
-    </Wrapper>
-  ),
+  // rippleCard: (
+  //   <Wrapper className="flex h-[40rem] w-full items-center justify-center">
+  //     <RippleCard />
+  //   </Wrapper>
+  // ),
+  // connectModal: (
+  //   <Wrapper className="flex h-[40rem] w-full items-center justify-center">
+  //     <ConnectModal />
+  //   </Wrapper>
+  // ),
 
   accordion: (
     <Wrapper>
