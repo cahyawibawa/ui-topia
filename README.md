@@ -1,14 +1,13 @@
  <a href="https://uitopia.vercel.app/">
- <img src="public/images/og-gh.png" width="100%" />
+ <img src="public/og-gh.png" width="100%" />
  <h1 align="center">ui/topia</h1>
 </a>
 
-<p align="center">A collection ready-to-use UI element crafted for Tailwind CSS.</p>
+<p align="center">A collection ready-to-use UI designed component.</p>
 
 ## Roadmap
 
-- [x] add hero variants static & [carousel](https://ui.shadcn.com/docs/components/carousel) 
-- [ ] Add code block for the variants of UI components
+- [x] Add Docs site [fumadocs](https://fumadocs.vercel.app/)
 - [ ] Add Newsletter subscription
 
 ## Credits
