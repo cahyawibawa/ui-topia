@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 'use client'
 
-import { Button, buttonVariants } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 import {
   Carousel,
   CarouselContent,
@@ -45,18 +45,18 @@ const BlockInfos = () => (
       <span className="inline md:hidden">{siteConfig.blockInfos}</span>
     </PageHeaderDescription>
     <PageActions>
+      <Link href="/docs" className={cn(buttonVariants({ variant: 'outline' }))}>
+        Get Started
+      </Link>
       <Link
         target="_blank"
         rel="noreferrer"
         href={siteConfig.links.github}
-        className={cn(buttonVariants({ variant: 'default' }))}
+        className={cn(buttonVariants())}
       >
         <Icons.gitHub className="mr-2 size-4" />
         GitHub
       </Link>
-      {/* <Button variant="outline" size="lg">
-        <Link href="/docs">Docs</Link>
-      </Button> */}
     </PageActions>
   </PageHeader>
 )
