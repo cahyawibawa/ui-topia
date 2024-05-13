@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss';
-
+import { createPreset, presets } from 'fumadocs-ui/tailwind-plugin';
 const config = {
   darkMode: ['class'],
   content: [
@@ -8,7 +8,25 @@ const config = {
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
   ],
-  prefix: '',
+  presets: [
+    createPreset({
+      preset: {
+        ...presets.default,
+        dark: {
+          ...presets.default.dark,
+          background: '0 0% 2%',
+          foreground: '0 0% 98%',
+          popover: '0 0% 4%',
+          card: '0 0% 4%',
+          muted: '0 0% 8%',
+          border: '0 0% 14%',
+          accent: '0 0% 15%',
+          'accent-foreground': '0 0% 100%',
+          'muted-foreground': '0 0% 60%',
+        },
+      },
+    }),
+  ],
   theme: {
     container: {
       center: true,
@@ -19,7 +37,9 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ['var(--font-sans)'],
+        heading: ['var(--font-heading)'],
+        sans: ['var(--font-geist-sans)'],
+        mono: ['var(--font-geist-mono)'],
       },
       colors: {
         border: 'hsl(var(--border))',

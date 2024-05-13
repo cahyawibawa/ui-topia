@@ -70,32 +70,15 @@
   * {
     @apply border-border;
   }
+  html {
+    @apply scroll-smooth;
+  }
 
   body {
-    @apply bg-background text-foreground text-body;
+    @apply bg-background font-sans text-foreground;
   }
 
-  /* Mobbin styles */
-  .marge-x {
-    @apply px-4 min-[720px]:px-6 min-[1280px]:px-8 min-[1536px]:px-20;
-  }
-
-  .-margin-x {
-    @apply -mx-3 px-3 md:-mx-6 md:px-6;
-  }
-
-  .text-body {
-    @apply font-medium text-base tracking-[-.008em];
-  }
-
-  .text-heading {
-    @apply font-semibold text-4xl tracking-[-.016em] md:text-[44px] md:leading-[48px] md:tracking-[-.024em];
-  }
-
-  .text-heading-xl {
-    @apply font-semibold text-4xl tracking-[-.016em] md:text-[56px] md:leading-[64px] md:tracking-[-.024em];
-  }
-
+  
   .scrollbar-none::-webkit-scrollbar {
     display: none;
   }
