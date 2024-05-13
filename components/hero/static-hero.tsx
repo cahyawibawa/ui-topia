@@ -10,7 +10,7 @@ import {
   PageHeaderHeading,
 } from '../page-header'
 import { Badge } from '../ui/badge'
-import { Button, buttonVariants } from '../ui/button'
+import { buttonVariants } from '../ui/button'
 
 export const HeroHomepage = () => {
   return (

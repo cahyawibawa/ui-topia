@@ -26,7 +26,7 @@ function PageHeaderHeading({
   return (
     <h1
       className={cn(
-        'space-y-2 text-center text-3xl font-semibold leading-tight dark:text-primary md:max-w-[40rem] md:text-5xl lg:leading-[1.08]',
+        'space-y-2 text-center font-heading text-3xl font-semibold leading-tight dark:text-primary md:max-w-[40rem] md:text-5xl lg:leading-[1.08]',
         className
       )}
       {...props}

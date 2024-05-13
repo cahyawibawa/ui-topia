@@ -14,10 +14,6 @@ const examples = [
   //   name: 'Background',
   //   href: '/examples/backgrounds',
   // },
-  // {
-  //   name: 'Playground',
-  //   href: '/examples/playground',
-  // },
 ]
 
 interface ExamplesNavProps extends React.HTMLAttributes<HTMLDivElement> {}
