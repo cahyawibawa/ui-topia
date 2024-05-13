@@ -1,0 +1,11 @@
+{
+  "title": "ui",
+  "root": true,
+  "pages": [
+    "---Overview---",
+    "index",
+    "...",
+    "---Components---",
+    "...components"
+  ]
+}
