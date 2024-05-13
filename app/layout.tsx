@@ -74,9 +74,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
       className={`${GeistSans.variable} ${GeistMono.variable} ${fontHeading.variable} `}
       suppressHydrationWarning
     >
-      <body className="flex min-h-screen flex-col">
+      <body className="relative flex min-h-screen flex-col">
         <RootProvider>
-          <main className="flex-1">{children}</main>
+          {children}
           <Footer />
           <Analytics />
           <Toaster />

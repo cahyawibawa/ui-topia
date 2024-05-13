@@ -4,11 +4,9 @@ import { DocsBody, DocsPage } from 'fumadocs-ui/page'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-export default async function Page({
-  params,
-}: {
-  params: { slug?: string[] }
-}) {
+export const dynamicParams = false
+
+export default function Page({ params }: { params: { slug?: string[] } }) {
   const page = getPage(params.slug)
 
   if (page == null) {
@@ -18,14 +16,13 @@ export default async function Page({
   const MDX = page.data.exports.default
   return (
     <DocsPage toc={page.data.exports.toc}>
+      <h1 className="text-3xl font-bold text-foreground sm:text-4xl">
+        {page.data.title}
+      </h1>
+      <p className="mb-8 text-lg text-muted-foreground">
+        {page.data.description}
+      </p>
       <DocsBody>
-        <h1 className="text-3xl font-bold text-foreground sm:text-4xl">
-          {page.data.title}
-        </h1>
-        <p className="mb-8 text-lg text-muted-foreground">
-          {page.data.description}
-        </p>
-
         {preview && preview in Preview ? Preview[preview] : null}
         {page.data.index ? null : <MDX />}
       </DocsBody>
