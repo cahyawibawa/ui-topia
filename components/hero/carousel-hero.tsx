@@ -41,8 +41,7 @@ const slides = [
 const BlockInfos = () => (
   <PageHeader>
     <PageHeaderDescription>
-      <span className="hidden md:inline">{siteConfig.blockInfos}</span>
-      <span className="inline md:hidden">{siteConfig.blockInfos}</span>
+      <span className="md:inline">{siteConfig.blockInfos}</span>
     </PageHeaderDescription>
     <PageActions>
       <Link href="/docs" className={cn(buttonVariants({ variant: 'outline' }))}>
@@ -118,7 +117,7 @@ export function CarouselProgressBar() {
         >
           {slides.map((item) => (
             <CarouselItem key={item.title} className="fade__slide">
-              <div className=" flex size-full flex-col items-center justify-between py-6 md:pt-16">
+              <div className="flex size-full flex-col items-center justify-between py-6 md:pt-24">
                 <Image
                   className="absolute top-0 hidden h-full w-auto object-cover md:block"
                   src={item.imageUrl}
