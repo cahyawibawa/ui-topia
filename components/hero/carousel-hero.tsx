@@ -94,7 +94,7 @@ export function CarouselProgressBar() {
   //   );
 
   return (
-    <section className="mb-8 h-[420px] w-full overflow-hidden border-b border-muted md:h-[580px]">
+    <section className="h-[420px] w-full overflow-hidden md:h-[580px]">
       <Carousel
         className="relative h-full"
         opts={{
