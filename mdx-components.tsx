@@ -7,6 +7,7 @@ import {
   type CodeBlockProps,
 } from 'fumadocs-ui/components/codeblock'
 import { ImageZoom } from 'fumadocs-ui/components/image-zoom'
+import { Step, Steps } from 'fumadocs-ui/components/steps'
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs'
 import { TypeTable } from 'fumadocs-ui/components/type-table'
 import defaultComponents from 'fumadocs-ui/mdx'
@@ -14,8 +15,11 @@ import { Popup, PopupContent, PopupTrigger } from 'fumadocs-ui/twoslash/popup'
 import { HomeIcon } from 'lucide-react'
 import type { MDXComponents } from 'mdx/types'
 import { ReactNode } from 'react'
+import { BentoDemo } from './components/playground/bento-grid/bento-demo'
 import ConnectModal from './components/playground/connect-modal'
+import GithubStats from './components/playground/github-stats/page'
 import RippleCard from './components/playground/ripple-card'
+import { CodeBlockWrapper } from './components/preview/code-block-wrapper'
 import { cn } from './lib/utils'
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
@@ -33,8 +37,15 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     PopupTrigger,
     ImageZoom,
     RippleCard,
+    BentoDemo,
     ConnectModal,
+    GithubStats,
+    Steps,
+    Step,
     Wrapper,
+    CodeBlockWrapper: ({ ...props }) => (
+      <CodeBlockWrapper className="overflow-hidden rounded-md" {...props} />
+    ),
     pre: ({ title, className, icon, allowCopy, ...props }: CodeBlockProps) => (
       <CodeBlock title={title} icon={icon} allowCopy={allowCopy}>
         <Pre className={cn('max-h-[400px]', className)} {...props} />
