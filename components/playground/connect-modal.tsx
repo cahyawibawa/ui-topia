@@ -30,7 +30,7 @@ const Bars = () => {
   )
 }
 
-const ConnectModal = () => {
+export default function ConnectModal() {
   return (
     <div className="flex items-center justify-center  text-stone-700">
       <div className="relative max-w-sm overflow-hidden rounded-xl bg-white shadow-lg">
@@ -105,5 +105,3 @@ const ConnectModal = () => {
     </div>
   )
 }
-
-export default ConnectModal

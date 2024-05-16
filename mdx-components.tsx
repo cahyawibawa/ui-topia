@@ -14,10 +14,9 @@ import defaultComponents from 'fumadocs-ui/mdx'
 import { Popup, PopupContent, PopupTrigger } from 'fumadocs-ui/twoslash/popup'
 import { HomeIcon } from 'lucide-react'
 import type { MDXComponents } from 'mdx/types'
-import { ReactNode } from 'react'
+import { type ReactNode } from 'react'
 import { BentoDemo } from './components/playground/bento-grid/bento-demo'
 import ConnectModal from './components/playground/connect-modal'
-import GithubStats from './components/playground/github-stats/page'
 import RippleCard from './components/playground/ripple-card'
 import { CodeBlockWrapper } from './components/preview/code-block-wrapper'
 import { cn } from './lib/utils'
@@ -39,7 +38,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     RippleCard,
     BentoDemo,
     ConnectModal,
-    GithubStats,
     Steps,
     Step,
     Wrapper,
