@@ -3,19 +3,21 @@ title: Connect Modal
 description: Modal with svg animation 
 ---
 
-## Preview
+<InstallTabs items={['Preview', 'Code']}>
+    <Tab value='preview'>
 
-<Wrapper className="flex h-[40rem] w-full items-center justify-center">
+<Wrapper>
       <ConnectModal />
 </Wrapper>
 
-## Usage
+    </Tab>
+    <Tab value="code">
+<CodeBlockWrapper>
+```tsx title="connect-modal.tsx"
+import { LuBrainCircuit } from 'react-icons/lu'
+import { TbBrandEtsy } from 'react-icons/tb'
 
-<Wrapper>
-<div className="bg-background rounded-lg prose-no-margin">
-
-```tsx title="page.tsx"
- const Bars = () => {
+const Bars = () => {
   const w = 40
   const offset = 46
   return (
@@ -44,7 +46,7 @@ description: Modal with svg animation
   )
 }
 
-const ConnectModal = () => {
+export default function ConnectModal() {
   return (
     <div className="flex items-center justify-center  text-stone-700">
       <div className="relative max-w-sm overflow-hidden rounded-xl bg-white shadow-lg">
@@ -63,17 +65,17 @@ const ConnectModal = () => {
               <div className="relative h-[2px] w-8">
                 <div className="absolute h-[2px] w-full animate-pulse bg-gradient-to-r from-blue-300 via-blue-100 to-blue-50"></div>
                 <div className="absolute h-[2px] w-full animate-pulse bg-gradient-to-l from-blue-300 via-blue-100 to-blue-50"></div>
-                <div className="absolute right-[0%] size-[4px] animate-moveToRight bg-blue-500 blur-sm"></div>
+                <div className="absolute right-0 size-[4px] animate-moveToRight bg-blue-500 blur-sm"></div>
               </div>
               <div className="relative h-[2px] w-8">
                 <div className="absolute h-[2px] w-full animate-pulse bg-gradient-to-r from-blue-300 via-blue-100 to-blue-50"></div>
                 <div className="absolute h-[2px] w-full animate-pulse bg-gradient-to-l from-blue-300 via-blue-100 to-blue-50"></div>
-                <div className=" absolute right-[100%] size-[4px] animate-moveFromRight bg-blue-500 blur-sm"></div>
+                <div className=" absolute right-full size-[4px] animate-moveFromRight bg-blue-500 blur-sm"></div>
               </div>
               <div className="relative h-[2px] w-8">
                 <div className="absolute h-[2px] w-full animate-pulse bg-gradient-to-r from-blue-300 via-blue-100 to-blue-50"></div>
                 <div className="absolute h-[2px] w-full animate-pulse bg-gradient-to-l from-blue-300 via-blue-100 to-blue-50"></div>
-                <div className="absolute right-[0%] size-[4px] animate-moveToRight bg-blue-500 blur-sm"></div>
+                <div className="absolute right-0 size-[4px] animate-moveToRight bg-blue-500 blur-sm"></div>
               </div>
             </div>
             <div className="size-12 rounded-[12px] bg-stone-100 p-[3px]">
@@ -119,10 +121,14 @@ const ConnectModal = () => {
     </div>
   )
 }
-```
 
-</div>
-</Wrapper>
+
+```
+</CodeBlockWrapper>
+    </Tab>
+
+</InstallTabs>
+
 
 ## Credits
 

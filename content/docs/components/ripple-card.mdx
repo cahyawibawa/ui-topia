@@ -3,20 +3,18 @@ title: Ripple card
 description: card with ripple effect 
 ---
 
-## Preview
-
-<Wrapper className="flex h-[40rem] w-full items-center justify-center">
+<InstallTabs items={['Preview', 'Code']}>
+    <Tab value='preview'>
+<Wrapper>
       <RippleCard />
 </Wrapper>
+ </Tab>
+    <Tab value="code">
 
-
-## Usage
-
-<Wrapper>
-<div className="bg-background rounded-lg prose-no-margin">
-
-```tsx title="page.tsx"
- <div className="relative mx-auto w-full max-w-md overflow-hidden rounded-2xl border border-white/5 bg-zinc-800">
+```tsx title="ripple-card.tsx"
+export default function RippleCard() {
+  return (
+    <div className="relative mx-auto w-full max-w-md overflow-hidden rounded-2xl border border-white/5 bg-zinc-800">
       {/* <!-- highlight --> */}
       <div className="absolute inset-0 bg-[radial-gradient(40%_128px_at_50%_0%,theme(backgroundColor.white/10%),transparent)]"></div>
 
@@ -73,7 +71,11 @@ description: card with ripple effect
         </div>
       </div>
     </div>
+  )
+}
+
 ```
 
-</div>
-</Wrapper>
+    </Tab>
+
+</InstallTabs>

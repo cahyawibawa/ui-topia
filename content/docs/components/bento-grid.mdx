@@ -1,0 +1,510 @@
+---
+title: Bento Grid
+description: Bento grid is a layout used to showcase the features of a product in a simple and elegant way.
+---
+
+<InstallTabs items={['Preview', 'Code']}>
+    <Tab value='preview'>
+
+<Wrapper>
+      <BentoDemo />
+</Wrapper>
+
+    </Tab>
+    <Tab value="code">
+<CodeBlockWrapper>
+```tsx title="bento-demo.tsx"
+import { Calendar } from '@/components/ui/calendar'
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from '@/components/ui/command'
+import { cn } from '@/lib/utils'
+import {
+  CalendarIcon,
+  FileTextIcon,
+  GlobeIcon,
+  InputIcon,
+} from '@radix-ui/react-icons'
+import { BentoCard, BentoGrid } from './_components/bento-grid'
+import Globe from './_components/globe'
+import Marquee from './_components/marquee'
+
+const files = [
+  {
+    name: 'bitcoin.pdf',
+    body: 'Bitcoin is a cryptocurrency invented in 2008 by an unknown person or group of people using the name Satoshi Nakamoto.',
+  },
+  {
+    name: 'finances.xlsx',
+    body: 'A spreadsheet or worksheet is a file made of rows and columns that help sort data, arrange data easily, and calculate numerical data.',
+  },
+  {
+    name: 'logo.svg',
+    body: 'Scalable Vector Graphics is an Extensible Markup Language-based vector image format for two-dimensional graphics with support for interactivity and animation.',
+  },
+  {
+    name: 'keys.gpg',
+    body: 'GPG keys are used to encrypt and decrypt email, files, directories, and whole disk partitions and to authenticate messages.',
+  },
+  {
+    name: 'seed.txt',
+    body: 'A seed phrase, seed recovery phrase or backup seed phrase is a list of words which store all the information needed to recover Bitcoin funds on-chain.',
+  },
+]
+
+const features = [
+  {
+    Icon: FileTextIcon,
+    name: 'Marquee  ',
+    description:
+      'An infinite scrolling component that can be used to display text, images, or videos.',
+    href: 'https://magicui.design/docs/components/marquee',
+    cta: 'Learn more',
+    className: 'col-span-3 lg:col-span-1',
+    background: (   background: <img className="absolute -right-20 -top-20 opacity-60" />,
+    ),
+  },
+  {
+    Icon: InputIcon,
+    name: 'cmdk',
+    description: 'Fast, composable, unstyled command menu for React',
+    href: 'https://cmdk.paco.me/',
+    cta: 'Learn more',
+    className: 'col-span-3 lg:col-span-2',
+    background: (
+      <Command className="absolute right-10 top-10 w-[70%] origin-top translate-x-0 border transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] group-hover:-translate-x-10">
+        <CommandInput placeholder="Type a command or search..." />
+        <CommandList>
+          <CommandEmpty>No results found.</CommandEmpty>
+          <CommandGroup heading="Suggestions">
+            <CommandItem>screenshot.png</CommandItem>
+            <CommandItem>bitcoin.pdf</CommandItem>
+            <CommandItem>finances.xlsx</CommandItem>
+            <CommandItem>logo.svg</CommandItem>
+            <CommandItem>keys.gpg</CommandItem>
+            <CommandItem>seed.txt</CommandItem>
+          </CommandGroup>
+        </CommandList>
+      </Command>
+    ),
+  },
+  {
+    Icon: GlobeIcon,
+    name: 'COBE',
+    description: 'A lightweight (5kB) WebGL globe lib.',
+    href: 'https://www.npmjs.com/package/cobe',
+    cta: 'Learn more',
+    className: 'col-span-3 lg:col-span-2',
+    background: (
+      <Globe className="top-0 size-[600px] transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_30%,#000_100%)] group-hover:scale-105 sm:left-40" />
+    ),
+  },
+  {
+    Icon: CalendarIcon,
+    name: 'Calendar',
+    description: 'The Calendar component is built on top of React DayPicker.',
+    className: 'col-span-3 lg:col-span-1',
+    href: 'https://ui.shadcn.com/docs/components/calendar',
+    cta: 'Learn more',
+    background: (
+      <Calendar
+        mode="single"
+        selected={new Date(2022, 4, 11, 0, 0, 0)}
+        className="absolute right-0 top-10 origin-top rounded-md border transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] group-hover:scale-105"
+      />
+    ),
+  },
+]
+
+export function BentoDemo() {
+  return (
+    <BentoGrid>
+      {features.map((feature, idx) => (
+        <BentoCard key={idx} {...feature} />
+      ))}
+    </BentoGrid>
+  )
+}
+
+```
+</CodeBlockWrapper>
+    </Tab>
+
+</InstallTabs>
+
+## Installation
+Copy and paste the following code into your project.
+<Steps>
+{/* <Step>
+
+### Marquee
+
+
+<CodeBlockWrapper>
+```tsx title="components/marquee.tsx"
+import { cn } from '@/lib/utils'
+
+interface MarqueeProps {
+  className?: string
+  reverse?: boolean
+  pauseOnHover?: boolean
+  children?: React.ReactNode
+  vertical?: boolean
+  repeat?: number
+  [key: string]: unknown
+}
+
+export default function Marquee({
+  className,
+  reverse,
+  pauseOnHover = false,
+  children,
+  vertical = false,
+  repeat = 4,
+  ...props
+}: MarqueeProps) {
+  return (
+    <div
+      {...props}
+      className={cn(
+        'group flex overflow-hidden p-2 [--duration:40s] [--gap:1rem] [gap:var(--gap)]',
+        {
+          'flex-row': !vertical,
+          'flex-col': vertical,
+        },
+        className
+      )}
+    >
+      {Array(repeat)
+        .fill(0)
+        .map((_, i) => (
+          <div
+            key={i}
+            className={cn('flex shrink-0 justify-around [gap:var(--gap)]', {
+              'animate-marquee flex-row': !vertical,
+              'animate-marquee-vertical flex-col': vertical,
+              'group-hover:[animation-play-state:paused]': pauseOnHover,
+              '[animation-direction:reverse]': reverse,
+            })}
+          >
+            {children}
+          </div>
+        ))}
+    </div>
+  )
+}
+
+
+```
+</CodeBlockWrapper>
+
+```ts title="tailwind.config.ts"
+module.exports = {
+  theme: {
+    extend: {
+      animation: {
+        marquee: "marquee var(--duration) linear infinite",
+        "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
+      },
+      keyframes: {
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(calc(-100% - var(--gap)))" },
+        },
+        "marquee-vertical": {
+          from: { transform: "translateY(0)" },
+          to: { transform: "translateY(calc(-100% - var(--gap)))" },
+        },
+      },
+    },
+  },
+};
+
+
+```
+
+
+</Step> */}
+
+<Step>
+
+### Globe
+
+<InstallTabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+    <Tab value='npm'>
+
+```bash
+npm install cobe @react-spring/web
+```
+
+    </Tab>
+    <Tab value="pnpm">
+
+```bash
+pnpm install cobe @react-spring/web
+```
+
+    </Tab>
+    <Tab value='yarn'>
+
+```bash
+yarn install cobe @react-spring/web
+```
+
+    </Tab>
+    <Tab value='bun'>
+
+```bash
+bun install cobe @react-spring/web
+```
+
+    </Tab>
+
+</InstallTabs>
+<CodeBlockWrapper>
+```tsx title="components/globe.tsx"
+'use client'
+
+import { cn } from '@/lib/utils'
+import { useSpring } from '@react-spring/web'
+import createGlobe, { type COBEOptions } from 'cobe'
+import { useCallback, useEffect, useRef } from 'react'
+
+const GLOBE_CONFIG: COBEOptions = {
+  width: 800,
+  height: 800,
+  onRender: () => {},
+  devicePixelRatio: 2,
+  phi: 0,
+  theta: 0.3,
+  dark: 0,
+  diffuse: 0.4,
+  mapSamples: 16000,
+  mapBrightness: 1.2,
+  baseColor: [1, 1, 1],
+  markerColor: [251 / 255, 100 / 255, 21 / 255],
+  glowColor: [1, 1, 1],
+  markers: [
+    { location: [14.5995, 120.9842], size: 0.03 },
+    { location: [19.076, 72.8777], size: 0.1 },
+    { location: [23.8103, 90.4125], size: 0.05 },
+    { location: [30.0444, 31.2357], size: 0.07 },
+    { location: [39.9042, 116.4074], size: 0.08 },
+    { location: [-23.5505, -46.6333], size: 0.1 },
+    { location: [19.4326, -99.1332], size: 0.1 },
+    { location: [40.7128, -74.006], size: 0.1 },
+    { location: [34.6937, 135.5022], size: 0.05 },
+    { location: [41.0082, 28.9784], size: 0.06 },
+  ],
+}
+
+export default function Globe({
+  className,
+  config = GLOBE_CONFIG,
+}: {
+  className?: string
+  config?: COBEOptions
+}) {
+  let phi = 0
+  let width = 0
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const pointerInteracting = useRef(null)
+  const pointerInteractionMovement = useRef(0)
+  const [{ r }, api] = useSpring(() => ({
+    r: 0,
+    config: {
+      mass: 1,
+      tension: 280,
+      friction: 40,
+      precision: 0.001,
+    },
+  }))
+
+  const updatePointerInteraction = (value: any) => {
+    pointerInteracting.current = value
+    canvasRef.current!.style.cursor = value ? 'grabbing' : 'grab'
+  }
+
+  const updateMovement = (clientX: any) => {
+    if (pointerInteracting.current !== null) {
+      const delta = clientX - pointerInteracting.current
+      pointerInteractionMovement.current = delta
+      api.start({ r: delta / 200 })
+    }
+  }
+
+  const onRender = useCallback(
+    (state: Record<string, any>) => {
+      if (!pointerInteracting.current) phi += 0.005
+      state.phi = phi + r.get()
+      state.width = width * 2
+      state.height = width * 2
+    },
+    [pointerInteracting, phi, r]
+  )
+
+  const onResize = () => {
+    if (canvasRef.current) {
+      width = canvasRef.current.offsetWidth
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', onResize)
+    onResize()
+
+    const globe = createGlobe(canvasRef.current!, {
+      ...config,
+      width: width * 2,
+      height: width * 2,
+      onRender,
+    })
+
+    setTimeout(() => (canvasRef.current!.style.opacity = '1'))
+    return () => globe.destroy()
+  }, [config, onRender, onResize, width])
+
+  return (
+    <div
+      className={cn(
+        'absolute inset-0 mx-auto aspect-[1/1] w-full max-w-[600px]',
+        className
+      )}
+    >
+      <canvas
+        className={cn(
+          'size-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size]'
+        )}
+        ref={canvasRef}
+        onPointerDown={(e) =>
+          updatePointerInteraction(
+            e.clientX - pointerInteractionMovement.current
+          )
+        }
+        onPointerUp={() => updatePointerInteraction(null)}
+        onPointerOut={() => updatePointerInteraction(null)}
+        onMouseMove={(e) => updateMovement(e.clientX)}
+        onTouchMove={(e) =>
+          e.touches[0] && updateMovement(e.touches[0].clientX)
+        }
+      />
+    </div>
+  )
+}
+
+
+```
+</CodeBlockWrapper>
+</Step>
+<Step>
+
+### Grid
+These components are based on **shadcn/ui** components. You can find instructions for installation and configuration at [ui.shadcn.com/installation](https://ui.shadcn.com/docs/installation).
+
+<InstallTabs items={['CLI']}>
+    <Tab value='cli'>
+
+```bash
+npx shadcn-ui@latest add button
+```
+
+    </Tab>
+
+
+</InstallTabs>
+
+<CodeBlockWrapper>
+```tsx title="components/bento-grid.tsx"
+import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+import { ArrowRightIcon } from '@radix-ui/react-icons'
+import { type ReactNode } from 'react'
+
+const BentoGrid = ({
+  children,
+  className,
+}: {
+  children: ReactNode
+  className?: string
+}) => {
+  return (
+    <div
+      className={cn(
+        'grid w-full auto-rows-[18rem] grid-cols-3 gap-4',
+        className
+      )}
+    >
+      {children}
+    </div>
+  )
+}
+
+const BentoCard = ({
+  name,
+  className,
+  background,
+  Icon,
+  description,
+  href,
+  cta,
+}: {
+  name: string
+  className: string
+  background: ReactNode
+  Icon: any
+  description: string
+  href: string
+  cta: string
+}) => (
+  <div
+    key={name}
+    className={cn(
+      'group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-xl',
+      // light styles
+      'bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]',
+      // dark styles
+      'transform-gpu dark:bg-black dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]',
+      className
+    )}
+  >
+    <div>{background}</div>
+    <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
+      <Icon className="size-6 origin-left transform-gpu text-neutral-700 transition-all duration-300 ease-in-out group-hover:scale-75" />
+      <h3 className="text-base font-semibold text-neutral-700 dark:text-neutral-300">
+        {name}
+      </h3>
+      <p className="max-w-lg text-sm text-neutral-400">{description}</p>
+    </div>
+
+    <div
+      className={cn(
+        'pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100'
+      )}
+    >
+      <Button variant="ghost" asChild size="sm" className="pointer-events-auto">
+        <a href={href}>
+          {cta}
+          <ArrowRightIcon className="ml-2 size-4" />
+        </a>
+      </Button>
+    </div>
+    <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
+  </div>
+)
+
+export { BentoCard, BentoGrid }
+
+```
+</CodeBlockWrapper>
+</Step>
+
+</Steps>
+
+## Credits
+
+[@dillion](https://twitter.com/dillionverma)
