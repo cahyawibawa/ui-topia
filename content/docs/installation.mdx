@@ -1,0 +1,110 @@
+---
+title: Installation
+description: How to install dependencies and structure your app.
+icon: FolderTree
+---
+
+ui/topia currently only supports **React**. This project and all its components are written in TypeScript and Tailwind CSS. Additionally, some components require Framer Motion. We recommend using TypeScript for your project as well.
+
+<Steps>
+<Step>
+### Add tailwind css
+
+Components are styled using Tailwind CSS. You need to install Tailwind CSS in your project.
+
+[Follow the Tailwind CSS installation instructions to get started.](https://tailwindcss.com/docs/installation)
+
+</Step>
+
+<Step>
+
+### Add dependencies
+Add the following dependencies to your project:
+</Step>
+<InstallTabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+    <Tab value='npm'>
+
+```bash
+npm install tailwindcss-animate class-variance-authority clsx tailwind-merge
+
+```
+
+    </Tab>
+        <Tab value='yarn'>
+
+```bash
+yarn add tailwindcss-animate class-variance-authority clsx tailwind-merge
+
+```
+
+    </Tab>
+    <Tab value="pnpm">
+
+```bash
+pnpm add tailwindcss-animate class-variance-authority clsx tailwind-merge
+
+```
+
+    </Tab>
+
+    <Tab value='bun'>
+
+```bash
+bun add tailwindcss-animate class-variance-authority clsx tailwind-merge
+
+```
+
+    </Tab>
+
+</InstallTabs>
+<Step>
+
+### Add cn helper
+I use a `cn` helper to make it easier to conditionally add Tailwind CSS classes. Here's how I define it in `lib/utils.ts`:
+```ts title="lib/utils.ts"
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+
+```
+</Step>
+<Step>
+### App structure
+Here's how I structure my Next.js apps. You can use this as a reference:
+
+      <Files>
+        <Folder name="app" defaultOpen>
+          <File name="page.tsx" /> 
+          <File name="layout.tsx" />
+        </Folder>
+        <Folder name="components" defaultOpen>
+        <Folder name="ui" defaultOpen>
+             <File name="button.tsx" />
+        </Folder>
+          <File name="site-header.tsx" />
+          <File name="site-footer.tsx" />
+        </Folder>
+          <Folder name="lib" defaultOpen>
+             <File name="utils.ts" />
+        </Folder>
+        <Folder name="styles" defaultOpen>
+             <File name="globals.css" />
+        </Folder>
+         <File name="next.config.mjs" />
+        <File name="package.json" />
+         <File name="postcss.config.js" />
+        <File name="tailwind.config.ts" />
+        <File name="tsconfig.json" />
+      </Files>
+
+- I place the UI components [shadcn/ui](https://ui.shadcn.com/) in the components/ui folder.
+- The rest of the components such as `<SiteHeader />` and `<SiteFooter />` are placed in the components folder.
+- The lib folder contains all the utility functions. I have a utils.ts where I define the cn helper.
+- The styles folder contains the global CSS.
+
+</Step>
+
+</Steps>

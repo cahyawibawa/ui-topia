@@ -4,6 +4,8 @@
   "pages": [
     "---Overview---",
     "index",
+    "installation",
+    "resources",
     "...",
     "---Components---",
     "...components"
