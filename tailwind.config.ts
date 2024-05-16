@@ -115,6 +115,14 @@ const config = {
           '0%, 100%': { opacity: '0' },
           '20%, 80%': { opacity: '1' },
         },
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(calc(-100% - var(--gap)))" },
+        },
+        "marquee-vertical": {
+          from: { transform: "translateY(0)" },
+          to: { transform: "translateY(calc(-100% - var(--gap)))" },
+        },
       },
       animation: {
         'moveFromRight': "moveFromRight 1000ms linear alternate infinite",
@@ -123,6 +131,8 @@ const config = {
         'accordion-up': 'accordion-up 0.2s ease-out',
         'ripple': "ripple var(--duration, 1.5s) ease calc(var(--i, 0)*0.1s) infinite",
         "progress-bar": "progress-bar linear ease-in-out",
+        marquee: "marquee var(--duration) linear infinite",
+        "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
         
       },
     },
