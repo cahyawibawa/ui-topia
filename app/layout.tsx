@@ -11,7 +11,7 @@ import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://uitopia.vercel.app/'),
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`,

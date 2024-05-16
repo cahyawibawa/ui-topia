@@ -1,3 +1,4 @@
+import { siteConfig } from '@/config/site';
 import type { Metadata } from 'next/types';
 
 export function createMetadata(override: Metadata): Metadata {
@@ -6,7 +7,7 @@ export function createMetadata(override: Metadata): Metadata {
     openGraph: {
       title: override.title ?? undefined,
       description: override.description ?? undefined,
-      url: 'https://uitopia.vercel.app',
+      url: siteConfig.url,
       images: '/og-gh.png',
       siteName: 'ui/topia',
       ...override.openGraph,
