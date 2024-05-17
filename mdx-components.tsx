@@ -136,7 +136,10 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       />
     ),
     ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
-      <ul className={cn('my-6 ml-6 list-disc', className)} {...props} />
+      <ul
+        className={cn('not-prose my-6 ml-6 list-disc', className)}
+        {...props}
+      />
     ),
     ol: ({ className, ...props }: React.HTMLAttributes<HTMLOListElement>) => (
       <ol className={cn('my-6 ml-6 list-decimal', className)} {...props} />
