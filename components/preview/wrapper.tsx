@@ -8,7 +8,7 @@ export function Wrapper(
     <div
       {...props}
       className={cn(
-        'not-prose relative flex max-w-full flex-col items-center justify-center rounded-md border p-4 md:p-16',
+        'not-prose relative flex max-w-full flex-col items-center justify-center rounded-xl border p-8 md:p-16',
         props.className
       )}
     >
