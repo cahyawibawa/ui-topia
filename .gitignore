@@ -6,6 +6,7 @@
 .pnp.js
 .yarn/install-state.gz
 .map.ts
+dist
 # testing
 /coverage
 
@@ -26,6 +27,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
+.env
 .env*.local
 
 # vercel
@@ -34,3 +36,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+.nx
+.nx/cache
+.nx/workspace-data
+
+# Next.js
+.next
+out

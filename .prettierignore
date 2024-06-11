@@ -1,0 +1,6 @@
+node_modules
+pnpm-lock.yaml
+.next
+.nx
+dist
+apps/web/app/content/docs/resources.mdx
