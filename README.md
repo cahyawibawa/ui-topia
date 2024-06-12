@@ -1,15 +1,20 @@
- <a href="https://uitopia.vercel.app/">
- <img src="public/og-gh.png" width="100%" />
- <h1 align="center">ui/topia</h1>
-</a>
+<p align="center">
+  <a href="https://uitopia.xyz">
+    <img src="./apps/web/public/og-gh.png" width="100%">
+    <h3 align="center">ui/topia</h3>
+  </a>
+</p>
 
-<p align="center">A collection ready-to-use UI designed component.</p>
+<p align="center">
+  A collection ready-to-use UI designed component.
+</p>
 
-## Roadmap
+<p align="center">
+  <a href="https://cahyawibawa.dev/projects/ui-topia"><strong>Blog</strong></a> ·
+  <a href="https://uitopia.xyz/docs"><strong>Installation</strong></a>
 
-- [x] Add Docs site [fumadocs](https://fumadocs.vercel.app/)
-- [ ] Add Newsletter subscription
+</p>
 
-## Credits
+### Stats
 
-- Julien Thibeut ([@ibelick](https://twitter.com/ibelick)) for the most original UI elements behind this repository.
+![Alt](https://repobeats.axiom.co/api/embed/16b1e8de603fba86ba6461e4201037ff9ea9bb27.svg 'Repobeats analytics image')
