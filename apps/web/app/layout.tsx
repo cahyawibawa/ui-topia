@@ -4,7 +4,7 @@ import { siteConfig } from '@/config/site'
 import { fontHeading } from '@/lib/font'
 import { Analytics } from '@vercel/analytics/react'
 import { RootProvider } from 'fumadocs-ui/provider'
-import 'fumadocs-ui/style.css'
+import 'fumadocs-ui/twoslash.css'
 import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
 import type { Metadata, Viewport } from 'next'
@@ -74,7 +74,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       className={`${GeistSans.variable} ${GeistMono.variable} ${fontHeading.variable} `}
       suppressHydrationWarning
     >
-      <body className="relative flex min-h-screen flex-col">
+      <body className="flex min-h-screen flex-col">
         <RootProvider>
           {children}
           <Footer />
