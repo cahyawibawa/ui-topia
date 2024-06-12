@@ -1,9 +1,9 @@
+import { baseOptions } from '@/app/layout-config'
 import { ExamplesNav } from '@/components/examples-nav'
 import { SwitcherHero } from '@/components/hero/switcher-hero'
 import { Shell } from '@/components/shell'
 import { Layout } from 'fumadocs-ui/layout'
 import { type Metadata } from 'next'
-import { layoutOptions } from '../layout-config'
 
 export const metadata: Metadata = {
   title: 'Examples',
@@ -17,7 +17,7 @@ interface ExamplesLayoutProps {
 export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
   return (
     <>
-      <Layout {...layoutOptions}>
+      <Layout {...baseOptions}>
         <Shell>
           <SwitcherHero />
           <ExamplesNav />
