@@ -1,7 +1,6 @@
-// import { getPage, getPages } from '@/app/source'
 import Preview from '@/components/preview'
 import { createMetadata } from '@/lib/metadata'
-import { utils, type Page } from '@/lib/radix'
+import { utils, type Page } from '@/lib/source'
 import { Card, Cards } from 'fumadocs-ui/components/card'
 import { DocsBody, DocsPage } from 'fumadocs-ui/page'
 import type { Metadata } from 'next'
@@ -25,8 +24,15 @@ export default function Page({
   const path = `apps/docs/content/docs/${page.file.path}`
   const preview = page.data.preview
   const MDX = page.data.exports.default
+
   return (
-    <DocsPage toc={page.data.exports.toc}>
+    <DocsPage
+      toc={page.data.exports.toc}
+      lastUpdate={page.data.exports.lastModified}
+      tableOfContent={{
+        enabled: page.data.toc,
+      }}
+    >
       <h1 className="font-heading text-foreground text-3xl font-bold sm:text-4xl">
         {page.data.title}
       </h1>
