@@ -1,4 +1,4 @@
-import { Footer } from '@/components/layouts/footer'
+import { Footer } from '@/components/footer'
 import { Toaster } from '@/components/ui/sonner'
 import { siteConfig } from '@/config/site'
 import { fontHeading } from '@/lib/font'
