@@ -1,4 +1,4 @@
-export default function RippleCard() {
+export function RippleCardDemo() {
   return (
     <div className="relative mx-auto w-full max-w-md overflow-hidden rounded-2xl border border-white/5 bg-zinc-800">
       {/* <!-- highlight --> */}
