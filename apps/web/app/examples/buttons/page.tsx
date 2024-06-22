@@ -11,6 +11,10 @@ export const metadata: Metadata = {
 const ButtonsComponent = registry.buttons.component
 
 export default function ButtonsPage() {
+  if (!ButtonsComponent) {
+    return <div>Button component not found</div>
+  }
+
   return (
     <section className="mx-auto">
       <div className="grid gap-6 p-10 pb-6 md:grid-cols-2 lg:grid-cols-4">
