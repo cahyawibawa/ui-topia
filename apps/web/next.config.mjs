@@ -7,6 +7,18 @@ import rehypeKatex from 'rehype-katex'
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'pbs.twimg.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+      },
+    ],
+  },
   eslint: {
     // Replaced by root workspace command
     ignoreDuringBuilds: true,
