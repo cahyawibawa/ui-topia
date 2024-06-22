@@ -1,4 +1,3 @@
-import { Footer } from '@/components/footer'
 import { Toaster } from '@/components/ui/sonner'
 import { siteConfig } from '@/config/site'
 import { fontHeading } from '@/lib/font'
@@ -77,7 +76,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body className="flex min-h-screen flex-col">
         <RootProvider>
           {children}
-          <Footer />
+          {/* <Footer /> */}
           <Analytics />
           <Toaster />
         </RootProvider>
