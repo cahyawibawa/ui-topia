@@ -10,7 +10,7 @@ type CardComponentProps = {
   children: React.ReactNode
 }
 
-export const CardComponent: React.FC<CardComponentProps> = ({ children }) => {
+export const ButtonWrapper: React.FC<CardComponentProps> = ({ children }) => {
   const [isCopied, setIsCopied] = useState(false)
 
   const getCode = () => {
