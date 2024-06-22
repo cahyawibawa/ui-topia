@@ -1,12 +1,5 @@
-import { CodeBlockWrapper } from '@/components/preview/code-block-wrapper'
-import { Wrapper } from '@/components/preview/wrapper'
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion'
 import { Callout } from 'fumadocs-ui/components/callout'
-import {
-  CodeBlock,
-  Pre,
-  type CodeBlockProps,
-} from 'fumadocs-ui/components/codeblock'
 import { File, Files, Folder } from 'fumadocs-ui/components/files'
 import { ImageZoom } from 'fumadocs-ui/components/image-zoom'
 import { Step, Steps } from 'fumadocs-ui/components/steps'
@@ -17,10 +10,13 @@ import { Popup, PopupContent, PopupTrigger } from 'fumadocs-ui/twoslash/popup'
 import { HomeIcon } from 'lucide-react'
 import type { MDXComponents } from 'mdx/types'
 import { type ReactNode } from 'react'
-import { BentoDemo } from './components/playground/bento-grid/bento-demo'
-import ConnectModal from './components/playground/connect-modal'
-import RippleCard from './components/playground/ripple-card'
+import { ComponentBase } from './components/component-base'
+import { ComponentPreview } from './components/component-preview'
+import { extractSourceCode } from './lib/extract-source'
+
 import { cn } from './lib/utils'
+
+// import { CodeBlock, CodeBlockProps, Pre } from './components/code-block'
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -39,33 +35,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     PopupContent,
     PopupTrigger,
     ImageZoom,
-    RippleCard,
-    BentoDemo,
-    ConnectModal,
     Steps,
     Step,
-    Wrapper,
-    CodeBlockWrapper: ({ ...props }) => (
-      <CodeBlockWrapper className="overflow-hidden rounded-md" {...props} />
-    ),
-    pre: ({ title, className, icon, allowCopy, ...props }: CodeBlockProps) => (
-      <CodeBlock title={title} icon={icon} allowCopy={allowCopy}>
-        <Pre className={cn('max-h-[400px]', className)} {...props} />
-      </CodeBlock>
-    ),
-    InstallTabs: ({
-      items,
-      children,
-    }: {
-      items: string[]
-      children: ReactNode
-    }) => (
-      <Tabs items={items} id="package-manager">
-        {children}
-      </Tabs>
-    ),
-    blockquote: (props) => <Callout>{props.children}</Callout>,
-    ...components,
     h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
       <h1
         className={cn(
@@ -147,6 +118,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     li: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
       <li className={cn('mt-2', className)} {...props} />
     ),
+    blockquote: (props) => <Callout>{props.children}</Callout>,
     img: ({
       className,
       alt,
@@ -166,5 +138,30 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         <table className={cn('w-full', className)} {...props} />
       </div>
     ),
+    ComponentBase: ({ name, ...props }: { name: string }) => {
+      const code = extractSourceCode(name)
+      return <ComponentBase name={name} code={code} {...props} />
+    },
+    ComponentPreview: ({ name, ...props }) => (
+      <ComponentPreview name={name} code={extractSourceCode(name)} {...props} />
+    ),
+
+    // pre: ({ title, className, icon, allowCopy, ...props }: CodeBlockProps) => (
+    //   <CodeBlock title={title} icon={icon} allowCopy={allowCopy}>
+    //     <Pre className={cn('max-h-[400px]', className)} {...props} />
+    //   </CodeBlock>
+    // ),
+    InstallTabs: ({
+      items,
+      children,
+    }: {
+      items: string[]
+      children: ReactNode
+    }) => (
+      <Tabs items={items} id="package-manager">
+        {children}
+      </Tabs>
+    ),
+    ...components,
   }
 }

@@ -1,4 +1,3 @@
-import Preview from '@/components/preview'
 import { createMetadata } from '@/lib/metadata'
 import { utils, type Page } from '@/lib/source'
 import { Card, Cards } from 'fumadocs-ui/components/card'
@@ -33,14 +32,13 @@ export default function Page({
         enabled: page.data.toc,
       }}
     >
-      <h1 className="font-heading text-foreground text-3xl font-bold sm:text-4xl">
+      <h1 className="font-heading text-foreground text-3xl font-bold">
         {page.data.title}
       </h1>
       <p className="text-muted-foreground mb-8 text-lg">
         {page.data.description}
       </p>
       <DocsBody>
-        {preview && preview in Preview ? Preview[preview] : null}
         {page.data.index ? <Category page={page} /> : <MDX />}
       </DocsBody>
     </DocsPage>
