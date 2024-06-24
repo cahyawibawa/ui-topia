@@ -8,14 +8,6 @@ import {
 import { BentoCard, BentoGrid } from '../bento-grid'
 import Globe from '../globe'
 import { Calendar } from '../ui/calendar'
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from '../ui/command'
 
 const files = [
   {
@@ -58,22 +50,7 @@ const features = [
     href: 'https://cmdk.paco.me/',
     cta: 'Learn more',
     className: 'col-span-3 lg:col-span-2',
-    background: (
-      <Command className="absolute right-10 top-10 w-[70%] origin-top translate-x-0 border transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] group-hover:-translate-x-10">
-        <CommandInput placeholder="Type a command or search..." />
-        <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
-          <CommandGroup heading="Suggestions">
-            <CommandItem>cahyawibawa.dev</CommandItem>
-            <CommandItem>uitopia.xyz</CommandItem>
-            <CommandItem>finances.xlsx</CommandItem>
-            <CommandItem>logo.svg</CommandItem>
-            <CommandItem>keys.gpg</CommandItem>
-            <CommandItem>seed.txt</CommandItem>
-          </CommandGroup>
-        </CommandList>
-      </Command>
-    ),
+    background: <img className="absolute -right-20 -top-20 opacity-60" />,
   },
   {
     Icon: GlobeIcon,

@@ -1,7 +1,7 @@
 'use client'
 
 import { useSpring } from '@react-spring/web'
-import createGlobe, { type COBEOptions } from 'cobe'
+import createGlobe, { COBEOptions } from 'cobe'
 import { useCallback, useEffect, useRef } from 'react'
 import { cn } from '../lib/utils'
 
@@ -97,7 +97,7 @@ export default function Globe({
 
     setTimeout(() => (canvasRef.current!.style.opacity = '1'))
     return () => globe.destroy()
-  }, [config, onRender, onResize, width])
+  }, [])
 
   return (
     <div
@@ -108,7 +108,7 @@ export default function Globe({
     >
       <canvas
         className={cn(
-          'size-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size]'
+          'h-full w-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size]'
         )}
         ref={canvasRef}
         onPointerDown={(e) =>

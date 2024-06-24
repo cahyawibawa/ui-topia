@@ -31,6 +31,28 @@ const example: Registry = {
     files: ['./components/examples/bento-demo.tsx'],
     component: React.lazy(() => import('./components/examples/bento-demo')),
   },
+  'blur-hero-demo': {
+    name: 'blur-hero-demo',
+    type: 'components:example',
+    files: ['./components/examples/blur-hero-demo.tsx'],
+    component: React.lazy(() => import('./components/examples/blur-hero-demo')),
+  },
+  'client-logo-demo': {
+    name: 'client-logo-demo',
+    type: 'components:example',
+    files: ['./components/examples/client-logo-demo.tsx'],
+    component: React.lazy(
+      () => import('./components/examples/client-logo-demo')
+    ),
+  },
+  'linear-card-demo': {
+    name: 'linear-card-demo',
+    type: 'components:example',
+    files: ['./components/examples/linear-card-demo.tsx'],
+    component: React.lazy(
+      () => import('./components/examples/linear-card-demo')
+    ),
+  },
   'project-card-demo': {
     name: 'project-card-demo',
     type: 'components:example',
@@ -38,6 +60,12 @@ const example: Registry = {
     component: React.lazy(
       () => import('./components/examples/project-card-demo')
     ),
+  },
+  'globe-demo': {
+    name: 'globe-demo',
+    type: 'components:example',
+    files: ['./components/examples/globe-demo.tsx'],
+    component: React.lazy(() => import('./components/examples/globe-demo')),
   },
 }
 
