@@ -5,7 +5,7 @@ export const siteConfig = {
   description:
     'An open source project that helps you build beautiful websites with simply copy and paste. Crafted with Tailwind CSS.',
   blockInfos:
-    'Ready-to-use, simply copy and paste into your next project. All snippets crafted with Tailwind CSS for easy integration.',
+    'Ready-to-use, simply copy and paste into your next project. All components crafted with Tailwind CSS for easy integration.',
   links: {
     portfolio: 'https://cahyawibawa.dev/',
     github: 'https://git.new/ui/topia',
