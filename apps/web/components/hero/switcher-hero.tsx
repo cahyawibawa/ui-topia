@@ -1,12 +1,12 @@
-"use client";
+'use client'
 
-import { DropdownMenuCheckboxItem } from "@/components/ui/dropdown-menu";
-import { useHero } from "@/hooks/use-hero-selection";
-import { CarouselProgressBar } from "./carousel-hero";
-import { HeroHomepage } from "./static-hero";
+import { DropdownMenuCheckboxItem } from '@/components/ui/dropdown-menu'
+import { useHero } from '@/hooks/use-hero-selection'
+import { CarouselProgressBar } from './carousel-hero'
+import { HeroHomepage } from './static-hero'
 
 export function HeroCheckbox() {
-  const { isChecked, toggleCheckbox } = useHero();
+  const { isChecked, toggleCheckbox } = useHero()
   return (
     <DropdownMenuCheckboxItem
       checked={isChecked}
@@ -15,11 +15,11 @@ export function HeroCheckbox() {
     >
       Static Hero
     </DropdownMenuCheckboxItem>
-  );
+  )
 }
 
 export function SwitcherHero() {
-  const { isChecked } = useHero();
+  const { isChecked } = useHero()
 
-  return <>{isChecked ? <HeroHomepage /> : <CarouselProgressBar />}</>;
+  return <>{isChecked ? <CarouselProgressBar /> : <HeroHomepage />}</>
 }

@@ -2,6 +2,7 @@ import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import Link from 'next/link'
+import { ButtonGradientDemo } from '../btn-gradient'
 import { Icons } from '../icons'
 import {
   PageActions,
@@ -14,16 +15,16 @@ import { buttonVariants } from '../ui/button'
 
 export const HeroHomepage = () => {
   return (
-    <div className="border-muted mb-8 overflow-hidden border-b text-center md:h-[580px]">
+    <div className="mb-8 overflow-hidden  text-center md:h-[580px]">
       <div className="relative flex size-full flex-col items-center justify-between pb-6">
         <Image
-          className="absolute top-0 -z-10 mt-16 hidden h-full w-[1560px] max-w-[unset] scale-90 object-contain md:block"
-          src="/images/hero-banner-2.webp"
+          className="absolute top-0 -z-10 mt-16 hidden h-full w-[1550px] max-w-[unset] scale-90 object-cover md:block"
+          src="/images/uitopia-hero.svg"
           alt="ConversionRateExpert"
           width={1513}
           height={480}
         />
-        <PageHeader className="mt-10">
+        <PageHeader>
           <Badge variant={'outline'}>NEW DROPS WEEKLY</Badge>
           <PageHeaderHeading>
             Make your website look better, Instantly
@@ -33,18 +34,25 @@ export const HeroHomepage = () => {
           </PageHeaderDescription>
 
           <PageActions>
+            <ButtonGradientDemo />
+            {/* <Link
+              href="/docs"
+              className={cn(buttonVariants({ variant: 'outline' }))}
+            >
+              Get Started
+            </Link> */}
             <Link
               target="_blank"
               rel="noreferrer"
               href={siteConfig.links.github}
-              className={cn(buttonVariants({ variant: 'default' }))}
+              className={cn(
+                buttonVariants({ variant: 'default' }),
+                'rounded-full'
+              )}
             >
               <Icons.gitHub className="mr-2 size-4" />
               GitHub
             </Link>
-            {/* <Button variant="outline" size="lg">
-              <Link href="/docs">Docs</Link>
-            </Button> */}
           </PageActions>
         </PageHeader>
       </div>

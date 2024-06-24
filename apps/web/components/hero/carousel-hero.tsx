@@ -1,40 +1,40 @@
-"use client";
+'use client'
 
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from '@/components/ui/button'
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   type CarouselApi,
-} from "@/components/ui/carousel";
-import { siteConfig } from "@/config/site";
-import { cn } from "@/lib/utils";
-import Autoplay from "embla-carousel-autoplay";
-import ClassNames from "embla-carousel-class-names";
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import { Icons } from "../icons";
+} from '@/components/ui/carousel'
+import { siteConfig } from '@/config/site'
+import { cn } from '@/lib/utils'
+import Autoplay from 'embla-carousel-autoplay'
+import ClassNames from 'embla-carousel-class-names'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import { Icons } from '../icons'
 import {
   PageActions,
   PageHeader,
   PageHeaderDescription,
   PageHeaderHeading,
-} from "../page-header";
+} from '../page-header'
 
 // import { useMounted } from "@/hooks/use-mounted";
 
 const slides = [
   {
-    title: "Make your website look better, Instantly.",
-    imageUrl: "/images/hero-banner-1.webp",
+    title: 'Make your website look better, Instantly.',
+    imageUrl: '/images/hero-banner-1.webp',
   },
 
   {
-    title: "Find beautifully UI elements references.",
-    imageUrl: "/images/hero-banner-2.webp",
+    title: 'Find beautifully UI elements references.',
+    imageUrl: '/images/hero-banner-2.webp',
   },
-];
+]
 
 const BlockInfos = () => (
   <PageHeader>
@@ -42,7 +42,7 @@ const BlockInfos = () => (
       <span className="md:inline">{siteConfig.blockInfos}</span>
     </PageHeaderDescription>
     <PageActions>
-      <Link href="/docs" className={cn(buttonVariants({ variant: "outline" }))}>
+      <Link href="/docs" className={cn(buttonVariants({ variant: 'outline' }))}>
         Get Started
       </Link>
 
@@ -57,35 +57,35 @@ const BlockInfos = () => (
       </Link>
     </PageActions>
   </PageHeader>
-);
+)
 
-const intervalAutoplay: number = 4000;
+const intervalAutoplay: number = 4000
 
 export function CarouselProgressBar() {
   // const mounted = useMounted();
-  const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState<number>(slides.length);
+  const [api, setApi] = useState<CarouselApi>()
+  const [current, setCurrent] = useState<number>(slides.length)
   // FIX: Why slides.length ? The first dot don't show the animation progress bar if its 0. And current is set in useEffect after initial render
 
   const goToIndex = (index: number) => {
     if (!api) {
-      return;
+      return
     }
-    setCurrent(index);
-    api?.scrollTo(index, true);
-  };
+    setCurrent(index)
+    api?.scrollTo(index, true)
+  }
 
   useEffect(() => {
     if (!api) {
-      return;
+      return
     }
 
-    setCurrent(api.selectedScrollSnap());
+    setCurrent(api.selectedScrollSnap())
 
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap());
-    });
-  }, [api]);
+    api.on('select', () => {
+      setCurrent(api.selectedScrollSnap())
+    })
+  }, [api])
 
   // if (!mounted)
   //   return (
@@ -112,7 +112,7 @@ export function CarouselProgressBar() {
         setApi={setApi}
       >
         <CarouselContent
-          className={cn("fade__container", !!api ? "fade__is-ready" : "")}
+          className={cn('fade__container', !!api ? 'fade__is-ready' : '')}
         >
           {slides.map((item) => (
             <CarouselItem key={item.title} className="fade__slide">
@@ -148,8 +148,8 @@ export function CarouselProgressBar() {
                 <div className="bg-muted-foreground/30 dark:bg-muted-foreground/70 absolute size-full"></div>
                 <div
                   className={cn(
-                    "bg-primary relative z-10 h-full w-0",
-                    current === index ? "animate-progress-bar w-full" : "",
+                    'bg-primary relative z-10 h-full w-0',
+                    current === index ? 'animate-progress-bar w-full' : ''
                   )}
                   style={
                     current === index
@@ -166,5 +166,5 @@ export function CarouselProgressBar() {
         </div>
       </Carousel>
     </section>
-  );
+  )
 }
