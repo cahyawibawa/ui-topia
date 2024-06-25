@@ -6,8 +6,8 @@ export const baseOptions: BaseLayoutProps = {
     transparentMode: 'top',
     title: (
       <>
-        <Icons.logo className="size-5" />
-        <span className="font-bold sm:inline-block">ui/topia</span>
+        <Icons.logo />
+        <span className="font-semibold sm:inline-block">ui/topia</span>
       </>
     ),
   },
