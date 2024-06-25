@@ -18,10 +18,10 @@ export const HeroHomepage = () => {
     <div className="mb-8 overflow-hidden  text-center md:h-[580px]">
       <div className="relative flex size-full flex-col items-center justify-between pb-6">
         <Image
-          className="absolute top-0 -z-10 mt-16 hidden h-full w-[1550px] max-w-[unset] scale-90 object-cover md:block"
-          src="/images/uitopia-hero.svg"
-          alt="ConversionRateExpert"
-          width={1513}
+          className="absolute top-0 -z-10 mt-24 hidden h-full w-[1450px] max-w-[unset] scale-90 object-contain md:block"
+          src="/images/uitopia-hero1.svg"
+          alt="uitopia hero"
+          width={1450}
           height={480}
         />
         <PageHeader>
@@ -35,12 +35,6 @@ export const HeroHomepage = () => {
 
           <PageActions>
             <ButtonGradientDemo />
-            {/* <Link
-              href="/docs"
-              className={cn(buttonVariants({ variant: 'outline' }))}
-            >
-              Get Started
-            </Link> */}
             <Link
               target="_blank"
               rel="noreferrer"
