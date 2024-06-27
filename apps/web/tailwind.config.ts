@@ -85,14 +85,6 @@ const config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       keyframes: {
-        moveFromRight: {
-          from: { right: '%100' },
-          to: { right: '0%' },
-        },
-        moveToRight: {
-          from: { right: '0%' },
-          to: { right: '100%' },
-        },
         'accordion-down': {
           from: { height: '0' },
           to: { height: 'var(--radix-accordion-content-height)' },
@@ -101,46 +93,10 @@ const config = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
-        ripple: {
-          '50%': {
-            transform: 'scale(var(--scale, 1.25))',
-          },
-        },
-        'progress-bar': {
-          from: { width: '0' },
-          to: { width: '100%' },
-        },
-        fade: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        fadeInOut: {
-          '0%, 100%': { opacity: '0' },
-          '20%, 80%': { opacity: '1' },
-        },
-        marquee: {
-          from: { transform: 'translateX(0)' },
-          to: { transform: 'translateX(calc(-100% - var(--gap)))' },
-        },
-        'marquee-vertical': {
-          from: { transform: 'translateY(0)' },
-          to: { transform: 'translateY(calc(-100% - var(--gap)))' },
-        },
       },
-      animation: {
-        moveFromRight: 'moveFromRight 1000ms linear alternate infinite',
-        moveToRight: 'moveToRight 1000ms linear alternate infinite',
-        'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out',
-        ripple:
-          'ripple var(--duration, 1.5s) ease calc(var(--i, 0)*0.1s) infinite',
-        'progress-bar': 'progress-bar linear ease-in-out',
-        marquee: 'marquee var(--duration) linear infinite',
-        'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
-      },
+      animation: {},
     },
   },
-  plugins: [require('tailwindcss-animate')],
 } satisfies Config
 
 export default config
