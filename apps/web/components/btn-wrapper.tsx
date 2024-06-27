@@ -40,9 +40,9 @@ export const ButtonWrapper: React.FC<CardComponentProps> = ({ children }) => {
       <div className="absolute right-3 top-3 cursor-pointer bg-transparent p-2">
         <div onClick={onCopy}>
           {isCopied ? (
-            <Icons.check className="text-foreground size-4" />
+            <Icons.check className="text-muted-foreground size-4" />
           ) : (
-            <Icons.copy className="text-foreground size-4" />
+            <Icons.copy className="text-muted-foreground size-4" />
           )}
         </div>
       </div>
