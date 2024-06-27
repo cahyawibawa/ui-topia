@@ -1,17 +1,18 @@
-import { CheckIcon, CopyIcon, EyeOpenIcon } from '@radix-ui/react-icons'
 import type { LucideIcon } from 'lucide-react'
 import {
   ArrowUpRight,
   BookIcon,
   BookOpenIcon,
+  Check,
   ChevronRight,
   Component,
+  Copy,
   Edit,
   FolderTreeIcon,
   Leaf,
   LifeBuoyIcon,
   MessagesSquare,
-  RotateCw,
+  RotateCcw,
   ScanEye,
   TerminalIcon,
   UsersRound,
@@ -21,9 +22,9 @@ import {
 type IconProps = React.HTMLAttributes<SVGElement>
 export const Icons = {
   arrowUpRight: ArrowUpRight,
-  copy: CopyIcon,
+  copy: Copy,
   component: Component,
-  check: CheckIcon,
+  check: Check,
   book: BookIcon,
   bookOpen: BookOpenIcon,
   api: WebhookIcon,
@@ -33,8 +34,7 @@ export const Icons = {
   arrow: ChevronRight,
   leaf: Leaf,
   life: LifeBuoyIcon,
-  preview: EyeOpenIcon,
-  reset: RotateCw,
+  refresh: RotateCcw,
   teams: UsersRound,
   scan: ScanEye,
   logo: (props: IconProps) => (
@@ -267,6 +267,98 @@ export const Icons = {
     </svg>
   ),
 }
+
+export function LinearLogo(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="18"
+      fill="none"
+      viewBox="0 0 100 100"
+    >
+      <path
+        fill="#5E6AD2"
+        d="M1.225 61.523c-.222-.949.908-1.546 1.597-.857l36.512 36.512c.69.69.092 1.82-.857 1.597-18.425-4.323-32.93-18.827-37.252-37.252ZM.002 46.889a.99.99 0 0 0 .29.76L52.35 99.71c.201.2.478.307.76.29 2.37-.149 4.695-.46 6.963-.927.765-.157 1.03-1.096.478-1.648L2.576 39.448c-.552-.551-1.491-.286-1.648.479a50.067 50.067 0 0 0-.926 6.962ZM4.21 29.705a.988.988 0 0 0 .208 1.1l64.776 64.776c.289.29.726.375 1.1.208a49.908 49.908 0 0 0 5.185-2.684.981.981 0 0 0 .183-1.54L8.436 24.336a.981.981 0 0 0-1.541.183 49.896 49.896 0 0 0-2.684 5.185Zm8.448-11.631a.986.986 0 0 1-.045-1.354C21.78 6.46 35.111 0 49.952 0 77.592 0 100 22.407 100 50.048c0 14.84-6.46 28.172-16.72 37.338a.986.986 0 0 1-1.354-.045L12.659 18.074Z"
+      />
+    </svg>
+  )
+}
+
+export function TwitterIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
+      <g>
+        <>Twitter</>
+        <path
+          fill="currentColor"
+          d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+        ></path>
+      </g>
+    </svg>
+  )
+}
+
+export function GitHubIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      width="24"
+      height="24"
+      fill="currentColor"
+      viewBox="3 3 18 18"
+      {...props}
+    >
+      <title>GitHub</title>
+      <path d="M12 3C7.0275 3 3 7.12937 3 12.2276C3 16.3109 5.57625 19.7597 9.15374 20.9824C9.60374 21.0631 9.77249 20.7863 9.77249 20.5441C9.77249 20.3249 9.76125 19.5982 9.76125 18.8254C7.5 19.2522 6.915 18.2602 6.735 17.7412C6.63375 17.4759 6.19499 16.6569 5.8125 16.4378C5.4975 16.2647 5.0475 15.838 5.80124 15.8264C6.51 15.8149 7.01625 16.4954 7.18499 16.7723C7.99499 18.1679 9.28875 17.7758 9.80625 17.5335C9.885 16.9337 10.1212 16.53 10.38 16.2993C8.3775 16.0687 6.285 15.2728 6.285 11.7432C6.285 10.7397 6.63375 9.9092 7.20749 9.26326C7.1175 9.03257 6.8025 8.08674 7.2975 6.81794C7.2975 6.81794 8.05125 6.57571 9.77249 7.76377C10.4925 7.55615 11.2575 7.45234 12.0225 7.45234C12.7875 7.45234 13.5525 7.55615 14.2725 7.76377C15.9937 6.56418 16.7475 6.81794 16.7475 6.81794C17.2424 8.08674 16.9275 9.03257 16.8375 9.26326C17.4113 9.9092 17.76 10.7281 17.76 11.7432C17.76 15.2843 15.6563 16.0687 13.6537 16.2993C13.98 16.5877 14.2613 17.1414 14.2613 18.0065C14.2613 19.2407 14.25 20.2326 14.25 20.5441C14.25 20.7863 14.4188 21.0746 14.8688 20.9824C16.6554 20.364 18.2079 19.1866 19.3078 17.6162C20.4077 16.0457 20.9995 14.1611 21 12.2276C21 7.12937 16.9725 3 12 3Z"></path>
+    </svg>
+  )
+}
+
+export const shadcnLogo = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" {...props}>
+    <rect width="256" height="256" fill="none" />
+    <line
+      x1="208"
+      y1="128"
+      x2="128"
+      y2="208"
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="16"
+    />
+    <line
+      x1="192"
+      y1="40"
+      x2="40"
+      y2="192"
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="16"
+    />
+  </svg>
+)
+
+export const BuyMeACoffeeIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 884 1279">
+    <path
+      fill="currentColor"
+      d="m791 298-1-1-2-1 3 2Zm13 91h-1 1Zm-13-92v1-1Zm0 1v-1 1Zm12 91 2-1 1-1-3 2Zm-9-89-2-2h-1l3 2Zm-364 886-3 2h1l2-2Zm211-41v3-3Zm-22 41-3 2h1l2-2Zm-338 10-3-1 3 1Zm-33-32-1-4 1 4Z"
+    />
+    <path
+      fill="#FD0"
+      d="M473 591c-46 20-98 42-166 42-28 0-56-4-84-12l47 480a80 80 0 0 0 80 74l88 3 96-3a80 80 0 0 0 79-74l50-530c-22-8-44-13-70-13-44 0-79 15-120 33Z"
+    />
+    <path fill="currentColor" d="M79 386v1h1l-1-1Z" />
+    <path
+      fill="currentColor"
+      d="m880 342-7-36c-7-31-21-62-54-73-10-4-22-5-30-13s-11-19-12-30l-11-61c-3-17-5-37-13-52-10-22-32-34-53-42-11-5-22-8-33-11C613 10 557 5 503 2c-66-4-132-2-198 3-48 5-100 10-146 27-17 6-35 14-47 27a51 51 0 0 0-10 61c8 14 22 24 37 31 19 8 39 15 60 19a1334 1334 0 0 0 417 7c19-3 31-27 25-44-6-21-24-28-44-25l-9 1h-2a1234 1234 0 0 1-313 1l-6-1h-1l-6-1a665 665 0 0 1-42-9 6 6 0 0 1 3-9 626 626 0 0 1 45-8l21-2a1336 1336 0 0 1 290 1l7 1h5l43 8c21 5 47 6 57 29 3 7 4 15 6 23l2 10a153589 153589 0 0 0 15 74 13 13 0 0 1-11 10l-3 1h-3a1670 1670 0 0 1-253 16 1976 1976 0 0 1-250-16l-7-1-15-3-52-8c-21-4-41-2-60 8-16 9-28 22-36 38-8 17-11 35-14 53-4 18-10 38-8 56 5 40 33 73 74 80a2072 2072 0 0 0 604 20 26 26 0 0 1 28 29l-3 37a15200479 15200479 0 0 1-55 528c-2 22-2 44-6 66-7 34-30 54-63 62-31 7-62 11-94 11l-105-1c-37 0-82-3-111-31-26-24-29-63-32-96l-14-131-25-242-17-157-1-8c-2-19-15-37-36-36-18 0-38 16-36 36l12 116 25 241 22 205 4 40c8 71 62 110 130 121 40 6 80 8 120 8 52 1 104 3 155-6 75-14 131-64 139-142a758975 758975 0 0 0 30-290l25-243 11-111a26 26 0 0 1 21-22c21-5 42-12 57-28 24-26 29-60 21-94ZM72 366v4-4Zm3 16 1 1-2-1h1Zm2 3c0 1 1 2 0 0Zm4 3Zm720-5c-8 7-20 11-31 12a2172 2172 0 0 1-667-2c-9-1-19-3-25-9-12-13-6-38-3-53 3-14 8-33 25-35 26-3 56 8 81 12a1787 1787 0 0 0 562-7c22-4 45-11 58 11 9 15 10 35 9 52-1 7-4 14-9 19Z"
+    />
+  </svg>
+)
 
 export function create({
   icon: Icon,
