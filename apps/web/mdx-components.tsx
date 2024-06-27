@@ -1,5 +1,8 @@
+import { ComponentSource } from '@/components/mdx/component-source'
+import { Link, Links } from '@/components/mdx/links'
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion'
 import { Callout } from 'fumadocs-ui/components/callout'
+import { Card, Cards } from 'fumadocs-ui/components/card'
 import {
   CodeBlock,
   Pre,
@@ -12,21 +15,18 @@ import { Tab, Tabs } from 'fumadocs-ui/components/tabs'
 import { TypeTable } from 'fumadocs-ui/components/type-table'
 import defaultComponents from 'fumadocs-ui/mdx'
 import { Popup, PopupContent, PopupTrigger } from 'fumadocs-ui/twoslash/popup'
-import { HomeIcon } from 'lucide-react'
 import type { MDXComponents } from 'mdx/types'
 import { type ReactNode } from 'react'
-import { ComponentBase } from './components/component-base'
-import { ComponentPreview } from './components/component-preview'
-import { extractSourceCode } from './lib/extract-source'
 
 import { cn } from './lib/utils'
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     ...defaultComponents,
-    HomeIcon,
     Accordion,
     Accordions,
+    Card,
+    Cards,
     Files,
     File,
     Folder,
@@ -38,18 +38,17 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     PopupContent,
     PopupTrigger,
     ImageZoom,
+    Links,
+    Link,
     Steps,
     Step,
-    ComponentBase: ({ name, ...props }: { name: string }) => {
-      const code = extractSourceCode(name)
-      return <ComponentBase name={name} code={code} {...props} />
-    },
-    ComponentPreview: ({ name, ...props }) => (
-      <ComponentPreview name={name} code={extractSourceCode(name)} {...props} />
-    ),
+    ComponentSource,
     pre: ({ title, className, icon, allowCopy, ...props }: CodeBlockProps) => (
       <CodeBlock title={title} icon={icon} allowCopy={allowCopy}>
-        <Pre className={cn('max-h-[400px]', className)} {...props} />
+        <Pre
+          className={cn('max-h-[400px] overflow-auto', className)}
+          {...props}
+        />
       </CodeBlock>
     ),
     InstallTabs: ({
