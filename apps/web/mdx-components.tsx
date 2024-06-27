@@ -44,11 +44,13 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     Step,
     ComponentSource,
     pre: ({ title, className, icon, allowCopy, ...props }: CodeBlockProps) => (
-      <CodeBlock title={title} icon={icon} allowCopy={allowCopy}>
-        <Pre
-          className={cn('max-h-[400px] overflow-auto', className)}
-          {...props}
-        />
+      <CodeBlock
+        title={title}
+        icon={icon}
+        allowCopy={allowCopy}
+        className="overflow-auto "
+      >
+        <Pre className={cn('', className)} {...props} />
       </CodeBlock>
     ),
     InstallTabs: ({

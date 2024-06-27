@@ -32,7 +32,11 @@ export type CodeBlockProps = HTMLAttributes<HTMLElement> & {
 export const Pre = forwardRef<HTMLPreElement, HTMLAttributes<HTMLPreElement>>(
   ({ className, ...props }, ref) => {
     return (
-      <pre ref={ref} className={cn('nd-codeblock p-4', className)} {...props}>
+      <pre
+        ref={ref}
+        className={cn('nd-codeblock max-h-[400px] p-4', className)}
+        {...props}
+      >
         {props.children}
       </pre>
     )
@@ -96,16 +100,8 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(
           )
         )}
         <ScrollArea ref={areaRef} dir="ltr">
-          {/* Added max-height */}
-          <ScrollViewport>
-            <div className="max-h-full overflow-y-auto">
-              {' '}
-              {/* Added vertical scrolling */}
-              {props.children}
-            </div>
-          </ScrollViewport>
+          <ScrollViewport>{props.children}</ScrollViewport>
           <ScrollBar orientation="horizontal" />
-          <ScrollBar orientation="vertical" /> {/* Added vertical scrollbar */}
         </ScrollArea>
       </figure>
     )
