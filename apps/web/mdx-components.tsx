@@ -1,13 +1,13 @@
+import {
+  CodeBlock,
+  Pre,
+  type CodeBlockProps,
+} from '@/components/mdx/code-block'
 import { ComponentSource } from '@/components/mdx/component-source'
 import { Link, Links } from '@/components/mdx/links'
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion'
 import { Callout } from 'fumadocs-ui/components/callout'
 import { Card, Cards } from 'fumadocs-ui/components/card'
-import {
-  CodeBlock,
-  Pre,
-  type CodeBlockProps,
-} from 'fumadocs-ui/components/codeblock'
 import { File, Files, Folder } from 'fumadocs-ui/components/files'
 import { ImageZoom } from 'fumadocs-ui/components/image-zoom'
 import { Step, Steps } from 'fumadocs-ui/components/steps'
