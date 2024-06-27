@@ -1,7 +1,6 @@
 import { createMetadata } from '@/lib/metadata'
 import { utils, type Page } from '@/lib/source'
 import { Card, Cards } from 'fumadocs-ui/components/card'
-import { RollButton } from 'fumadocs-ui/components/roll-button'
 import { DocsBody, DocsPage } from 'fumadocs-ui/page'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
@@ -33,7 +32,6 @@ export default function Page({
         enabled: page.data.toc,
       }}
     >
-      <RollButton />
       <h1 className="font-heading text-foreground text-3xl font-bold">
         {page.data.title}
       </h1>
