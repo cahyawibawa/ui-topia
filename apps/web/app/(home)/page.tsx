@@ -1,12 +1,13 @@
 import { ExamplesNav } from '@/components/examples-nav'
-import { SwitcherHero } from '@/components/hero/switcher-hero'
 import { Shell } from '@/components/shell'
+
+import { HeroHomepage } from '@/components/static-hero'
 import ButtonsPage from '../examples/buttons/page'
 
 export default function Home() {
   return (
     <Shell>
-      <SwitcherHero />
+      <HeroHomepage />
       <ExamplesNav className="[&>a:first-child]:text-primary" />
       <div className="overflow-hidden rounded-[0.5rem] border shadow-md md:shadow-xl">
         <ButtonsPage />
