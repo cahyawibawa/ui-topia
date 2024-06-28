@@ -15,7 +15,7 @@ import Link from 'next/link'
 
 export const HeroHomepage = () => {
   return (
-    <div className="mb-8 overflow-hidden  text-center md:h-[580px]">
+    <div className="overflow-hidden text-center md:mb-6 md:h-[580px]">
       <div className="relative flex size-full flex-col items-center justify-between pb-6">
         <Image
           className="absolute top-0 -z-10 mt-24 hidden h-full w-[1450px] max-w-[unset] scale-90 object-contain md:block"
