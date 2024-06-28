@@ -2,10 +2,24 @@
 
 import { useSpring } from '@react-spring/web'
 import createGlobe, { COBEOptions } from 'cobe'
-import { useCallback, useEffect, useRef } from 'react'
+import React, { useCallback, useEffect, useRef } from 'react'
 import { cn } from '../lib/utils'
 
-const GLOBE_CONFIG: COBEOptions = {
+interface GlobeProps {
+  className?: string
+  config?: COBEOptions
+  dark?: boolean
+  baseColor?: string
+  glowColor?: string
+  markerColor?: string
+  opacity?: number
+  brightness?: number
+  offsetX?: number
+  offsetY?: number
+  scale?: number
+}
+
+const DEFAULT_GLOBE_CONFIG: COBEOptions = {
   width: 800,
   height: 800,
   onRender: () => {},
@@ -33,17 +47,32 @@ const GLOBE_CONFIG: COBEOptions = {
   ],
 }
 
-export default function Globe({
+const parseColor = (color: string): [number, number, number] => {
+  const parsed = color.split(',').map(Number)
+  if (parsed.length !== 3) {
+    console.warn(`Invalid color format: ${color}. Using fallback color.`)
+    return [1, 1, 1] // Fallback to white
+  }
+  return parsed as [number, number, number]
+}
+
+const Globe: React.FC<GlobeProps> = ({
   className,
-  config = GLOBE_CONFIG,
-}: {
-  className?: string
-  config?: COBEOptions
-}) {
+  config = DEFAULT_GLOBE_CONFIG,
+  dark = false,
+  baseColor = '119,122,128',
+  glowColor = '80,80,90',
+  markerColor = '34,211,238',
+  opacity = 0.85,
+  brightness = 1,
+  offsetX = 0,
+  offsetY = 0,
+  scale = 1,
+}) => {
   let phi = 0
   let width = 0
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const pointerInteracting = useRef(null)
+  const pointerInteracting = useRef<number | null>(null)
   const pointerInteractionMovement = useRef(0)
   const [{ r }, api] = useSpring(() => ({
     r: 0,
@@ -55,12 +84,14 @@ export default function Globe({
     },
   }))
 
-  const updatePointerInteraction = (value: any) => {
+  const updatePointerInteraction = (value: number | null) => {
     pointerInteracting.current = value
-    canvasRef.current!.style.cursor = value ? 'grabbing' : 'grab'
+    if (canvasRef.current) {
+      canvasRef.current.style.cursor = value ? 'grabbing' : 'grab'
+    }
   }
 
-  const updateMovement = (clientX: any) => {
+  const updateMovement = (clientX: number) => {
     if (pointerInteracting.current !== null) {
       const delta = clientX - pointerInteracting.current
       pointerInteractionMovement.current = delta
@@ -88,16 +119,30 @@ export default function Globe({
     window.addEventListener('resize', onResize)
     onResize()
 
-    const globe = createGlobe(canvasRef.current!, {
+    const updatedConfig: COBEOptions = {
       ...config,
       width: width * 2,
       height: width * 2,
       onRender,
+      dark: dark ? 1 : 0,
+      baseColor: parseColor(baseColor),
+      glowColor: parseColor(glowColor),
+      markerColor: parseColor(markerColor),
+    }
+
+    const globe = createGlobe(canvasRef.current!, updatedConfig)
+
+    setTimeout(() => {
+      if (canvasRef.current) {
+        canvasRef.current.style.opacity = '1'
+      }
     })
 
-    setTimeout(() => (canvasRef.current!.style.opacity = '1'))
-    return () => globe.destroy()
-  }, [])
+    return () => {
+      globe.destroy()
+      window.removeEventListener('resize', onResize)
+    }
+  }, [config, dark, baseColor, glowColor, markerColor])
 
   return (
     <div
@@ -105,6 +150,11 @@ export default function Globe({
         'absolute inset-0 mx-auto aspect-[1/1] w-full max-w-[600px]',
         className
       )}
+      style={{
+        opacity,
+        filter: `brightness(${brightness})`,
+        transform: `translate(${offsetX}px, ${offsetY}px) scale(${scale})`,
+      }}
     >
       <canvas
         className={cn(
@@ -126,3 +176,5 @@ export default function Globe({
     </div>
   )
 }
+
+export default Globe

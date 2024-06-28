@@ -99,7 +99,7 @@ function Modal(props: { offering: OfferingProps | null; onClick: () => void }) {
             onClick={props.onClick}
           >
             <motion.div
-              className="relative mx-auto h-[96vh] max-w-[960px] overflow-y-auto rounded-t-[30px] border bg-[#090A0B] p-8"
+              className="relative mx-auto h-[96vh] max-w-[760px] overflow-y-auto rounded-t-[30px] border bg-[#090A0B] p-8"
               layoutId={`offeringContainer${props.offering.id}`}
             >
               <motion.img
