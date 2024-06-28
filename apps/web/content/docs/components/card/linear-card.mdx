@@ -22,7 +22,7 @@ import { useState } from 'react'
 import { CrossIcon, PlusIcon } from '../icons'
 import { Button } from '../ui/custom-btn'
 
-interface OfferingProps {
+interface LinearCardProps {
 id: number
 title: string
 description: string
@@ -41,9 +41,9 @@ banner:
 // add more data here
 ]
 
-export default function LinearCardDemo() {
+export function LinearCardDemo() {
   const [selectedOffering, setSelectedOffering] =
-    useState<OfferingProps | null>(null)
+    useState<LinearCardProps | null>(null)
 
 return (
 
@@ -67,7 +67,7 @@ return (
 </>
 ) }
 
-function Card(props: { offering: OfferingProps; onClick: () => void }) {
+function Card(props: { offering: LinearCardProps; onClick: () => void }) {
 return (
 
 <motion.li
@@ -96,7 +96,10 @@ return (
 </motion.li>
 ) }
 
-function Modal(props: { offering: OfferingProps | null; onClick: () => void }) {
+function Modal(props: {
+offering: LinearCardProps | null
+onClick: () => void
+}) {
 return (
 
 <>
@@ -166,3 +169,29 @@ return (
 
   </Tab>
 </Tabs>
+## Refference
+
+<TypeTable
+  type={{
+    id: {
+      description: 'Unique identifier for the card',
+      type: 'number',
+      required: true,
+    },
+    title: {
+      description: 'Title of the card',
+      type: 'string',
+      required: true,
+    },
+    description: {
+      description: 'Detailed description of the card content',
+      type: 'string',
+      required: true,
+    },
+    banner: {
+      description: 'URL of the banner image for the card',
+      type: 'string',
+      required: true,
+    },
+  }}
+/>

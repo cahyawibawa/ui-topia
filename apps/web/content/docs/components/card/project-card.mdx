@@ -69,7 +69,7 @@ video: '',
 // add more projects here
 ]
 
-export default function ProjectCardDemo() {
+export function ProjectCardDemo() {
   return (
     <div className="mx-auto grid max-w-[800px] grid-cols-1 gap-3 sm:grid-cols-2">
       {projects.map((project, id) => (
@@ -100,9 +100,25 @@ export default function ProjectCardDemo() {
 <Step>
 ### Install dependencies
 
-```bash
+<InstallTabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+
+```bash tab="npm"
 npx shadcn-ui@latest add card badge
 ```
+
+```bash tab="pnpm"
+pnpm dlx shadcn-ui@latest add card badge
+```
+
+```bash tab="yarn"
+npx shadcn-ui@latest add card badge
+```
+
+```bash tab="bun"
+bunx --bun shadcn-ui@latest add card badge
+```
+
+</InstallTabs>
 
 </Step>
 
@@ -228,3 +244,60 @@ export function ProjectCard({
 
 </Step>
 </Steps>
+
+## Refference
+
+<TypeTable
+  type={{
+    title: {
+      description: 'The title of the project card',
+      type: 'string',
+      required: true,
+    },
+    href: {
+      description: 'Optional hyperlink reference for the project card',
+      type: 'string',
+      required: false,
+    },
+    description: {
+      description: 'A brief description of the project',
+      type: 'string',
+      required: true,
+    },
+    dates: {
+      description: 'Dates associated with the project',
+      type: 'string',
+      required: true,
+    },
+    tags: {
+      description: 'An array of tech stack tags related to the project',
+      type: 'readonly string[]',
+      required: true,
+    },
+    link: {
+      description: 'Optional link associated with the project',
+      type: 'string',
+      required: false,
+    },
+    image: {
+      description: 'Optional image associated with the project',
+      type: 'string',
+      required: false,
+    },
+    video: {
+      description: 'Optional video associated with the project',
+      type: 'string',
+      required: false,
+    },
+    links: {
+      description: 'Optional array of links with icons related to the project',
+      type: 'readonly { icon: React.ReactNode, type: string, href: string }[]',
+      required: false,
+    },
+    className: {
+      description: 'Additional CSS classes to apply to the project card',
+      type: 'string',
+      required: false,
+    },
+  }}
+/>

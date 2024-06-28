@@ -1,64 +1,77 @@
 ---
 title: Installation
-description: How to install dependencies and structure your app.
-icon: FolderTree
+description: A guide to setting up your project with the necessary dependencies and structure.
+icon: PackagePlus
 ---
 
-ui/topia currently only supports **React**. This project and all its components are written in TypeScript and Tailwind CSS. Additionally, some components require Framer Motion. We recommend using TypeScript for your project as well.
+This project is built with Next.js and leverages TypeScript and Tailwind CSS for all its components. Some components also require [shadcn/ui](https://ui.shadcn.com/docs/installation) and Framer Motion. While we recommend TypeScript for optimal development experience, JavaScript is also supported.
 
 <Steps>
 <Step>
-### Add tailwind css
+### Install Next.js
+<InstallTabs items={['npm', 'pnpm', 'yarn', 'bun']}>
 
-Components are styled using Tailwind CSS. You need to install Tailwind CSS in your project.
+```bash tab="npm"
+npx create-next-app@latest my-app --typescript --tailwind --eslint framer-motion
 
-[Follow the Tailwind CSS installation instructions to get started.](https://tailwindcss.com/docs/installation)
+```
+
+```bash tab="pnpm"
+pnpm create next-app@latest my-app --typescript --tailwind --eslint framer-motion
+
+```
+
+```bash tab="yarn"
+yarn add @react-spring/web cobeyarn create next-app@latest my-app --typescript  framer-motion--tailwind --eslint
+```
+
+```bash tab="bun"
+bunx --bun create-next-app@latest my-app --typescript --tailwind --eslint framer-motion
+
+```
+
+</InstallTabs>
 
 </Step>
 
 <Step>
+### Run the CLI
 
-### Add dependencies
+Run the `shadcn-ui` init command to setup your project:
 
-Add the following dependencies to your project:
-
-</Step>
 <InstallTabs items={['npm', 'pnpm', 'yarn', 'bun']}>
-    <Tab value='npm'>
 
-```bash
-npm install tailwindcss-animate class-variance-authority clsx tailwind-merge
-
+```bash tab="npm"
+npx shadcn-ui@latest init
 ```
 
-    </Tab>
-        <Tab value='yarn'>
-
-```bash
-yarn add tailwindcss-animate class-variance-authority clsx tailwind-merge
-
+```bash tab="pnpm"
+pnpm dlx shadcn-ui@latest init
 ```
 
-    </Tab>
-    <Tab value="pnpm">
-
-```bash
-pnpm add tailwindcss-animate class-variance-authority clsx tailwind-merge
-
+```bash tab="yarn"
+npx shadcn-ui@latest init
 ```
 
-    </Tab>
-
-    <Tab value='bun'>
-
-```bash
-bun add tailwindcss-animate class-variance-authority clsx tailwind-merge
-
+```bash tab="bun"
+bunx --bun shadcn-ui@latest init
 ```
-
-    </Tab>
 
 </InstallTabs>
+</Step>
+
+<Step>
+## Configure components.json
+You will be asked a few questions to configure components.json:
+
+```txt
+Which style would you like to use? › Default
+Which color would you like to use as base color? › Zinc
+Do you want to use CSS variables for colors? › no / yes
+```
+
+</Step>
+
 <Step>
 
 ### Add cn helper
@@ -97,17 +110,45 @@ Here's how I structure my Next.js apps. You can use this as a reference:
         <Folder name="styles" defaultOpen>
              <File name="globals.css" />
         </Folder>
-         <File name="next.config.mjs" />
+         <File name="components.json" />
+         <File name="next.config.js" />
         <File name="package.json" />
          <File name="postcss.config.js" />
         <File name="tailwind.config.ts" />
         <File name="tsconfig.json" />
       </Files>
 
-- I place the UI components [shadcn/ui](https://ui.shadcn.com/) in the components/ui folder.
-- The rest of the components such as `<SiteHeader />` and `<SiteFooter />` are placed in the components folder.
-- The lib folder contains all the utility functions. I have a utils.ts where I define the cn helper.
-- The styles folder contains the global CSS.
+- I place the UI components `shadcn/ui` in the `components/ui` folder.
+- The rest of the components such as `<SiteHeader />` and `<SiteFooter />` are placed in the `components` folder.
+- The `lib` folder contains all the utility functions. I have a `utils.ts` where I define the `cn` helper.
+- The `styles` folder contains the global CSS.
+
+</Step>
+
+<Step>
+### That's it
+
+You can now start adding shadcn/ui components to your project.
+
+<InstallTabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+
+```bash tab="npm"
+npx shadcn-ui@latest add button
+```
+
+```bash tab="pnpm"
+pnpm dlx shadcn-ui@latest add button
+```
+
+```bash tab="yarn"
+npx shadcn-ui@latest add button
+```
+
+```bash tab="bun"
+bunx --bun shadcn-ui@latest add button
+```
+
+</InstallTabs>
 
 </Step>
 

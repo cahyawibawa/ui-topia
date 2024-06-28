@@ -1,0 +1,212 @@
+---
+title: Theming
+description: Using CSS Variables or Tailwind CSS for theming.
+icon: Palette
+---
+
+You can choose between using CSS variables or Tailwind CSS utility classes for theming.
+
+## Utility classes
+
+```tsx /bg-zinc-950/ /text-zinc-50/ /dark:bg-white/ /dark:text-zinc-950/
+<div className="bg-zinc-950 dark:bg-white" />
+```
+
+To use utility classes for theming set `tailwind.cssVariables` to `false` in your `components.json` file.
+
+```json {8} title="components.json"
+{
+  "style": "default",
+  "rsc": true,
+  "tailwind": {
+    "config": "tailwind.config.ts",
+    "css": "app/globals.css",
+    "baseColor": "slate",
+    "cssVariables": false // [!code highlight]
+  },
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils"
+  }
+}
+```
+
+## CSS Variables
+
+```tsx
+<div className="bg-background text-foreground" />
+```
+
+To use CSS variables for theming set tailwind.cssVariables to true in your `components.json` file.
+
+```json title="components.json" {8}
+{
+  "style": "default",
+  "rsc": true,
+  "tailwind": {
+    "config": "tailwind.config.ts",
+    "css": "app/globals.css",
+    "baseColor": "zinc",
+    "cssVariables": true // [!code highlight]
+  },
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils"
+  }
+}
+```
+
+### Convention
+
+We use a simple `background` and `foreground` convention for colors. The background variable is used for the background color of the component and the `foreground` variable is used for the text color.
+
+<Callout type="info">
+  The `background` suffix is omitted when the variable is used for the
+  background color of the component.
+</Callout>
+
+Given the following CSS variables:
+
+```css
+--primary: 222.2 47.4% 11.2%;
+--primary-foreground: 210 40% 98%;
+```
+
+The `background` color of the following component will be `hsl(var(--primary))` and the `foreground` color will be `hsl(var(--primary-foreground))`.
+
+```tsx
+<div className="bg-primary text-primary-foreground">Hello</div>
+```
+
+<Callout type="info">
+  **CSS variables must be defined without color space function**. See the
+  [Tailwind CSS
+  documentation](https://tailwindcss.com/docs/customizing-colors#using-css-variables)
+</Callout>
+
+Here's my `globals.css` variables
+
+```css title="globals.css"
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+```
+
+### Adding new colors
+
+To add new colors, you need to add them to your CSS file and to your `tailwind.config.ts` file.
+
+```css title="app/globals.css"
+:root {
+  --warning: 38 92% 50%;
+  --warning-foreground: 48 96% 89%;
+}
+
+.dark {
+  --warning: 48 96% 89%;
+  --warning-foreground: 38 92% 50%;
+}
+```
+
+<br/>
+```js title="tailwind.config.ts"
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        warning: 'hsl(var(--warning))', // [!code highlight]
+        'warning-foreground': 'hsl(var(--warning-foreground))', // [!code highlight]
+      },
+    },
+  },
+}
+```
+
+You can now use the `warning` utility class in your components.
+
+```tsx /bg-warning/ /text-warning-foreground/
+<div className="bg-warning text-warning-foreground" />
+```
+
+### Other color formats
+
+For effective theming, I recommend leveraging [HSL colors](https://www.smashingmagazine.com/2021/07/hsl-colors-css/) (Hue, Saturation, Lightness). HSL offers intuitive control over color properties, making it ideal for creating cohesive color schemes. However, if you prefer, other color formats can also be utilized. To explore a wide range of theme options specifically tailored for shadcn/ui, the resource at [ui.jln.dev](https://ui.jln.dev/) provides over 10,000 variations, offering ample inspiration and customization possibilities
+
+See the [Tailwind CSS documentation](https://tailwindcss.com/docs/customizing-colors#using-css-variables) for more information on using `rgb`, `rgba` or `hsl` colors.
