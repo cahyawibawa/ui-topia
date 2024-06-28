@@ -1,3 +1,4 @@
+import { rehypeCodeDefaultOptions } from 'fumadocs-core/mdx-plugins'
 import {
   fileGenerator,
   remarkDocGen,
@@ -5,6 +6,7 @@ import {
   typescriptGenerator,
 } from 'fumadocs-docgen'
 import createMDX from 'fumadocs-mdx/config'
+import { transformerTwoslash } from 'fumadocs-twoslash'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -26,6 +28,10 @@ const nextConfig = {
 const withMDX = createMDX({
   mdxOptions: {
     rehypeCodeOptions: {
+      transformers: [
+        ...rehypeCodeDefaultOptions.transformers,
+        transformerTwoslash(),
+      ],
       themes: {
         light: 'vitesse-light',
         dark: 'vesper',
