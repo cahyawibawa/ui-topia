@@ -10,14 +10,7 @@ const ui: Registry = {
 }
 
 const example: Registry = {
-  'globe-card-demo': {
-    name: 'globe-card-demo',
-    type: 'components:example',
-    files: ['./components/examples/globe-card-demo.tsx'],
-    component: React.lazy(
-      () => import('./components/examples/globe-card-demo')
-    ),
-  },
+
   'blur-hero-demo': {
     name: 'blur-hero-demo',
     type: 'components:example',
@@ -32,12 +25,28 @@ const example: Registry = {
       () => import('./components/examples/client-logo-demo')
     ),
   },
+  'globe-card-demo': {
+    name: 'globe-card-demo',
+    type: 'components:example',
+    files: ['./components/examples/globe-card-demo.tsx'],
+    component: React.lazy(
+      () => import('./components/examples/globe-card-demo')
+    ),
+  },
   'linear-card-demo': {
     name: 'linear-card-demo',
     type: 'components:example',
     files: ['./components/examples/linear-card-demo.tsx'],
     component: React.lazy(
       () => import('./components/examples/linear-card-demo')
+    ),
+  },
+  'marquee-logo-demo': {
+    name: 'marquee-logo-demo',
+    type: 'components:example',
+    files: ['./components/examples/marquee-logo-demo.tsx'],
+    component: React.lazy(
+      () => import('./components/examples/marquee-logo.demo')
     ),
   },
   'project-card-demo': {
