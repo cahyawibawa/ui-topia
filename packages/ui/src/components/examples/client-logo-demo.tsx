@@ -4,47 +4,47 @@ import { useState } from 'react'
 import { useInterval } from 'usehooks-ts'
 
 export default function ClientLogoBlur() {
-  const [batch, setBatch] = useState(0)
+  const [batch, setBatch] = useState(0);
 
   useInterval(() => {
-    setBatch((b) => (b + 1) % 2)
-  }, 3000)
+    setBatch((b) => (b + 1) % 2);
+  }, 3000);
 
   return (
-    <main className="flex size-full flex-col items-center justify-center overflow-y-auto p-4 md:p-8">
-      <div className="flex w-full max-w-screen-md flex-wrap items-center justify-center gap-x-6 gap-y-16">
-        {LOGOS.map((_, groupIndex) => (
-          <LogoContainer
-            key={groupIndex}
-            groupIndex={groupIndex}
-            batch={batch}
-          />
-        ))}
-      </div>
-    </main>
+
+    <div className="flex w-full max-w-screen-md flex-wrap items-center justify-center gap-x-6 gap-y-16">
+      {LOGOS.map((_, groupIndex) => (
+        <LogoContainer
+          key={groupIndex}
+          groupIndex={groupIndex}
+          batch={batch}
+        />
+      ))}
+    </div>
+
   )
 }
 
 function LogoContainer(props: { groupIndex: number; batch: number }) {
   return (
-    <div className="text-foreground flex w-[40%] items-center justify-center md:w-[31%]">
+    <div className="flex w-[40%] items-center justify-center text-foreground md:w-[31%]">
       <AnimatePresence initial={false} mode="popLayout">
         <motion.div
           key={props.batch}
-          initial={{ opacity: 0, scale: 0.8, filter: 'blur(6px)' }}
-          animate={{ opacity: 1, scale: 1, filter: 'blur(0)' }}
-          exit={{ opacity: 0, scale: 0.8, filter: 'blur(6px)' }}
+          initial={{ opacity: 0, scale: 0.8, filter: "blur(6px)" }}
+          animate={{ opacity: 1, scale: 1, filter: "blur(0)" }}
+          exit={{ opacity: 0, scale: 0.8, filter: "blur(6px)" }}
           transition={{
-            ease: 'easeInOut',
+            ease: "easeInOut",
             duration: 0.4 + 0.03 * props.groupIndex,
             delay: 0.04 + 0.03 * props.groupIndex,
           }}
         >
-          {LOGOS[props.groupIndex][props.batch]({ className: 'w-[156px]' })}
+          {LOGOS[props.groupIndex][props.batch]({ className: "w-[156px]" })}
         </motion.div>
       </AnimatePresence>
     </div>
-  )
+  );
 }
 const LOGOS = [
   [Logo1, Logo2],
@@ -53,7 +53,7 @@ const LOGOS = [
   [Logo7, Logo8],
   [Logo9, Logo10],
   [Logo11, Logo12],
-]
+];
 
 function Logo1(props: { className: string }) {
   return (
