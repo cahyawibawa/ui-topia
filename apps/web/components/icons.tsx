@@ -12,7 +12,7 @@ import {
   Leaf,
   LifeBuoyIcon,
   MessagesSquare,
-  RotateCcw,
+  RotateCw,
   ScanEye,
   TerminalIcon,
   UsersRound,
@@ -34,7 +34,7 @@ export const Icons = {
   arrow: ChevronRight,
   leaf: Leaf,
   life: LifeBuoyIcon,
-  refresh: RotateCcw,
+  refresh: RotateCw,
   teams: UsersRound,
   scan: ScanEye,
   logo: (props: IconProps) => (
