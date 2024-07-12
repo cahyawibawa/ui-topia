@@ -11,7 +11,7 @@ interface Param {
 
 export const dynamicParams = false
 
-export default function Page({
+export default function DocumentationPage({
   params,
 }: {
   params: Param
@@ -32,10 +32,10 @@ export default function Page({
         enabled: page.data.toc,
       }}
     >
-      <h1 className="font-heading text-foreground text-3xl font-bold">
+      <h1 className="font-heading scroll-m-20 text-3xl font-bold tracking-tight">
         {page.data.title}
       </h1>
-      <p className="text-muted-foreground text-lg">{page.data.description}</p>
+      <p className="text-muted-foreground">{page.data.description}</p>
       <DocsBody>
         {page.data.index ? <Category page={page} /> : <MDX />}
       </DocsBody>
