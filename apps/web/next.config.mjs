@@ -33,7 +33,7 @@ const withMDX = createMDX({
         transformerTwoslash(),
       ],
       themes: {
-        light: 'vitesse-light',
+        light: 'catppuccin-latte',
         dark: 'vesper',
       },
     },
