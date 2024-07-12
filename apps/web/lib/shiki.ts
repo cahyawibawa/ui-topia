@@ -1,5 +1,3 @@
-import { bundledLanguages, createHighlighter } from 'shiki'
-
 export const codeToHtml = async ({
   code,
   lang,
@@ -9,6 +7,8 @@ export const codeToHtml = async ({
   lang: string
   theme: 'light' | 'dark'
 }) => {
+  const { bundledLanguages, createHighlighter } = await import('shiki')
+
   const highlighter = await createHighlighter({
     themes: ['catppuccin-latte', 'vesper'],
     langs: [...Object.keys(bundledLanguages)],
