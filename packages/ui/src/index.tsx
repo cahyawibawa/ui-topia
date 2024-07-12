@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Registry } from './schema'
+import type { Registry } from './schema'
 
 const ui: Registry = {
   globe: {
@@ -20,7 +20,6 @@ const ui: Registry = {
 }
 
 const example: Registry = {
-
   'blur-hero-demo': {
     name: 'blur-hero-demo',
     type: 'components:example',

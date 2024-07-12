@@ -11,7 +11,7 @@ interface Param {
 
 export const dynamicParams = false
 
-export default function DocumentationPage({
+export default function Page({
   params,
 }: {
   params: Param
