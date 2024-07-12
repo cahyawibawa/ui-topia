@@ -10,9 +10,9 @@ interface LinkItem {
 }
 
 const Icons: Record<LinkIcon, React.ReactNode> = {
-  linear: <LinearLogo className="size-4 text-black dark:text-current" />,
-  twitter: <TwitterIcon className="size-4 text-black dark:text-current" />,
-  github: <GitHubIcon className="size-4 text-black dark:text-current" />,
+  linear: <LinearLogo className="size-3 text-black dark:text-current" />,
+  twitter: <TwitterIcon className="size-3.5 text-black dark:text-current" />,
+  github: <GitHubIcon className="size-3.5 text-black dark:text-current" />,
 }
 
 export function Links({ children }: PropsWithChildren<LinkItem[]>) {

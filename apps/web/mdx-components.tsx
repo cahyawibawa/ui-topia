@@ -1,9 +1,3 @@
-import {
-  CodeBlock,
-  Pre,
-  type CodeBlockProps,
-} from '@/components/mdx/code-block'
-import { ComponentSource } from '@/components/mdx/component-source'
 import { Link, Links } from '@/components/mdx/links'
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion'
 import { Callout } from 'fumadocs-ui/components/callout'
@@ -16,8 +10,11 @@ import { TypeTable } from 'fumadocs-ui/components/type-table'
 import defaultComponents from 'fumadocs-ui/mdx'
 import { Popup, PopupContent, PopupTrigger } from 'fumadocs-ui/twoslash/popup'
 import type { MDXComponents } from 'mdx/types'
-import { type ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
+import { ComponentBase } from './components/mdx/component-base'
+import { ComponentPreview } from './components/mdx/component-preview'
+import { extractSourceCode } from './lib/extract-source'
 import { cn } from './lib/utils'
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
@@ -42,16 +39,40 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     Link,
     Steps,
     Step,
-    ComponentSource,
-    pre: ({ title, className, icon, allowCopy, ...props }: CodeBlockProps) => (
-      <CodeBlock
-        title={title}
-        icon={icon}
-        allowCopy={allowCopy}
-        className="overflow-auto "
-      >
-        <Pre className={cn('', className)} {...props} />
-      </CodeBlock>
+    h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+      <h1
+        className={cn(
+          'font-heading mt-2 scroll-m-20 text-4xl font-bold',
+          className
+        )}
+        {...props}
+      />
+    ),
+    h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+      <h2
+        className={cn(
+          'mt-12 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0',
+          className
+        )}
+        {...props}
+      />
+    ),
+    h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+      <h3
+        className={cn(
+          'mt-8 scroll-m-20 text-lg font-semibold tracking-tight',
+          className
+        )}
+        {...props}
+      />
+    ),
+    ComponentBase: ({ name, ...props }) => {
+      return (
+        <ComponentBase name={name} code={extractSourceCode(name)} {...props} />
+      )
+    },
+    ComponentPreview: ({ name, ...props }) => (
+      <ComponentPreview name={name} code={extractSourceCode(name)} {...props} />
     ),
     InstallTabs: ({
       items,

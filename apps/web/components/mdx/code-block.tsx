@@ -5,9 +5,11 @@ import {
   ScrollBar,
   ScrollViewport,
 } from '@/components/ui/scroll-area'
+
 import { useCopyButton } from '@/lib/use-copy-btn'
 import { cn } from '@/lib/utils'
 import { Check, Copy } from 'lucide-react'
+import { useTheme } from 'next-themes'
 import {
   forwardRef,
   useCallback,
@@ -17,7 +19,6 @@ import {
   type ReactElement,
   type ReactNode,
 } from 'react'
-
 export type CodeBlockProps = HTMLAttributes<HTMLElement> & {
   /**
    * Icon of code block
@@ -31,10 +32,15 @@ export type CodeBlockProps = HTMLAttributes<HTMLElement> & {
 
 export const Pre = forwardRef<HTMLPreElement, HTMLAttributes<HTMLPreElement>>(
   ({ className, ...props }, ref) => {
+    const { theme } = useTheme()
     return (
       <pre
         ref={ref}
-        className={cn('nd-codeblock max-h-[400px] p-4', className)}
+        className={cn(
+          'relative overflow-x-auto p-4 text-sm',
+          theme === 'dark' ? 'bg-[#101010]' : 'bg-[#EFF1F5]',
+          className
+        )}
         {...props}
       >
         {props.children}
@@ -65,13 +71,13 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(
       <figure
         ref={ref}
         className={cn(
-          'not-prose bg-secondary/50 group relative overflow-hidden rounded-lg border text-sm',
+          'not-prose group relative overflow-hidden rounded-lg border text-sm',
           className
         )}
         {...props}
       >
         {title ? (
-          <div className="bg-muted flex flex-row items-center gap-2 border-b px-4 py-1.5">
+          <div className="bg-primary-foreground flex flex-row items-center gap-2 border-b px-4 py-1.5">
             {icon ? (
               <div
                 className="text-muted-foreground [&_svg]:size-3.5"
@@ -125,6 +131,7 @@ function CopyButton({
       className={cn(
         buttonVariants({
           variant: 'ghost',
+          size: 'sm',
           className: 'transition-all group-hover:opacity-100',
         }),
         !checked && 'opacity-0',
@@ -139,7 +146,7 @@ function CopyButton({
       />
       <Copy
         className={cn(
-          'absolute size-3.5 transition-transform',
+          'text-foreground absolute size-3.5 transition-transform',
           checked && 'scale-0'
         )}
       />
