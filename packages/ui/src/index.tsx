@@ -7,6 +7,16 @@ const ui: Registry = {
     type: 'components:ui',
     files: ['./components/globe.tsx'],
   },
+  marquee: {
+    name: 'marquee',
+    type: 'components:ui',
+    files: ['./components/marquee.tsx'],
+  },
+  projectCard: {
+    name: 'project-card',
+    type: 'components:ui',
+    files: ['./components/project-card.tsx'],
+  },
 }
 
 const example: Registry = {
@@ -46,7 +56,7 @@ const example: Registry = {
     type: 'components:example',
     files: ['./components/examples/marquee-logo-demo.tsx'],
     component: React.lazy(
-      () => import('./components/examples/marquee-logo.demo')
+      () => import('./components/examples/marquee-logo-demo')
     ),
   },
   'project-card-demo': {

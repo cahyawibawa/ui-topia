@@ -5,7 +5,7 @@ import { ProjectCard } from '../project-card'
 const projects = [
   {
     title: 'Stashticly',
-    href: 'https://antimetal.com',
+    href: 'https://stashticly.vercel.app',
     dates: 'Jan 2024 - Feb 2024',
     active: true,
     description: 'A simple, open source, and free expense tracking app.',
