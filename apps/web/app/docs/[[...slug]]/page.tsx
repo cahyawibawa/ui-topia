@@ -1,5 +1,8 @@
+import { Icons } from '@/components/icons'
+import { buttonVariants } from '@/components/ui/button'
 import { createMetadata } from '@/lib/metadata'
 import { utils, type Page } from '@/lib/source'
+import { cn } from '@/lib/utils'
 import { Card, Cards } from 'fumadocs-ui/components/card'
 import { DocsBody, DocsPage } from 'fumadocs-ui/page'
 import type { Metadata } from 'next'
@@ -20,22 +23,44 @@ export default function Page({
 
   if (!page) notFound()
 
-  const path = `apps/docs/content/docs/${page.file.path}`
+  const path = `apps/web/content/docs/${page.file.path}`
   const preview = page.data.preview
   const MDX = page.data.exports.default
+
+  const footer = (
+    <a
+      href={`https://github.com/cahyawibawa/ui-topia/blob/main/${path}`}
+      target="_blank"
+      rel="noreferrer noopener"
+      className={cn(
+        buttonVariants({
+          variant: 'outline',
+          size: 'sm',
+          className: 'gap-1.5 text-xs',
+        })
+      )}
+    >
+      <Icons.edit className="size-3" />
+      Edit on Github
+    </a>
+  )
 
   return (
     <DocsPage
       toc={page.data.exports.toc}
       lastUpdate={page.data.exports.lastModified}
+      full={page.data.full}
       tableOfContent={{
-        enabled: page.data.toc,
+        footer,
       }}
+      tableOfContentPopover={{ footer }}
     >
       <h1 className="font-heading scroll-m-20 text-3xl font-bold tracking-tight">
         {page.data.title}
       </h1>
-      <p className="text-muted-foreground">{page.data.description}</p>
+      <p className="text-muted-foreground text-base font-normal">
+        {page.data.description}
+      </p>
       <DocsBody>
         {page.data.index ? <Category page={page} /> : <MDX />}
       </DocsBody>

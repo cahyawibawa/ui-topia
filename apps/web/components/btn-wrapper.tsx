@@ -42,7 +42,7 @@ export const ButtonWrapper: React.FC<CardComponentProps> = ({ children }) => {
           {isCopied ? (
             <Icons.check className="text-muted-foreground size-4" />
           ) : (
-            <Icons.copy className="text-muted-foreground size-4" />
+            <Icons.clipboard className="text-muted-foreground size-4" />
           )}
         </div>
       </div>

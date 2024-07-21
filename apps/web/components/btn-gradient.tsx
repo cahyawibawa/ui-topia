@@ -10,7 +10,7 @@ export function ButtonGradientDemo() {
         as="button"
         className="flex items-center space-x-2 bg-white text-black dark:bg-black dark:text-white"
       >
-        <span>Get Started</span>
+        <span className="text-sm">Get Started</span>
       </HoverBorderGradient>
     </Link>
   )

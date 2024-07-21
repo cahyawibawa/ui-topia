@@ -6,9 +6,9 @@ import {
   ScrollViewport,
 } from '@/components/ui/scroll-area'
 
+import { Icons } from '@/components/icons'
 import { useCopyButton } from '@/lib/use-copy-btn'
 import { cn } from '@/lib/utils'
-import { Check, Copy } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import {
   forwardRef,
@@ -141,10 +141,10 @@ function CopyButton({
       onClick={onClick}
       {...props}
     >
-      <Check
+      <Icons.check
         className={cn('size-3.5 transition-transform', !checked && 'scale-0')}
       />
-      <Copy
+      <Icons.copy
         className={cn(
           'text-foreground absolute size-3.5 transition-transform',
           checked && 'scale-0'

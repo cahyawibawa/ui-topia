@@ -15,7 +15,7 @@ import Link from 'next/link'
 
 export const HeroHomepage = () => {
   return (
-    <div className="overflow-hidden text-center md:mb-6 md:h-[580px]">
+    <div className="overflow-hidden text-center md:mb-10 md:h-[580px]">
       <div className="relative flex size-full flex-col items-center justify-between pb-6">
         <Image
           className="absolute top-0 -z-10 mt-24 hidden h-full w-[1450px] max-w-[unset] scale-90 object-contain md:block"
@@ -30,7 +30,10 @@ export const HeroHomepage = () => {
             Make your website look better, Instantly
           </PageHeaderHeading>
           <PageHeaderDescription>
-            <span>{siteConfig.blockInfos}</span>
+            <span>
+              Collection of fine-tuned UI components ready for instant use.
+              Browse, copy, paste, and elevate your project effortlessly.
+            </span>
           </PageHeaderDescription>
 
           <PageActions>
@@ -40,7 +43,7 @@ export const HeroHomepage = () => {
               rel="noreferrer"
               href={siteConfig.links.github}
               className={cn(
-                buttonVariants({ variant: 'default' }),
+                buttonVariants({ variant: 'default', size: 'default' }),
                 'rounded-full'
               )}
             >

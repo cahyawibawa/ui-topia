@@ -5,6 +5,7 @@ import {
   BookOpenIcon,
   Check,
   ChevronRight,
+  Clipboard,
   Component,
   Copy,
   Edit,
@@ -25,6 +26,7 @@ export const Icons = {
   copy: Copy,
   component: Component,
   check: Check,
+  clipboard: Clipboard,
   book: BookIcon,
   bookOpen: BookOpenIcon,
   api: WebhookIcon,
@@ -295,6 +297,38 @@ export function TwitterIcon(props: React.SVGProps<SVGSVGElement>) {
           d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
         ></path>
       </g>
+    </svg>
+  )
+}
+
+export function AnimationsDev(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+    >
+      <path
+        d="M0 0 C5.28 0 10.56 0 16 0 C16 5.28 16 10.56 16 16 C10.72 16 5.44 16 0 16 C0 10.72 0 5.44 0 0 Z "
+        fill="#F0DB58"
+        transform="translate(0,0)"
+      />
+      <path
+        d="M0 0 C4.62 0 9.24 0 14 0 C14 1.98 14 3.96 14 6 C13 7 13 7 10.3125 7.1328125 C9.219375 7.13023437 8.12625 7.12765625 7 7.125 C5.906875 7.12757813 4.81375 7.13015625 3.6875 7.1328125 C1 7 1 7 0 6 C0 4.02 0 2.04 0 0 Z "
+        fill="#FDF3B6"
+        transform="translate(1,0)"
+      />
+      <path
+        d="M0 0 C0.66 0 1.32 0 2 0 C2 1.98 2 3.96 2 6 C-3.28 6 -8.56 6 -14 6 C-13.67 4.68 -13.34 3.36 -13 2 C-6.6 0.76923077 -6.6 0.76923077 -3.5625 1.9375 C-3.046875 2.288125 -2.53125 2.63875 -2 3 C-1.34 2.01 -0.68 1.02 0 0 Z "
+        fill="#F3CB22"
+        transform="translate(14,10)"
+      />
+      <path
+        d="M0 0 C4.62 0 9.24 0 14 0 C14 0.99 14 1.98 14 3 C9.38 3 4.76 3 0 3 C0 2.01 0 1.02 0 0 Z "
+        fill="#FCEC89"
+        transform="translate(1,0)"
+      />
     </svg>
   )
 }
