@@ -7,6 +7,11 @@ const ui: Registry = {
     type: 'components:ui',
     files: ['./components/globe.tsx'],
   },
+  'iphone-simulator': {
+    name: 'iphone-simulator',
+    type: 'components:ui',
+    files: ['./components/iphone-simulator.tsx'],
+  },
   marquee: {
     name: 'marquee',
     type: 'components:ui',
@@ -33,6 +38,18 @@ const example: Registry = {
     component: React.lazy(
       () => import('./components/examples/client-logo-demo')
     ),
+  },
+  'clip-path-demo': {
+    name: 'clip-path-demo',
+    type: 'components:example',
+    files: ['./components/examples/clip-path-demo.tsx'],
+    component: React.lazy(() => import('./components/examples/clip-path-demo')),
+  },
+  'dock-demo': {
+    name: 'dock-demo',
+    type: 'components:example',
+    files: ['./components/examples/dock-demo.tsx'],
+    component: React.lazy(() => import('./components/examples/dock-demo')),
   },
   'globe-card-demo': {
     name: 'globe-card-demo',
@@ -66,6 +83,38 @@ const example: Registry = {
       () => import('./components/examples/project-card-demo')
     ),
   },
+  'spotify-simulator-demo': {
+    name: 'spotify-simulator-demo',
+    type: 'components:example',
+    files: ['./components/examples/spotify-simulator-demo.tsx'],
+    component: React.lazy(
+      () => import('./components/examples/spotify-simulator-demo')
+    ),
+  },
+  'chat-simulator-demo': {
+    name: 'chat-simulator-demo',
+    type: 'components:example',
+    files: ['./components/examples/chat-simulator-demo.tsx'],
+    component: React.lazy(
+      () => import('./components/examples/chat-simulator-demo')
+    ),
+  },
+  'lockscreen-cam-demo': {
+    name: 'lockscreen-cam-demo',
+    type: 'components:example',
+    files: ['./components/examples/lockscreen-cam-demo.tsx'],
+    component: React.lazy(
+      () => import('./components/examples/lockscreen-cam-demo')
+    ),
+  },
+  'gallery-simulator-demo': {
+    name: 'gallery-simulator-demo',
+    type: 'components:example',
+    files: ['./components/examples/gallery-simulator-demo.tsx'],
+    component: React.lazy(
+      () => import('./components/examples/gallery-simulator-demo')
+    ),
+  },
 }
 
 const elements: Registry = {
@@ -75,6 +124,12 @@ const elements: Registry = {
     files: ['./elements/button.tsx'],
     component: React.lazy(() => import('./elements/button')),
   },
+  // textVariants: {
+  //   name: 'text-variants',
+  //   type: 'components:elements',
+  //   files: ['./elements/text-variants.tsx'],
+  //   component: React.lazy(() => import('./elements/text-variants')),
+  // },
 }
 export const registry: Registry = {
   ...ui,
