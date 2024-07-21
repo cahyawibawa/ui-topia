@@ -19,7 +19,7 @@
     "@vercel/analytics": "^1.2.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
-    "framer-motion": "^11.0.8",
+    "framer-motion": "^11.3.6",
     "fumadocs-core": "^12.4.2",
     "fumadocs-docgen": "^1.0.2",
     "fumadocs-mdx": "^8.2.33",
