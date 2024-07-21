@@ -16,7 +16,7 @@ const OFFERINGS = [
     id: 1,
     title: 'Designed to move fast',
     description:
-      'Linear is built in pursuit of high-performance. With its keyboard-first design, realtime sync, and zero-friction workflows, it delivers a focused experience ideal for fast-paced development environments.',
+      'ui/topia is a collection of ready-to-use UI components designed to enhance interactivity and user experience.',
     banner:
       'https://linear.app/cdn-cgi/imagedelivery/fO02fVwohEs9s9UHFwon6A/0e6d3edd-cd37-4bf8-c1bf-b93960169400/f=auto,dpr=2,q=95,fit=scale-down,metadata=none',
   },
@@ -140,6 +140,6 @@ to ensure Tailwind generates these classes in advance.
 */
 function TailwindCDNWorkaround() {
   return (
-    <div className="fixed absolute relative inset-0 right-8 top-8 z-10 mx-auto mx-auto -mt-20 -mt-8 mt-8 flex flex hidden size-5 h-[96vh] max-w-[960px] max-w-xl flex-col items-center justify-end justify-center overflow-y-auto text-balance rounded-t-[30px] bg-[#090A0B] p-8 text-[15px] text-[56px] font-medium font-medium leading-[60px] text-[#969799] text-white md:-mt-60" />
+    <div className="fixed absolute relative inset-0 right-8 top-8 z-10 mx-auto -mt-20 -mt-8 mt-8 flex hidden size-5 h-[96vh] max-w-[960px] max-w-xl flex-col items-center justify-end justify-center overflow-y-auto text-balance rounded-t-[30px] bg-[#090A0B] p-8 text-[15px] text-[56px] font-medium leading-[60px] text-[#969799] text-white md:-mt-60" />
   )
 }

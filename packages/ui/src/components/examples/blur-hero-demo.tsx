@@ -4,7 +4,7 @@ export default function BlurHeroDemo() {
   return (
     <main className="md:p-112 flex size-full flex-col items-center justify-center p-6">
       <div className="max-w-screen-md">
-        <Headline text="Linear is a purpose-built tool for planning and building products" />
+        <Headline text="Build modern websites with ui/topia" />
         <motion.p
           className="text-muted-foreground mt-6 text-balance text-[21px] leading-[28px]"
           initial={{ filter: 'blur(12px)', opacity: 0, y: 24 }}
@@ -16,9 +16,9 @@ export default function BlurHeroDemo() {
             delay: 1,
           }}
         >
-          Meet the system for modern product development.
+          Collection of fine-tuned UI components ready for instant use.
           <br />
-          Streamline issues, projects, and product roadmaps.
+          Browse, copy, paste, and elevate your project effortlessly.
         </motion.p>
         <motion.button
           className="bg-primary text-primary-foreground mt-12 h-[40px] rounded-[10px] px-4 text-[15px] font-medium leading-none"
