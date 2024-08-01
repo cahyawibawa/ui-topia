@@ -1,6 +1,6 @@
 import { Toaster } from '@/components/ui/sonner'
 import { siteConfig } from '@/config/site'
-import { fontHeading } from '@/lib/font'
+import { fontHeading, fontRedaction } from '@/lib/font'
 import { Analytics } from '@vercel/analytics/react'
 import { RootProvider } from 'fumadocs-ui/provider'
 import 'fumadocs-ui/twoslash.css'
@@ -70,13 +70,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
       lang="en"
-      className={`${GeistSans.variable} ${GeistMono.variable} ${fontHeading.variable} `}
+      className={`${GeistSans.variable} ${GeistMono.variable} ${fontHeading.variable} ${fontRedaction.variable} `}
       suppressHydrationWarning
     >
       <body className="flex min-h-screen flex-col">
         <RootProvider>
           {children}
-          {/* <Footer /> */}
           <Analytics />
           <Toaster />
         </RootProvider>
