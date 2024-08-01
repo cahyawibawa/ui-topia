@@ -1,5 +1,4 @@
 import { cn } from '@/lib/utils'
-import Balance from 'react-wrap-balancer'
 
 function PageHeader({
   className,
@@ -9,7 +8,7 @@ function PageHeader({
   return (
     <section
       className={cn(
-        'mx-auto flex max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-20',
+        'mx-auto flex flex-col items-start gap-2 py-8 md:py-12 md:pb-8 lg:py-12 lg:pb-10',
         className
       )}
       {...props}
@@ -26,7 +25,7 @@ function PageHeaderHeading({
   return (
     <h1
       className={cn(
-        'font-heading dark:text-primary space-y-2 text-center text-[2rem] font-semibold leading-tight md:max-w-[40rem] md:text-6xl lg:leading-[1.08]',
+        'font-redaction text-3xl leading-tight md:text-5xl',
         className
       )}
       {...props}
@@ -39,9 +38,9 @@ function PageHeaderDescription({
   ...props
 }: React.HTMLAttributes<HTMLParagraphElement>) {
   return (
-    <Balance
+    <p
       className={cn(
-        'text-foreground mt-4 max-w-[750px] text-center text-lg font-light',
+        'text-accent-foreground max-w-2xl text-balance text-base font-light',
         className
       )}
       {...props}
@@ -56,7 +55,7 @@ function PageActions({
   return (
     <div
       className={cn(
-        'flex w-full items-center justify-center space-x-4 py-4 md:pb-10',
+        'flex w-full items-center justify-start gap-2 py-2',
         className
       )}
       {...props}
