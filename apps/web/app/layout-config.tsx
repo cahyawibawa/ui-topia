@@ -8,9 +8,9 @@ export const baseOptions: BaseLayoutProps = {
       <>
         <Icons.logo />
         <div className="font-semibold sm:inline-block">ui/topia</div>
-        {/* <span className="mb-3 ml-0.5 select-none rounded-full bg-zinc-800 px-2 py-0.5 text-xs text-zinc-50">
+        <span className="text-primary dark:bg-slated dark:text-white0 mb-3 ml-0.5 select-none rounded-full bg-neutral-200 px-2 py-0.5 text-xs">
           beta
-        </span> */}
+        </span>
       </>
     ),
   },
