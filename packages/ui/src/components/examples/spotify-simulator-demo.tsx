@@ -63,7 +63,7 @@ export default function SpotifyDemo() {
             </header>
 
             <section className="mt-4 flex flex-col gap-4 overflow-auto px-4">
-              {Array.from({ length: 8 }).map((_, index) => (
+              {Array.from({ length: 4 }).map((_, index) => (
                 <div key={index} className="flex w-full gap-4">
                   <div className="flex aspect-square w-14 items-center justify-center rounded-lg bg-[#343234] text-[#716F71]">
                     <Music className="text-xl" />
