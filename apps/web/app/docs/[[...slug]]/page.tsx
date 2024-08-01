@@ -55,7 +55,7 @@ export default function Page({
       }}
       tableOfContentPopover={{ footer }}
     >
-      <h1 className="font-heading scroll-m-20 text-3xl font-bold tracking-tight">
+      <h1 className="scroll-m-20 text-3xl font-bold tracking-tight">
         {page.data.title}
       </h1>
       <p className="text-muted-foreground text-base font-normal">

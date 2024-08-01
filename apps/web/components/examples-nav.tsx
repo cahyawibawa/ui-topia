@@ -22,7 +22,7 @@ export function ExamplesNav({ className, ...props }: ExamplesNavProps) {
   const pathname = usePathname()
 
   return (
-    <div className="flex justify-center">
+    <div className="flex pt-10">
       <ScrollArea className="max-w-[600px] lg:max-w-none">
         <div className={cn('mb-4 flex items-center', className)} {...props}>
           {examples.map((example, index) => (
@@ -30,10 +30,10 @@ export function ExamplesNav({ className, ...props }: ExamplesNavProps) {
               href={example.href}
               key={example.href}
               className={cn(
-                'hover:text-primary flex h-7 items-center justify-center rounded-full px-4 text-center text-sm font-medium transition-colors',
+                'flex h-7 items-center justify-center rounded-full px-4 text-center text-[13px] font-medium transition-colors',
                 pathname?.startsWith(example.href) ||
                   (index === 0 && pathname === '/')
-                  ? 'bg-muted text-primary font-medium'
+                  ? 'text-primary dark:bg-slated bg-neutral-200 dark:text-white'
                   : 'text-muted-foreground'
               )}
             >

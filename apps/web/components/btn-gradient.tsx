@@ -8,9 +8,9 @@ export function ButtonGradientDemo() {
       <HoverBorderGradient
         containerClassName="rounded-full"
         as="button"
-        className="flex items-center space-x-2 bg-white text-black dark:bg-black dark:text-white"
+        className="text-foreground flex items-center space-x-2 bg-white dark:bg-zinc-950"
       >
-        <span className="text-sm">Get Started</span>
+        <span className="text-xs">Get Started</span>
       </HoverBorderGradient>
     </Link>
   )

@@ -77,13 +77,13 @@ export function ComponentPreview({
           <TabsList className="w-full justify-start rounded-none border-b bg-transparent p-0">
             <TabsTrigger
               value="preview"
-              className="text-muted-foreground data-[state=active]:border-b-primary data-[state=active]:text-foreground relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold shadow-none transition-none data-[state=active]:shadow-none"
+              className="text-muted-foreground data-[state=active]:border-b-primary data-[state=active]:text-foreground relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-3 pb-3 pt-2 font-semibold shadow-none transition-none data-[state=active]:shadow-none"
             >
               Preview
             </TabsTrigger>
             <TabsTrigger
               value="code"
-              className="text-muted-foreground data-[state=active]:border-b-primary data-[state=active]:text-foreground relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold shadow-none transition-none data-[state=active]:shadow-none"
+              className="text-muted-foreground data-[state=active]:border-b-primary data-[state=active]:text-foreground relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-3 pb-3 pt-2 font-semibold shadow-none transition-none data-[state=active]:shadow-none"
             >
               Code
             </TabsTrigger>
