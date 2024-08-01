@@ -43,6 +43,7 @@ const config = {
         heading: ['var(--font-heading)'],
         sans: ['var(--font-geist-sans)'],
         mono: ['var(--font-geist-mono)'],
+        redaction: ['var(--font-redaction)'],
       },
       colors: {
         border: 'hsl(var(--border))',
@@ -50,6 +51,7 @@ const config = {
         ring: 'hsl(var(--ring))',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
+        slated: 'hsl(var(--slated))',
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
