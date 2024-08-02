@@ -1,5 +1,4 @@
 import { ButtonGradientDemo } from '@/components/btn-gradient'
-import { ExamplesNav } from '@/components/examples-nav'
 import { FlipWords } from '@/components/flip-words'
 import {
   PageActions,
@@ -8,6 +7,7 @@ import {
   PageHeaderHeading,
 } from '@/components/page-header'
 import { SiteFooter } from '@/components/site-footer'
+import { SparkleDivider } from '@/components/sparkle-divider'
 import { buttonVariants } from '@/components/ui/button'
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
@@ -41,10 +41,13 @@ export default function Home() {
           </Link>
         </PageActions>
       </PageHeader>
-      <ExamplesNav className="[&>a:first-child]:text-muted-foreground" />
-      <div className="overflow-hidden rounded-[0.5rem] border shadow-md md:shadow-xl">
+      {/* <ExamplesNav className="[&>a:first-child]:text-muted-foreground" /> */}
+      <SparkleDivider
+        className="rounded-[0.5rem] border"
+        useBottomDivider={false}
+      >
         <ButtonsPage />
-      </div>
+      </SparkleDivider>
       <SiteFooter />
     </div>
   )
