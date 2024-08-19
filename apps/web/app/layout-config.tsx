@@ -1,7 +1,10 @@
 import { Icons } from '@/components/icons'
-import { BaseLayoutProps } from 'fumadocs-ui/layout'
+import { utils } from '@/lib/source'
+import type { HomeLayoutProps } from 'fumadocs-ui/home-layout'
+import { type DocsLayoutProps } from 'fumadocs-ui/layout'
 
-export const baseOptions: BaseLayoutProps = {
+export const baseOptions: HomeLayoutProps = {
+  githubUrl: 'https://github.com/cahyawibawa/ui-topia',
   nav: {
     transparentMode: 'top',
     title: (
@@ -20,12 +23,15 @@ export const baseOptions: BaseLayoutProps = {
       icon: <Icons.bookOpen className="size-5" />,
       text: 'Docs',
     },
-    {
-      type: 'secondary',
-      url: 'https://github.com/cahyawibawa/ui-topia',
-      text: 'GitHub',
-      icon: <Icons.gitHub className="size-5" />,
-      external: true,
-    },
   ],
+}
+
+export const docsOptions: DocsLayoutProps = {
+  ...baseOptions,
+  tree: utils.pageTree,
+  nav: {
+    ...baseOptions.nav,
+    transparentMode: 'none',
+    children: undefined,
+  },
 }

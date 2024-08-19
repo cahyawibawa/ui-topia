@@ -1,6 +1,6 @@
-import { baseOptions } from '@/app/layout-config'
-import { utils } from '@/lib/source'
+import { docsOptions } from '@/app/layout-config'
 import { DocsLayout } from 'fumadocs-ui/layout'
+import 'fumadocs-ui/twoslash.css'
 import type { ReactNode } from 'react'
 
 export default function Layout({
@@ -8,15 +8,5 @@ export default function Layout({
 }: {
   children: ReactNode
 }): React.ReactElement {
-  return (
-    <DocsLayout
-      {...baseOptions}
-      tree={utils.pageTree}
-      sidebar={{
-        defaultOpenLevel: 0,
-      }}
-    >
-      {children}
-    </DocsLayout>
-  )
+  return <DocsLayout {...docsOptions}>{children}</DocsLayout>
 }
