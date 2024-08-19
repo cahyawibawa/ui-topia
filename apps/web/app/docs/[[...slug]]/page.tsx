@@ -4,7 +4,12 @@ import { createMetadata } from '@/lib/metadata'
 import { utils, type Page } from '@/lib/source'
 import { cn } from '@/lib/utils'
 import { Card, Cards } from 'fumadocs-ui/components/card'
-import { DocsBody, DocsPage } from 'fumadocs-ui/page'
+import {
+  DocsBody,
+  DocsDescription,
+  DocsPage,
+  DocsTitle,
+} from 'fumadocs-ui/page'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
@@ -51,16 +56,14 @@ export default function Page({
       lastUpdate={page.data.exports.lastModified}
       full={page.data.full}
       tableOfContent={{
+        style: 'clerk',
+        single: false,
         footer,
       }}
       tableOfContentPopover={{ footer }}
     >
-      <h1 className="scroll-m-20 text-3xl font-bold tracking-tight">
-        {page.data.title}
-      </h1>
-      <p className="text-muted-foreground text-base font-normal">
-        {page.data.description}
-      </p>
+      <DocsTitle>{page.data.title}</DocsTitle>
+      <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
         {page.data.index ? <Category page={page} /> : <MDX />}
       </DocsBody>
