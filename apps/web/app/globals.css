@@ -29,13 +29,15 @@
 
   .dark {
     --scrollbar-color: rgba(255, 255, 255, 0.3);
-    --background: 79 40% 4%;
+    /* --background: 79 40% 4%; */
+    --background: 7%, 7%, 7%;
     --foreground: 79 37% 100%;
     --muted: 259 32% 7%;
     --muted-foreground: 259 10% 60%;
     --popover: 79 40% 5%;
     --popover-foreground: 0 0% 100%;
-    --card: 79 40% 5%;
+    --card: 8%, 8%, 8%;
+    /* --card: 79 40% 5%; */
     --card-foreground: 0 0% 100%;
     --border: 79 8% 11%;
     --input: 79 8% 11%;
@@ -76,33 +78,4 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-}
-
-/* carousel fade effect */
-.fade__container {
-  transform: none !important;
-  display: flex;
-  position: relative;
-  height: 100%;
-}
-
-.fade__slide {
-  flex: 0 0 auto;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0 !important;
-  right: 0 !important;
-  opacity: 0;
-  transition: opacity 1s;
-}
-
-.fade__is-ready .fade__slide {
-  position: absolute;
-}
-
-.fade__slide.is-snapped {
-  opacity: 1;
-  z-index: 1;
-  transition: opacity 0.8s;
 }

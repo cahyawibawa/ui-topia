@@ -33,7 +33,7 @@ export function Link({ label, link, icon }: LinkItem) {
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className="bg-muted flex items-center gap-x-2 rounded-lg px-3 py-1.5 text-sm no-underline"
+      className="flex items-center gap-x-2 rounded-lg bg-black/5 px-3 py-1.5 text-sm no-underline dark:bg-white/5"
     >
       {Icons[icon]}
       {label}
