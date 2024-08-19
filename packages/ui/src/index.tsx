@@ -51,6 +51,14 @@ const example: Registry = {
     files: ['./components/examples/dock-demo.tsx'],
     component: React.lazy(() => import('./components/examples/dock-demo')),
   },
+  'faq-accordion-demo': {
+    name: 'faq-accordion-demo',
+    type: 'components:example',
+    files: ['./components/examples/faq-accordion-demo.tsx'],
+    component: React.lazy(
+      () => import('./components/examples/faq-accordion-demo')
+    ),
+  },
   'globe-card-demo': {
     name: 'globe-card-demo',
     type: 'components:example',
