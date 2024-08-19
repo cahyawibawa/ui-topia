@@ -3,4 +3,4 @@ pnpm-lock.yaml
 .next
 .nx
 dist
-apps/web/app/content/docs/resources.mdx
+apps/web/app/content/docs
