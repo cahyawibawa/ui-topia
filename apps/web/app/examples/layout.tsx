@@ -10,7 +10,7 @@ import {
 import { buttonVariants } from '@/components/ui/button'
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
-import { Layout } from 'fumadocs-ui/layout'
+import { HomeLayout } from 'fumadocs-ui/home-layout'
 import { type Metadata } from 'next'
 import Link from 'next/link'
 
@@ -26,7 +26,7 @@ interface ExamplesLayoutProps {
 export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
   return (
     <>
-      <Layout {...baseOptions}>
+      <HomeLayout {...baseOptions}>
         <div className="container relative">
           <PageHeader>
             <PageHeaderHeading>Check out some examples</PageHeaderHeading>
@@ -54,7 +54,7 @@ export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
             {children}
           </div>
         </div>
-      </Layout>
+      </HomeLayout>
     </>
   )
 }
