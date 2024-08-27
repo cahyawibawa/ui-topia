@@ -15,6 +15,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
     "@nx/next": "^19.6.2",
-    "nx": "^19.6.2"
+    "nx": "^19.6.2",
+    "@uitopia/tsconfig": "workspace:*"
   }
 }
