@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
-    "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache"
+    "format": "biome format --write .",
+    "check": "biome check --fix ."
   },
   "dependencies": {
     "@radix-ui/react-collapsible": "^1.0.3",
@@ -20,12 +20,12 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "framer-motion": "^11.3.6",
-    "fumadocs-core": "^13.3.1",
+    "fumadocs-core": "^13.3.2",
     "fumadocs-docgen": "^1.0.2",
     "fumadocs-mdx": "^9.0.2",
     "fumadocs-twoslash": "^1.1.2",
     "fumadocs-typescript": "^2.0.1",
-    "fumadocs-ui": "^13.3.1",
+    "fumadocs-ui": "^13.3.2",
     "geist": "^1.3.0",
     "lucide-react": "^0.394.0",
     "next": "14.2.3",
@@ -38,19 +38,20 @@
     "sonner": "^1.3.1",
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7",
+    "three": "^0.167.1",
     "tsx": "^4.15.7",
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@uitopia/tsconfig": "workspace:*",
     "@types/mdx": "^2.0.13",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/three": "^0.167.2",
     "autoprefixer": "^10.0.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.3",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5"
+    "typescript": "^5.5.4"
   }
 }

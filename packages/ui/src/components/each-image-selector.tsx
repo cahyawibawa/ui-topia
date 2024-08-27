@@ -1,11 +1,11 @@
-import { motion } from 'framer-motion'
-import { cn } from '../lib/utils'
+import { motion } from "framer-motion";
+import { cn } from "../lib/utils";
 
 interface Props {
-  id: number
-  url: string
-  selectedImage: number
-  onImageClickHandler: (a: number) => void
+  id: number;
+  url: string;
+  selectedImage: number;
+  onImageClickHandler: (a: number) => void;
 }
 
 export default function EachImageSelector({
@@ -18,10 +18,10 @@ export default function EachImageSelector({
     <motion.button
       layout
       initial={{ width: 24 }}
-      animate={{ width: id === selectedImage ? 'auto' : 24 }}
-      className={cn('flex h-12', id === selectedImage ? 'mx-2' : '')}
+      animate={{ width: id === selectedImage ? "auto" : 24 }}
+      className={cn("flex h-12", id === selectedImage ? "mx-2" : "")}
       onClick={() => onImageClickHandler(id)}
-      style={{ flex: '0 0 auto' }}
+      style={{ flex: "0 0 auto" }}
       data-id={id}
     >
       <motion.img
@@ -32,5 +32,5 @@ export default function EachImageSelector({
         className="h-full w-full object-cover"
       />
     </motion.button>
-  )
+  );
 }

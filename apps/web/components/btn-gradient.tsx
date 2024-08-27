@@ -1,6 +1,6 @@
-'use client'
-import Link from 'next/link'
-import { HoverBorderGradient } from './hover-border-gradient'
+"use client";
+import Link from "next/link";
+import { HoverBorderGradient } from "./hover-border-gradient";
 
 export function ButtonGradientDemo() {
   return (
@@ -13,5 +13,5 @@ export function ButtonGradientDemo() {
         <span className="text-xs">Get Started</span>
       </HoverBorderGradient>
     </Link>
-  )
+  );
 }

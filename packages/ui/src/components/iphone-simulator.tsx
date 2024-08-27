@@ -1,21 +1,21 @@
-'use client'
+"use client";
 
-import { MotionConfig, motion, type Transition } from 'framer-motion'
-import React from 'react'
-import { cn } from '../lib/utils'
+import { MotionConfig, motion, type Transition } from "framer-motion";
+import React from "react";
+import { cn } from "../lib/utils";
 
 interface Props {
-  children: React.ReactNode
-  pillChildren?: React.ReactNode
-  topElements?: { left: boolean; right: boolean }
-  bottomLine?: boolean
-  textColor?: string
-  mixBlend?: boolean
-  onPowerClickHandler?: () => void
-  transition?: Transition | undefined
-  mainClassName?: string
-  backgroundImage?: string
-  roundedCorners?: boolean
+  children: React.ReactNode;
+  pillChildren?: React.ReactNode;
+  topElements?: { left: boolean; right: boolean };
+  bottomLine?: boolean;
+  textColor?: string;
+  mixBlend?: boolean;
+  onPowerClickHandler?: () => void;
+  transition?: Transition | undefined;
+  mainClassName?: string;
+  backgroundImage?: string;
+  roundedCorners?: boolean;
 }
 
 export default function IphoneSimulator({
@@ -23,7 +23,7 @@ export default function IphoneSimulator({
   pillChildren,
   topElements = { left: true, right: true },
   bottomLine = true,
-  textColor = 'white',
+  textColor = "white",
   mixBlend = true,
   onPowerClickHandler = () => {},
   transition,
@@ -34,35 +34,35 @@ export default function IphoneSimulator({
   return (
     <div
       className={cn(
-        'relative aspect-[4/8] w-[367px] overflow-hidden border-[1.5px] border-[#7E7D7E] bg-[#2C2C2B] p-1 text-[var(--ios-simulator-color)]',
-        roundedCorners && 'rounded-[56px]'
+        "relative aspect-[4/8] w-[367px] overflow-hidden border-[1.5px] border-[#7E7D7E] bg-[#2C2C2B] p-1 text-[var(--ios-simulator-color)]",
+        roundedCorners && "rounded-[56px]",
       )}
       // @ts-ignore
-      style={{ '--ios-simulator-color': textColor }}
+      style={{ "--ios-simulator-color": textColor }}
     >
       {/* buttons */}
       <MotionConfig
-        transition={{ duration: 0.3, type: 'tween', ease: 'easeInOut' }}
+        transition={{ duration: 0.3, type: "tween", ease: "easeInOut" }}
       >
         <div className="absolute left-0 flex h-48 w-auto -translate-x-full translate-y-32 flex-col">
           <motion.button
             className="mb-4 flex h-8 w-1 items-start overflow-hidden rounded-l-sm bg-black"
-            whileHover={{ scaleX: 1.7, originX: 'right' }}
-            whileTap={{ scaleX: 1.2, originX: 'right' }}
+            whileHover={{ scaleX: 1.7, originX: "right" }}
+            whileTap={{ scaleX: 1.2, originX: "right" }}
           >
             <div className="h-0.5 w-full bg-[#585857]" />
           </motion.button>
           <motion.button
             className="mb-2 flex h-12 w-1 items-start overflow-hidden rounded-l-sm bg-black"
-            whileHover={{ scaleX: 1.7, originX: 'right' }}
-            whileTap={{ scaleX: 1.2, originX: 'right' }}
+            whileHover={{ scaleX: 1.7, originX: "right" }}
+            whileTap={{ scaleX: 1.2, originX: "right" }}
           >
             <div className="h-0.5 w-full bg-[#585857]" />
           </motion.button>
           <motion.button
             className="flex h-12 w-1 items-start overflow-hidden rounded-l-sm bg-black"
-            whileHover={{ scaleX: 1.7, originX: 'right' }}
-            whileTap={{ scaleX: 1.2, originX: 'right' }}
+            whileHover={{ scaleX: 1.7, originX: "right" }}
+            whileTap={{ scaleX: 1.2, originX: "right" }}
           >
             <div className="h-0.5 w-full bg-[#585857]" />
           </motion.button>
@@ -71,8 +71,8 @@ export default function IphoneSimulator({
         <div className="absolute right-0 w-auto translate-x-full translate-y-36">
           <motion.button
             className="flex h-20 w-1 items-start overflow-hidden rounded-r-sm bg-black"
-            whileHover={{ scaleX: 1.7, originX: 'left' }}
-            whileTap={{ scaleX: 1.2, originX: 'left' }}
+            whileHover={{ scaleX: 1.7, originX: "left" }}
+            whileTap={{ scaleX: 1.2, originX: "left" }}
             onClick={onPowerClickHandler}
           >
             <div className="h-0.5 w-full bg-[#585857]" />
@@ -86,13 +86,13 @@ export default function IphoneSimulator({
             <motion.h3
               initial={{
                 opacity: topElements.left ? 1 : 0,
-                filter: topElements.left ? 'blur(0px)' : 'blur(4px)',
+                filter: topElements.left ? "blur(0px)" : "blur(4px)",
               }}
               animate={{
                 opacity: topElements.left ? 1 : 0,
-                filter: topElements.left ? 'blur(0px)' : 'blur(4px)',
+                filter: topElements.left ? "blur(0px)" : "blur(4px)",
               }}
-              className={`text-sm ${mixBlend ? 'mix-blend-exclusion' : ''}`}
+              className={`text-sm ${mixBlend ? "mix-blend-exclusion" : ""}`}
             >
               8:12
             </motion.h3>
@@ -103,13 +103,13 @@ export default function IphoneSimulator({
           <motion.div
             initial={{
               opacity: topElements.right ? 1 : 0,
-              filter: topElements.right ? 'blur(0px)' : 'blur(4px)',
+              filter: topElements.right ? "blur(0px)" : "blur(4px)",
             }}
             animate={{
               opacity: topElements.right ? 1 : 0,
-              filter: topElements.right ? 'blur(0px)' : 'blur(4px)',
+              filter: topElements.right ? "blur(0px)" : "blur(4px)",
             }}
-            className={`flex w-full items-center justify-end gap-[5px] ${mixBlend ? 'mix-blend-exclusion' : ''}`}
+            className={`flex w-full items-center justify-end gap-[5px] ${mixBlend ? "mix-blend-exclusion" : ""}`}
           >
             <svg
               viewBox="0 0 15 11"
@@ -178,10 +178,10 @@ export default function IphoneSimulator({
 
         <main
           className={cn(
-            'no-scrollbar relative isolate h-full w-full overflow-auto py-12',
-            backgroundImage ? '' : 'bg-[#222]',
+            "no-scrollbar relative isolate h-full w-full overflow-auto py-12",
+            backgroundImage ? "" : "bg-[#222]",
             mainClassName,
-            roundedCorners && 'rounded-[52px]'
+            roundedCorners && "rounded-[52px]",
           )}
         >
           {children}
@@ -191,19 +191,19 @@ export default function IphoneSimulator({
           <motion.div
             initial={{
               opacity: bottomLine ? 1 : 0,
-              filter: bottomLine ? 'blur(0px)' : 'blur(4px)',
+              filter: bottomLine ? "blur(0px)" : "blur(4px)",
             }}
             animate={{
               opacity: bottomLine ? 1 : 0,
-              filter: bottomLine ? 'blur(0px)' : 'blur(4px)',
+              filter: bottomLine ? "blur(0px)" : "blur(4px)",
             }}
             className={cn(
-              'h-1 w-full max-w-[119px] rounded-full bg-[var(--ios-simulator-color)]',
-              mixBlend ? 'mix-blend-exclusion' : ''
+              "h-1 w-full max-w-[119px] rounded-full bg-[var(--ios-simulator-color)]",
+              mixBlend ? "mix-blend-exclusion" : "",
             )}
           ></motion.div>
         </footer>
       </MotionConfig>
     </div>
-  )
+  );
 }

@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils'
+import { cn } from "@/lib/utils";
 
 function PageHeader({
   className,
@@ -8,14 +8,14 @@ function PageHeader({
   return (
     <section
       className={cn(
-        'mx-auto flex flex-col items-start gap-2 py-8 md:py-12 md:pb-8 lg:py-12 lg:pb-10',
-        className
+        "mx-auto flex flex-col items-start gap-2 py-8 md:py-12 md:pb-8 lg:py-12 lg:pb-10",
+        className,
       )}
       {...props}
     >
       {children}
     </section>
-  )
+  );
 }
 
 function PageHeaderHeading({
@@ -25,12 +25,12 @@ function PageHeaderHeading({
   return (
     <h1
       className={cn(
-        'font-redaction text-4xl leading-tight md:text-5xl',
-        className
+        "font-redaction text-4xl leading-tight md:text-5xl",
+        className,
       )}
       {...props}
     />
-  )
+  );
 }
 
 function PageHeaderDescription({
@@ -40,12 +40,12 @@ function PageHeaderDescription({
   return (
     <p
       className={cn(
-        'text-accent-foreground max-w-2xl text-balance text-base font-light',
-        className
+        "text-accent-foreground max-w-2xl text-balance text-base font-light",
+        className,
       )}
       {...props}
     />
-  )
+  );
 }
 
 function PageActions({
@@ -55,12 +55,12 @@ function PageActions({
   return (
     <div
       className={cn(
-        'flex w-full items-center justify-start gap-2 py-2',
-        className
+        "flex w-full items-center justify-start gap-2 py-2",
+        className,
       )}
       {...props}
     />
-  )
+  );
 }
 
-export { PageActions, PageHeader, PageHeaderDescription, PageHeaderHeading }
+export { PageActions, PageHeader, PageHeaderDescription, PageHeaderHeading };

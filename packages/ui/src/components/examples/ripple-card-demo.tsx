@@ -57,5 +57,5 @@ export function RippleCardDemo() {
         </div>
       </div>
     </div>
-  )
+  );
 }

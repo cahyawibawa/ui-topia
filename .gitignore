@@ -1,9 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # Dependencies
-/node_modules
-/apps/web/node_modules
-/packages/*/node_modules
+node_modules
 /.pnp
 .pnpm/
 .pnp.js
@@ -11,7 +9,7 @@
 
 ##output directories
 .map.ts
-/dist
+dist/
 /apps/web/dist
 /packages/*/dist
 # testing
@@ -22,7 +20,7 @@
 /out/
 
 # production
-/build
+build
 
 # misc
 .DS_Store

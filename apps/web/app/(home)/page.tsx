@@ -1,21 +1,21 @@
-import { ButtonGradientDemo } from '@/components/btn-gradient'
-import { FlipWords } from '@/components/flip-words'
+import { ButtonGradientDemo } from "@/components/btn-gradient";
+import { FlipWords } from "@/components/flip-words";
 import {
   PageActions,
   PageHeader,
   PageHeaderDescription,
   PageHeaderHeading,
-} from '@/components/page-header'
-import { SiteFooter } from '@/components/site-footer'
-import { SparkleDivider } from '@/components/sparkle-divider'
-import { buttonVariants } from '@/components/ui/button'
-import { siteConfig } from '@/config/site'
-import { cn } from '@/lib/utils'
-import Link from 'next/link'
-import ButtonsPage from '../examples/buttons/page'
+} from "@/components/page-header";
+import { SiteFooter } from "@/components/site-footer";
+import { SparkleDivider } from "@/components/sparkle-divider";
+import { buttonVariants } from "@/components/ui/button";
+import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+import ButtonsPage from "../examples/buttons/page";
 
 export default function Home() {
-  const words = ['modern', 'beautiful', 'better']
+  const words = ["modern", "beautiful", "better"];
   return (
     <div className="container relative">
       <PageHeader>
@@ -33,8 +33,8 @@ export default function Home() {
             rel="noreferrer"
             href={siteConfig.links.github}
             className={cn(
-              buttonVariants({ variant: 'ghost', size: 'sm' }),
-              'rounded-full'
+              buttonVariants({ variant: "ghost", size: "sm" }),
+              "rounded-full",
             )}
           >
             GitHub
@@ -50,5 +50,5 @@ export default function Home() {
       </SparkleDivider>
       <SiteFooter />
     </div>
-  )
+  );
 }

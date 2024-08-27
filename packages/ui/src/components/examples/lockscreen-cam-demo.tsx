@@ -1,83 +1,93 @@
-'use client'
+"use client";
 
-import { AnimatePresence, MotionConfig, motion } from 'framer-motion'
-import Image from 'next/image'
-import { useEffect, useRef, useState } from 'react'
-import IphoneSimulator from '../iphone-simulator'
+import { AnimatePresence, MotionConfig, motion } from "framer-motion";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+import IphoneSimulator from "../iphone-simulator";
 
-import { FaCamera } from 'react-icons/fa'
-import { IoIosFlashlight } from 'react-icons/io'
-import { IoArrowBackSharp } from 'react-icons/io5'
+import { FaCamera } from "react-icons/fa";
+import { IoIosFlashlight } from "react-icons/io";
+import { IoArrowBackSharp } from "react-icons/io5";
 
 export default function LockScreenCamDemo() {
-  const [images, setImages] = useState(['/images/travis-scott.jpeg'])
-  const [capturedImageUrl, setCapturedImageUrl] = useState<null | string>(null)
+  const [images, setImages] = useState(["/images/travis-scott.jpeg"]);
+  const [capturedImageUrl, setCapturedImageUrl] = useState<null | string>(null);
 
-  const [isCamera, setIsCamera] = useState(false)
-  const [showImages, setShowImages] = useState(false)
+  const [isCamera, setIsCamera] = useState(false);
+  const [showImages, setShowImages] = useState(false);
 
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  const onCameraClickHandler = () => setIsCamera(!isCamera)
+  const onCameraClickHandler = () => setIsCamera(!isCamera);
 
   useEffect(() => {
     if (isCamera) {
-      const video = document.querySelector('#videoElement') as HTMLVideoElement
+      const video = document.querySelector("#videoElement") as HTMLVideoElement;
 
       if (video && navigator.mediaDevices.getUserMedia) {
         navigator.mediaDevices
           .getUserMedia({ video: true })
           .then((stream) => {
-            video.srcObject = stream
+            video.srcObject = stream;
           })
           .catch((error) => {
-            console.log(error)
-          })
+            console.log(error);
+          });
       } else {
-        console.log('it is not supported')
+        console.log("it is not supported");
       }
     }
-  }, [isCamera])
+  }, [isCamera]);
 
   const handleCapture = () => {
-    const video = videoRef.current
-    const canvas = canvasRef.current
+    const video = videoRef.current;
+    const canvas = canvasRef.current;
 
     if (canvas) {
-      const context = canvas.getContext('2d')
+      const context = canvas.getContext("2d");
 
       if (video && context) {
-        const size = Math.min(video.videoWidth, video.videoHeight)
-        const offsetX = (video.videoWidth - size) / 2
-        const offsetY = (video.videoHeight - size) / 2
+        const size = Math.min(video.videoWidth, video.videoHeight);
+        const offsetX = (video.videoWidth - size) / 2;
+        const offsetY = (video.videoHeight - size) / 2;
 
-        canvas.width = size
-        canvas.height = size
+        canvas.width = size;
+        canvas.height = size;
 
-        context.drawImage(video, offsetX, offsetY, size, size, 0, 0, size, size)
+        context.drawImage(
+          video,
+          offsetX,
+          offsetY,
+          size,
+          size,
+          0,
+          0,
+          size,
+          size,
+        );
 
         canvas.toBlob(async (blob) => {
           if (blob) {
-            const imageUrl = URL.createObjectURL(blob)
-            setCapturedImageUrl(imageUrl)
+            const imageUrl = URL.createObjectURL(blob);
+            setCapturedImageUrl(imageUrl);
           }
-        }, 'image/png')
+        }, "image/png");
       }
     }
-  }
+  };
 
   useEffect(() => {
     if (capturedImageUrl) {
-      const newImages = [...images]
+      const newImages = [...images];
 
-      newImages.push(capturedImageUrl)
+      newImages.push(capturedImageUrl);
 
-      setImages(newImages)
+      setImages(newImages);
 
-      setCapturedImageUrl(null)
+      setCapturedImageUrl(null);
     }
-  }, [capturedImageUrl])
+  }, [capturedImageUrl]);
 
   return (
     <IphoneSimulator
@@ -98,7 +108,7 @@ export default function LockScreenCamDemo() {
       }
     >
       <Image
-        src={'/images/iPhone-14-Pro-Deep-Purple-wallpaper.png'}
+        src={"/images/iPhone-14-Pro-Deep-Purple-wallpaper.png"}
         width={400}
         height={800}
         alt="wallpaper"
@@ -122,7 +132,7 @@ export default function LockScreenCamDemo() {
         </motion.button>
       </div>
 
-      <MotionConfig transition={{ duration: 0.5, type: 'spring', bounce: 0 }}>
+      <MotionConfig transition={{ duration: 0.5, type: "spring", bounce: 0 }}>
         <AnimatePresence initial={false}>
           {isCamera && (
             <motion.div
@@ -143,7 +153,7 @@ export default function LockScreenCamDemo() {
                   id="videoElement"
                   className="h-full w-full object-cover"
                 />
-                <canvas ref={canvasRef} style={{ display: 'none' }} />
+                <canvas ref={canvasRef} style={{ display: "none" }} />
 
                 {capturedImageUrl && (
                   <motion.img
@@ -189,9 +199,9 @@ export default function LockScreenCamDemo() {
               <AnimatePresence>
                 {showImages && (
                   <motion.div
-                    initial={{ y: '100%' }}
-                    animate={{ y: '0%' }}
-                    exit={{ y: '100%' }}
+                    initial={{ y: "100%" }}
+                    animate={{ y: "0%" }}
+                    exit={{ y: "100%" }}
                     className="absolute bottom-0 left-0 z-30 flex h-full w-full bg-black/70 px-4 backdrop-blur-lg"
                     onClick={() => setShowImages(false)}
                   >
@@ -217,5 +227,5 @@ export default function LockScreenCamDemo() {
         </AnimatePresence>
       </MotionConfig>
     </IphoneSimulator>
-  )
+  );
 }

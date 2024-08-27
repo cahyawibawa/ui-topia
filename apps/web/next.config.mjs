@@ -1,12 +1,12 @@
-import { rehypeCodeDefaultOptions } from 'fumadocs-core/mdx-plugins'
+import { rehypeCodeDefaultOptions } from "fumadocs-core/mdx-plugins";
 import {
   fileGenerator,
   remarkDocGen,
   remarkInstall,
   typescriptGenerator,
-} from 'fumadocs-docgen'
-import createMDX from 'fumadocs-mdx/config'
-import { transformerTwoslash } from 'fumadocs-twoslash'
+} from "fumadocs-docgen";
+import createMDX from "fumadocs-mdx/config";
+import { transformerTwoslash } from "fumadocs-twoslash";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -14,16 +14,16 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'pbs.twimg.com',
+        protocol: "https",
+        hostname: "pbs.twimg.com",
       },
       {
-        protocol: 'https',
-        hostname: 'res.cloudinary.com',
+        protocol: "https",
+        hostname: "res.cloudinary.com",
       },
     ],
   },
-}
+};
 
 const withMDX = createMDX({
   mdxOptions: {
@@ -33,16 +33,16 @@ const withMDX = createMDX({
         transformerTwoslash(),
       ],
       themes: {
-        light: 'catppuccin-latte',
-        dark: 'vesper',
+        light: "catppuccin-latte",
+        dark: "vesper",
       },
     },
-    lastModifiedTime: 'git',
+    lastModifiedTime: "git",
     remarkPlugins: [
-      [remarkInstall, { Tabs: 'InstallTabs' }],
+      [remarkInstall, { Tabs: "InstallTabs" }],
       [remarkDocGen, { generators: [typescriptGenerator(), fileGenerator()] }],
     ],
   },
-})
+});
 
-export default withMDX(nextConfig)
+export default withMDX(nextConfig);

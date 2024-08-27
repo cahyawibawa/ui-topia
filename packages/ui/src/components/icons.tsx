@@ -1,5 +1,5 @@
-import { CheckIcon, CopyIcon, EyeOpenIcon } from '@radix-ui/react-icons'
-import type { LucideIcon } from 'lucide-react'
+import { CheckIcon, CopyIcon, EyeOpenIcon } from "@radix-ui/react-icons";
+import type { LucideIcon } from "lucide-react";
 import {
   ArrowUpRight,
   BookIcon,
@@ -14,9 +14,9 @@ import {
   ScanEye,
   TerminalIcon,
   UsersRound,
-} from 'lucide-react'
+} from "lucide-react";
 
-type IconProps = React.HTMLAttributes<SVGElement>
+type IconProps = React.HTMLAttributes<SVGElement>;
 export const Icons = {
   arrowUpRight: ArrowUpRight,
   arrow: ChevronRight,
@@ -269,18 +269,18 @@ export const Icons = {
       ></path>
     </svg>
   ),
-}
+};
 
 export function create({
   icon: Icon,
 }: {
-  icon?: LucideIcon
+  icon?: LucideIcon;
 }): React.ReactElement {
   return (
     <div className="from-secondary rounded-md border bg-gradient-to-b p-1 shadow-sm">
       {Icon ? <Icon /> : <TerminalIcon />}
     </div>
-  )
+  );
 }
 
 export function CrossIcon(props: { className: string }) {
@@ -299,7 +299,7 @@ export function CrossIcon(props: { className: string }) {
         d="M6 18 18 6M6 6l12 12"
       />
     </svg>
-  )
+  );
 }
 
 export function PlusIcon(props: { className: string }) {
@@ -318,5 +318,5 @@ export function PlusIcon(props: { className: string }) {
         d="M12 4.5v15m7.5-7.5h-15"
       />
     </svg>
-  )
+  );
 }

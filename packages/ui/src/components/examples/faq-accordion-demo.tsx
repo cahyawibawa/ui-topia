@@ -1,54 +1,54 @@
-'use client'
+"use client";
 
-import { AnimatePresence, motion } from 'framer-motion'
-import { useState } from 'react'
-import { cn } from '../../lib/utils'
+import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
+import { cn } from "../../lib/utils";
 
 const FAQS = [
   {
     id: 1,
-    title: 'What is UI/TOPIA?',
+    title: "What is UI/TOPIA?",
     content:
-      'UI/TOPIA is a ui/topia is is a curated showcase of UI components that blend aesthetic appeal with accessibility and versatility, built with Framer Motion and TailwindCSS. ',
+      "UI/TOPIA is a ui/topia is is a curated showcase of UI components that blend aesthetic appeal with accessibility and versatility, built with Framer Motion and TailwindCSS. ",
     isFav: true,
   },
   {
     id: 2,
-    title: 'Can I use this in my project?',
+    title: "Can I use this in my project?",
     content:
-      'Yes, you can use it in your project. It`s open source and available on GitHub.',
+      "Yes, you can use it in your project. It`s open source and available on GitHub.",
   },
   {
     id: 3,
-    title: 'Can I add components to this site?',
+    title: "Can I add components to this site?",
     content:
-      'Yes, you can! We welcome contributions from the community. Adding your components to ui/topia is a great way to showcase your work and help other developers.',
+      "Yes, you can! We welcome contributions from the community. Adding your components to ui/topia is a great way to showcase your work and help other developers.",
   },
   {
     id: 4,
-    title: 'Can I modify the components to fit my needs?',
+    title: "Can I modify the components to fit my needs?",
     content:
-      'Absolutely! In fact, we encourage it. The components are designed to be starting points that you can customize and adapt to your specific project requirements',
+      "Absolutely! In fact, we encourage it. The components are designed to be starting points that you can customize and adapt to your specific project requirements",
     isStar: true,
   },
   {
     id: 5,
-    title: 'Are the components responsive?',
+    title: "Are the components responsive?",
     content:
-      'Yes, all our components are designed with responsiveness in mind. However, you may need to adjust some aspects depending on your specific use case and design requirements.',
+      "Yes, all our components are designed with responsiveness in mind. However, you may need to adjust some aspects depending on your specific use case and design requirements.",
   },
-]
+];
 
 const FancyCarousel = () => {
-  const [active, setActive] = useState<number | undefined>()
+  const [active, setActive] = useState<number | undefined>();
 
   const handleSelect = (id: number) => {
     if (active === id) {
-      setActive(undefined)
+      setActive(undefined);
     } else {
-      setActive(id)
+      setActive(id);
     }
-  }
+  };
 
   return (
     <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden px-4">
@@ -69,18 +69,18 @@ const FancyCarousel = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FancyCarousel
+export default FancyCarousel;
 
 interface AccordionItemProps {
-  isActive: boolean
-  title: string
-  content: string
-  onSelect: () => void
-  isFav?: boolean
-  isStar?: boolean
+  isActive: boolean;
+  title: string;
+  content: string;
+  onSelect: () => void;
+  isFav?: boolean;
+  isStar?: boolean;
 }
 
 const AccordionItem = ({
@@ -95,15 +95,15 @@ const AccordionItem = ({
     <div className="w-full space-y-2 text-sm md:text-[15px]">
       <button
         className={cn(
-          'message group flex items-center gap-2',
-          isActive && 'active'
+          "message group flex items-center gap-2",
+          isActive && "active",
         )}
         onClick={onSelect}
       >
         <div
           className={cn(
-            'relative rounded-3xl bg-gray-100 px-6 py-4 font-medium text-[#0D0D0D] transition-all duration-200 ease-in-out group-hover:bg-blue-50 group-hover:text-blue-400',
-            isActive && 'bg-blue-50 text-blue-400'
+            "relative rounded-3xl bg-gray-100 px-6 py-4 font-medium text-[#0D0D0D] transition-all duration-200 ease-in-out group-hover:bg-blue-50 group-hover:text-blue-400",
+            isActive && "bg-blue-50 text-blue-400",
           )}
         >
           <p className="text-left">{title}</p>
@@ -112,8 +112,8 @@ const AccordionItem = ({
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className={cn(
-                'absolute -top-3 right-0 h-7 w-7 rotate-12 fill-red-400 transition-all duration-200 ease-in-out group-hover:fill-red-500',
-                isActive && 'fill-red-500'
+                "absolute -top-3 right-0 h-7 w-7 rotate-12 fill-red-400 transition-all duration-200 ease-in-out group-hover:fill-red-500",
+                isActive && "fill-red-500",
               )}
               viewBox="0 0 256 256"
             >
@@ -125,8 +125,8 @@ const AccordionItem = ({
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className={cn(
-                'absolute -left-3 top-0 h-7 w-7 -rotate-12 fill-yellow-400 transition-all duration-200 ease-in-out group-hover:fill-yellow-500',
-                isActive && 'fill-yellow-500'
+                "absolute -left-3 top-0 h-7 w-7 -rotate-12 fill-yellow-400 transition-all duration-200 ease-in-out group-hover:fill-yellow-500",
+                isActive && "fill-yellow-500",
               )}
               viewBox="0 0 256 256"
             >
@@ -137,32 +137,32 @@ const AccordionItem = ({
 
         <span
           className={cn(
-            'relative flex aspect-square w-4 items-center justify-center rounded-full border-[1.1px] border-[#0D0D0D] transition-all duration-200 ease-in-out group-hover:border-blue-400 group-hover:bg-blue-400',
-            isActive && 'border-blue-400 bg-blue-400'
+            "relative flex aspect-square w-4 items-center justify-center rounded-full border-[1.1px] border-[#0D0D0D] transition-all duration-200 ease-in-out group-hover:border-blue-400 group-hover:bg-blue-400",
+            isActive && "border-blue-400 bg-blue-400",
           )}
         >
           <span
             className={cn(
-              'block h-px w-1.5 bg-[#0D0D0D] transition-all duration-200 ease-in-out group-hover:bg-white',
-              isActive && 'bg-white'
+              "block h-px w-1.5 bg-[#0D0D0D] transition-all duration-200 ease-in-out group-hover:bg-white",
+              isActive && "bg-white",
             )}
           ></span>
 
           <motion.span
-            initial={{ rotate: !isActive ? '90deg' : '0deg' }}
-            animate={{ rotate: !isActive ? '90deg' : '0deg' }}
-            transition={{ ease: 'easeInOut', duration: 0.1 }}
+            initial={{ rotate: !isActive ? "90deg" : "0deg" }}
+            animate={{ rotate: !isActive ? "90deg" : "0deg" }}
+            transition={{ ease: "easeInOut", duration: 0.1 }}
             className={cn(
-              'absolute block h-px w-1.5 bg-[#0D0D0D] transition-all duration-200 ease-in-out group-hover:bg-white',
-              isActive && 'bg-white'
+              "absolute block h-px w-1.5 bg-[#0D0D0D] transition-all duration-200 ease-in-out group-hover:bg-white",
+              isActive && "bg-white",
             )}
           ></motion.span>
         </span>
       </button>
 
       <motion.div
-        initial={{ height: !isActive ? 0 : 'auto' }}
-        animate={{ height: !isActive ? 0 : 'auto' }}
+        initial={{ height: !isActive ? 0 : "auto" }}
+        animate={{ height: !isActive ? 0 : "auto" }}
         className="relative ml-auto flex max-w-full items-center justify-end gap-2 overflow-hidden md:max-w-[75%]"
       >
         <div>
@@ -173,10 +173,10 @@ const AccordionItem = ({
                 animate={{
                   opacity: 1,
                   scale: 1,
-                  transition: { delay: 0.4, duration: 0.3, ease: 'easeInOut' },
+                  transition: { delay: 0.4, duration: 0.3, ease: "easeInOut" },
                 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="rounded-t-3xl rounded-bl-3xl bg-blue-400 p-4 text-white"
               >
                 <p className="leading-6">{content}</p>
@@ -186,5 +186,5 @@ const AccordionItem = ({
         </div>
       </motion.div>
     </div>
-  )
-}
+  );
+};

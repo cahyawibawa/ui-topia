@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import {
   motion,
@@ -6,39 +6,39 @@ import {
   useMotionValue,
   useSpring,
   useTransform,
-} from 'framer-motion'
-import { useRef, type MouseEvent } from 'react'
+} from "framer-motion";
+import { useRef, type MouseEvent } from "react";
 
 export default function ClipPathDemo() {
-  const yValue = useMotionValue(191 / 1.66)
+  const yValue = useMotionValue(191 / 1.66);
 
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const onMouseOver = (event: MouseEvent<HTMLDivElement>) => {
-    const container = containerRef.current
+    const container = containerRef.current;
 
     if (container) {
-      const { top } = container.getBoundingClientRect()
+      const { top } = container.getBoundingClientRect();
 
-      yValue.set(event.pageY - top)
+      yValue.set(event.pageY - top);
     }
-  }
+  };
 
   const onMouseLeave = () => {
-    yValue.set(191 / 1.66)
-  }
+    yValue.set(191 / 1.66);
+  };
 
-  const yTransform = useTransform(yValue, [0, 191], [0, 100])
+  const yTransform = useTransform(yValue, [0, 191], [0, 100]);
   const springYValue = useSpring(yTransform, {
     stiffness: 400,
     damping: 40,
     bounce: 0,
-  })
-  const motionClipPath = useMotionTemplate`inset(${springYValue}% 0 0 0)`
+  });
+  const motionClipPath = useMotionTemplate`inset(${springYValue}% 0 0 0)`;
 
-  const top = useMotionTemplate`${springYValue}%`
+  const top = useMotionTemplate`${springYValue}%`;
 
-  console.log(yValue.get())
+  console.log(yValue.get());
 
   return (
     <div>
@@ -59,7 +59,7 @@ export default function ClipPathDemo() {
           className="bg-background absolute inset-0 flex w-full items-center p-8 text-start text-3xl font-bold tracking-tighter text-transparent"
           style={{
             clipPath: motionClipPath,
-            WebkitTextStroke: '1px #245595',
+            WebkitTextStroke: "1px #245595",
           }}
         >
           ui/topia is <br /> Awesome dude!
@@ -126,5 +126,5 @@ export default function ClipPathDemo() {
         </div>
       </div>
     </div>
-  )
+  );
 }

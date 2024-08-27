@@ -1,21 +1,21 @@
-'use client'
-import { Icons } from '@/components/icons'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { codeToHtml } from '@/lib/shiki'
-import { cn } from '@/lib/utils'
-import { registry } from '@ui/topia'
-import { useTheme } from 'next-themes' // Import useTheme hook
-import * as React from 'react'
-import { Button } from '../ui/button'
-import { CodeBlock, Pre } from './code-block'
-import ComponentWrapper from './component-wrapper'
+"use client";
+import { Icons } from "@/components/icons";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { codeToHtml } from "@/lib/shiki";
+import { cn } from "@/lib/utils";
+import { registry } from "@ui/topia";
+import { useTheme } from "next-themes"; // Import useTheme hook
+import * as React from "react";
+import { Button } from "../ui/button";
+import { CodeBlock, Pre } from "./code-block";
+import ComponentWrapper from "./component-wrapper";
 
 interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
-  name: string
-  code: string
-  lang?: string
-  icon?: React.ReactNode
-  align?: 'center' | 'start' | 'end'
+  name: string;
+  code: string;
+  lang?: string;
+  icon?: React.ReactNode;
+  align?: "center" | "start" | "end";
 }
 
 export function ComponentPreview({
@@ -23,52 +23,52 @@ export function ComponentPreview({
   children,
   className,
   icon,
-  align = 'center',
+  align = "center",
   code,
-  lang = 'tsx',
+  lang = "tsx",
   ...props
 }: ComponentPreviewProps) {
-  const [key, setKey] = React.useState(0) // State to trigger re-render of preview
-  const [highlightedCode, setHighlightedCode] = React.useState<string>('')
-  const { theme } = useTheme() // Get the current theme
+  const [key, setKey] = React.useState(0); // State to trigger re-render of preview
+  const [highlightedCode, setHighlightedCode] = React.useState<string>("");
+  const { theme } = useTheme(); // Get the current theme
 
   React.useEffect(() => {
     const highlightCode = async () => {
       const html = await codeToHtml({
         code,
         lang,
-        theme: theme as 'light' | 'dark', // Pass the current theme
-      })
-      setHighlightedCode(html)
-    }
+        theme: theme as "light" | "dark", // Pass the current theme
+      });
+      setHighlightedCode(html);
+    };
 
-    highlightCode()
-  }, [code, lang, theme]) // Re-run when theme changes
+    highlightCode();
+  }, [code, lang, theme]); // Re-run when theme changes
 
   const Preview = React.useMemo(() => {
-    const Component = registry[name]?.component
+    const Component = registry[name]?.component;
 
     if (!Component) {
-      console.error(`Component with name "${name}" not found in registry.`)
+      console.error(`Component with name "${name}" not found in registry.`);
       return (
         <p className="text-muted-foreground text-sm">
-          Component{' '}
+          Component{" "}
           <code className="bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm">
             {name}
-          </code>{' '}
+          </code>{" "}
           not found in registry.
         </p>
-      )
+      );
     }
 
-    return <Component />
-  }, [name])
+    return <Component />;
+  }, [name]);
 
   return (
     <div
       className={cn(
-        'relative my-4 flex flex-col space-y-2 lg:max-w-[120ch]',
-        className
+        "relative my-4 flex flex-col space-y-2 lg:max-w-[120ch]",
+        className,
       )}
       {...props}
     >
@@ -116,8 +116,9 @@ export function ComponentPreview({
             <CodeBlock allowCopy>
               <Pre
                 className={cn(
-                  'w-full rounded-md [&_pre]:my-0 [&_pre]:max-h-[350px] [&_pre]:overflow-auto'
+                  "w-full rounded-md [&_pre]:my-0 [&_pre]:max-h-[350px] [&_pre]:overflow-auto",
                 )}
+                // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
                 dangerouslySetInnerHTML={{ __html: highlightedCode }}
               />
             </CodeBlock>
@@ -125,5 +126,5 @@ export function ComponentPreview({
         </TabsContent>
       </Tabs>
     </div>
-  )
+  );
 }

@@ -1,7 +1,7 @@
-import { siteConfig } from '@/config/site'
+import { siteConfig } from "@/config/site";
 
 export function SiteFooter() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
   return (
     <footer>
       <div className="flex flex-col items-start justify-between gap-2 py-6 md:h-24">
@@ -11,7 +11,7 @@ export function SiteFooter() {
               Built with Next.js
             </span>
             <p className="font-redaction text-muted-foreground mt-1 text-sm">
-              Inspired from{' '}
+              Inspired from{" "}
               <a
                 href="https://github.com/shadcn/ui"
                 target="_blank"
@@ -19,8 +19,8 @@ export function SiteFooter() {
                 className="font-medium no-underline hover:underline"
               >
                 shadcn/ui
-              </a>{' '}
-              and{' '}
+              </a>{" "}
+              and{" "}
               <a
                 href="https://github.com/ibelick/buttons"
                 target="_blank"
@@ -45,5 +45,5 @@ export function SiteFooter() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

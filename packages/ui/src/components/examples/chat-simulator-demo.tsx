@@ -1,53 +1,53 @@
-'use client'
+"use client";
 
-import { AnimatePresence, MotionConfig, motion } from 'framer-motion'
-import { useState } from 'react'
-import { BsCamera, BsCameraVideo, BsTelephone } from 'react-icons/bs'
-import { FiPlus } from 'react-icons/fi'
-import { PiMicrophone } from 'react-icons/pi'
+import { AnimatePresence, MotionConfig, motion } from "framer-motion";
+import { useState } from "react";
+import { BsCamera, BsCameraVideo, BsTelephone } from "react-icons/bs";
+import { FiPlus } from "react-icons/fi";
+import { PiMicrophone } from "react-icons/pi";
 
-import Image from 'next/image'
-import { cn } from '../../lib/utils'
-import IphoneSimulator from '../iphone-simulator'
+import Image from "next/image";
+import { cn } from "../../lib/utils";
+import IphoneSimulator from "../iphone-simulator";
 
 const messages = [
-  { from: 0, message: 'Call me if you get lost' },
+  { from: 0, message: "Call me if you get lost" },
   { from: 1, message: "Yeah, I'm losing my mind" },
   {
     from: 0,
     message:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis repellat voluptates totam excepturi omnis, necessitatibus dolorum quas est fugit quia ratione recusandae similique iure numquam, possimus molestias laboriosam a assumenda!',
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis repellat voluptates totam excepturi omnis, necessitatibus dolorum quas est fugit quia ratione recusandae similique iure numquam, possimus molestias laboriosam a assumenda!",
   },
   {
     from: 0,
     message:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis repellat voluptates totam excepturi omnis, necessitatibus dolorum quas est fugit quia ratione recusandae similique iure numquam, possimus molestias laboriosam a assumenda!',
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis repellat voluptates totam excepturi omnis, necessitatibus dolorum quas est fugit quia ratione recusandae similique iure numquam, possimus molestias laboriosam a assumenda!",
   },
-]
+];
 
 const buttons = [
-  'Camera',
-  'Photo-&-video-library',
-  'Order',
-  'Catalog',
-  'Quick replies',
-  'Document',
-]
-const buttons2 = ['Location', 'Contact', 'Poll']
+  "Camera",
+  "Photo-&-video-library",
+  "Order",
+  "Catalog",
+  "Quick replies",
+  "Document",
+];
+const buttons2 = ["Location", "Contact", "Poll"];
 
 export default function ChatSimulatorDemo() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isMore, setIsMore] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [isMore, setIsMore] = useState(false);
 
-  const onClickHandler = () => setIsOpen(!isOpen)
-  const onMoreClickHandler = () => setIsMore(!isMore)
+  const onClickHandler = () => setIsOpen(!isOpen);
+  const onMoreClickHandler = () => setIsMore(!isMore);
 
   return (
     <IphoneSimulator
       mainClassName="pt-0 pb-0 bg-transparent flex flex-col"
       backgroundImage="https://preview.redd.it/3jfjc53fsyb61.jpg?width=640&crop=smart&auto=webp&s=003f69df91a1d37712f562ef9541982da31a307a"
     >
-      <MotionConfig transition={{ duration: 0.5, type: 'spring', bounce: 0 }}>
+      <MotionConfig transition={{ duration: 0.5, type: "spring", bounce: 0 }}>
         <div className="no-scrollbar grow overflow-auto">
           <header className="sticky top-0 z-10 flex items-center rounded-t-[52px] bg-[#3B3A3D]/40 pb-2 pt-14 font-medium backdrop-blur-lg">
             <button className="w-12 pl-2 text-[#2099D6]">
@@ -90,8 +90,8 @@ export default function ChatSimulatorDemo() {
               <li
                 key={index}
                 className={cn(
-                  'mb-2 flex w-fit max-w-[250px] flex-col rounded-lg p-2 pb-0.5 text-sm',
-                  message.from === 0 ? 'bg-[#38363A]' : 'self-end bg-[#005048]'
+                  "mb-2 flex w-fit max-w-[250px] flex-col rounded-lg p-2 pb-0.5 text-sm",
+                  message.from === 0 ? "bg-[#38363A]" : "self-end bg-[#005048]",
                 )}
               >
                 {message.message}
@@ -102,7 +102,7 @@ export default function ChatSimulatorDemo() {
         </div>
 
         <motion.form
-          animate={{ y: isOpen ? '100%' : 0 }}
+          animate={{ y: isOpen ? "100%" : 0 }}
           className="sticky bottom-0 z-30 flex gap-2 border-t border-[#2B2A2C] bg-[#191819] px-2 pb-8 pt-2 text-[#2099D6]"
         >
           <button
@@ -137,15 +137,15 @@ export default function ChatSimulatorDemo() {
                 className="absolute inset-0 -z-10 bg-black/50"
               />
               <motion.div
-                initial={{ y: '120%' }}
+                initial={{ y: "120%" }}
                 animate={{ y: 0 }}
-                exit={{ y: '120%' }}
+                exit={{ y: "120%" }}
                 className="w-full"
               >
                 <AnimatePresence mode="wait">
                   {isMore ? (
                     <motion.div
-                      key={'active'}
+                      key={"active"}
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{
                         opacity: 1,
@@ -154,7 +154,7 @@ export default function ChatSimulatorDemo() {
                       exit={{ opacity: 0, scale: 0.8 }}
                       transition={{
                         duration: 0.3,
-                        type: 'spring',
+                        type: "spring",
                         bounce: 0,
                       }}
                       className="mb-1 flex flex-col justify-end overflow-hidden rounded-xl bg-[#222222]"
@@ -176,7 +176,7 @@ export default function ChatSimulatorDemo() {
                     </motion.div>
                   ) : (
                     <motion.div
-                      key={'not-active'}
+                      key={"not-active"}
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{
                         opacity: 1,
@@ -185,7 +185,7 @@ export default function ChatSimulatorDemo() {
                       exit={{ opacity: 0, scale: 0.8 }}
                       transition={{
                         duration: 0.3,
-                        type: 'spring',
+                        type: "spring",
                         bounce: 0,
                       }}
                       className="mb-1 flex flex-col justify-end overflow-hidden rounded-xl bg-[#222222]"
@@ -219,5 +219,5 @@ export default function ChatSimulatorDemo() {
         </AnimatePresence>
       </MotionConfig>
     </IphoneSimulator>
-  )
+  );
 }

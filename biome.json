@@ -1,0 +1,46 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+  "files": {
+    "ignore": [
+      "packages/ui/src/components/*.tsx",
+      "packages/ui/src/elements/*.tsx"
+    ]
+  },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80,
+    "attributePosition": "auto",
+    "ignore": ["node_modules", ".next", "dist"]
+  },
+  "organizeImports": {
+    "enabled": true,
+    "ignore": ["node_modules", ".next", "dist"]
+  },
+  "linter": {
+    "ignore": ["node_modules", ".next", "dist"],
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+
+      "a11y": {
+        "noSvgWithoutTitle": "off",
+        "useKeyWithClickEvents": "off"
+      },
+      "style": {
+        "noNonNullAssertion": "off",
+        "useSelfClosingElements": "off"
+      },
+      "correctness": {
+        "useExhaustiveDependencies": "off"
+      },
+      "suspicious": {
+        "noArrayIndexKey": "off",
+        "noExplicitAny": "warn"
+      }
+    }
+  }
+}

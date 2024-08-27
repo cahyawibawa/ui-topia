@@ -1,26 +1,26 @@
-import { baseOptions } from '@/app/layout-config'
-import { ButtonGradientDemo } from '@/components/btn-gradient'
-import { ExamplesNav } from '@/components/examples-nav'
+import { baseOptions } from "@/app/layout-config";
+import { ButtonGradientDemo } from "@/components/btn-gradient";
+import { ExamplesNav } from "@/components/examples-nav";
 import {
   PageActions,
   PageHeader,
   PageHeaderDescription,
   PageHeaderHeading,
-} from '@/components/page-header'
-import { buttonVariants } from '@/components/ui/button'
-import { siteConfig } from '@/config/site'
-import { cn } from '@/lib/utils'
-import { HomeLayout } from 'fumadocs-ui/home-layout'
-import { type Metadata } from 'next'
-import Link from 'next/link'
+} from "@/components/page-header";
+import { buttonVariants } from "@/components/ui/button";
+import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
+import { HomeLayout } from "fumadocs-ui/home-layout";
+import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: 'Examples',
-  description: 'Check out some examples elements.',
-}
+  title: "Examples",
+  description: "Check out some examples elements.",
+};
 
 interface ExamplesLayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
@@ -41,8 +41,8 @@ export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
                 rel="noreferrer"
                 href={siteConfig.links.github}
                 className={cn(
-                  buttonVariants({ variant: 'ghost', size: 'sm' }),
-                  'rounded-full'
+                  buttonVariants({ variant: "ghost", size: "sm" }),
+                  "rounded-full",
                 )}
               >
                 GitHub
@@ -56,5 +56,5 @@ export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
         </div>
       </HomeLayout>
     </>
-  )
+  );
 }

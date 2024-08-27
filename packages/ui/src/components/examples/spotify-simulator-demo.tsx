@@ -1,42 +1,42 @@
-'use client'
+"use client";
 
 import {
   AnimatePresence,
   MotionConfig,
   motion,
   useAnimate,
-} from 'framer-motion'
-import { Headphones, Music, Pause, Search, SkipForward } from 'lucide-react'
-import { useState } from 'react'
+} from "framer-motion";
+import { Headphones, Music, Pause, Search, SkipForward } from "lucide-react";
+import { useState } from "react";
 
-import IphoneSimulator from '../iphone-simulator'
+import IphoneSimulator from "../iphone-simulator";
 
 export default function SpotifyDemo() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
-  const [scope, animate] = useAnimate()
+  const [scope, animate] = useAnimate();
 
-  const onClickHandler = () => setIsOpen(!isOpen)
+  const onClickHandler = () => setIsOpen(!isOpen);
 
   const onCloseHandler = async () => {
     animate(
-      '.text-information',
+      ".text-information",
       { opacity: 0, y: 30 },
-      { duration: 0.7, type: 'spring', bounce: 0 }
-    )
-    await new Promise((resolve) => setTimeout(resolve, 120))
-    setIsOpen(false)
-  }
+      { duration: 0.7, type: "spring", bounce: 0 },
+    );
+    await new Promise((resolve) => setTimeout(resolve, 120));
+    setIsOpen(false);
+  };
 
   return (
     <div className="bg-background flex h-dvh w-full items-center justify-center">
       <IphoneSimulator mainClassName="bg-[#131113] pb-0">
-        <MotionConfig transition={{ duration: 0.7, type: 'spring', bounce: 0 }}>
+        <MotionConfig transition={{ duration: 0.7, type: "spring", bounce: 0 }}>
           <motion.div
             animate={{
               opacity: isOpen ? 0.2 : 1,
               scale: isOpen ? 0.9 : 1,
-              originY: 'top',
+              originY: "top",
             }}
           >
             <header className="flex justify-between px-4 text-xl">
@@ -48,7 +48,7 @@ export default function SpotifyDemo() {
 
             <section className="scrollbar-none mt-4 flex gap-4 overflow-auto px-4">
               {Array.from({ length: 4 }).map((_, index) => (
-                <div key={index} className="w-32" style={{ flex: '0 0 auto' }}>
+                <div key={index} className="w-32" style={{ flex: "0 0 auto" }}>
                   <div className="flex aspect-square items-center justify-center rounded-md bg-[#343234] text-[#716F71]">
                     <Headphones className="rotate-12 text-3xl" />
                   </div>
@@ -132,7 +132,7 @@ export default function SpotifyDemo() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
                     duration: 0.7,
-                    type: 'spring',
+                    type: "spring",
                     bounce: 0,
                     delay: 0.2,
                   }}
@@ -171,5 +171,5 @@ export default function SpotifyDemo() {
         </MotionConfig>
       </IphoneSimulator>
     </div>
-  )
+  );
 }

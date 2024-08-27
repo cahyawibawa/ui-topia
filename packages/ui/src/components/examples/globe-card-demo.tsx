@@ -1,6 +1,6 @@
-'use client'
-import Globe from '../globe'
-import { Icons } from '../icons'
+"use client";
+import Globe from "../globe";
+import { Icons } from "../icons";
 
 export default function GlobeCardDemo() {
   return (
@@ -45,5 +45,5 @@ export default function GlobeCardDemo() {
         </div>
       </div>
     </div>
-  )
+  );
 }

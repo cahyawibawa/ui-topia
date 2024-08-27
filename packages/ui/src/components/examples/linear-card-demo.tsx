@@ -1,31 +1,31 @@
-'use client'
-import { AnimatePresence, motion } from 'framer-motion'
-import { useState } from 'react'
-import { CrossIcon, PlusIcon } from '../icons'
-import { Button } from '../ui/custom-btn'
+"use client";
+import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
+import { CrossIcon, PlusIcon } from "../icons";
+import { Button } from "../ui/custom-btn";
 
 interface OfferingProps {
-  id: number
-  title: string
-  description: string
-  banner: string
+  id: number;
+  title: string;
+  description: string;
+  banner: string;
 }
 
 const OFFERINGS = [
   {
     id: 1,
-    title: 'Designed to move fast',
+    title: "Designed to move fast",
     description:
-      'ui/topia is a collection of ready-to-use UI components designed to enhance interactivity and user experience.',
+      "ui/topia is a collection of ready-to-use UI components designed to enhance interactivity and user experience.",
     banner:
-      'https://linear.app/cdn-cgi/imagedelivery/fO02fVwohEs9s9UHFwon6A/0e6d3edd-cd37-4bf8-c1bf-b93960169400/f=auto,dpr=2,q=95,fit=scale-down,metadata=none',
+      "https://linear.app/cdn-cgi/imagedelivery/fO02fVwohEs9s9UHFwon6A/0e6d3edd-cd37-4bf8-c1bf-b93960169400/f=auto,dpr=2,q=95,fit=scale-down,metadata=none",
   },
   // add more data here
-]
+];
 
 export default function LinearCardDemo() {
   const [selectedOffering, setSelectedOffering] =
-    useState<OfferingProps | null>(null)
+    useState<OfferingProps | null>(null);
 
   return (
     <>
@@ -46,7 +46,7 @@ export default function LinearCardDemo() {
       />
       <TailwindCDNWorkaround />
     </>
-  )
+  );
 }
 
 function Card(props: { offering: OfferingProps; onClick: () => void }) {
@@ -75,7 +75,7 @@ function Card(props: { offering: OfferingProps; onClick: () => void }) {
       </div>
       <motion.span layoutId={`offeringDescription${props.offering.id}`} />
     </motion.li>
-  )
+  );
 }
 
 function Modal(props: { offering: OfferingProps | null; onClick: () => void }) {
@@ -85,10 +85,10 @@ function Modal(props: { offering: OfferingProps | null; onClick: () => void }) {
         {!!props.offering && (
           <motion.div
             className="fixed inset-0 z-10 flex items-center justify-center"
-            initial={{ backdropFilter: 'blur(0px)' }}
-            animate={{ backdropFilter: 'blur(32px)' }}
-            exit={{ backdropFilter: 'blur(0px)' }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
+            initial={{ backdropFilter: "blur(0px)" }}
+            animate={{ backdropFilter: "blur(32px)" }}
+            exit={{ backdropFilter: "blur(0px)" }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
           />
         )}
       </AnimatePresence>
@@ -130,7 +130,7 @@ function Modal(props: { offering: OfferingProps | null; onClick: () => void }) {
         )}
       </AnimatePresence>
     </>
-  )
+  );
 }
 
 /*
@@ -141,5 +141,5 @@ to ensure Tailwind generates these classes in advance.
 function TailwindCDNWorkaround() {
   return (
     <div className="fixed absolute relative inset-0 right-8 top-8 z-10 mx-auto -mt-20 -mt-8 mt-8 flex hidden size-5 h-[96vh] max-w-[960px] max-w-xl flex-col items-center justify-end justify-center overflow-y-auto text-balance rounded-t-[30px] bg-[#090A0B] p-8 text-[15px] text-[56px] font-medium leading-[60px] text-[#969799] text-white md:-mt-60" />
-  )
+  );
 }

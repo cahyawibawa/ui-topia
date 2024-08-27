@@ -1,15 +1,15 @@
-import { cn } from '@/lib/utils'
+import { cn } from "@/lib/utils";
 
 interface ComponentWrapperProps {
-  className?: string
-  children: any
+  className?: string;
+  children: any;
 }
 const ComponentWrapper = ({ className, children }: ComponentWrapperProps) => {
   return (
     <div
       className={cn(
-        'not-prose max-w-screen relative flex flex-col items-center justify-center overflow-hidden rounded-md border p-0 md:p-16',
-        className
+        "not-prose max-w-screen relative flex flex-col items-center justify-center overflow-hidden rounded-md border p-0 md:p-16",
+        className,
       )}
     >
       {/* <div
@@ -21,7 +21,7 @@ const ComponentWrapper = ({ className, children }: ComponentWrapperProps) => {
       /> */}
       {children}
     </div>
-  )
-}
+  );
+};
 
-export default ComponentWrapper
+export default ComponentWrapper;

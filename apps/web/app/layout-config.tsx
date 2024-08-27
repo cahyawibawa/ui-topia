@@ -1,12 +1,12 @@
-import { Icons } from '@/components/icons'
-import { utils } from '@/lib/source'
-import type { HomeLayoutProps } from 'fumadocs-ui/home-layout'
-import { type DocsLayoutProps } from 'fumadocs-ui/layout'
+import { Icons } from "@/components/icons";
+import { utils } from "@/lib/source";
+import type { HomeLayoutProps } from "fumadocs-ui/home-layout";
+import type { DocsLayoutProps } from "fumadocs-ui/layout";
 
 export const baseOptions: HomeLayoutProps = {
-  githubUrl: 'https://github.com/cahyawibawa/ui-topia',
+  githubUrl: "https://github.com/cahyawibawa/ui-topia",
   nav: {
-    transparentMode: 'top',
+    transparentMode: "top",
     title: (
       <>
         <Icons.logo />
@@ -19,19 +19,19 @@ export const baseOptions: HomeLayoutProps = {
   },
   links: [
     {
-      url: '/docs',
+      url: "/docs",
       icon: <Icons.bookOpen className="size-5" />,
-      text: 'Docs',
+      text: "Docs",
     },
   ],
-}
+};
 
 export const docsOptions: DocsLayoutProps = {
   ...baseOptions,
   tree: utils.pageTree,
   nav: {
     ...baseOptions.nav,
-    transparentMode: 'none',
+    transparentMode: "none",
     children: undefined,
   },
-}
+};
