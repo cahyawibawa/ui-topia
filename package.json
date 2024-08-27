@@ -10,7 +10,8 @@
     "format": "biome format --write .",
     "test": "nx run-many --target=test"
   },
-  "license": "ISC",
+  "license": "MIT",
+  "packageManager": "bun@1.1.10",
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
     "@nx/next": "^19.6.2",
