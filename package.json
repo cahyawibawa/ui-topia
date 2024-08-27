@@ -1,28 +1,19 @@
 {
-  "name": "uitopia-monorepo",
+  "name": "uitopia",
   "version": "1.0.0",
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
+  "workspaces": ["apps/*", "packages/*"],
   "scripts": {
-    "dev": "pnpm --filter web dev",
     "start": "nx serve",
-    "build": "nx run-many --target=build --all",
-    "lint": "nx run-many --target=lint --all",
-    "format:check": "nx run-many --target=format:check --all",
-    "format:write": "nx run-many --target=format:write --all",
-    "test": "nx run-many --target=test --all"
+    "build": "nx run-many --target=build",
+    "lint": "nx run-many --target=lint",
+    "format": "biome format --write .",
+    "test": "nx run-many --target=test"
   },
   "license": "ISC",
   "devDependencies": {
-    "@nx/eslint": "19.2.2",
-    "@nx/next": "^19.2.2",
-    "eslint": "^8",
-    "nx": "19.2.2",
-    "prettier": "^3.2.5",
-    "prettier-plugin-organize-imports": "^3.2.4",
-    "prettier-plugin-tailwindcss": "^0.6.5"
+    "@biomejs/biome": "1.8.3",
+    "@nx/next": "^19.6.2",
+    "nx": "^19.6.2"
   }
 }

@@ -7,9 +7,7 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "files": [
-    "dist/**"
-  ],
+  "files": ["dist/**"],
   "scripts": {
     "dev": "pnpm clean && tsup --watch",
     "clean": "rimraf dist",
@@ -34,12 +32,8 @@
   },
   "typesVersions": {
     "*": {
-      "components/*": [
-        "./dist/components/*.d.ts"
-      ],
-      "elements/*": [
-        "./dist/elements/*.d.ts"
-      ]
+      "components/*": ["./dist/components/*.d.ts"],
+      "elements/*": ["./dist/elements/*.d.ts"]
     }
   },
   "dependencies": {
@@ -66,6 +60,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@uitopia/tsconfig": "workspace:*",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "postcss": "^8.4.38",
