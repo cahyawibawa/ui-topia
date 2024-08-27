@@ -1,17 +1,10 @@
 {
+  "extends": "@uitopia/tsconfig/react-library.json",
   "compilerOptions": {
-    "target": "ES6",
-    "module": "ESNext",
-    "lib": ["ES2015", "DOM", "ESNext"],
-    "jsx": "react-jsx",
-    "moduleResolution": "node",
-    "allowJs": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "outDir": "./dist"
   },
   "exclude": ["dist", "build", "node_modules"],
