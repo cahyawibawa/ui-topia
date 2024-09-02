@@ -11,12 +11,12 @@ const examples = [
     href: "/examples/buttons",
   },
   // {
-  //   name: 'Background',
-  //   href: '/examples/backgrounds',
+  //   name: 'Text ',
+  //   href: '/examples/text-variants',
   // },
 ];
 
-interface ExamplesNavProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface ExamplesNavProps extends React.HTMLAttributes<HTMLDivElement> { }
 
 export function ExamplesNav({ className, ...props }: ExamplesNavProps) {
   const pathname = usePathname();
