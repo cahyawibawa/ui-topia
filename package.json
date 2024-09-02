@@ -1,21 +1,20 @@
 {
   "name": "uitopia",
   "version": "1.0.0",
-  "private": true,
   "workspaces": ["apps/*", "packages/*"],
-  "scripts": {
-    "start": "nx serve",
-    "build": "nx run-many --target=build",
-    "lint": "nx run-many --target=lint",
-    "format": "biome format --write .",
-    "test": "nx run-many --target=test"
-  },
   "license": "MIT",
-  "packageManager": "bun@1.1.10",
+  "private": true,
+  "scripts": {
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "build": "turbo run build",
+    "format": "biome format --write .",
+    "check": "biome check --fix ."
+  },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
-    "@nx/next": "^19.6.2",
-    "nx": "^19.6.2",
-    "@uitopia/tsconfig": "workspace:*"
-  }
+    "@uitopia/tsconfig": "workspace:*",
+    "turbo": "^2.1.1"
+  },
+  "packageManager": "bun@1.1.26"
 }

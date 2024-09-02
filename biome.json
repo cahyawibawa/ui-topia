@@ -1,11 +1,5 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
-  "files": {
-    "ignore": [
-      "packages/ui/src/components/*.tsx",
-      "packages/ui/src/elements/*.tsx"
-    ]
-  },
   "formatter": {
     "enabled": true,
     "formatWithErrors": false,
@@ -25,10 +19,18 @@
     "enabled": true,
     "rules": {
       "recommended": true,
-
       "a11y": {
         "noSvgWithoutTitle": "off",
-        "useKeyWithClickEvents": "off"
+        "useKeyWithClickEvents": "off",
+        "useButtonType": "off",
+        "useAltText": "off"
+      },
+      "nursery": {
+        "useSortedClasses": {
+          "level": "error",
+          "fix": "safe",
+          "options": {}
+        }
       },
       "style": {
         "noNonNullAssertion": "off",

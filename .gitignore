@@ -42,7 +42,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-
+## nx
 .nx
 .nx/cache
 .nx/workspace-data
@@ -50,3 +50,6 @@ next-env.d.ts
 # Next.js
 .next
 out
+
+# Turbo
+.turbo
