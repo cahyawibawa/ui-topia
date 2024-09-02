@@ -2,18 +2,12 @@ import { Toaster } from "@/components/sonner";
 import { siteConfig } from "@/config/site";
 import { Analytics } from "@vercel/analytics/react";
 import { RootProvider } from "fumadocs-ui/provider";
-// import "fumadocs-ui/twoslash.css";
+import "fumadocs-ui/twoslash.css";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata, Viewport } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-
-const Redaction = localFont({
-  src: "/fonts/Redaction_35-Regular.woff2",
-  variable: "--font-redaction",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -77,8 +71,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          `${GeistSans.variable}${GeistMono.variable}${Redaction.variable}`,
+          `${GeistSans.variable}${GeistMono.variable}`,
+          "min-h-screen bg-background font-redaction antialiased",
         )}
       >
         <RootProvider>
