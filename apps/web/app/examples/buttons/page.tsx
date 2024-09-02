@@ -1,5 +1,6 @@
 import { ButtonWrapper } from "@/components/btn-wrapper";
 import { registry } from "@ui/topia";
+import { Skeleton } from "@ui/topia/skeleton";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 
@@ -18,7 +19,7 @@ export default function ButtonsPage() {
   return (
     <section className="mx-auto">
       <div className="grid gap-6 p-10 pb-6 md:grid-cols-2 lg:grid-cols-4">
-        <Suspense fallback={<div>Loading buttons...</div>}>
+        <Suspense fallback={<Skeleton className="h-10 w-full" />}>
           <ButtonsComponent wrapper={ButtonWrapper} />
         </Suspense>
       </div>

@@ -44,6 +44,10 @@
     "./icons": {
       "import": "./src/components/icons.tsx",
       "types": "./src/components/icons.d.ts"
+    },
+    "./skeleton": {
+      "import": "./src/components/skeleton.tsx",
+      "types": "./src/components/skeleton.d.ts"
     }
   },
   "typesVersions": {
