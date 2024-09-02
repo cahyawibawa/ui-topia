@@ -2,10 +2,11 @@ import type { Config } from "tailwindcss";
 import animate from "tailwindcss-animate";
 const config = {
   darkMode: ["class"],
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
-  future: {
-    hoverOnlyWhenSupported: true,
-  },
+  content: [
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
   theme: {
     container: {
       center: true,
@@ -19,6 +20,7 @@ const config = {
         heading: ["var(--font-heading)"],
         sans: ["var(--font-geist-sans)"],
         mono: ["var(--font-geist-mono)"],
+        redaction: ["var(--font-redaction)"],
       },
       colors: {
         border: "hsl(var(--border))",

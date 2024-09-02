@@ -1,13 +1,13 @@
 "use client";
+import { BentoCard, BentoGrid } from "@/components/bento-grid";
+import { Calendar } from "@/components/calendar";
+import Globe from "@/components/globe";
 import {
   CalendarIcon,
   FileTextIcon,
   GlobeIcon,
   InputIcon,
 } from "@radix-ui/react-icons";
-import { BentoCard, BentoGrid } from "../bento-grid";
-import Globe from "../globe";
-import { Calendar } from "../ui/calendar";
 
 const files = [
   {
@@ -41,7 +41,7 @@ const features = [
     href: "https://magicui.design/docs/components/marquee",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-1",
-    background: <img className="absolute -right-20 -top-20 opacity-60" />,
+    background: <img className="-right-20 -top-20 absolute opacity-60" />,
   },
   {
     Icon: InputIcon,
@@ -50,7 +50,7 @@ const features = [
     href: "https://cmdk.paco.me/",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
-    background: <img className="absolute -right-20 -top-20 opacity-60" />,
+    background: <img className="-right-20 -top-20 absolute opacity-60" />,
   },
   {
     Icon: GlobeIcon,
@@ -74,7 +74,7 @@ const features = [
       <Calendar
         mode="single"
         selected={new Date(2022, 4, 11, 0, 0, 0)}
-        className="absolute right-0 top-10 origin-top rounded-md border transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] group-hover:scale-105"
+        className="absolute top-10 right-0 origin-top rounded-md border transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] group-hover:scale-105"
       />
     ),
   },

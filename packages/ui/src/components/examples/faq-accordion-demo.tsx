@@ -1,8 +1,8 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import { cn } from "../../lib/utils";
 
 const FAQS = [
   {
@@ -52,8 +52,8 @@ const FancyCarousel = () => {
 
   return (
     <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden px-4">
-      <div className="absolute left-1/2 top-1 -translate-x-1/2">
-        <h1 className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-5xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
+      <div className="-translate-x-1/2 absolute top-1 left-1/2">
+        <h1 className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center font-semibold text-5xl text-transparent leading-none dark:from-white dark:to-slate-900/10">
           Accordion
         </h1>
       </div>
@@ -112,7 +112,7 @@ const AccordionItem = ({
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className={cn(
-                "absolute -top-3 right-0 h-7 w-7 rotate-12 fill-red-400 transition-all duration-200 ease-in-out group-hover:fill-red-500",
+                "-top-3 absolute right-0 h-7 w-7 rotate-12 fill-red-400 transition-all duration-200 ease-in-out group-hover:fill-red-500",
                 isActive && "fill-red-500",
               )}
               viewBox="0 0 256 256"
@@ -125,7 +125,7 @@ const AccordionItem = ({
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className={cn(
-                "absolute -left-3 top-0 h-7 w-7 -rotate-12 fill-yellow-400 transition-all duration-200 ease-in-out group-hover:fill-yellow-500",
+                "-left-3 -rotate-12 absolute top-0 h-7 w-7 fill-yellow-400 transition-all duration-200 ease-in-out group-hover:fill-yellow-500",
                 isActive && "fill-yellow-500",
               )}
               viewBox="0 0 256 256"
@@ -137,7 +137,7 @@ const AccordionItem = ({
 
         <span
           className={cn(
-            "relative flex aspect-square w-4 items-center justify-center rounded-full border-[1.1px] border-[#0D0D0D] transition-all duration-200 ease-in-out group-hover:border-blue-400 group-hover:bg-blue-400",
+            "relative flex aspect-square w-4 items-center justify-center rounded-full border-[#0D0D0D] border-[1.1px] transition-all duration-200 ease-in-out group-hover:border-blue-400 group-hover:bg-blue-400",
             isActive && "border-blue-400 bg-blue-400",
           )}
         >

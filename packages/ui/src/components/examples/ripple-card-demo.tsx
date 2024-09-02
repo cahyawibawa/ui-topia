@@ -5,20 +5,20 @@ export function RippleCardDemo() {
       <div className="absolute inset-0 bg-[radial-gradient(40%_128px_at_50%_0%,theme(backgroundColor.white/10%),transparent)]"></div>
 
       {/* <!-- texture --> */}
-      <div className="absolute size-full bg-[url(https://lunarui.dev/twitter/noise.png)] bg-[size:96px] bg-repeat opacity-[0.025]"></div>
+      <div className="absolute size-full bg-[size:96px] bg-[url(https://lunarui.dev/twitter/noise.png)] bg-repeat opacity-[0.025]"></div>
 
       <div className="relative h-44 w-full">
-        <div className="absolute -top-1/2 size-full">
+        <div className="-top-1/2 absolute size-full">
           {/* <!-- tweak variables --> */}
           <div className="relative flex size-full items-center justify-center [--baseOpacity:0.25] [--baseSize:80px] [--duration:1.5s] [--opacityStep:0.05] [--scale:1.25] [--sizeStep:64px]">
             {/* <!-- repeat this element, set `--i` to index --> */}
-            <div className="animate-ripple absolute size-[calc(var(--baseSize)+var(--sizeStep)*var(--i))] rounded-full border border-dashed border-white/50 bg-white/5 opacity-[calc(var(--baseOpacity)-var(--opacityStep)*var(--i))] [--i:0]"></div>
+            <div className="absolute size-[calc(var(--baseSize)+var(--sizeStep)*var(--i))] animate-ripple rounded-full border border-white/50 border-dashed bg-white/5 opacity-[calc(var(--baseOpacity)-var(--opacityStep)*var(--i))] [--i:0]"></div>
 
-            <div className="animate-ripple absolute size-[calc(var(--baseSize)+var(--sizeStep)*var(--i))] rounded-full border border-dashed border-white/50 bg-white/5 opacity-[calc(var(--baseOpacity)-var(--opacityStep)*var(--i))] [--i:1]"></div>
+            <div className="absolute size-[calc(var(--baseSize)+var(--sizeStep)*var(--i))] animate-ripple rounded-full border border-white/50 border-dashed bg-white/5 opacity-[calc(var(--baseOpacity)-var(--opacityStep)*var(--i))] [--i:1]"></div>
 
-            <div className="animate-ripple absolute size-[calc(var(--baseSize)+var(--sizeStep)*var(--i))] rounded-full border border-dashed border-white/50 bg-white/5 opacity-[calc(var(--baseOpacity)-var(--opacityStep)*var(--i))] [--i:2]"></div>
+            <div className="absolute size-[calc(var(--baseSize)+var(--sizeStep)*var(--i))] animate-ripple rounded-full border border-white/50 border-dashed bg-white/5 opacity-[calc(var(--baseOpacity)-var(--opacityStep)*var(--i))] [--i:2]"></div>
 
-            <div className="animate-ripple absolute size-[calc(var(--baseSize)+var(--sizeStep)*var(--i))] rounded-full border border-dashed border-white/50 bg-white/5 opacity-[calc(var(--baseOpacity)-var(--opacityStep)*var(--i))] [--i:3]"></div>
+            <div className="absolute size-[calc(var(--baseSize)+var(--sizeStep)*var(--i))] animate-ripple rounded-full border border-white/50 border-dashed bg-white/5 opacity-[calc(var(--baseOpacity)-var(--opacityStep)*var(--i))] [--i:3]"></div>
           </div>
         </div>
       </div>
@@ -44,13 +44,13 @@ export function RippleCardDemo() {
         <div className="mt-4">
           <div className="text-lg text-white">Issue detector</div>
 
-          <p className="mt-2 text-sm font-light leading-relaxed text-white/75">
+          <p className="mt-2 font-light text-sm text-white/75 leading-relaxed">
             Spot bugs, catch common issues, and fix them automatically, before
             they pop up in production.
           </p>
 
           <div className="mt-4 flex">
-            <div className="cursor-pointer rounded-full border border-cyan-400 bg-cyan-400/10 px-3 py-1 text-sm font-light text-cyan-100">
+            <div className="cursor-pointer rounded-full border border-cyan-400 bg-cyan-400/10 px-3 py-1 font-light text-cyan-100 text-sm">
               Get started for free
             </div>
           </div>

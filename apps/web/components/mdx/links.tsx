@@ -3,7 +3,7 @@ import {
   GitHubIcon,
   LinearLogo,
   TwitterIcon,
-} from "@/components/icons";
+} from "@ui/topia/icons";
 import type { PropsWithChildren } from "react";
 
 type LinkIcon = "github" | "twitter" | "linear" | "animations-dev";

@@ -1,7 +1,7 @@
 "use client";
 
-import { MotionConfig, motion, type Transition } from "framer-motion";
-import React from "react";
+import { MotionConfig, type Transition, motion } from "framer-motion";
+import type React from "react";
 import { cn } from "../lib/utils";
 
 interface Props {
@@ -34,7 +34,7 @@ export default function IphoneSimulator({
   return (
     <div
       className={cn(
-        "relative aspect-[4/8] w-[367px] overflow-hidden border-[1.5px] border-[#7E7D7E] bg-[#2C2C2B] p-1 text-[var(--ios-simulator-color)]",
+        "relative aspect-[4/8] w-[367px] overflow-hidden border-[#7E7D7E] border-[1.5px] bg-[#2C2C2B] p-1 text-[var(--ios-simulator-color)]",
         roundedCorners && "rounded-[56px]",
       )}
       // @ts-ignore
@@ -44,7 +44,7 @@ export default function IphoneSimulator({
       <MotionConfig
         transition={{ duration: 0.3, type: "tween", ease: "easeInOut" }}
       >
-        <div className="absolute left-0 flex h-48 w-auto -translate-x-full translate-y-32 flex-col">
+        <div className="-translate-x-full absolute left-0 flex h-48 w-auto translate-y-32 flex-col">
           <motion.button
             className="mb-4 flex h-8 w-1 items-start overflow-hidden rounded-l-sm bg-black"
             whileHover={{ scaleX: 1.7, originX: "right" }}
@@ -81,7 +81,7 @@ export default function IphoneSimulator({
       </MotionConfig>
 
       <MotionConfig transition={transition || { duration: 0.3 }}>
-        <header className="absolute left-0 top-0 z-20 grid h-16 w-full grid-cols-4 items-center px-[40px]">
+        <header className="absolute top-0 left-0 z-20 grid h-16 w-full grid-cols-4 items-center px-[40px]">
           <div>
             <motion.h3
               initial={{
@@ -169,7 +169,7 @@ export default function IphoneSimulator({
 
         {backgroundImage ? (
           <div
-            className="absolute bottom-1 left-1/2 top-1/2 h-[calc(100%-8px)] w-[calc(100%-8px)] -translate-x-1/2 -translate-y-1/2 rounded-[52px]"
+            className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 bottom-1 left-1/2 h-[calc(100%-8px)] w-[calc(100%-8px)] rounded-[52px]"
             style={{
               background: `url(${backgroundImage}) center/cover no-repeat`,
             }}

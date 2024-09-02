@@ -1,12 +1,12 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { Button } from "@ui/topia/button";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible";
-import { cn } from "@/lib/utils";
+} from "@ui/topia/collapsible";
 import * as React from "react";
 
 interface CodeBlockProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -39,7 +39,7 @@ export function CodeBlockWrapper({
         </CollapsibleContent>
         <div
           className={cn(
-            "from-background/10 to-background absolute flex items-center justify-center bg-gradient-to-b to-90% p-2",
+            "absolute flex items-center justify-center bg-gradient-to-b from-background/10 to-90% to-background p-2",
             isOpened ? "inset-x-0 bottom-0 h-12" : "inset-0",
           )}
         >

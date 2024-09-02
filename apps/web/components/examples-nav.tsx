@@ -1,7 +1,7 @@
 "use client";
 
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
+import { ScrollArea, ScrollBar } from "@ui/topia/scroll-area";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -30,10 +30,10 @@ export function ExamplesNav({ className, ...props }: ExamplesNavProps) {
               href={example.href}
               key={example.href}
               className={cn(
-                "flex h-7 items-center justify-center rounded-full px-4 text-center text-[13px] font-medium transition-colors",
+                "flex h-7 items-center justify-center rounded-full px-4 text-center font-medium text-[13px] transition-colors",
                 pathname?.startsWith(example.href) ||
                   (index === 0 && pathname === "/")
-                  ? "text-primary dark:bg-slated bg-neutral-200 dark:text-white"
+                  ? "bg-neutral-200 text-primary dark:bg-slated dark:text-white"
                   : "text-muted-foreground",
               )}
             >

@@ -1,14 +1,14 @@
 "use client";
-import { Icons } from "@/components/icons";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CodeBlock, Pre } from "@/components/mdx/code-block";
+import ComponentWrapper from "@/components/mdx/component-wrapper";
 import { codeToHtml } from "@/lib/shiki";
 import { cn } from "@/lib/utils";
 import { registry } from "@ui/topia";
+import { Button } from "@ui/topia/button";
+import { Icons } from "@ui/topia/icons";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@ui/topia/tabs";
 import { useTheme } from "next-themes"; // Import useTheme hook
 import * as React from "react";
-import { Button } from "../ui/button";
-import { CodeBlock, Pre } from "./code-block";
-import ComponentWrapper from "./component-wrapper";
 
 interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
   name: string;
@@ -53,7 +53,7 @@ export function ComponentPreview({
       return (
         <p className="text-muted-foreground text-sm">
           Component{" "}
-          <code className="bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm">
+          <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
             {name}
           </code>{" "}
           not found in registry.
@@ -77,13 +77,13 @@ export function ComponentPreview({
           <TabsList className="w-full justify-start rounded-none border-b bg-transparent p-0">
             <TabsTrigger
               value="preview"
-              className="text-muted-foreground data-[state=active]:border-b-primary data-[state=active]:text-foreground relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-3 pb-3 pt-2 font-semibold shadow-none transition-none data-[state=active]:shadow-none"
+              className="relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-3 pt-2 pb-3 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
             >
               Preview
             </TabsTrigger>
             <TabsTrigger
               value="code"
-              className="text-muted-foreground data-[state=active]:border-b-primary data-[state=active]:text-foreground relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-3 pb-3 pt-2 font-semibold shadow-none transition-none data-[state=active]:shadow-none"
+              className="relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-3 pt-2 pb-3 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
             >
               Code
             </TabsTrigger>
@@ -93,7 +93,7 @@ export function ComponentPreview({
           <ComponentWrapper>
             <Button
               onClick={() => setKey((prev) => prev + 1)}
-              className="absolute right-0 top-0 z-10 ml-4 flex items-center rounded-lg px-3 py-1"
+              className="absolute top-0 right-0 z-10 ml-4 flex items-center rounded-lg px-3 py-1"
               variant="ghost"
               size="sm"
             >
@@ -101,7 +101,7 @@ export function ComponentPreview({
             </Button>
             <React.Suspense
               fallback={
-                <div className="text-muted-foreground flex items-center text-sm">
+                <div className="flex items-center text-muted-foreground text-sm">
                   <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
                   Loading...
                 </div>

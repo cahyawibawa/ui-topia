@@ -1,13 +1,19 @@
-import { Toaster } from "@/components/ui/sonner";
+import { Toaster } from "@/components/sonner";
 import { siteConfig } from "@/config/site";
-import { fontHeading, fontRedaction } from "@/lib/font";
 import { Analytics } from "@vercel/analytics/react";
 import { RootProvider } from "fumadocs-ui/provider";
-import "fumadocs-ui/twoslash.css";
+// import "fumadocs-ui/twoslash.css";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata, Viewport } from "next";
+import localFont from "next/font/local";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+
+const Redaction = localFont({
+  src: "/fonts/Redaction_35-Regular.woff2",
+  variable: "--font-redaction",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -68,12 +74,13 @@ interface RootLayoutProps {
 }
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html
-      lang="en"
-      className={`${GeistSans.variable} ${GeistMono.variable} ${fontHeading.variable} ${fontRedaction.variable} `}
-      suppressHydrationWarning
-    >
-      <body className="flex min-h-screen flex-col">
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          `${GeistSans.variable}${GeistMono.variable}${Redaction.variable}`,
+        )}
+      >
         <RootProvider>
           {children}
           <Analytics />

@@ -6,9 +6,9 @@ import { BsCamera, BsCameraVideo, BsTelephone } from "react-icons/bs";
 import { FiPlus } from "react-icons/fi";
 import { PiMicrophone } from "react-icons/pi";
 
+import IphoneSimulator from "@/components/iphone-simulator";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
-import { cn } from "../../lib/utils";
-import IphoneSimulator from "../iphone-simulator";
 
 const messages = [
   { from: 0, message: "Call me if you get lost" },
@@ -49,7 +49,7 @@ export default function ChatSimulatorDemo() {
     >
       <MotionConfig transition={{ duration: 0.5, type: "spring", bounce: 0 }}>
         <div className="no-scrollbar grow overflow-auto">
-          <header className="sticky top-0 z-10 flex items-center rounded-t-[52px] bg-[#3B3A3D]/40 pb-2 pt-14 font-medium backdrop-blur-lg">
+          <header className="sticky top-0 z-10 flex items-center rounded-t-[52px] bg-[#3B3A3D]/40 pt-14 pb-2 font-medium backdrop-blur-lg">
             <button className="w-12 pl-2 text-[#2099D6]">
               <svg
                 viewBox="0 0 12 20"
@@ -103,7 +103,7 @@ export default function ChatSimulatorDemo() {
 
         <motion.form
           animate={{ y: isOpen ? "100%" : 0 }}
-          className="sticky bottom-0 z-30 flex gap-2 border-t border-[#2B2A2C] bg-[#191819] px-2 pb-8 pt-2 text-[#2099D6]"
+          className="sticky bottom-0 z-30 flex gap-2 border-[#2B2A2C] border-t bg-[#191819] px-2 pt-2 pb-8 text-[#2099D6]"
         >
           <button
             className="text-3xl active:opacity-50"
@@ -134,7 +134,7 @@ export default function ChatSimulatorDemo() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="absolute inset-0 -z-10 bg-black/50"
+                className="-z-10 absolute inset-0 bg-black/50"
               />
               <motion.div
                 initial={{ y: "120%" }}
@@ -162,13 +162,13 @@ export default function ChatSimulatorDemo() {
                       {buttons2.map((button) => (
                         <button
                           key={button}
-                          className="h-12 border-b border-[#282628] px-4 text-start active:bg-[#2D2D2F]"
+                          className="h-12 border-[#282628] border-b px-4 text-start active:bg-[#2D2D2F]"
                         >
                           {button}
                         </button>
                       ))}
                       <button
-                        className="h-12 border-b border-[#282628] px-4 text-start active:bg-[#2D2D2F]"
+                        className="h-12 border-[#282628] border-b px-4 text-start active:bg-[#2D2D2F]"
                         onClick={onMoreClickHandler}
                       >
                         More...
@@ -193,13 +193,13 @@ export default function ChatSimulatorDemo() {
                       {buttons.map((button) => (
                         <button
                           key={button}
-                          className="h-12 border-b border-[#282628] px-4 text-start active:bg-[#2D2D2F]"
+                          className="h-12 border-[#282628] border-b px-4 text-start active:bg-[#2D2D2F]"
                         >
                           {button}
                         </button>
                       ))}
                       <button
-                        className="h-12 border-b border-[#282628] px-4 text-start active:bg-[#2D2D2F]"
+                        className="h-12 border-[#282628] border-b px-4 text-start active:bg-[#2D2D2F]"
                         onClick={onMoreClickHandler}
                       >
                         More...

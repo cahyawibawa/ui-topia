@@ -1,6 +1,6 @@
 "use client";
 
-import { Icons } from "@/components/icons";
+import { Icons } from "@ui/topia/icons";
 import { useState } from "react";
 import { flushSync } from "react-dom";
 import { createRoot } from "react-dom/client";
@@ -36,8 +36,8 @@ export const ButtonWrapper: React.FC<CardComponentProps> = ({ children }) => {
   };
 
   return (
-    <div className="bg-card relative flex items-center justify-center rounded-md border px-0 py-24 md:px-2">
-      <div className="absolute right-3 top-3 cursor-pointer bg-transparent p-2">
+    <div className="relative flex items-center justify-center rounded-md border bg-card px-0 py-24 font-mono md:px-2">
+      <div className="absolute top-3 right-3 cursor-pointer bg-transparent p-2">
         <div
           onClick={onCopy}
           onKeyDown={(e) => {
@@ -49,9 +49,9 @@ export const ButtonWrapper: React.FC<CardComponentProps> = ({ children }) => {
           tabIndex={0}
         >
           {isCopied ? (
-            <Icons.check className="text-muted-foreground size-3.5" />
+            <Icons.check className="size-3.5 text-muted-foreground" />
           ) : (
-            <Icons.clipboard className="text-muted-foreground size-3.5 animate-jelly" />
+            <Icons.clipboard className="size-3.5 animate-jelly text-muted-foreground" />
           )}
         </div>
       </div>

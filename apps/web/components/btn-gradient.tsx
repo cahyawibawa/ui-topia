@@ -1,6 +1,6 @@
 "use client";
+import { HoverBorderGradient } from "@/components/hover-border-gradient";
 import Link from "next/link";
-import { HoverBorderGradient } from "./hover-border-gradient";
 
 export function ButtonGradientDemo() {
   return (
@@ -8,7 +8,7 @@ export function ButtonGradientDemo() {
       <HoverBorderGradient
         containerClassName="rounded-full"
         as="button"
-        className="text-foreground flex items-center space-x-2 bg-white dark:bg-zinc-950"
+        className="flex items-center space-x-2 bg-white text-foreground dark:bg-zinc-950"
       >
         <span className="text-xs">Get Started</span>
       </HoverBorderGradient>

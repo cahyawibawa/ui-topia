@@ -1,5 +1,5 @@
 import { map } from "@/.map";
-import { create } from "@/components/icons";
+import { create } from "@ui/topia/icons";
 import type { InferMetaType, InferPageType } from "fumadocs-core/source";
 import { loader } from "fumadocs-core/source";
 import { createMDXSource, defaultSchemas } from "fumadocs-mdx";

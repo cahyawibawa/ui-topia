@@ -8,7 +8,7 @@ const ComponentWrapper = ({ className, children }: ComponentWrapperProps) => {
   return (
     <div
       className={cn(
-        "not-prose max-w-screen relative flex flex-col items-center justify-center overflow-hidden rounded-md border p-0 md:p-16",
+        "not-prose relative flex max-w-screen flex-col items-center justify-center overflow-hidden rounded-md border p-0 md:p-16",
         className,
       )}
     >

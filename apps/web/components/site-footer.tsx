@@ -10,7 +10,7 @@ export function SiteFooter() {
             <span className="font-redaction text-muted-foreground text-sm">
               Built with Next.js
             </span>
-            <p className="font-redaction text-muted-foreground mt-1 text-sm">
+            <p className="mt-1 font-redaction text-muted-foreground text-sm">
               Inspired from{" "}
               <a
                 href="https://github.com/shadcn/ui"
@@ -31,7 +31,7 @@ export function SiteFooter() {
               </a>
             </p>
           </div>
-          <span className="font-redaction text-muted-foreground mt-2 flex items-center space-x-1 text-sm sm:mt-0">
+          <span className="mt-2 flex items-center space-x-1 font-redaction text-muted-foreground text-sm sm:mt-0">
             <a
               href={siteConfig.links.portfolio}
               target="_blank"

@@ -1,5 +1,5 @@
-import { type Position, SparkleSvg } from "@/components/icons";
 import { cn } from "@/lib/utils";
+import { type Position, SparkleSvg } from "@ui/topia/icons";
 import type { ReactNode } from "react";
 
 /**
@@ -39,10 +39,7 @@ export const SparkleDivider = ({
           sparklePositions.map((sparklePosition, index) => {
             return (
               <SparkleSvg
-                key={`sparkle_${
-                  // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-                  index
-                }`}
+                key={`sparkle_${index}`}
                 position={sparklePosition}
                 className="hover:animate-rotate"
               />

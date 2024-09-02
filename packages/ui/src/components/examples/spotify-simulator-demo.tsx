@@ -9,7 +9,7 @@ import {
 import { Headphones, Music, Pause, Search, SkipForward } from "lucide-react";
 import { useState } from "react";
 
-import IphoneSimulator from "../iphone-simulator";
+import IphoneSimulator from "@/components/iphone-simulator";
 
 export default function SpotifyDemo() {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,7 +29,7 @@ export default function SpotifyDemo() {
   };
 
   return (
-    <div className="bg-background flex h-dvh w-full items-center justify-center">
+    <div className="flex h-dvh w-full items-center justify-center bg-background">
       <IphoneSimulator mainClassName="bg-[#131113] pb-0">
         <MotionConfig transition={{ duration: 0.7, type: "spring", bounce: 0 }}>
           <motion.div
@@ -78,16 +78,16 @@ export default function SpotifyDemo() {
           </motion.div>
 
           <div className="sticky bottom-0 left-0 w-full px-4 pb-8">
-            <div className="pointer-events-none absolute bottom-0 left-0 h-48 w-full bg-gradient-to-b from-transparent to-[#131113] to-55%"></div>
+            <div className="pointer-events-none absolute bottom-0 left-0 h-48 w-full bg-gradient-to-b from-transparent to-55% to-[#131113]"></div>
 
             <motion.div
-              className="relative isolate flex w-full cursor-pointer items-center gap-4 py-3 pl-3 pr-4"
+              className="relative isolate flex w-full cursor-pointer items-center gap-4 py-3 pr-4 pl-3"
               onClick={onClickHandler}
               whileTap={{ scale: 0.9 }}
             >
               <motion.div
                 layoutId="background-layout"
-                className="absolute inset-0 -z-10 bg-[#262426]"
+                className="-z-10 absolute inset-0 bg-[#262426]"
                 style={{ borderRadius: 12 }}
               ></motion.div>
 
@@ -117,7 +117,7 @@ export default function SpotifyDemo() {
               >
                 <motion.div
                   layoutId="background-layout"
-                  className="absolute inset-0 -z-10 bg-[#262426]"
+                  className="-z-10 absolute inset-0 bg-[#262426]"
                   style={{ borderRadius: 12 }}
                 ></motion.div>
 
@@ -148,7 +148,7 @@ export default function SpotifyDemo() {
                     <div className="absolute left-[75%] h-4 w-4 rounded-full bg-[#48AA5B]"></div>
                   </div>
 
-                  <div className="mt-2 flex justify-between text-xs text-[#716F71]">
+                  <div className="mt-2 flex justify-between text-[#716F71] text-xs">
                     <p>2:02</p>
                     <p>9:41</p>
                   </div>

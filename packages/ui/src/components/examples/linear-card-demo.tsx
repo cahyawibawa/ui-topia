@@ -1,8 +1,8 @@
 "use client";
+import { Icons } from "@/components/icons";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import { CrossIcon, PlusIcon } from "../icons";
-import { Button } from "../ui/custom-btn";
+import { Button } from "../custom-btn";
 
 interface OfferingProps {
   id: number;
@@ -70,7 +70,7 @@ function Card(props: { offering: OfferingProps; onClick: () => void }) {
           {props.offering.title}
         </motion.p>
         <Button>
-          <PlusIcon className="size-4" />
+          <Icons.plus className="size-4" />
         </Button>
       </div>
       <motion.span layoutId={`offeringDescription${props.offering.id}`} />
@@ -108,22 +108,22 @@ function Modal(props: { offering: OfferingProps | null; onClick: () => void }) {
                 className="-mt-8"
                 layoutId={`offeringBanner${props.offering.id}`}
               />
-              <div className="mx-auto -mt-20 max-w-xl md:-mt-60">
+              <div className="-mt-20 md:-mt-60 mx-auto max-w-xl">
                 <motion.p
-                  className="text-balance text-[56px] font-medium leading-[60px] text-white"
+                  className="text-balance font-medium text-[56px] text-white leading-[60px]"
                   layoutId={`offeringHeading${props.offering.id}`}
                 >
                   {props.offering.title}
                 </motion.p>
                 <motion.p
-                  className="mt-8 text-[15px] font-medium text-[#969799]"
+                  className="mt-8 font-medium text-[#969799] text-[15px]"
                   layoutId={`offeringDescription${props.offering.id}`}
                 >
                   {props.offering.description}
                 </motion.p>
               </div>
-              <Button className="absolute right-8 top-8">
-                <CrossIcon className="size-5" />
+              <Button className="absolute top-8 right-8">
+                <Icons.x className="size-5" />
               </Button>
             </motion.div>
           </motion.div>
@@ -140,6 +140,6 @@ to ensure Tailwind generates these classes in advance.
 */
 function TailwindCDNWorkaround() {
   return (
-    <div className="fixed absolute relative inset-0 right-8 top-8 z-10 mx-auto -mt-20 -mt-8 mt-8 flex hidden size-5 h-[96vh] max-w-[960px] max-w-xl flex-col items-center justify-end justify-center overflow-y-auto text-balance rounded-t-[30px] bg-[#090A0B] p-8 text-[15px] text-[56px] font-medium leading-[60px] text-[#969799] text-white md:-mt-60" />
+    <div className="-mt-20 -mt-8 md:-mt-60 fixed absolute relative inset-0 top-8 right-8 z-10 mx-auto mt-8 flex hidden size-5 h-[96vh] max-w-[960px] max-w-xl flex-col items-center justify-end justify-center overflow-y-auto text-balance rounded-t-[30px] bg-[#090A0B] p-8 font-medium text-[#969799] text-[15px] text-[56px] text-white leading-[60px]" />
   );
 }

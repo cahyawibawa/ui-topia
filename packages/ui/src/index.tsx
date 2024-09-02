@@ -12,16 +12,6 @@ const ui: Registry = {
     type: "components:ui",
     files: ["./components/iphone-simulator.tsx"],
   },
-  marquee: {
-    name: "marquee",
-    type: "components:ui",
-    files: ["./components/marquee.tsx"],
-  },
-  projectCard: {
-    name: "project-card",
-    type: "components:ui",
-    files: ["./components/project-card.tsx"],
-  },
 };
 
 const example: Registry = {
@@ -38,12 +28,6 @@ const example: Registry = {
     component: React.lazy(
       () => import("./components/examples/client-logo-demo"),
     ),
-  },
-  "clip-path-demo": {
-    name: "clip-path-demo",
-    type: "components:example",
-    files: ["./components/examples/clip-path-demo.tsx"],
-    component: React.lazy(() => import("./components/examples/clip-path-demo")),
   },
   "dock-demo": {
     name: "dock-demo",
@@ -75,22 +59,6 @@ const example: Registry = {
       () => import("./components/examples/linear-card-demo"),
     ),
   },
-  "marquee-logo-demo": {
-    name: "marquee-logo-demo",
-    type: "components:example",
-    files: ["./components/examples/marquee-logo-demo.tsx"],
-    component: React.lazy(
-      () => import("./components/examples/marquee-logo-demo"),
-    ),
-  },
-  "project-card-demo": {
-    name: "project-card-demo",
-    type: "components:example",
-    files: ["./components/examples/project-card-demo.tsx"],
-    component: React.lazy(
-      () => import("./components/examples/project-card-demo"),
-    ),
-  },
   "spotify-simulator-demo": {
     name: "spotify-simulator-demo",
     type: "components:example",
@@ -105,22 +73,6 @@ const example: Registry = {
     files: ["./components/examples/chat-simulator-demo.tsx"],
     component: React.lazy(
       () => import("./components/examples/chat-simulator-demo"),
-    ),
-  },
-  "lockscreen-cam-demo": {
-    name: "lockscreen-cam-demo",
-    type: "components:example",
-    files: ["./components/examples/lockscreen-cam-demo.tsx"],
-    component: React.lazy(
-      () => import("./components/examples/lockscreen-cam-demo"),
-    ),
-  },
-  "gallery-simulator-demo": {
-    name: "gallery-simulator-demo",
-    type: "components:example",
-    files: ["./components/examples/gallery-simulator-demo.tsx"],
-    component: React.lazy(
-      () => import("./components/examples/gallery-simulator-demo"),
     ),
   },
 };

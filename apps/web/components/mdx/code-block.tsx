@@ -1,14 +1,10 @@
 "use client";
-import { buttonVariants } from "@/components/ui/button";
-import {
-  ScrollArea,
-  ScrollBar,
-  ScrollViewport,
-} from "@/components/ui/scroll-area";
+import { buttonVariants } from "@ui/topia/button";
+import { ScrollArea, ScrollBar, ScrollViewport } from "@ui/topia/scroll-area";
 
-import { Icons } from "@/components/icons";
 import { useCopyButton } from "@/lib/use-copy-btn";
 import { cn } from "@/lib/utils";
+import { Icons } from "@ui/topia/icons";
 import { useTheme } from "next-themes";
 import {
   type ButtonHTMLAttributes,
@@ -78,7 +74,7 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(
         {...props}
       >
         {title ? (
-          <div className="bg-secondary flex flex-row items-center gap-2 border-b px-4 py-1.5">
+          <div className="flex flex-row items-center gap-2 border-b bg-secondary px-4 py-1.5">
             {icon ? (
               <div
                 className="text-muted-foreground [&_svg]:size-3.5"
@@ -91,7 +87,7 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(
                     })}
               />
             ) : null}
-            <figcaption className="text-muted-foreground flex-1 truncate">
+            <figcaption className="flex-1 truncate text-muted-foreground">
               {title}
             </figcaption>
             {allowCopy ? (
@@ -101,7 +97,7 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(
         ) : (
           allowCopy && (
             <CopyButton
-              className="absolute right-2 top-2 z-[2] backdrop-blur-sm"
+              className="absolute top-2 right-2 z-[2] backdrop-blur-sm"
               onCopy={onCopy}
             />
           )
@@ -147,7 +143,7 @@ function CopyButton({
       />
       <Icons.copy
         className={cn(
-          "text-foreground absolute size-3.5 transition-transform",
+          "absolute size-3.5 text-foreground transition-transform",
           checked && "scale-0",
         )}
       />

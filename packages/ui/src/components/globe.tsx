@@ -1,8 +1,9 @@
 "use client";
 
 import { useSpring } from "@react-spring/web";
-import createGlobe, { COBEOptions } from "cobe";
-import React, { useCallback, useEffect, useRef } from "react";
+import createGlobe, { type COBEOptions } from "cobe";
+import type React from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { cn } from "../lib/utils";
 
 interface GlobeProps {

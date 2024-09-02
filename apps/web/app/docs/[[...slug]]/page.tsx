@@ -1,8 +1,8 @@
-import { Icons } from "@/components/icons";
-import { buttonVariants } from "@/components/ui/button";
 import { createMetadata } from "@/lib/metadata";
 import { type Page, utils } from "@/lib/source";
 import { cn } from "@/lib/utils";
+import { buttonVariants } from "@ui/topia/button";
+import { Icons } from "@ui/topia/icons";
 import { Card, Cards } from "fumadocs-ui/components/card";
 import {
   DocsBody,

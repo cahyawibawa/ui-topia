@@ -1,11 +1,11 @@
 "use client";
 
 import {
+  type MotionValue,
   motion,
   useMotionValue,
   useSpring,
   useTransform,
-  type MotionValue,
 } from "framer-motion";
 import { useRef } from "react";
 
@@ -37,20 +37,20 @@ const initialValues = [
 ];
 
 export default function DockDemo() {
-  const mouseX = useMotionValue(Infinity);
+  const mouseX = useMotionValue(Number.POSITIVE_INFINITY);
 
   return (
     <>
       <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg md:shadow-xl">
-        <div className="absolute left-1/2 top-8 -translate-x-1/2">
-          <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-5xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
+        <div className="-translate-x-1/2 absolute top-8 left-1/2">
+          <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center font-semibold text-5xl text-transparent leading-none dark:from-white dark:to-slate-900/10">
             Dock
           </span>
         </div>
         <div
           onMouseMove={(e) => mouseX.set(e.pageX)}
-          onMouseLeave={() => mouseX.set(Infinity)}
-          className="absolute left-1/2 flex h-[65px] -translate-x-1/2 items-end gap-2 rounded-3xl border border-white/20 bg-black/20 px-2 pb-[8px] backdrop-blur"
+          onMouseLeave={() => mouseX.set(Number.POSITIVE_INFINITY)}
+          className="-translate-x-1/2 absolute left-1/2 flex h-[65px] items-end gap-2 rounded-3xl border border-white/20 bg-black/20 px-2 pb-[8px] backdrop-blur"
         >
           {initialValues.map((value, index) => (
             <EachIcon key={index} mouseX={mouseX} value={value} />
@@ -87,9 +87,9 @@ function EachIcon({
       className="group flex aspect-square w-12 flex-col items-center rounded-xl"
       style={{ width }}
     >
-      <div className="pointer-events-none absolute top-0 isolate flex -translate-y-16 justify-center rounded-lg border border-[#6e6867] bg-[#2C2625] px-3 py-1 text-sm font-light capitalize text-white opacity-0 group-hover:opacity-100">
+      <div className="-translate-y-16 pointer-events-none absolute top-0 isolate flex justify-center rounded-lg border border-[#6e6867] bg-[#2C2625] px-3 py-1 font-light text-sm text-white capitalize opacity-0 group-hover:opacity-100">
         {value.name.replaceAll("-", " ")}
-        <div className="absolute bottom-0 -z-10 aspect-square w-[10px] translate-y-[5.7px] rotate-45 border-b border-r border-[#6e6867] bg-[#2C2625]"></div>
+        <div className="-z-10 absolute bottom-0 aspect-square w-[10px] translate-y-[5.7px] rotate-45 border-[#6e6867] border-r border-b bg-[#2C2625]"></div>
       </div>
       <img src={value.url} className="h-full w-full object-cover" />
     </motion.div>

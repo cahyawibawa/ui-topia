@@ -1,7 +1,7 @@
 import { ArrowRightIcon } from "@radix-ui/react-icons";
-import { type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { cn } from "../lib/utils";
-import { Button } from "./ui/button";
+import { Button } from "./button";
 
 const BentoGrid = ({
   children,
@@ -51,12 +51,12 @@ const BentoCard = ({
     )}
   >
     <div>{background}</div>
-    <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
+    <div className="group-hover:-translate-y-10 pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300">
       <Icon className="size-6 origin-left transform-gpu text-neutral-700 transition-all duration-300 ease-in-out group-hover:scale-75" />
-      <h3 className="text-base font-semibold text-neutral-700 dark:text-neutral-300">
+      <h3 className="font-semibold text-base text-neutral-700 dark:text-neutral-300">
         {name}
       </h3>
-      <p className="max-w-lg text-sm text-neutral-400">{description}</p>
+      <p className="max-w-lg text-neutral-400 text-sm">{description}</p>
     </div>
 
     <div
