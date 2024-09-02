@@ -1,5 +1,6 @@
 import { createPreset, presets } from "fumadocs-ui/tailwind-plugin";
 import type { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 const config = {
   darkMode: ["class"],
@@ -7,6 +8,7 @@ const config = {
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./content/**/*.{mdx,tsx}",
+    "./src/**/*.{ts,tsx}",
     "../../packages/ui/dist/**/*.{js,jsx,ts,tsx}",
     "../../node_modules/fumadocs-ui/dist/**/*.js",
   ],
@@ -39,9 +41,8 @@ const config = {
     },
     extend: {
       fontFamily: {
-        heading: ["var(--font-heading)"],
-        sans: ["var(--font-geist-sans)"],
-        mono: ["var(--font-geist-mono)"],
+        sans: ["var(--font-geist-sans)", ...fontFamily.sans],
+        mono: ["var(--font-geist-mono)", ...fontFamily.mono],
         redaction: ["var(--font-redaction)"],
       },
       colors: {
