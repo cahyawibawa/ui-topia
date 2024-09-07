@@ -50,9 +50,7 @@ export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
             </PageActions>
           </PageHeader>
           <ExamplesNav />
-          <div className="overflow-hidden rounded-[0.5rem] border shadow-md md:shadow-xl">
-            {children}
-          </div>
+          {children}
         </div>
       </HomeLayout>
     </>

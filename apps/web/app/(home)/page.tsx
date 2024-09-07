@@ -1,6 +1,4 @@
-import { ButtonGradientDemo } from "@/components/btn-gradient";
 import { ExamplesNav } from "@/components/examples-nav";
-import { FlipWords } from "@/components/flip-words";
 import {
   PageActions,
   PageHeader,
@@ -12,14 +10,18 @@ import { SparkleDivider } from "@/components/sparkle-divider";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@ui/topia/button";
+import { HoverBorderGradient } from "@ui/topia/button-gradient";
+import { FlipWords } from "@ui/topia/flip-words";
 import Link from "next/link";
 import ButtonsPage from "../examples/buttons/page";
+
+
 export default function Home() {
   const words = ["modern", "beautiful", "better"];
   return (
     <div className="container relative">
       <PageHeader>
-        <PageHeaderHeading>
+        <PageHeaderHeading className="font-redaction">
           Make your website look <FlipWords words={words} />
         </PageHeaderHeading>
         <PageHeaderDescription>
@@ -27,7 +29,18 @@ export default function Home() {
         </PageHeaderDescription>
 
         <PageActions>
-          <ButtonGradientDemo />
+
+
+          <Link href="/docs">
+            <HoverBorderGradient
+              containerClassName="rounded-full"
+              as="button"
+              className="flex items-center space-x-2 bg-white text-foreground dark:bg-[#121212]"
+            >
+              <span className="text-xs">Get Started</span>
+            </HoverBorderGradient>
+          </Link>
+
           <Link
             target="_blank"
             rel="noreferrer"
@@ -42,7 +55,7 @@ export default function Home() {
         </PageActions>
       </PageHeader>
 
-      <ExamplesNav className="[&>a:first-child]:text-muted-foreground" />
+      {/* <ExamplesNav className="[&>a:first-child]:text-muted-foreground" /> */}
       <SparkleDivider
         className="rounded-[0.5rem] border"
         useBottomDivider={false}
