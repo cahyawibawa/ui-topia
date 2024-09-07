@@ -48,6 +48,14 @@
     "./skeleton": {
       "import": "./src/components/skeleton.tsx",
       "types": "./src/components/skeleton.d.ts"
+    },
+    "./button-gradient": {
+      "import": "./src/components/hover-border-gradient.tsx",
+      "types": "./src/components/hover-border-gradient.d.ts"
+    },
+    "./flip-words": {
+      "import": "./src/components/flip-words.tsx",
+      "types": "./src/components/flip-words.d.ts"
     }
   },
   "typesVersions": {

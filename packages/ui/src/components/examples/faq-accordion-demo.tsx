@@ -9,7 +9,7 @@ const FAQS = [
     id: 1,
     title: "What is UI/TOPIA?",
     content:
-      "UI/TOPIA is a ui/topia is is a curated showcase of UI components that blend aesthetic appeal with accessibility and versatility, built with Framer Motion and TailwindCSS. ",
+      "UI/TOPIA is a curated showcase of UI components that blend aesthetic appeal with accessibility and versatility, built with Framer Motion and TailwindCSS. ",
     isFav: true,
   },
   {
