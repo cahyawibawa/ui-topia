@@ -6,7 +6,8 @@ import "fumadocs-ui/twoslash.css";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata, Viewport } from "next";
-import "./globals.css";
+import "@/styles/globals.css"
+import { fontRedaction } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -68,12 +69,9 @@ interface RootLayoutProps {
 }
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={cn(GeistSans.variable, GeistMono.variable, fontRedaction.variable)}>
       <body
-        className={cn(
-          `${GeistSans.variable}${GeistMono.variable}`,
-          "min-h-screen bg-background font-redaction antialiased",
-        )}
+        className="min-h-screen bg-background font-sans antialiased"
       >
         <RootProvider>
           {children}
