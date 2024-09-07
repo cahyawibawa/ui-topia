@@ -36,24 +36,22 @@ export const ButtonWrapper: React.FC<CardComponentProps> = ({ children }) => {
   };
 
   return (
-    <div className="relative flex items-center justify-center rounded-md border bg-card px-0 py-24 font-mono md:px-2">
+    <div className="group relative flex items-center justify-center rounded-md border px-0 py-24 md:px-2">
       <div className="absolute top-3 right-3 cursor-pointer bg-transparent p-2">
-        <div
+        <button
           onClick={onCopy}
           onKeyDown={(e) => {
             if (e.key === "Enter" || e.key === " ") {
               onCopy();
             }
           }}
-          role="button"
-          tabIndex={0}
         >
           {isCopied ? (
-            <Icons.check className="size-3.5 text-muted-foreground" />
+            <Icons.check className="size-3.5 text-muted-foreground opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
           ) : (
-            <Icons.clipboard className="size-3.5 animate-jelly text-muted-foreground" />
+            <Icons.clipboard className="size-3.5 animate-jelly text-muted-foreground opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
           )}
-        </div>
+        </button>
       </div>
       {children}
     </div>
