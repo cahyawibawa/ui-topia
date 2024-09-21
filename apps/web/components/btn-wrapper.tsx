@@ -1,33 +1,22 @@
 "use client";
 
+import { getJSXString } from "@/lib/get-jsx-string";
 import { Icons } from "@ui/topia/icons";
+import type React from "react";
 import { useState } from "react";
-import { flushSync } from "react-dom";
-import { createRoot } from "react-dom/client";
 import { toast } from "sonner";
-
 type CardComponentProps = {
-  children: React.ReactNode;
+  children: React.ReactElement;
 };
 
 export const ButtonWrapper: React.FC<CardComponentProps> = ({ children }) => {
   const [isCopied, setIsCopied] = useState(false);
 
-  const getCode = () => {
-    const div = document.createElement("div");
-    const root = createRoot(div);
-    flushSync(() => {
-      root.render(children);
-    });
-
-    const code = div.innerHTML;
-    return code;
-  };
 
   const onCopy = () => {
-    const code = getCode();
+    const jsxString = getJSXString(children);
     toast.success("Copied to clipboard!");
-    void navigator.clipboard.writeText(code);
+    void navigator.clipboard.writeText(jsxString);
     setIsCopied(true);
 
     setTimeout(() => {
