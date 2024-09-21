@@ -1,4 +1,4 @@
-import { ExamplesNav } from "@/components/examples-nav";
+import ButtonsPage from "@/app/examples/buttons/page";
 import {
   PageActions,
   PageHeader,
@@ -13,8 +13,6 @@ import { buttonVariants } from "@ui/topia/button";
 import { HoverBorderGradient } from "@ui/topia/button-gradient";
 import { FlipWords } from "@ui/topia/flip-words";
 import Link from "next/link";
-import ButtonsPage from "../examples/buttons/page";
-
 
 export default function Home() {
   const words = ["modern", "beautiful", "better"];
@@ -27,10 +25,7 @@ export default function Home() {
         <PageHeaderDescription>
           Collection of fine-tuned UI components ready for instant use.
         </PageHeaderDescription>
-
         <PageActions>
-
-
           <Link href="/docs">
             <HoverBorderGradient
               containerClassName="rounded-full"
@@ -47,14 +42,13 @@ export default function Home() {
             href={siteConfig.links.github}
             className={cn(
               buttonVariants({ variant: "ghost", size: "sm" }),
-              "rounded-full",
+              "rounded-full text-xs",
             )}
           >
             GitHub
           </Link>
         </PageActions>
       </PageHeader>
-
       {/* <ExamplesNav className="[&>a:first-child]:text-muted-foreground" /> */}
       <SparkleDivider
         className="rounded-[0.5rem] border"

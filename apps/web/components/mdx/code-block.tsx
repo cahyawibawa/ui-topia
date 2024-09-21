@@ -2,7 +2,7 @@
 import { buttonVariants } from "@ui/topia/button";
 import { ScrollArea, ScrollBar, ScrollViewport } from "@ui/topia/scroll-area";
 
-import { useCopyButton } from "@/lib/use-copy-btn";
+import { useCopyButton } from "@/hooks/use-copy-btn";
 import { cn } from "@/lib/utils";
 import { Icons } from "@ui/topia/icons";
 import { useTheme } from "next-themes";
@@ -80,11 +80,11 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(
                 className="text-muted-foreground [&_svg]:size-3.5"
                 {...(typeof icon === "string"
                   ? {
-                      dangerouslySetInnerHTML: { __html: icon },
-                    }
+                    dangerouslySetInnerHTML: { __html: icon },
+                  }
                   : {
-                      children: icon,
-                    })}
+                    children: icon,
+                  })}
               />
             ) : null}
             <figcaption className="flex-1 truncate text-muted-foreground">
