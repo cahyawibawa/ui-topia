@@ -84,12 +84,13 @@ const elements: Registry = {
     files: ["./elements/button.tsx"],
     component: React.lazy(() => import("./elements/button")),
   },
-  textVariants: {
-    name: "textVariants",
-    type: "components:elements",
-    files: ["./elements/text-variants.tsx"],
-    component: React.lazy(() => import("./elements/text-variants")),
-  },
+  // SOON 
+  // textVariants: {
+  //   name: "textVariants",
+  //   type: "components:elements",
+  //   files: ["./elements/text-variants.tsx"],
+  //   component: React.lazy(() => import("./elements/text-variants")),
+  // },
 };
 export const registry: Registry = {
   ...ui,
