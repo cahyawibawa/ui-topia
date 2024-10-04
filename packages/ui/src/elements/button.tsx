@@ -1,5 +1,18 @@
 import type * as React from "react";
 
+
+// inspired by https://clerk.com/
+export function ClerkButton() {
+  return (
+
+    <button className="rounded-lg border border-indigo-400/20 border-t-indigo-400/70 border-b-indigo-600/70 bg-gradient-to-b from-indigo-500 to-indigo-600 px-4 pt-2.5 pb-3 font-medium text-white leading-none antialiased shadow-md ring-1 ring-indigo-600">
+      <span className="drop-shadow-sm">Create user</span>
+    </button>
+
+
+  );
+}
+
 export function Black1() {
   return (
     <button className="inline-flex h-12 items-center justify-center rounded-lg bg-neutral-950 px-6 font-medium text-neutral-50 transition active:scale-110 dark:bg-neutral-800 dark:text-neutral-100">
@@ -868,9 +881,9 @@ export function Link8() {
 
 export function Neumorphism() {
   return (
-    <div className="rounded-lg bg-gradient-to-b from-stone-300/40 to-transparent p-[4px] dark:from-stone-700/40">
-      <button className="group rounded-lg bg-gradient-to-b from-white to-stone-200/40 p-[4px] shadow-[0_1px_3px_rgba(0,0,0,0.5)] active:scale-[0.995] active:shadow-[0_0px_1px_rgba(0,0,0,0.5)] dark:from-stone-800 dark:to-stone-900/40">
-        <div className="rounded-lg bg-gradient-to-b from-stone-200/40 to-white/80 p-2 dark:from-stone-700/40 dark:to-stone-800/80">
+    <div className="rounded-lg bg-gradient-to-b from-stone-300/40 to-transparent p-[4px]">
+      <button className="group rounded-lg bg-gradient-to-b from-white to-stone-200/40 p-[4px] shadow-[0_1px_3px_rgba(0,0,0,0.5)] active:scale-[0.995] active:shadow-[0_0px_1px_rgba(0,0,0,0.5)]">
+        <div className="rounded-lg bg-gradient-to-b from-stone-200/40 to-white/80 p-2">
           <div className="flex items-center gap-2">
             <svg
               data-testid="geist-icon"
@@ -884,10 +897,10 @@ export function Neumorphism() {
                 fillRule="evenodd"
                 clipRule="evenodd"
                 d="M8.75 1.75V1H7.25V1.75V6.75H2.25H1.5V8.25H2.25H7.25V13.25V14H8.75V13.25V8.25H13.75H14.5V6.75H13.75H8.75V1.75Z"
-                fill="currentColor"
+                fill="#000000"
               ></path>
             </svg>
-            <span className="font-semibold text-stone-600 dark:text-stone-300">
+            <span className="font-semibold text-stone-600">
               Click Me
             </span>
           </div>
@@ -1105,24 +1118,32 @@ export function White3() {
 }
 
 export const BUTTONS = [
+  ClerkButton,
   Neumorphism,
+  SubtleSkeuomorphic1,
+  SubtleSkeuomorphic2,
+  SubtleSkeuomorphic3,
+  SubtleSkeuomorphic4,
+  SubtleSkeuomorphic5,
   BlackIcon11,
-  White1,
-  White2,
+  BlackSm1,
+  BlackSm2,
+  // White1,
+  // White2,
   White3,
-  Shadow1,
-  Shadow2,
+  // Shadow1,
+  // Shadow2,
   Shadow3,
   Shadow4,
   Shadow5,
   Letters1,
   Letters2,
-  Letters3,
+  // Letters3,
   Letters4,
-  Outline1,
-  Outline2,
-  Outline3,
-  Outline4,
+  // Outline1,
+  // Outline2,
+  // Outline3,
+  // Outline4,
   SquareOutline1,
   Link1,
   Link2,
@@ -1132,16 +1153,12 @@ export const BUTTONS = [
   Link6,
   Link7,
   Link8,
-  SubtleSkeuomorphic1,
-  SubtleSkeuomorphic2,
-  SubtleSkeuomorphic3,
-  SubtleSkeuomorphic4,
-  SubtleSkeuomorphic5,
-  GreySm1,
+
+  // GreySm1,
   Black1,
   Black2,
-  Black3,
-  Black4,
+  // Black3,
+  // Black4,
   Black5,
   Black6,
   Black7,
@@ -1163,19 +1180,18 @@ export const BUTTONS = [
   BlackIcon8,
   // BlackIcon9,
   BlackIcon10,
-  BlackSm1,
-  BlackSm2,
+
   BlackSmLoading1,
   // BlackRound1,
   // BlackRound2,
   // BlackRound3,
-  BlackRound4,
+  // BlackRound4,
   // BlackSquare1,
-  TealLoading1,
-  Teal1,
-  Teal2,
-  Teal3,
-  Teal4,
+  // TealLoading1,
+  // Teal1,
+  // Teal2,
+  // Teal3,
+  // Teal4,
 ];
 
 interface ButtonsComponentProps {
