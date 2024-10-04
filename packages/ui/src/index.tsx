@@ -7,8 +7,8 @@ const ui: Registry = {
     type: "components:ui",
     files: ["./components/globe.tsx"],
   },
-  "iphone-simulator": {
-    name: "iphone-simulator",
+  "iphone-mock": {
+    name: "iphone-mock",
     type: "components:ui",
     files: ["./components/iphone-simulator.tsx"],
   },
@@ -84,12 +84,12 @@ const elements: Registry = {
     files: ["./elements/button.tsx"],
     component: React.lazy(() => import("./elements/button")),
   },
-  // textVariants: {
-  //   name: 'text-variants',
-  //   type: 'components:elements',
-  //   files: ['./elements/text-variants.tsx'],
-  //   component: React.lazy(() => import('./elements/text-variants')),
-  // },
+  textVariants: {
+    name: "textVariants",
+    type: "components:elements",
+    files: ["./elements/text-variants.tsx"],
+    component: React.lazy(() => import("./elements/text-variants")),
+  },
 };
 export const registry: Registry = {
   ...ui,
