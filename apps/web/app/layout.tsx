@@ -13,7 +13,6 @@ import {
 } from "@/lib/metadata/shared-metadata";
 import { cn } from "@/lib/utils";
 
-
 export const metadata: Metadata = {
   ...defaultMetadata,
   openGraph: {
@@ -23,7 +22,6 @@ export const metadata: Metadata = {
     ...twitterMetadata,
   },
 };
-
 
 export const viewport: Viewport = {
   colorScheme: "dark light",

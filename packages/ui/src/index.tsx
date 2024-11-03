@@ -84,7 +84,7 @@ const elements: Registry = {
     files: ["./elements/button.tsx"],
     component: React.lazy(() => import("./elements/button")),
   },
-  // SOON 
+  // SOON
   // textVariants: {
   //   name: "textVariants",
   //   type: "components:elements",

@@ -63,7 +63,7 @@ export function ComponentPreview({
     <div
       className={cn(
         "relative my-4 flex flex-col space-y-2 lg:max-w-[120ch]",
-        className
+        className,
       )}
       {...props}
     >
@@ -111,7 +111,7 @@ export function ComponentPreview({
             <CodeBlock>
               <Pre
                 className={cn(
-                  "w-full rounded-md [&_pre]:my-0 [&_pre]:max-h-[350px] [&_pre]:overflow-auto"
+                  "w-full rounded-md [&_pre]:my-0 [&_pre]:max-h-[350px] [&_pre]:overflow-auto",
                 )}
                 // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
                 dangerouslySetInnerHTML={{ __html: highlightedCode }}

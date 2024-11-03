@@ -26,11 +26,11 @@ export const Pre = forwardRef<HTMLPreElement, HTMLAttributes<HTMLPreElement>>(
       ref={ref}
       className={cn(
         "relative overflow-x-auto bg-[#101010] p-4 text-sm",
-        className
+        className,
       )}
       {...props}
     />
-  )
+  ),
 );
 
 Pre.displayName = "Pre";
@@ -50,7 +50,7 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(
         ref={ref}
         className={cn(
           "not-prose group relative overflow-hidden rounded-lg border text-sm",
-          className
+          className,
         )}
         {...props}
       >
@@ -61,8 +61,7 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(
                 className="text-muted-foreground [&_svg]:size-3.5"
                 {...(typeof icon === "string"
                   ? { dangerouslySetInnerHTML: { __html: icon } }
-                  : { children: icon }
-                )}
+                  : { children: icon })}
               />
             )}
             <figcaption className="flex-1 truncate text-muted-foreground">
@@ -83,7 +82,7 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(
         </ScrollArea>
       </figure>
     );
-  }
+  },
 );
 
 CodeBlock.displayName = "CodeBlock";
@@ -104,10 +103,11 @@ function CopyButton({
         buttonVariants({
           variant: "ghost",
           size: "icon",
-          className: "transition-all hover:bg-zinc-700 hover:text-zinc-50 group-hover:opacity-100",
+          className:
+            "transition-all hover:bg-zinc-700 hover:text-zinc-50 group-hover:opacity-100",
         }),
         !checked && "opacity-0",
-        className
+        className,
       )}
       aria-label="Copy Text"
       onClick={onClick}
@@ -119,7 +119,7 @@ function CopyButton({
       <Icons.copy
         className={cn(
           "absolute size-3 text-zinc-50 transition-transform",
-          checked && "scale-0"
+          checked && "scale-0",
         )}
       />
     </button>
