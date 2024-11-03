@@ -10,20 +10,24 @@ import {
   DocsPage,
   DocsTitle,
 } from "fumadocs-ui/page";
-import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import type { ReactElement } from "react";
+
+interface Params {
+  slug?: string[];
+}
+
+export const dynamicParams = false;
+
 // biome-ignore lint/suspicious/noRedeclare: <explanation>
-export default async function Page(props: {
-  params: Promise<{ slug: string[] }>;
-}): Promise<ReactElement> {
-  const params = await props.params;
-  const page = source.getPage(params.slug);
+export default async function Page({ params }: { params: Promise<Params> }) {
+  const resolvedParams = await params;
+  const { slug = [] } = resolvedParams;
+
+  const page = source.getPage(slug);
 
   if (!page) notFound();
 
   const path = `apps/web/content/docs/${page.file.path}`;
-
 
   return (
     <DocsPage
@@ -37,12 +41,15 @@ export default async function Page(props: {
       editOnGithub={{
         repo: "uitopia",
         owner: "cahyawibawa",
-        // sha: 'dev',
         path,
       }}
     >
-      <DocsTitle className="font-semibold text-2xl">{page.data.title}</DocsTitle>
-      <DocsDescription className="text-base">{page.data.description}</DocsDescription>
+      <DocsTitle className="font-semibold text-2xl">
+        {page.data.title}
+      </DocsTitle>
+      <DocsDescription className="text-base">
+        {page.data.description}
+      </DocsDescription>
       <DocsBody className="prose prose-zinc dark:prose-invert prose-h1:scroll-m-20 prose-h2:scroll-m-20 prose-h3:scroll-m-20 prose-h4:scroll-m-20 prose-h5:scroll-m-20 prose-h6:scroll-m-20 prose-h1:font-semibold prose-h2:font-medium prose-h3:font-medium prose-strong:font-medium prose-h1:text-2xl prose-h2:text-xl prose-h3:text-base ">
         <page.data.body components={useMDXComponents({})} />
         {page.data.index ? <DocsCategory page={page} from={source} /> : null}
@@ -51,25 +58,26 @@ export default async function Page(props: {
   );
 }
 
-export function generateStaticParams(): { slug: string[] }[] {
+export function generateStaticParams(): Params[] {
   return source.generateParams();
 }
 
-export async function generateMetadata({ params }: { params: { slug: string[] } }): Promise<Metadata> {
-  const page = source.getPage(params.slug);
+export async function generateMetadata({
+  params,
+}: { params: Promise<Params> }) {
+  const resolvedParams = await params;
+  const page = source.getPage(resolvedParams.slug || []);
 
   if (page == null) notFound();
 
-  const description =
-    page.data.description ??
-    siteConfig.description;
+  const description = page.data.description ?? siteConfig.description;
 
   const imageParams = new URLSearchParams();
-  imageParams.set('title', page.data.title);
-  imageParams.set('description', description);
+  imageParams.set("title", page.data.title);
+  imageParams.set("description", description);
 
   const image = {
-    alt: 'Banner',
+    alt: "Banner",
     url: `/api/og?${imageParams.toString()}`,
     width: 1200,
     height: 630,
@@ -79,7 +87,7 @@ export async function generateMetadata({ params }: { params: { slug: string[] } 
     title: page.data.title,
     description,
     openGraph: {
-      url: `/docs/${page.slugs.join('/')}`,
+      url: `/docs/${page.slugs.join("/")}`,
       images: image,
     },
     twitter: {
