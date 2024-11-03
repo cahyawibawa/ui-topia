@@ -5,13 +5,13 @@ node_modules
 /.pnp
 .pnpm/
 .pnp.js
-.yarn/install-state.gz
 
 ##output directories
 .map.ts
-dist/
-/apps/web/dist
-/packages/*/dist
+dist
+.source
+
+
 # testing
 /coverage
 
@@ -38,7 +38,7 @@ yarn-error.log*
 # vercel
 .vercel
 
-# typescript
+# typescriptuild
 *.tsbuildinfo
 next-env.d.ts
 

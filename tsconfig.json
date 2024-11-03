@@ -1,7 +1,3 @@
 {
-  "compilerOptions": {
-    "paths": {
-      "@uitopia/tsconfig/*": ["packages/tsconfig/*"]
-    }
-  }
+  "extends": "@uitopia/tsconfig/base.json"
 }
