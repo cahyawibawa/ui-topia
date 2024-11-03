@@ -6,11 +6,13 @@ import {
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header";
+import { SiteFooter } from "@/components/site-footer";
+import { SparkleDivider } from "@/components/sparkle-divider";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@ui/topia/button";
 import { HoverBorderGradient } from "@ui/topia/button-gradient";
-import { HomeLayout } from "fumadocs-ui/home-layout";
+import { HomeLayout } from "fumadocs-ui/layouts/home";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -49,7 +51,7 @@ export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
                 href={siteConfig.links.github}
                 className={cn(
                   buttonVariants({ variant: "ghost", size: "sm" }),
-                  "rounded-full",
+                  "rounded-full text-xs",
                 )}
               >
                 GitHub
@@ -57,7 +59,13 @@ export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
             </PageActions>
           </PageHeader>
           <ExamplesNav />
-          {children}
+          <SparkleDivider
+            className="rounded-[0.5rem] border"
+            useBottomDivider={false}
+          >
+            {children}
+          </SparkleDivider>
+          <SiteFooter />
         </div>
       </HomeLayout>
     </>

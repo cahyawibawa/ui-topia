@@ -19,11 +19,11 @@ export default function Home() {
   return (
     <div className="container relative">
       <PageHeader>
-        <PageHeaderHeading className="font-redaction">
+        <PageHeaderHeading>
           Make your website look <FlipWords words={words} />
         </PageHeaderHeading>
         <PageHeaderDescription>
-          Collection of fine-tuned UI components ready for instant use.
+          Collection of fine UI components ready for instant use.
         </PageHeaderDescription>
         <PageActions>
           <Link href="/docs">
@@ -49,13 +49,15 @@ export default function Home() {
           </Link>
         </PageActions>
       </PageHeader>
+      {/* hide tab and divider for now*/}
       {/* <ExamplesNav className="[&>a:first-child]:text-muted-foreground" /> */}
-      <SparkleDivider
+      {/* <SparkleDivider
         className="rounded-[0.5rem] border"
         useBottomDivider={false}
       >
-        <ButtonsPage />
-      </SparkleDivider>
+         </SparkleDivider> */}
+      <ButtonsPage />
+
       <SiteFooter />
     </div>
   );

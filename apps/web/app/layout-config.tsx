@@ -1,9 +1,9 @@
-import { utils } from "@/lib/source";
 import { Icons } from "@ui/topia/icons";
-import type { HomeLayoutProps } from "fumadocs-ui/home-layout";
-import type { DocsLayoutProps } from "fumadocs-ui/layout";
+import type { DocsLayoutProps } from "fumadocs-ui/layouts/docs";
+import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
+import { source } from "./source";
 
-export const baseOptions: HomeLayoutProps = {
+export const baseOptions: BaseLayoutProps = {
   githubUrl: "https://github.com/cahyawibawa/ui-topia",
   nav: {
     transparentMode: "top",
@@ -28,7 +28,7 @@ export const baseOptions: HomeLayoutProps = {
 
 export const docsOptions: DocsLayoutProps = {
   ...baseOptions,
-  tree: utils.pageTree,
+  tree: source.pageTree,
   nav: {
     ...baseOptions.nav,
     transparentMode: "none",

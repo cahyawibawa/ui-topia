@@ -1,6 +1,5 @@
 import { docsOptions } from "@/app/layout-config";
-import { DocsLayout } from "fumadocs-ui/layout";
-import "fumadocs-ui/twoslash.css";
+import { DocsLayout } from "fumadocs-ui/layouts/docs";
 import type { ReactNode } from "react";
 
 export default function Layout({
