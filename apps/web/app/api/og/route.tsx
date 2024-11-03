@@ -58,9 +58,9 @@ export async function GET(req: NextRequest) {
             lineHeight: 1.5,
           }}
         >
-          <div style={{ fontSize: 48, color: "black" }}>{description}</div>
+          <div style={{ fontSize: 48, color: "black" }}>{title}</div>
           <br />
-          <div style={{ fontSize: 36, color: "gray" }}>{title}</div>
+          <div style={{ fontSize: 36, color: "gray" }}>{description}</div>
         </div>
       </div>,
       {
