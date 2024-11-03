@@ -1,4 +1,5 @@
 "use client";
+
 import { CodeBlock, Pre } from "@/components/mdx/code-block";
 import ComponentWrapper from "@/components/mdx/component-wrapper";
 import { codeToHtml } from "@/lib/shiki";
@@ -7,7 +8,6 @@ import { registry } from "@ui/topia";
 import { Button } from "@ui/topia/button";
 import { Icons } from "@ui/topia/icons";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@ui/topia/tabs";
-import { useTheme } from "next-themes"; // Import useTheme hook
 import * as React from "react";
 
 interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -28,22 +28,17 @@ export function ComponentPreview({
   lang = "tsx",
   ...props
 }: ComponentPreviewProps) {
-  const [key, setKey] = React.useState(0); // State to trigger re-render of preview
+  const [key, setKey] = React.useState(0);
   const [highlightedCode, setHighlightedCode] = React.useState<string>("");
-  const { theme } = useTheme(); // Get the current theme
 
   React.useEffect(() => {
     const highlightCode = async () => {
-      const html = await codeToHtml({
-        code,
-        lang,
-        theme: theme as "light" | "dark", // Pass the current theme
-      });
+      const html = await codeToHtml({ code, lang });
       setHighlightedCode(html);
     };
 
     highlightCode();
-  }, [code, lang, theme]); // Re-run when theme changes
+  }, [code, lang]);
 
   const Preview = React.useMemo(() => {
     const Component = registry[name]?.component;
@@ -68,7 +63,7 @@ export function ComponentPreview({
     <div
       className={cn(
         "relative my-4 flex flex-col space-y-2 lg:max-w-[120ch]",
-        className,
+        className
       )}
       {...props}
     >
@@ -113,10 +108,10 @@ export function ComponentPreview({
         </TabsContent>
         <TabsContent value="code">
           <div className="flex flex-col space-y-4">
-            <CodeBlock allowCopy>
+            <CodeBlock>
               <Pre
                 className={cn(
-                  "w-full rounded-md [&_pre]:my-0 [&_pre]:max-h-[350px] [&_pre]:overflow-auto",
+                  "w-full rounded-md [&_pre]:my-0 [&_pre]:max-h-[350px] [&_pre]:overflow-auto"
                 )}
                 // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
                 dangerouslySetInnerHTML={{ __html: highlightedCode }}
