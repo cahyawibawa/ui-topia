@@ -7,6 +7,6 @@ export const fontSans = GeistSans;
 export const fontMono = GeistMono;
 
 export const fontRedaction = localFont({
-  src: "../assets/fonts/Redaction_35-Regular.woff2",
+  src: "../public/fonts/Redaction_35-Regular.woff2",
   variable: "--font-redaction",
 });

@@ -12,7 +12,6 @@ type CardComponentProps = {
 export const ButtonWrapper: React.FC<CardComponentProps> = ({ children }) => {
   const [isCopied, setIsCopied] = useState(false);
 
-
   const onCopy = () => {
     const jsxString = getJSXString(children);
     toast.success("Copied to clipboard!");

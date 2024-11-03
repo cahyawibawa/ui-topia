@@ -10,13 +10,13 @@ const examples = [
     name: "Buttons",
     href: "/examples/buttons",
   },
-  // {
-  //   name: 'Text ',
-  //   href: '/examples/text-variants',
-  // },
+  {
+    name: "Text Variants",
+    href: "/examples/texts",
+  },
 ];
 
-interface ExamplesNavProps extends React.HTMLAttributes<HTMLDivElement> { }
+interface ExamplesNavProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export function ExamplesNav({ className, ...props }: ExamplesNavProps) {
   const pathname = usePathname();

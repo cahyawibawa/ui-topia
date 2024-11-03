@@ -17,7 +17,7 @@ export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
 
 export const SparkleDivider = ({
   children,
-  sparklePositions = ["top-right"],
+  sparklePositions = ["bottom-right"],
   useTopDivider = false,
   useBottomDivider = true,
   className,

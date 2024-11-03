@@ -8,7 +8,7 @@ function PageHeader({
   return (
     <section
       className={cn(
-        "mx-auto flex flex-col items-start gap-2 py-8 md:py-12 md:pb-8 lg:py-12 lg:pb-10",
+        "mx-auto flex flex-col items-start gap-2 py-12 pb-8 md:py-20 md:pb-16",
         className,
       )}
       {...props}
@@ -17,7 +17,6 @@ function PageHeader({
     </section>
   );
 }
-
 
 function PageHeaderHeading({
   className,
