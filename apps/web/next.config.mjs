@@ -1,16 +1,13 @@
-import { rehypeCodeDefaultOptions } from "fumadocs-core/mdx-plugins";
-import {
-  fileGenerator,
-  remarkDocGen,
-  remarkInstall,
-  typescriptGenerator,
-} from "fumadocs-docgen";
-import createMDX from "fumadocs-mdx/config";
-import { transformerTwoslash } from "fumadocs-twoslash";
+import createBundleAnalyzer from "@next/bundle-analyzer";
+import { createMDX } from "fumadocs-mdx/next";
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const withAnalyzer = createBundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+});
+
+const config = {
   reactStrictMode: true,
+  serverExternalPackages: ["typescript"],
   images: {
     remotePatterns: [
       {
@@ -21,28 +18,14 @@ const nextConfig = {
         protocol: "https",
         hostname: "res.cloudinary.com",
       },
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+      },
     ],
   },
 };
 
-const withMDX = createMDX({
-  mdxOptions: {
-    rehypeCodeOptions: {
-      transformers: [
-        ...rehypeCodeDefaultOptions.transformers,
-        transformerTwoslash(),
-      ],
-      themes: {
-        light: "catppuccin-latte",
-        dark: "vesper",
-      },
-    },
-    lastModifiedTime: "git",
-    remarkPlugins: [
-      [remarkInstall, { Tabs: "InstallTabs" }],
-      [remarkDocGen, { generators: [typescriptGenerator(), fileGenerator()] }],
-    ],
-  },
-});
+const withMDX = createMDX();
 
-export default withMDX(nextConfig);
+export default withAnalyzer(withMDX(config));
