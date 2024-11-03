@@ -1,127 +1,93 @@
+import { Icons } from "@ui/topia/icons";
 import { ImageResponse } from "next/og";
 import type { NextRequest } from "next/server";
-
 export const runtime = "edge";
 
-const Inter = fetch(
-  new URL(
-    "./inter-bold.woff",
-    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
-  ),
-).then((res) => res.arrayBuffer());
+export async function GET(req: NextRequest) {
+  try {
+    const { searchParams } = req.nextUrl;
+    const title = searchParams.get("title");
+    const description = searchParams.get("description");
+    const font = await fetch(
+      new URL(
+        "../../../public/fonts/Geist-Medium.otf",
+        import.meta.url,
+      ),
+    ).then((res) => res.arrayBuffer());
 
-export const GET = async (req: NextRequest) => {
-  const title = req.nextUrl.searchParams.get("title");
-  const description = req.nextUrl.searchParams.get("description");
-  if (title === null && description === null) {
     return new ImageResponse(
-      <div
-        style={{
-          display: "flex",
-          height: "100%",
-          width: "100%",
-          backgroundColor: "#ffffff",
-          background: "linear-gradient(to bottom, blue, cyan)",
-        }}
-      >
+      (
         <div
           style={{
-            backgroundColor: "#000000",
-            color: "#ffffff",
-            fontWeight: 600,
-            display: "flex",
-            flexDirection: "column",
-            marginTop: "2rem",
-            marginBottom: "2rem",
-            marginLeft: "2rem",
-            marginRight: "2rem",
-            flexGrow: "1",
-            borderRadius: "1rem",
+            display: 'flex',
+            height: '100%',
+            width: '100%',
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            justifyContent: 'center',
+            letterSpacing: '-.02em',
+            fontWeight: 500,
+            background: 'white',
           }}
         >
-          <p
+          <div
             style={{
-              fontSize: 100,
-              marginTop: "auto",
-              marginBottom: "auto",
-              marginLeft: "auto",
-              marginRight: "auto",
+              left: 42,
+              top: 42,
+              position: 'absolute',
+              display: 'flex',
+              alignItems: 'center',
             }}
           >
-            ui/topia
-          </p>
+            <Icons.logo />
+            <span
+              style={{
+                marginLeft: 8,
+                fontSize: 24,
+              }}
+            >
+              ui/topia
+            </span>
+          </div>
+          <div
+            style={{
+              marginLeft: 42,
+              marginRight: 42,
+              display: 'flex',
+              flexDirection: 'column',
+              letterSpacing: '-0.05em',
+              fontStyle: 'normal',
+              color: 'black',
+              whiteSpace: 'pre-wrap',
+              lineHeight: 1.5,
+            }}
+          >
+            <div style={{ fontSize: 48, color: 'black' }}>
+              {description}
+            </div>
+            <br />
+            <div style={{ fontSize: 36, color: 'gray' }}>
+              {title}
+            </div>
+          </div>
         </div>
-      </div>,
+      ),
       {
         width: 1200,
         height: 630,
-        fonts: [{ name: "Inter", data: await Inter }],
+        fonts: [
+          {
+            name: "Geist",
+            data: font,
+            style: "normal",
+          },
+        ],
       },
     );
+  } catch (error) {
+    console.error("Failed to generate the image", error);
+    return new Response("Failed to generate the image", {
+      status: 500,
+    });
   }
-
-  return new ImageResponse(
-    <div
-      style={{
-        display: "flex",
-        height: "100%",
-        width: "100%",
-        backgroundColor: "#ffffff",
-        background: "linear-gradient(to bottom, blue, cyan)",
-      }}
-    >
-      <div
-        style={{
-          backgroundColor: "#000000",
-          color: "#ffffff",
-          fontWeight: 600,
-          display: "flex",
-          flexDirection: "column",
-          marginTop: "2rem",
-          marginBottom: "2rem",
-          marginLeft: "2rem",
-          marginRight: "2rem",
-          flexGrow: "1",
-          borderRadius: "1rem",
-        }}
-      >
-        <p
-          style={{
-            fontSize: 50,
-            marginTop: "2rem",
-            marginBottom: "auto",
-            marginLeft: "4rem",
-            marginRight: "4rem",
-          }}
-        >
-          RUNFUNRUN.tech
-        </p>
-        <div
-          style={{
-            fontSize: 70,
-            marginLeft: "4rem",
-            marginRight: "4rem",
-          }}
-        >
-          {title}
-        </div>
-        <div
-          style={{
-            fontSize: 30,
-            marginTop: "auto",
-            marginBottom: "2rem",
-            marginLeft: "4rem",
-            marginRight: "4rem",
-          }}
-        >
-          {description}
-        </div>
-      </div>
-    </div>,
-    {
-      width: 1200,
-      height: 630,
-      fonts: [{ name: "Inter", data: await Inter }],
-    },
-  );
-};
+}
