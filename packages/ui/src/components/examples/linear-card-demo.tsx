@@ -2,7 +2,6 @@
 import { Icons } from "@/components/icons";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import { Button } from "../custom-btn";
 
 interface OfferingProps {
   id: number;
@@ -69,9 +68,11 @@ function Card(props: { offering: OfferingProps; onClick: () => void }) {
         >
           {props.offering.title}
         </motion.p>
-        <Button>
+        <button
+          className="flex items-center justify-center rounded-full border-2 border-[#161616] p-2 text-[#9C9BA1] hover:bg-[#161616] hover:text-white"
+        >
           <Icons.plus className="size-4" />
-        </Button>
+        </button>
       </div>
       <motion.span layoutId={`offeringDescription${props.offering.id}`} />
     </motion.li>
@@ -122,9 +123,9 @@ function Modal(props: { offering: OfferingProps | null; onClick: () => void }) {
                   {props.offering.description}
                 </motion.p>
               </div>
-              <Button className="absolute top-8 right-8">
+              <button className="absolute top-8 right-8 flex items-center justify-center rounded-full border-2 border-[#161616] p-2 text-[#9C9BA1] hover:bg-[#161616] hover:text-white">
                 <Icons.x className="size-5" />
-              </Button>
+              </button>
             </motion.div>
           </motion.div>
         )}

@@ -21,6 +21,12 @@ const example: Registry = {
     files: ["./components/examples/blur-hero-demo.tsx"],
     component: React.lazy(() => import("./components/examples/blur-hero-demo")),
   },
+  "cd-demo": {
+    name: "cd-demo",
+    type: "components:example",
+    files: ["./components/examples/cd-demo.tsx"],
+    component: React.lazy(() => import("./components/examples/cd-demo")),
+  },
   "client-logo-demo": {
     name: "client-logo-demo",
     type: "components:example",
@@ -34,6 +40,14 @@ const example: Registry = {
     type: "components:example",
     files: ["./components/examples/dock-demo.tsx"],
     component: React.lazy(() => import("./components/examples/dock-demo")),
+  },
+  "family-wallet-demo": {
+    name: "family-wallet-demo",
+    type: "components:example",
+    files: ["./components/examples/family-wallet-demo.tsx"],
+    component: React.lazy(
+      () => import("./components/examples/family-wallet-demo"),
+    ),
   },
   "faq-accordion-demo": {
     name: "faq-accordion-demo",
@@ -84,13 +98,6 @@ const elements: Registry = {
     files: ["./elements/button.tsx"],
     component: React.lazy(() => import("./elements/button")),
   },
-  // SOON
-  // textVariants: {
-  //   name: "textVariants",
-  //   type: "components:elements",
-  //   files: ["./elements/text-variants.tsx"],
-  //   component: React.lazy(() => import("./elements/text-variants")),
-  // },
 };
 export const registry: Registry = {
   ...ui,
