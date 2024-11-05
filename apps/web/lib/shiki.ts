@@ -1,3 +1,8 @@
+import { bundledLanguages, createHighlighter } from "shiki";
+
+let highlighter: any = null;
+const codeCache = new Map<string, string>();
+
 export const codeToHtml = async ({
   code,
   lang,
@@ -5,15 +10,23 @@ export const codeToHtml = async ({
   code: string;
   lang: string;
 }) => {
-  const { bundledLanguages, createHighlighter } = await import("shiki");
+  const cacheKey = `${code}-${lang}`;
+  if (codeCache.has(cacheKey)) {
+    return codeCache.get(cacheKey)!;
+  }
 
-  const highlighter = await createHighlighter({
-    themes: ["vesper"],
-    langs: [...Object.keys(bundledLanguages)],
-  });
+  if (!highlighter) {
+    highlighter = await createHighlighter({
+      themes: ["vesper"],
+      langs: [...Object.keys(bundledLanguages)],
+    });
+  }
 
-  return highlighter.codeToHtml(code, {
+  const html = highlighter.codeToHtml(code, {
     lang: lang,
     theme: "vesper",
   });
+
+  codeCache.set(cacheKey, html);
+  return html;
 };
