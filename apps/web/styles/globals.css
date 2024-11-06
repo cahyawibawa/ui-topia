@@ -89,6 +89,20 @@
   }
 }
 
+@media (max-width: 640px) {
+  .container {
+    @apply px-4;
+  }
+  .mobile-full-width {
+    margin-left: -25px;
+    margin-right: -25px;
+    width: calc(100% + 50px);
+    border-radius: 0;
+}
+
+}
+
+
 @keyframes jelly {
   0%,
   to {
