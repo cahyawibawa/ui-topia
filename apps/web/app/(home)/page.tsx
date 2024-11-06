@@ -1,11 +1,10 @@
-import ButtonsPage from "@/app/examples/buttons/page";
+import ButtonsPage from "@/app/(home)/examples/buttons/page";
 import {
   PageActions,
   PageHeader,
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header";
-import { SiteFooter } from "@/components/site-footer";
 import { SparkleDivider } from "@/components/sparkle-divider";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -57,8 +56,6 @@ export default function Home() {
       >
          </SparkleDivider> */}
       <ButtonsPage />
-
-      <SiteFooter />
     </div>
   );
 }

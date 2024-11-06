@@ -6,7 +6,6 @@ import {
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header";
-import { SiteFooter } from "@/components/site-footer";
 import { SparkleDivider } from "@/components/sparkle-divider";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -65,7 +64,6 @@ export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
           >
             {children}
           </SparkleDivider>
-          <SiteFooter />
         </div>
       </HomeLayout>
     </>
