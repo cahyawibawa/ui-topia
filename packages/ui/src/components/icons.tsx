@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import type { LucideIcon } from "lucide-react";
 import {
+  Album,
   ArrowUpRight,
   BookIcon,
   BookOpenIcon,
@@ -32,6 +33,7 @@ export type Position =
   | "bottom-right";
 
 export const Icons = {
+  album: Album,
   arrowUpRight: ArrowUpRight,
   copy: Copy,
   component: Component,

@@ -1,7 +1,7 @@
 "use client";
 import { BentoCard, BentoGrid } from "@/components/bento-grid";
-import { Calendar } from "@/components/calendar";
 import Globe from "@/components/globe";
+import { Calendar } from "@/components/shadcn-ui/calendar";
 import {
   CalendarIcon,
   FileTextIcon,

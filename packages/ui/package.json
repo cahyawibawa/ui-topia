@@ -22,32 +22,32 @@
       "types": "./dist/index.d.ts"
     },
     "./button": {
-      "import": "./src/components/button.tsx",
-      "types": "./src/components/button.d.ts"
+      "import": "./src/components/shadcn-ui/button.tsx",
+      "types": "./src/components/shadcn-ui/button.d.ts"
     },
     "./collapsible": {
-      "import": "./src/components/collapsible.tsx",
-      "types": "./src/components/collapsible.d.ts"
+      "import": "./src/components/shadcn-ui/collapsible.tsx",
+      "types": "./src/components/shadcn-ui/collapsible.d.ts"
     },
     "./scroll-area": {
-      "import": "./src/components/scroll-area.tsx",
-      "types": "./src/components/scroll-area.d.ts"
+      "import": "./src/components/shadcn-ui/scroll-area.tsx",
+      "types": "./src/components/shadcn-ui/scroll-area.d.ts"
     },
     "./tabs": {
-      "import": "./src/components/tabs.tsx",
-      "types": "./src/components/tabs.d.ts"
+      "import": "./src/components/shadcn-ui/tabs.tsx",
+      "types": "./src/components/shadcn-ui/tabs.d.ts"
     },
     "./card": {
-      "import": "./src/components/card.tsx",
-      "types": "./src/components/card.d.ts"
+      "import": "./src/components/shadcn-ui/card.tsx",
+      "types": "./src/components/shadcn-ui/card.d.ts"
     },
     "./icons": {
       "import": "./src/components/icons.tsx",
       "types": "./src/components/icons.d.ts"
     },
     "./skeleton": {
-      "import": "./src/components/skeleton.tsx",
-      "types": "./src/components/skeleton.d.ts"
+      "import": "./src/components/shadcn-ui/skeleton.tsx",
+      "types": "./src/components/shadcn-ui/skeleton.d.ts"
     },
     "./button-gradient": {
       "import": "./src/components/hover-border-gradient.tsx",
@@ -56,6 +56,10 @@
     "./flip-words": {
       "import": "./src/components/flip-words.tsx",
       "types": "./src/components/flip-words.d.ts"
+    },
+    "./text-morph": {
+      "import": "./src/components/text-morph.tsx",
+      "types": "./src/components/text-morph.d.ts"
     }
   },
   "typesVersions": {
