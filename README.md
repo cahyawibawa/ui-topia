@@ -1,4 +1,4 @@
-# UITOPIA
+# UI/TOPIA
 
 A collection of fine UI components built with Framer Motion and Tailwind CSS.
 

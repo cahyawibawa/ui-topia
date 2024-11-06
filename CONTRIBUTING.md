@@ -2,11 +2,48 @@
 
 Thank you for your interest in contributing to ui/topia! We appreciate your support and look forward to your contributions. This guide will help you understand the directory structure and provide detailed instructions on how to add a new component to ui/topia.
 
-**You only need to change 4 files to add a new component or effect** and it only takes around 10 minutes of work!
+**You only need to change 3 files to add a new component** and it only takes around 10 minutes of work!
 
-Once done, open a pull request from your forked repo to the main repo [here](https://github.com/cahyawibawa/ui-topia/compare).
+If you need any help, feel free to reach out to [@kyuotaka](https://twitter.com/kyuotaka).
 
-## Getting Started
+## About this repository
+
+This repository is a monorepo.
+
+- [bun](https://bun.sh/) and [`workspaces`](https://bun.sh/docs/install/workspaces) for development.
+- [Turborepo](https://turbo.build/repo) for build system.
+
+
+## Structure
+
+This repository is structured as follows:
+
+```
+apps
+└── web
+    ├── app
+    ├── components
+    ├── content
+        └── docs
+
+packages
+└── ui
+    ├── src
+    ├── components
+    ├── elements
+    └── index.tsx
+
+```
+
+| Path                  | Description                              |
+| --------------------- | ---------------------------------------- |
+| `apps/web/app`        | The Next.js application for the website. |
+| `apps/web/content/docs`    | The content for the website.             |
+| `packages/ui/components` | The React components for the website.    |
+| `packages/ui/elements` | Collection of elements such as buttons and text variants.    |
+| `packages/ui/index.tsx`   | The registry for the components.         |
+
+## Development
 
 ### Fork and Clone the Repository
 
@@ -34,48 +71,27 @@ Once done, open a pull request from your forked repo to the main repo [here](htt
 5. **Install dependencies**
 
    ```bash
-   pnpm i
+   bun i
    ```
 
 6. **Run the project**
    ```bash
-   cd apps/web
-   pnpm dev
+   bun run dev
    ```
 
 ## Adding a New Component
 
+We use a registry system for developing components. You can find the source code for the components under `packages/ui/index.tsx`. The components are organized by type of components.
+
 To add a new component to ui/topia, you will need to modify several files. Follow these steps:
 
-### 1. Create the Component
 
-Navigate to the packages folder:
+### 1. Create a Component Demo
 
-```bash
-cd packages/ui
-pnpm dev
-```
-
-Create the base component in `packages/src/components/example-component.tsx`
+Create your components in `packages/src/components/examples/example-component.tsx`
 
 ```typescript
-import React from 'react'
-
-export default function ExampleComponent() {
-  return (
-    <div>
-      This is your component.
-    </div>
-  )
-}
-```
-
-### 2. Create Component Demo
-
-Provide a basic example to showcase your component in `packages/src/components/examples/example-component.tsx`
-
-```typescript
-import ExampleComponent from '@/registry/components/magicui/example-component'
+import ExampleComponent from '@/components/example-component'
 
 export default function ExampleComponentDemo() {
   return (
@@ -86,107 +102,26 @@ export default function ExampleComponentDemo() {
 }
 ```
 
-### 3. Update Registry
+### 2. Update Registry
 
-Export your component and example in the registry in `packages/src/index.tsx`
+Export your component in the registry in `packages/src/index.tsx`
 
 ```typescript
-const ui: Registry = {
-  'example-component': {
-    name: 'example-component',
-    type: 'components:ui',
-    files: ['registry/components/magicui/example-component.tsx'],
-  },
-}
 
 const example: Registry = {
   'example-component-demo': {
     name: 'example-component',
     type: 'components:example',
-    files: ['registry/components/example/example-component-demo.tsx'],
-    component: React.lazy(
-      () => import('@/registry/components/example/example-component-demo')
-    ),
+   files: ["./components/examples/example-component.tsx"],
+    component: React.lazy(() => import("./components/examples/example-component"))-
   },
 }
 ```
 
-### 4. Create docs
+### 3. Create docs
 
 Create an MDX file for documenting your component in `content/docs/components/example-component.mdx`
 
-````md
----
-title: Example Component
-description: Example component for uitopia
----
-
-<ComponentPreview name="example-component-demo" />
-
-## Installation
-
-<Steps>
-<Step>
-
-### Install dependencies
-
-<InstallTabs items={['npm', 'pnpm', 'yarn', 'bun']}>
-
-```bash tab="npm"
-npx shadcn-ui@latest add card badge
-```
-
-```bash tab="pnpm"
-pnpm dlx shadcn-ui@latest add card badge
-```
-
-```bash tab="yarn"
-npx shadcn-ui@latest add card badge
-```
-
-```bash tab="bun"
-bunx --bun shadcn-ui@latest add card badge
-```
-
-</InstallTabs>
-
-</Step>
-
-<Step>
-### Copy the source code
-
-<ComponentBase name="project-card" />
-
-</Step>
-</Steps>
-
-## Props
-
-<TypeTable
-type={{
-    title: {
-      description: 'The title of the project card',
-      type: 'string',
-      required: true,
-    },
-    href: {
-      description: 'Optional hyperlink reference for the project card',
-      type: 'string',
-      required: false,
-    },
-    description: {
-      description: 'A brief description of the project',
-      type: 'string',
-      required: true,
-    },
-    className: {
-      description: 'Additional CSS classes to apply to the project card',
-      type: 'string',
-      required: false,
-    },
-  }}  
-/>
-````
 
 That's it! You have successfully added a new component.
 
@@ -219,9 +154,6 @@ the following categories:
 If you are interested in the detailed specification you can visit
 https://www.conventionalcommits.org/.
 
-## Ask for Help
-
-For any help or questions, please open a new GitHub issue or reach out to my social media [X](https://x.com/kyuotaka) and [Discord](https://discord.com/users/sinisterkids).
 
 ```
 
