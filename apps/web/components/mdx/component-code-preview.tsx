@@ -1,7 +1,9 @@
 'use client';
 
+import { Icons } from '@ui/topia/icons';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@ui/topia/tabs';
 import { useEffect, useState } from 'react';
+import React from 'react';
 import CodePreview from './code-preview';
 import ComponentPreview from './component-preview';
 
@@ -40,13 +42,27 @@ export default function ComponentCodePreview({
           <TabsTrigger value='code'>Code</TabsTrigger>
         </TabsList>
         <TabsContent value='preview'>
-          {Component && (
-            <ComponentPreview
-              component={<Component />}
-              hasReTrigger={hasReTrigger}
-              className={classNameComponentContainer}
-            />
-          )}
+          <div
+            className=
+            "preview flex min-h-[350px] w-full justify-center p-10"
+
+
+          >
+            <React.Suspense fallback={
+              <div className="flex w-full items-center justify-center text-muted-foreground text-sm">
+                <Icons.loader className="mr-2 h-4 w-4 animate-spin" />
+                Loading...
+              </div>
+            }>
+              {Component && (
+                <ComponentPreview
+                  component={<Component />}
+                  hasReTrigger={hasReTrigger}
+                  className={classNameComponentContainer}
+                />
+              )}
+            </React.Suspense>
+          </div>
         </TabsContent>
         <TabsContent value='code'>
           <CodePreview code={code} highlightedCode={highlightedCode} />
