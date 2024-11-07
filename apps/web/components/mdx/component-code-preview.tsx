@@ -44,7 +44,7 @@ export default function ComponentCodePreview({
         <TabsContent value='preview'>
           <div
             className=
-            "preview flex min-h-[350px] w-full justify-center p-10"
+            "preview flex min-h-[450px] w-full justify-center p-4"
 
 
           >
