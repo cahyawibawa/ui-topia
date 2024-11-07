@@ -38,7 +38,7 @@ export default function CodePreview({ code, highlightedCode }: CodePreviewProps)
           <Check className='h-4 w-4 text-zinc-50' />
         </div>
       </div>
-      <div className='max-h-[650px] overflow-auto rounded-md bg-zinc-900'>
+      <div className='max-h-[650px] overflow-auto rounded-md bg-[#101010]'>
         <div className='inline-block overflow-x-auto p-4 text-sm'>
           {/* biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation> */}
           <div dangerouslySetInnerHTML={{ __html: highlightedCode }} />

@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export const linkItems: LinkItemType[] = [
   {
-    icon: <Icons.album />,
+    icon: <Icons.news />,
     text: 'Blog',
     url: '/blog',
     active: 'nested-url',

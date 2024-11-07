@@ -7,9 +7,6 @@ import 'fumadocs-twoslash/twoslash.css';
 const docsOptions: DocsLayoutProps = {
   ...baseOptions,
   tree: source.pageTree,
-  nav: {
-    ...baseOptions.nav,
-  },
   links: linkItems,
 }
 
