@@ -1,4 +1,5 @@
-import fs from "node:fs/promises";
+"use server";
+
 import path from "node:path";
 import { codeToHtml } from "@/lib/shiki";
 import { registry } from "@ui/topia";
@@ -34,13 +35,6 @@ export async function extractSourceCode(
       highlightedCode: await codeToHtml({ code: errorMsg, lang: "tsx" }),
     };
   }
-  if (!component.files || component.files.length === 0) {
-    const errorMsg = "// No source files defined for this component";
-    return {
-      code: errorMsg,
-      highlightedCode: await codeToHtml({ code: errorMsg, lang: "tsx" }),
-    };
-  }
 
   const componentFile = component.files[0];
   if (!componentFile) {
@@ -51,14 +45,19 @@ export async function extractSourceCode(
     };
   }
 
-  const fullPath = path.join(basePath, componentFile.replace(/^\.\//, ""));
+  const fullPath = path.join(
+    basePath,
+    componentFile.replace(/^\.\//, "").replace(/^@/, ""),
+  );
 
   try {
-    const code = await fs.readFile(fullPath, "utf8");
+    // Use Node.js native `readFile` from the `fs/promises` module
+    const { readFile } = await import("node:fs/promises");
+    const code = await readFile(fullPath, "utf8");
     const highlightedCode = await codeToHtml({ code, lang: "tsx" });
     return { code, highlightedCode };
   } catch (error) {
-    const errorMsg = `// Failed to read source code for ${componentName}\n// Path attempted: ${fullPath}`;
+    const errorMsg = `// Failed to read source code for ${componentName}\n// Path attempted: ${fullPath}\n// Error: ${error instanceof Error ? error.message : "Unknown error"}`;
     return {
       code: errorMsg,
       highlightedCode: await codeToHtml({ code: errorMsg, lang: "tsx" }),

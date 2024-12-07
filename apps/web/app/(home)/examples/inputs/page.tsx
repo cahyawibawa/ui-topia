@@ -9,30 +9,30 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   ...defaultMetadata,
-  title: "Buttons - ui/topia",
+  title: "Inputs - ui/topia",
   openGraph: {
     ...ogMetadata,
-    title: "Buttons - ui/topia",
+    title: "Inputs - ui/topia",
   },
   twitter: {
     ...twitterMetadata,
-    title: "Buttons - ui/topia",
+    title: "Inputs - ui/topia",
   },
 };
 
-export default function ButtonsPage() {
-  const buttonComponents = Object.entries(registry)
-    .filter(([key]) => key.startsWith("button-"))
+export default function InputsPage() {
+  const inputComponents = Object.entries(registry)
+    .filter(([key]) => key.startsWith("input-"))
     .map(([key]) => key);
 
-  if (buttonComponents.length === 0) {
-    return <div>No button components found</div>;
+  if (inputComponents.length === 0) {
+    return <div>No input components found</div>;
   }
 
   return (
     <section className="mx-auto">
       <div className="grid gap-6 pb-6 md:grid-cols-2 lg:grid-cols-4">
-        {buttonComponents.map((componentName) => (
+        {inputComponents.map((componentName) => (
           <DemoComponent
             key={componentName}
             componentName={componentName}
