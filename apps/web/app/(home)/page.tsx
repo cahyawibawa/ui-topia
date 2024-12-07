@@ -1,11 +1,11 @@
 import ButtonsPage from "@/app/(home)/examples/buttons/page";
+import { ExamplesNav } from "@/components/examples-nav";
 import {
   PageActions,
   PageHeader,
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header";
-import { SparkleDivider } from "@/components/sparkle-divider";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@ui/topia/button";
@@ -48,13 +48,7 @@ export default function Home() {
           </Link>
         </PageActions>
       </PageHeader>
-      {/* hide tab and divider for now*/}
-      {/* <ExamplesNav className="[&>a:first-child]:text-muted-foreground" /> */}
-      {/* <SparkleDivider
-        className="rounded-[0.5rem] border"
-        useBottomDivider={false}
-      >
-         </SparkleDivider> */}
+      <ExamplesNav className="[&>a:first-child]:text-muted-foreground" />
       <ButtonsPage />
     </div>
   );

@@ -1,5 +1,5 @@
-import { blog } from '@/app/source';
-import Link from 'next/link';
+import { blog } from "@/app/source";
+import Link from "next/link";
 
 export default function Page(): React.ReactElement {
   const posts = [...blog.getPages()].sort(
@@ -26,19 +26,17 @@ export default function Page(): React.ReactElement {
         className="h-[300px] p-8 md:h-[400px] md:p-12"
         style={{
           backgroundImage: [
-            'radial-gradient(circle at 70% 10%, #FFFFFF, transparent)',
-            'radial-gradient(circle at 0% 80%, #A6CFE2, transparent)',
-            'radial-gradient(circle at 50% 50%, #0B0C11, transparent)',
+            "radial-gradient(circle at 70% 10%, #FFFFFF, transparent)",
+            "radial-gradient(circle at 0% 80%, #A6CFE2, transparent)",
+            "radial-gradient(circle at 50% 50%, #0B0C11, transparent)",
             `url("data:image/svg+xml,${encodeURIComponent(svg)}")`,
-          ].join(', '),
+          ].join(", "),
         }}
       >
         <h1 className="mb-4 border-fd-foreground border-b-4 pb-2 font-bold text-4xl md:text-5xl">
           utopia dream
         </h1>
-        <p className="text-sm md:text-base">
-          Steady and evolving.
-        </p>
+        <p className="text-sm md:text-base">Steady and evolving.</p>
       </div>
       <div className="grid grid-cols-1 border md:grid-cols-3 lg:grid-cols-4">
         {posts.map((post) => (

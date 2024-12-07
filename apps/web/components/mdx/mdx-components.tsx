@@ -35,12 +35,14 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 
     ComponentPreview: async ({ name, ...props }: { name: string }) => {
       const { code, highlightedCode } = await extractSourceCode(name);
-      return <ComponentCodePreview
-        name={name}
-        code={code}
-        highlightedCode={highlightedCode}
-        {...props}
-      />;
+      return (
+        <ComponentCodePreview
+          name={name}
+          code={code}
+          highlightedCode={highlightedCode}
+          {...props}
+        />
+      );
     },
     InstallTabs: ({
       items,

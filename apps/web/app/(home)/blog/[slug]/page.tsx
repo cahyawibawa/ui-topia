@@ -1,13 +1,13 @@
-import { Control } from '@/app/(home)/blog/[slug]/page.client';
-import { blog } from '@/app/source';
-import { siteConfig } from '@/config/site';
-import { createMetadata } from '@/lib//metadata/metadata';
-import { buttonVariants } from '@ui/topia/button';
-import { InlineTOC } from 'fumadocs-ui/components/inline-toc';
-import defaultMdxComponents from 'fumadocs-ui/mdx';
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { Control } from "@/app/(home)/blog/[slug]/page.client";
+import { blog } from "@/app/source";
+import { siteConfig } from "@/config/site";
+import { createMetadata } from "@/lib//metadata/metadata";
+import { buttonVariants } from "@ui/topia/button";
+import { InlineTOC } from "fumadocs-ui/components/inline-toc";
+import defaultMdxComponents from "fumadocs-ui/mdx";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 
 export default async function Page(props: {
   params: Promise<{ slug: string }>;
@@ -22,13 +22,13 @@ export default async function Page(props: {
       <div
         className="container rounded-xl border py-12 md:px-8"
         style={{
-          backgroundColor: 'black',
+          backgroundColor: "black",
           backgroundImage: [
-            'linear-gradient(140deg, hsla(274,94%,54%,0.3), transparent 50%)',
-            'linear-gradient(to left top, hsla(260,90%,50%,0.8), transparent 50%)',
-            'radial-gradient(circle at 100% 100%, hsla(240,100%,82%,1), hsla(240,40%,40%,1) 17%, hsla(240,40%,40%,0.5) 20%, transparent)',
-          ].join(', '),
-          backgroundBlendMode: 'difference, difference, normal',
+            "linear-gradient(140deg, hsla(274,94%,54%,0.3), transparent 50%)",
+            "linear-gradient(to left top, hsla(260,90%,50%,0.8), transparent 50%)",
+            "radial-gradient(circle at 100% 100%, hsla(240,100%,82%,1), hsla(240,40%,40%,1) 17%, hsla(240,40%,40%,0.5) 20%, transparent)",
+          ].join(", "),
+          backgroundBlendMode: "difference, difference, normal",
         }}
       >
         <h1 className="mb-2 font-bold text-3xl text-white">
@@ -37,7 +37,7 @@ export default async function Page(props: {
         <p className="mb-4 text-white/80">{page.data.description}</p>
         <Link
           href="/blog"
-          className={buttonVariants({ size: 'sm', variant: 'secondary' })}
+          className={buttonVariants({ size: "sm", variant: "secondary" })}
         >
           Back
         </Link>
@@ -81,7 +81,8 @@ export async function generateMetadata(props: {
 }
 
 export function generateStaticParams(): { slug: string }[] {
-  return blog.getPages()
+  return blog
+    .getPages()
     .map((page) => page.slugs[0])
     .filter((slug): slug is string => slug !== undefined)
     .map((slug) => ({

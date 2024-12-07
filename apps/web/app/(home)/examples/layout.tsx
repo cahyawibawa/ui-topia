@@ -6,7 +6,6 @@ import {
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header";
-import { SparkleDivider } from "@/components/sparkle-divider";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@ui/topia/button";
@@ -32,7 +31,7 @@ export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
           <PageHeader>
             <PageHeaderHeading>Check out some examples</PageHeaderHeading>
             <PageHeaderDescription>
-              All Buttons Collection crafted with TailwindCSS
+              All components are crafted with shadcn-ui and TailwindCSS
             </PageHeaderDescription>
             <PageActions>
               <Link href="/docs">
@@ -58,12 +57,7 @@ export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
             </PageActions>
           </PageHeader>
           <ExamplesNav />
-          <SparkleDivider
-            className="rounded-[0.5rem] border"
-            useBottomDivider={false}
-          >
-            {children}
-          </SparkleDivider>
+          {children}
         </div>
       </HomeLayout>
     </>
