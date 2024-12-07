@@ -40,7 +40,8 @@
       },
       "style": {
         "noNonNullAssertion": "off",
-        "useSelfClosingElements": "off"
+        "useSelfClosingElements": "off",
+        "useNodejsImportProtocol": "off"
       },
       "correctness": {
         "useExhaustiveDependencies": "off"
