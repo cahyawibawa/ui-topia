@@ -1,5 +1,6 @@
+"use client";
+
 import { Button } from "@/components/shadcn-ui/button";
-import Image from "next/image";
 
 import type { Variants } from "motion/react";
 import { motion, useAnimation } from "motion/react";

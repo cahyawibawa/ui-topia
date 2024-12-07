@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { RotateCw } from "lucide-react";
+import { Icons } from "@ui/topia/icons";
 import { cloneElement, useState } from "react";
 
 type ComponentPreviewProps = {
@@ -32,7 +32,7 @@ export default function ComponentPreview({
           className="absolute top-3 right-4 cursor-pointer"
           onClick={reTrigger}
         >
-          <RotateCw className="h-4 w-4 text-zinc-500" />
+          <Icons.refresh className="size-4 text-zinc-500" />
         </div>
       )}
       {hasReTrigger

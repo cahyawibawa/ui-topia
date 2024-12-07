@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/shadcn-ui/button";
 import { motion, useAnimation } from "motion/react";
 
