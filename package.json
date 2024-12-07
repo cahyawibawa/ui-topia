@@ -2,7 +2,7 @@
   "name": "uitopia",
   "version": "1.0.0",
   "devDependencies": {
-    "@biomejs/biome": "1.8.3",
+    "@biomejs/biome": "^1.9.4",
     "@uitopia/tsconfig": "workspace:*",
     "turbo": "^2.1.1"
   },
@@ -11,6 +11,8 @@
   "private": true,
   "scripts": {
     "dev": "turbo run dev",
+    "dev:web": "turbo run dev --filter=web",
+    "dev:ui": "turbo run dev --filter=@ui/topia",
     "lint": "turbo run lint",
     "build": "turbo run build",
     "format": "biome format --write .",
