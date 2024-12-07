@@ -227,18 +227,76 @@ export const Icons = {
   ),
   spinner: (props: IconProps) => (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
+      data-testid="geist-icon"
+      height="16"
       strokeLinejoin="round"
-      {...props}
+      viewBox="0 0 16 16"
+      width="16"
+      style={{ color: "currentcolor" }}
+      className="mr-2 animate-spin"
     >
-      <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+      <g clipPath="url(#clip0_2393_1490)">
+        <path d="M8 0V4" stroke="currentColor" strokeWidth="1.5"></path>
+        <path
+          opacity="0.5"
+          d="M8 16V12"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        ></path>
+        <path
+          opacity="0.9"
+          d="M3.29773 1.52783L5.64887 4.7639"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        ></path>
+        <path
+          opacity="0.1"
+          d="M12.7023 1.52783L10.3511 4.7639"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        ></path>
+        <path
+          opacity="0.4"
+          d="M12.7023 14.472L10.3511 11.236"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        ></path>
+        <path
+          opacity="0.6"
+          d="M3.29773 14.472L5.64887 11.236"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        ></path>
+        <path
+          opacity="0.2"
+          d="M15.6085 5.52783L11.8043 6.7639"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        ></path>
+        <path
+          opacity="0.7"
+          d="M0.391602 10.472L4.19583 9.23598"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        ></path>
+        <path
+          opacity="0.3"
+          d="M15.6085 10.4722L11.8043 9.2361"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        ></path>
+        <path
+          opacity="0.8"
+          d="M0.391602 5.52783L4.19583 6.7639"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        ></path>
+      </g>
+      <defs>
+        <clipPath id="clip0_2393_1490">
+          <rect width="16" height="16" fill="white"></rect>
+        </clipPath>
+      </defs>
     </svg>
   ),
 
@@ -512,8 +570,6 @@ export const shadcnLogo = (props: React.SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-
-
 
 export function create({
   icon: Icon,
