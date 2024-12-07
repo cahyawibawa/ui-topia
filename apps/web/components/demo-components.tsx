@@ -40,13 +40,19 @@ const LoadingSpinner: React.FC = () => (
     <span className="text-muted-foreground text-sm">Loading</span>
   </div>
 );
+
 const CopyButtonWrapper: React.FC<{ componentName: string }> = ({
   componentName,
 }) => {
   const [code, setCode] = useState<string | null>(null);
 
   useEffect(() => {
-    extractSourceCode(componentName).then(({ code }) => setCode(code));
+    async function fetchSource() {
+      const { code } = await extractSourceCode(componentName);
+      setCode(code);
+    }
+
+    fetchSource();
   }, [componentName]);
 
   if (!code) return null;

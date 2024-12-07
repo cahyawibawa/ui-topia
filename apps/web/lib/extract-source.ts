@@ -1,6 +1,6 @@
-"use server";
-
-import path from "node:path";
+'use server'
+import fs from "fs";
+import path from "path";
 import { codeToHtml } from "@/lib/shiki";
 import { registry } from "@ui/topia";
 
@@ -51,9 +51,7 @@ export async function extractSourceCode(
   );
 
   try {
-    // Use Node.js native `readFile` from the `fs/promises` module
-    const { readFile } = await import("node:fs/promises");
-    const code = await readFile(fullPath, "utf8");
+    const code = await fs.promises.readFile(fullPath, "utf8");
     const highlightedCode = await codeToHtml({ code, lang: "tsx" });
     return { code, highlightedCode };
   } catch (error) {

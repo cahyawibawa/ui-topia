@@ -22,9 +22,9 @@ const CopyButton: React.FC<CopyButtonProps> = ({ componentSource }) => {
     try {
       await navigator.clipboard.writeText(componentSource);
       setCopied(true);
-      setTimeout(() => setCopied(false), 1500);
+      setTimeout(() => setCopied(false), 1500); // Reset copied state after 1.5 seconds
     } catch (err) {
-      console.error("Failed to copy text: ", err);
+      console.error("Failed to copy text:", err);
     }
   };
 
@@ -47,13 +47,9 @@ const CopyButton: React.FC<CopyButtonProps> = ({ componentSource }) => {
               aria-label={copied ? "Copied" : "Copy component source"}
               disabled={copied}
             >
-              <div
-                className={cn(
-                  "transition-all",
-                  copied ? "scale-100 opacity-100" : "scale-0 opacity-0",
-                )}
-              >
+              {copied ? (
                 <svg
+                  className="scale-100 opacity-100 transition-all"
                   data-testid="geist-icon"
                   height="14"
                   strokeLinejoin="round"
@@ -68,19 +64,13 @@ const CopyButton: React.FC<CopyButtonProps> = ({ componentSource }) => {
                     fill="currentColor"
                   ></path>
                 </svg>
-              </div>
-              <div
-                className={cn(
-                  "absolute transition-all",
-                  copied ? "scale-0 opacity-0" : "scale-100 opacity-100",
-                )}
-              >
+              ) : (
                 <CopyIcon />
-              </div>
+              )}
             </Button>
           </TooltipTrigger>
           <TooltipContent className="bg-muted px-2 py-1 text-muted-foreground text-xs">
-            Copy
+            {copied ? "Copied!" : "Copy"}
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
