@@ -21,34 +21,47 @@
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
+    "./badge": {
+      "import": "./src/components/shadcn-ui/badge.tsx",
+      "types": "./src/components/shadcn-ui/badge.d.ts"
+    },
     "./button": {
       "import": "./src/components/shadcn-ui/button.tsx",
       "types": "./src/components/shadcn-ui/button.d.ts"
-    },
-    "./collapsible": {
-      "import": "./src/components/shadcn-ui/collapsible.tsx",
-      "types": "./src/components/shadcn-ui/collapsible.d.ts"
-    },
-    "./scroll-area": {
-      "import": "./src/components/shadcn-ui/scroll-area.tsx",
-      "types": "./src/components/shadcn-ui/scroll-area.d.ts"
-    },
-    "./tabs": {
-      "import": "./src/components/shadcn-ui/tabs.tsx",
-      "types": "./src/components/shadcn-ui/tabs.d.ts"
     },
     "./card": {
       "import": "./src/components/shadcn-ui/card.tsx",
       "types": "./src/components/shadcn-ui/card.d.ts"
     },
+    "./collapsible": {
+      "import": "./src/components/shadcn-ui/collapsible.tsx",
+      "types": "./src/components/shadcn-ui/collapsible.d.ts"
+    },
     "./icons": {
       "import": "./src/components/icons.tsx",
       "types": "./src/components/icons.d.ts"
+    },
+    "./label": {
+      "import": "./src/components/shadcn-ui/label.tsx",
+      "types": "./src/components/shadcn-ui/label.d.ts"
+    },
+    "./scroll-area": {
+      "import": "./src/components/shadcn-ui/scroll-area.tsx",
+      "types": "./src/components/shadcn-ui/scroll-area.d.ts"
     },
     "./skeleton": {
       "import": "./src/components/shadcn-ui/skeleton.tsx",
       "types": "./src/components/shadcn-ui/skeleton.d.ts"
     },
+    "./tabs": {
+      "import": "./src/components/shadcn-ui/tabs.tsx",
+      "types": "./src/components/shadcn-ui/tabs.d.ts"
+    },
+    "./tooltip": {
+      "import": "./src/components/shadcn-ui/tooltip.tsx",
+      "types": "./src/components/shadcn-ui/tooltip.d.ts"
+    },
+
     "./button-gradient": {
       "import": "./src/components/hover-border-gradient.tsx",
       "types": "./src/components/hover-border-gradient.d.ts"
@@ -71,10 +84,13 @@
   "dependencies": {
     "@radix-ui/react-collapsible": "^1.1.0",
     "@radix-ui/react-icons": "^1.3.0",
+    "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-scroll-area": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-tabs": "^1.1.0",
+    "@radix-ui/react-tooltip": "^1.1.4",
     "@react-spring/web": "^9.7.3",
+    "@remixicon/react": "^4.5.0",
     "autoprefixer": "^10.0.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
@@ -83,6 +99,7 @@
     "date-fns": "^3.6.0",
     "framer-motion": "^11.3.6",
     "lucide-react": "^0.395.0",
+    "motion": "^11.13.1",
     "motion-number": "^0.1.7",
     "next": "14.2.3",
     "react": "^18.3.1",
