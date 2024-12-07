@@ -8,9 +8,22 @@ export default function Layout({
 }: {
   children: ReactNode;
 }): React.ReactElement {
-  return <HomeLayout {...baseOptions}>{children}
-    <Footer />
-  </HomeLayout>;
+  return (
+    <HomeLayout {...baseOptions}>
+      {children}
+      <div
+        className="2xl:!px-0 hidden justify-center xl:flex"
+        style={{ padding: "0 11.5vw" }}
+      >
+        <img
+          src="/images/rapid-dev-lines-top.svg"
+          alt=""
+          className="h-auto object-contain dark:invert"
+        />
+      </div>
+      <Footer />
+    </HomeLayout>
+  );
 }
 
 function Footer(): React.ReactElement {
@@ -47,8 +60,8 @@ function Footer(): React.ReactElement {
           <span className="mt-2 flex items-center space-x-1 font-redaction text-muted-foreground text-sm sm:mt-0">
             <a
               href={siteConfig.links.portfolio}
+              // biome-ignore lint/a11y/noBlankTarget: <explanation>
               target="_blank"
-              rel="noreferrer"
               className="font-medium no-underline hover:underline"
             >
               Cahya Wibawa
@@ -58,5 +71,5 @@ function Footer(): React.ReactElement {
         </div>
       </div>
     </footer>
-  )
+  );
 }

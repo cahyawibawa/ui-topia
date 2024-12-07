@@ -1,18 +1,24 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { registry } from "@ui/topia";
+import { Badge } from "@ui/topia/badge";
 import { ScrollArea, ScrollBar } from "@ui/topia/scroll-area";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const examples = [
   {
-    name: "Buttons",
+    name: "Button",
     href: "/examples/buttons",
+    getCount: () =>
+      Object.keys(registry).filter((key) => key.startsWith("button-")).length,
   },
   {
-    name: "Text Variants",
-    href: "/examples/texts",
+    name: "Input",
+    href: "/examples/inputs",
+    getCount: () =>
+      Object.keys(registry).filter((key) => key.startsWith("input-")).length,
   },
 ];
 
@@ -22,22 +28,30 @@ export function ExamplesNav({ className, ...props }: ExamplesNavProps) {
   const pathname = usePathname();
 
   return (
-    <div className="flex pt-10">
+    <div className="flex justify-end">
       <ScrollArea className="max-w-[600px] lg:max-w-none">
-        <div className={cn("mb-4 flex items-center", className)} {...props}>
+        <div className={cn("my-5 flex items-center", className)} {...props}>
           {examples.map((example, index) => (
             <Link
               href={example.href}
               key={example.href}
               className={cn(
-                "flex h-7 items-center justify-center rounded-full px-4 text-center font-medium text-[13px] transition-colors",
+                "relative flex h-7 items-center justify-center rounded-xl px-4 text-center text-[13px] transition-colors",
                 pathname?.startsWith(example.href) ||
                   (index === 0 && pathname === "/")
-                  ? "bg-neutral-200 text-primary dark:bg-slated dark:text-white"
+                  ? "bg-neutral-200 font-medium text-primary dark:bg-slated dark:text-white"
                   : "text-muted-foreground",
               )}
             >
-              {example.name}
+              <span className="relative">
+                {example.name}
+                <Badge
+                  variant="secondary"
+                  className="-top-3.5 -right-5 absolute flex size-5 items-center justify-center rounded-full border-1 border-muted bg-muted p-0 font-light text-[10px] text-muted-foreground"
+                >
+                  {example.getCount()}
+                </Badge>
+              </span>
             </Link>
           ))}
         </div>
@@ -46,29 +60,3 @@ export function ExamplesNav({ className, ...props }: ExamplesNavProps) {
     </div>
   );
 }
-
-// interface ExampleCodeLinkProps {
-//   pathname: string | null;
-// }
-
-// export function ExampleCodeLink({ pathname }: ExampleCodeLinkProps) {
-//   const example = examples.find((example) =>
-//     pathname?.startsWith(example.href)
-//   );
-
-//   if (!example?.code) {
-//     return null;
-//   }
-
-//   return (
-//     <Link
-//       href={example?.code}
-//       target='_blank'
-//       rel='nofollow'
-//       className='absolute right-0 top-0 hidden items-center rounded-[0.5rem] text-sm font-medium md:flex'
-//     >
-//       View code
-//       <ArrowRightIcon className='ml-1 h-4 w-4' />
-//     </Link>
-//   );
-// }
