@@ -1,6 +1,6 @@
 import ComponentCodePreview from "@/components/mdx/component-code-preview";
 import { Link, Links } from "@/components/mdx/links";
-import { extractSourceCode } from "@/lib/extract-source";
+import { extractSourceCode } from "@/lib/code";
 import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
 import { Callout } from "fumadocs-ui/components/callout";
 import { Card, Cards } from "fumadocs-ui/components/card";

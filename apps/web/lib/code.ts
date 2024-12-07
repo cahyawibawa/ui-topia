@@ -1,5 +1,4 @@
-'use server'
-import fs from "fs";
+import { promises as fs } from "fs";
 import path from "path";
 import { codeToHtml } from "@/lib/shiki";
 import { registry } from "@ui/topia";
@@ -16,7 +15,6 @@ export async function extractSourceCode(
     "src",
   );
 
-  // Get component info from registry
   const component = registry[componentName];
 
   if (!component) {
@@ -27,7 +25,6 @@ export async function extractSourceCode(
     };
   }
 
-  // Check if component has files
   if (!component.files || component.files.length === 0) {
     const errorMsg = "// No source files defined for this component";
     return {
@@ -37,6 +34,7 @@ export async function extractSourceCode(
   }
 
   const componentFile = component.files[0];
+
   if (!componentFile) {
     const errorMsg = "// No source file found for this component";
     return {
@@ -45,13 +43,13 @@ export async function extractSourceCode(
     };
   }
 
-  const fullPath = path.join(
-    basePath,
-    componentFile.replace(/^\.\//, "").replace(/^@/, ""),
-  );
+  // Remove the '@' from the path if it exists
+  const sanitizedFilePath = componentFile.replace(/^@/, "");
+
+  const fullPath = path.join(basePath, sanitizedFilePath.replace(/^\.\//, ""));
 
   try {
-    const code = await fs.promises.readFile(fullPath, "utf8");
+    const code = await fs.readFile(fullPath, "utf8");
     const highlightedCode = await codeToHtml({ code, lang: "tsx" });
     return { code, highlightedCode };
   } catch (error) {
