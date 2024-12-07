@@ -1,7 +1,7 @@
-'use client';
-import { cn } from '@/lib/utils';
-import { AnimatePresence, motion } from 'framer-motion';
-import { useId, useMemo } from 'react';
+"use client";
+import { cn } from "@/lib/utils";
+import { AnimatePresence, motion } from "framer-motion";
+import { useId, useMemo } from "react";
 
 type TextMorphProps = {
   children: string;
@@ -12,7 +12,7 @@ type TextMorphProps = {
 
 export function TextMorph({
   children,
-  as: Component = 'p',
+  as: Component = "p",
   className,
   style,
 }: TextMorphProps) {
@@ -21,7 +21,7 @@ export function TextMorph({
   const characters = useMemo(() => {
     const charCounts: Record<string, number> = {};
 
-    return children.split('').map((char, index) => {
+    return children.split("").map((char, index) => {
       const lowerChar = char.toLowerCase();
       charCounts[lowerChar] = (charCounts[lowerChar] || 0) + 1;
 
@@ -34,18 +34,18 @@ export function TextMorph({
 
   return (
     <Component className={cn(className)} aria-label={children} style={style}>
-      <AnimatePresence mode='popLayout' initial={false}>
+      <AnimatePresence mode="popLayout" initial={false}>
         {characters.map((character) => (
           <motion.span
             key={character.id}
             layoutId={character.id}
-            className='inline-block'
-            aria-hidden='true'
+            className="inline-block"
+            aria-hidden="true"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{
-              type: 'spring',
+              type: "spring",
               stiffness: 280,
               damping: 18,
               mass: 0.3,
