@@ -1,7 +1,7 @@
 "use client";
 
 import { Icons } from "@/components/icons";
-import { AnimatePresence, MotionConfig, motion } from "framer-motion";
+import { AnimatePresence, MotionConfig, motion } from "motion/react";
 import { type FC, useEffect, useRef, useState } from "react";
 import { useOnClickOutside } from "usehooks-ts";
 

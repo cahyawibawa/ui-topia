@@ -1,6 +1,6 @@
 "use client";
 import { Icons } from "@/components/icons";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
 interface OfferingProps {

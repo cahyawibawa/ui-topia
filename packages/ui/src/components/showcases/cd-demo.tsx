@@ -1,7 +1,7 @@
 "use client";
 
-import { MotionConfig, type Transition, motion } from "framer-motion";
 import MotionNumber from "motion-number";
+import { MotionConfig, type Transition, motion } from "motion/react";
 import Image from "next/image";
 import React from "react";
 
