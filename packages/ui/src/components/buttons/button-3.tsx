@@ -51,15 +51,15 @@ export default function ButtonDemo() {
         starControls.start("initial");
       }}
     >
-      <Button>
-        <span className="mr-1.5">Sparkle</span>
+      <Button variant="default">
+        <span className="mr-1.5 text-zinc-300 dark:text-zinc-600">Sparkle</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
           height="16"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="currentColor"
+          stroke={"currentColor"}
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"

@@ -20,6 +20,7 @@ export default function CopyButton() {
       size="icon"
       onMouseEnter={() => controls.start("animate")}
       onMouseLeave={() => controls.start("normal")}
+      aria-label="Copy"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

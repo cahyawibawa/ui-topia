@@ -147,7 +147,7 @@ export default function ButtonDemo() {
         onMouseLeave={() => controls.start("normal")}
         className="rounded-none shadow-none first:rounded-s-lg last:rounded-e-lg focus-visible:z-10"
       >
-        Hover me
+        <span className="text-zinc-300 dark:text-zinc-600">Hover me</span>
       </Button>
     </div>
   );

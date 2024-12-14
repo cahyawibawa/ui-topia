@@ -1,5 +1,4 @@
-import ComponentCodePreview from "@/components/mdx/component-code-preview";
-import { Link, Links } from "@/components/mdx/links";
+import ComponentShowcase from "@/components/component-showcase";
 import { extractSourceCode } from "@/lib/code";
 import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
 import { Callout } from "fumadocs-ui/components/callout";
@@ -28,15 +27,13 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     Callout,
     TypeTable,
     ImageZoom,
-    Links,
-    Link,
     Steps,
     Step,
 
     ComponentPreview: async ({ name, ...props }: { name: string }) => {
       const { code, highlightedCode } = await extractSourceCode(name);
       return (
-        <ComponentCodePreview
+        <ComponentShowcase
           name={name}
           code={code}
           highlightedCode={highlightedCode}

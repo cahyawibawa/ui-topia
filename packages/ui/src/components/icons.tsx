@@ -137,6 +137,7 @@ export const Icons = {
       ></path>
     </svg>
   ),
+
   react: (props: IconProps) => (
     <svg viewBox="0 0 24 24" {...props}>
       <path

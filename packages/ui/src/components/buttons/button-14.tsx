@@ -24,7 +24,7 @@ export default function ButtonDemo() {
       onMouseEnter={() => controls.start("animate")}
       onMouseLeave={() => controls.start("normal")}
     >
-      Download
+      <span className="text-zinc-100 dark:text-zinc-600">Download</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"

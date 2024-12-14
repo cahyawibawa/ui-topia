@@ -8,11 +8,66 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@ui/topia/tooltip";
+import { type Transition, motion, useAnimation } from "motion/react";
 import { useState } from "react";
-import { CopyIcon } from "./copy-icon";
 
 interface CopyButtonProps {
   componentSource: string;
+}
+
+const defaultTransition: Transition = {
+  type: "spring",
+  stiffness: 160,
+  damping: 17,
+  mass: 1,
+};
+
+function CopyIcon() {
+  const controls = useAnimation();
+
+  return (
+    <div
+      className="flex cursor-pointer select-none items-center justify-center rounded-md p-2 transition-colors duration-200 hover:bg-accent"
+      onMouseEnter={() => controls.start("animate")}
+      onMouseLeave={() => controls.start("normal")}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <motion.rect
+          width="14"
+          height="14"
+          x="8"
+          y="8"
+          rx="2"
+          ry="2"
+          variants={{
+            normal: { translateY: 0, translateX: 0 },
+            animate: { translateY: -3, translateX: -3 },
+          }}
+          animate={controls}
+          transition={defaultTransition}
+        />
+        <motion.path
+          d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"
+          variants={{
+            normal: { x: 0, y: 0 },
+            animate: { x: 3, y: 3 },
+          }}
+          transition={defaultTransition}
+          animate={controls}
+        />
+      </svg>
+    </div>
+  );
 }
 
 const CopyButton: React.FC<CopyButtonProps> = ({ componentSource }) => {
@@ -31,7 +86,7 @@ const CopyButton: React.FC<CopyButtonProps> = ({ componentSource }) => {
   return (
     <div
       className={cn(
-        "absolute top-2 right-2 transition-opacity",
+        "absolute top-2 right-3 z-10 transition-opacity",
         !copied &&
           "lg:opacity-0 lg:group-hover/item:opacity-100 lg:group-focus-within/item:opacity-100",
       )}
