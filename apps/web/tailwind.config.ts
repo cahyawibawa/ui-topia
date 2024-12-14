@@ -10,7 +10,7 @@ const config = {
     "./content/**/*.{mdx,tsx}",
     "./src/**/*.{ts,tsx}",
     "../../packages/ui/dist/**/*.{js,jsx,ts,tsx}",
-    "../../node_modules/fumadocs-ui/dist/**/*.js",
+    "./node_modules/fumadocs-ui/dist/**/*.js",
   ],
   presets: [
     createPreset({
