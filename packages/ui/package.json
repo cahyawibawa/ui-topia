@@ -69,13 +69,13 @@
       "import": "./src/components/copy-btn.tsx",
       "types": "./src/components/copy-btn.d.ts"
     },
-    "./flip-words": {
-      "import": "./src/components/flip-words.tsx",
-      "types": "./src/components/flip-words.d.ts"
-    },
     "./text-morph": {
-      "import": "./src/components/text-morph.tsx",
-      "types": "./src/components/text-morph.d.ts"
+      "import": "./src/components/texts/text-morph.tsx",
+      "types": "./src/components/texts/text-morph.d.ts"
+    },
+    "./text-loop": {
+      "import": "./src/components/texts/text-loop.tsx",
+      "types": "./src/components/texts/text-loop.d.ts"
     }
   },
   "dependencies": {
@@ -93,7 +93,7 @@
     "cmdk": "^1.0.0",
     "date-fns": "^3.6.0",
     "lucide-react": "^0.468.0",
-    "motion": "^11.13.1",
+    "motion": "^11.14.4",
     "motion-number": "^0.1.7",
     "next": "^15.0.4",
     "react": "^19.0.0",
