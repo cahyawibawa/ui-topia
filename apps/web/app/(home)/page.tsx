@@ -10,18 +10,50 @@ import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@ui/topia/button";
 import { HoverBorderGradient } from "@ui/topia/button-gradient";
-import { FlipWords } from "@ui/topia/flip-words";
+import { TextLoop } from "@ui/topia/text-loop";
 import Link from "next/link";
 
 export default function Home() {
-  const words = ["modern", "beautiful", "better"];
   return (
     <div className="container relative">
       <PageHeader>
         <PageHeaderHeading>
           Make your website look
           <br />
-          <FlipWords words={words} />
+          <TextLoop
+            className="overflow-y-clip"
+            transition={{
+              type: "spring",
+              stiffness: 900,
+              damping: 80,
+              mass: 10,
+            }}
+            interval={2.5}
+            variants={{
+              initial: {
+                y: 20,
+                rotateX: 90,
+                opacity: 0,
+                filter: "blur(4px)",
+              },
+              animate: {
+                y: 0,
+                rotateX: 0,
+                opacity: 1,
+                filter: "blur(0px)",
+              },
+              exit: {
+                y: -20,
+                rotateX: -90,
+                opacity: 0,
+                filter: "blur(4px)",
+              },
+            }}
+          >
+            <span>Modern</span>
+            <span>Intuitive</span>
+            <span>Beautiful</span>
+          </TextLoop>
         </PageHeaderHeading>
         <PageHeaderDescription>
           Collection of fine UI components ready for instant use.
