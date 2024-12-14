@@ -19,7 +19,9 @@ export default function Home() {
     <div className="container relative">
       <PageHeader>
         <PageHeaderHeading>
-          Make your website look <FlipWords words={words} />
+          Make your website look
+          <br />
+          <FlipWords words={words} />
         </PageHeaderHeading>
         <PageHeaderDescription>
           Collection of fine UI components ready for instant use.

@@ -29,7 +29,7 @@ export default function Layout({
 function Footer(): React.ReactElement {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="container mt-auto bg-fd-card text-fd-secondary-foreground">
+    <footer className="container mt-auto text-fd-secondary-foreground">
       <div className="flex flex-col items-start justify-between gap-2 py-6 md:h-24">
         <div className="flex w-full flex-col items-start justify-between sm:flex-row sm:items-start">
           <div className="mb-2 flex flex-col sm:mb-0">

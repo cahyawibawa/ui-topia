@@ -1,6 +1,6 @@
 import type { Page } from "@/app/source";
 import { source } from "@/app/source";
-import { useMDXComponents } from "@/components/mdx/mdx-components";
+import { useMDXComponents } from "@/components/mdx-components";
 import { siteConfig } from "@/config/site";
 import { createMetadata } from "@/lib/metadata/metadata";
 import {
@@ -30,31 +30,33 @@ export default async function Page({ params }: { params: Promise<Params> }) {
   const path = `apps/web/content/docs/${page.file.path}`;
 
   return (
-    <DocsPage
-      toc={page.data.toc}
-      lastUpdate={page.data.lastModified}
-      full={page.data.full}
-      tableOfContent={{
-        style: "clerk",
-        single: false,
-      }}
-      editOnGithub={{
-        repo: "uitopia",
-        owner: "cahyawibawa",
-        path,
-      }}
-    >
-      <DocsTitle className="font-semibold text-2xl">
-        {page.data.title}
-      </DocsTitle>
-      <DocsDescription className="text-base">
-        {page.data.description}
-      </DocsDescription>
-      <DocsBody className="prose prose-zinc dark:prose-invert prose-h1:scroll-m-20 prose-h2:scroll-m-20 prose-h3:scroll-m-20 prose-h4:scroll-m-20 prose-h5:scroll-m-20 prose-h6:scroll-m-20 prose-h1:font-semibold prose-h2:font-medium prose-h3:font-medium prose-strong:font-medium prose-h1:text-2xl prose-h2:text-xl prose-h3:text-base ">
-        <page.data.body components={useMDXComponents({})} />
-        {page.data.index ? <DocsCategory page={page} from={source} /> : null}
-      </DocsBody>
-    </DocsPage>
+    <>
+      <DocsPage
+        toc={page.data.toc}
+        lastUpdate={page.data.lastModified}
+        full={page.data.full}
+        tableOfContent={{
+          style: "clerk",
+          single: false,
+        }}
+        editOnGithub={{
+          repo: "uitopia",
+          owner: "cahyawibawa",
+          path,
+        }}
+      >
+        <DocsTitle className="font-semibold text-2xl">
+          {page.data.title}
+        </DocsTitle>
+        <DocsDescription className="text-base">
+          {page.data.description}
+        </DocsDescription>
+        <DocsBody className="text-fd-foreground/80">
+          <page.data.body components={useMDXComponents({})} />
+          {page.data.index ? <DocsCategory page={page} from={source} /> : null}
+        </DocsBody>
+      </DocsPage>
+    </>
   );
 }
 

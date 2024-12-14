@@ -1,4 +1,3 @@
-import { Toaster } from "@/components/sonner";
 import { Analytics } from "@vercel/analytics/react";
 import { RootProvider } from "fumadocs-ui/provider";
 import { GeistMono } from "geist/font/mono";
@@ -49,7 +48,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <RootProvider>
           {children}
           <Analytics />
-          <Toaster />
         </RootProvider>
       </body>
     </html>
