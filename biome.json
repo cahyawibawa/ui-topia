@@ -49,6 +49,9 @@
       "suspicious": {
         "noArrayIndexKey": "off",
         "noExplicitAny": "warn"
+      },
+      "security": {
+        "noDangerouslySetInnerHtml": "off"
       }
     }
   }
