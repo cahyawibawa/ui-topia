@@ -5,22 +5,16 @@ const withAnalyzer = createBundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
 });
 
+/** @type {import('next').NextConfig} */
+
 const config = {
-  reactStrictMode: true,
-  serverExternalPackages: ["typescript"],
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "pbs.twimg.com",
-      },
-      {
-        protocol: "https",
-        hostname: "res.cloudinary.com",
-      },
-      {
-        protocol: "https",
         hostname: "avatars.githubusercontent.com",
+        port: "",
       },
     ],
   },
