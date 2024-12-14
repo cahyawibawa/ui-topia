@@ -1,4 +1,4 @@
-import DemoComponent from "@/components/demo-components";
+import ComponentList from "@/components/component-list";
 import {
   defaultMetadata,
   ogMetadata,
@@ -33,7 +33,7 @@ export default function InputsPage() {
     <section className="mx-auto">
       <div className="grid gap-6 pb-6 md:grid-cols-2 lg:grid-cols-4">
         {inputComponents.map((componentName) => (
-          <DemoComponent
+          <ComponentList
             key={componentName}
             componentName={componentName}
             className="flex items-center justify-center rounded-md border px-0 py-24 md:px-2"
