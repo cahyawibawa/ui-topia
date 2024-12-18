@@ -1,4 +1,4 @@
-import { createPreset, presets } from "fumadocs-ui/tailwind-plugin";
+import { createPreset } from "fumadocs-ui/tailwind-plugin";
 import { fontFamily } from "tailwindcss/defaultTheme";
 import type { Config } from "tailwindcss/types/config";
 
@@ -14,21 +14,8 @@ const config = {
   ],
   presets: [
     createPreset({
-      preset: {
-        ...presets.default,
-        dark: {
-          ...presets.default.dark,
-          background: "0 0% 2%",
-          foreground: "0 0% 98%",
-          popover: "0 0% 4%",
-          card: "0 0% 4%",
-          muted: "0 0% 8%",
-          border: "0 0% 14%",
-          accent: "0 0% 15%",
-          "accent-foreground": "0 0% 100%",
-          "muted-foreground": "0 0% 60%",
-        },
-      },
+      preset: "black",
+      addGlobalColors: true,
     }),
   ],
   theme: {

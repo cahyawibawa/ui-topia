@@ -6,6 +6,10 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
+    --fd-background: 0 0% 100%;
+    --fd-foreground: 222.2 47.4% 11.2%;
+    --fd-muted: 210 40% 96.1%;
+    --fd-muted-foreground: 215.4 16.3% 46.9%;
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
     --popover: 0 0% 100%;
@@ -30,8 +34,8 @@
   .dark {
     --background: 7%, 7%, 7%;
     --foreground: 79 37% 100%;
-    --muted: 259 32% 7%;
-    --muted-foreground: 259 10% 60%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
     --popover: 79 40% 5%;
     --popover-foreground: 0 0% 100%;
     --card: 8%, 8%, 8%;
@@ -39,8 +43,9 @@
     --border: 79 8% 11%;
     --input: 79 8% 11%;
     --slated: 79 9% 12%;
+    /* --primary: 29.51 100% 88.04%; */
     --primary: 0 0% 98%;
-    --primary-foreground: 79 9% 72%;
+    --primary-foreground: 264, 8%, 12%;
     --secondary: 259 9% 12%;
     --secondary-foreground: 259 9% 72%;
     --accent: 259 9% 12%;
@@ -63,17 +68,21 @@
     @apply scroll-smooth;
     -webkit-tap-highlight-color: transparent;
     scrollbar-gutter: stable;
-    scrollbar-color: var(--scrollbar-color) transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 5px;
+  }
+  * {
     scrollbar-width: thin;
-  }
-
-  .scrollbar-none::-webkit-scrollbar {
-    display: none;
-  }
-
-  .scrollbar-none {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    scrollbar-color: hsl(var(--border)) transparent;
   }
 }
 
