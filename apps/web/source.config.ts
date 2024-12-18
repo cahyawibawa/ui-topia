@@ -38,8 +38,8 @@ export default defineConfig({
     rehypeCodeOptions: {
       inline: "tailing-curly-colon",
       themes: {
-        light: "github-light",
-        dark: "github-dark",
+        light: "snazzy-light",
+        dark: "vesper",
       },
       transformers: [
         ...(rehypeCodeDefaultOptions.transformers ?? []),
