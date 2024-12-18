@@ -1,23 +1,30 @@
 # UI/TOPIA
 
-A collection of fine UI components built with Framer Motion and Tailwind CSS.
+Welcome to **UI/TOPIA**—a curated collection of fine UI components built with **[Motion](https://motion.dev/)** and **Tailwind CSS**.  
+This project extend showcases experimental designs from [cahyawibawa.dev](https://cahyawibawa.dev).
+
+---
 
 ## Documentation
 
-Visit [uitopia.xyz/docs](http://uitopia.xyz/docs) to view the full documentation.
+Explore the full documentation at [uitopia.xyz/docs](http://uitopia.xyz/docs) to get started.
+
+---
 
 ## Contributing
 
-Contributions are welcome! Check out our [contributing guide](/CONTRIBUTING.md). 
-Adding a new component to ui/topia is a great way to showcase your work and help other developers.
+Contributions are always welcome!  
+Whether you’re improving existing components or adding something new, we’d love to have your input.  
+Check out our [Contributing Guide](/CONTRIBUTING.md) for details—it’s a simple process and a great way to share your creativity with the community.
+
+---
 
 ## License
 
-Licensed under the [MIT license](/LICENSE).
+This project is licensed under the [MIT License](/LICENSE).
 
+---
 
 ## Stats
 
-![Alt](https://repobeats.axiom.co/api/embed/16b1e8de603fba86ba6461e4201037ff9ea9bb27.svg 'Repobeats analytics image')
-
-
+![Repobeats Analytics](https://repobeats.axiom.co/api/embed/16b1e8de603fba86ba6461e4201037ff9ea9bb27.svg 'Repobeats analytics image')

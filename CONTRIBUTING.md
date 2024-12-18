@@ -1,17 +1,21 @@
 # Contributing to UI/TOPIA
 
-Thank you for your interest in contributing to ui/topia! We appreciate your support and look forward to your contributions. This guide will help you understand the directory structure and provide detailed instructions on how to add a new component to ui/topia.
+Welcome, and thank you for your interest in contributing to **ui/topia**! 🎉  
+This guide will walk you through the structure of the project and provide clear, step-by-step instructions to help you add a new component to the library.
 
-**You only need to change 3 files to add a new component** and it only takes around 10 minutes of work!
+Adding a component is quick and easy—you only need to update **3-4 files**, which takes about **10 minutes**!
 
-If you need any help, feel free to reach out to [@kyuotaka](https://twitter.com/kyuotaka).
+If you have any questions or need assistance, don’t hesitate to reach out to [@kyuotaka](https://twitter.com/kyuotaka).
 
-## About this repository
+---
 
-This repository is a monorepo.
+## About the Repository
 
-- [bun](https://bun.sh/) and [`workspaces`](https://bun.sh/docs/install/workspaces) for development.
-- [Turborepo](https://turbo.build/repo) for build system.
+This is a **monorepo** powered by:  
+- **[bun](https://bun.sh/)** for development.  
+- **[Turborepo](https://turbo.build/repo)** for efficient builds.
+
+We use a **registry system** for organizing and exporting components. The source code for components is located in `packages/ui/registry/index.ts`, and they are categorized by type. All components are **ESM-only** and distributed via the registry.
 
 
 ## Structure
@@ -30,18 +34,18 @@ packages
 └── ui
     ├── src
     ├── components
-    ├── elements
-    └── index.tsx
+    ├── registry
+        └── index.ts
 
 ```
+
 
 | Path                  | Description                              |
 | --------------------- | ---------------------------------------- |
 | `apps/web/app`        | The Next.js application for the website. |
 | `apps/web/content/docs`    | The content for the website.             |
 | `packages/ui/components` | The React components for the website.    |
-| `packages/ui/elements` | Collection of elements such as buttons and text variants.    |
-| `packages/ui/index.tsx`   | The registry for the components.         |
+| `packages/ui/registry`   | The registry for the components.         |
 
 ## Development
 
@@ -79,32 +83,37 @@ packages
    bun run dev
    ```
 
-## Adding a New Component
-
-We use a registry system for developing components. You can find the source code for the components under `packages/ui/index.tsx`. The components are organized by type of components.
 
 To add a new component to ui/topia, you will need to modify several files. Follow these steps:
 
 
-### 1. Create a Component Demo
+### 1. Create the Component
 
-Create your components in `packages/src/components/examples/example-component.tsx`
+Create your components in `packages/src/components/showcases/your-component.tsx`
 
 ```typescript
-import ExampleComponent from '@/components/example-component'
+import { Button, Stack } from '@/components/shadcn-ui';
+import type { JSX } from 'react';
 
-export default function ExampleComponentDemo() {
+export default function Component(): JSX.Element { //make sure set to default
   return (
-    <div className="relative justify-center">
-    <ExampleComponent />
-  </div>
-  )
+    <Stack
+      align="start"
+      direction={{ sm: 'column', md: 'row' }}
+      gap={4}
+      justify="space-between"
+    >
+      <Button size="small">Upload</Button>
+      <Button>Upload</Button>
+      <Button size="large">Upload</Button>
+    </Stack>
+  );
 }
 ```
 
 ### 2. Update Registry
 
-Export your component in the registry in `packages/src/index.tsx`
+Export your component in the registry in `packages/src/ui/registry`
 
 ```typescript
 
@@ -120,41 +129,32 @@ const example: Registry = {
 
 ### 3. Create docs
 
-Create an MDX file for documenting your component in `content/docs/components/example-component.mdx`
+Create an MDX file for documenting your component in `content/docs/components/your-component.mdx`
 
 
 That's it! You have successfully added a new component.
 
 ## Commit Convention
 
-Before you create a Pull Request, please check whether your commits comply with
-the commit conventions used in this repository.
+Follow this convention:
+category(scope): message
 
-When you create a commit we kindly ask you to follow the convention
-`category(scope or module): message` in your commit message while using one of
-the following categories:
+Categories:
+feat: New feature or component.
+fix: Bug fixes.
+refactor: Non-feature code changes.
+docs: Documentation updates.
+build: Build or dependency changes.
+test: Test-related changes.
+ci: CI configuration updates.
+chore: Miscellaneous updates.
 
-- `feat / feature`: all changes that introduce completely new code or new
-  features
-- `fix`: changes that fix a bug (ideally you will additionally reference an
-  issue if present)
-- `refactor`: any code related change that is not a fix nor a feature
-- `docs`: changing existing or creating new documentation (i.e. README, docs for
-  usage of a lib or cli usage)
-- `build`: all changes regarding the build of the software, changes to
-  dependencies or the addition of new dependencies
-- `test`: all changes regarding tests (adding new tests or changing existing
-  ones)
-- `ci`: all changes (or additions) concerning the continuous integration configuration (i.e. github actions, ci system)
-- `chore`: all changes to the repository that do not fit into any of the above
-  categories
-
-  e.g. `feat(components): add new prop to the avatar component`
+Example:
+feat(components): add new button component
 
 If you are interested in the detailed specification you can visit
 https://www.conventionalcommits.org/.
 
 
-```
-
-```
+That's it! 
+Thank you for contributing to ui/topia and helping us create amazing components.
