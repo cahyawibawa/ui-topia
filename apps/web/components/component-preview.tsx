@@ -5,24 +5,21 @@ import { Icons } from "@ui/topia/icons";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@ui/topia/tabs";
 import { cloneElement, useEffect, useState } from "react";
 import React from "react";
+import type {
+  CodePreviewProps,
+  ComponentDisplayProps,
+  ComponentPreviewProps,
+} from "types/component";
 
-import CopyButton from "./copy-btn";
+import CopyButton from "@/components/copy-btn";
 
-type ComponentShowcaseProps = {
-  name: string;
-  code: string;
-  highlightedCode: string;
-  hasReTrigger?: boolean;
-  classNameComponentContainer?: string;
-};
-
-export default function ComponentShowcase({
+export function ComponentPreview({
   name,
   code,
   highlightedCode,
   hasReTrigger = false,
   classNameComponentContainer,
-}: ComponentShowcaseProps) {
+}: ComponentPreviewProps) {
   const [Component, setComponent] = useState<React.ComponentType | null>(null);
   const [activeTab, setActiveTab] = useState("preview");
   const [reTriggerKey, setReTriggerKey] = useState<number>(Date.now());
@@ -72,7 +69,7 @@ export default function ComponentShowcase({
               }
             >
               {Component && (
-                <ComponentPreview
+                <ComponentDisplay
                   component={<Component />}
                   hasReTrigger={hasReTrigger}
                   className={classNameComponentContainer}
@@ -91,21 +88,13 @@ export default function ComponentShowcase({
   );
 }
 
-type ComponentPreviewProps = {
-  component: React.ReactElement;
-  hasReTrigger: boolean;
-  className?: string;
-  reTriggerKey: number;
-  reTrigger: () => void;
-};
-
-function ComponentPreview({
+function ComponentDisplay({
   component,
   hasReTrigger,
   className,
   reTriggerKey,
   reTrigger,
-}: ComponentPreviewProps) {
+}: ComponentDisplayProps) {
   return (
     <div
       className={cn(
@@ -128,16 +117,11 @@ function ComponentPreview({
   );
 }
 
-type CodePreviewProps = {
-  code: string;
-  highlightedCode: string;
-};
-
 function CodePreview({ code, highlightedCode }: CodePreviewProps) {
   return (
     <div className="group/item relative">
       <CopyButton componentSource={code} />
-      <div className="no-scrollbar max-h-[550px] overflow-auto rounded-md">
+      <div className="max-h-[550px] overflow-auto rounded-md">
         <div className="[&_pre]:!bg-transparent inline-block overflow-x-auto bg-background p-4">
           <div
             className="[&_.shiki]:!bg-transparent font-mono text-sm [&_.only-dark]:hidden [&_.only-dark]:dark:block [&_.only-light]:block [&_.only-light]:dark:hidden"
