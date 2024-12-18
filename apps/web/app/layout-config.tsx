@@ -67,15 +67,15 @@ export const baseOptions: BaseLayoutProps = {
           description: "Learn how to get started with ui/topia.",
           url: "/docs",
         },
-        {
-          icon: <Icons.component />,
-          text: "Components",
-          description: "Explore all the components on ui/topia.",
-          url: "/docs/components/accordion",
-          menu: {
-            className: "lg:col-start-2",
-          },
-        },
+        // {
+        //   icon: <Icons.component />,
+        //   text: "Components",
+        //   description: "Explore all the components on ui/topia.",
+        //   url: "/docs/components/accordion",
+        //   menu: {
+        //     className: "lg:col-start-2",
+        //   },
+        // },
       ],
     },
     ...linkItems,

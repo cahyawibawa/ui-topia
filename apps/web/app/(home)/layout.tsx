@@ -16,8 +16,8 @@ export default function Layout({
         style={{ padding: "0 11.5vw" }}
       >
         <img
-          src="/images/rapid-dev-lines-top.svg"
-          alt=""
+          src="/images/lines-top.svg"
+          alt="separator"
           className="h-auto object-contain dark:invert"
         />
       </div>
@@ -36,26 +36,6 @@ function Footer(): React.ReactElement {
             <span className="font-redaction text-muted-foreground text-sm">
               Built with Next.js
             </span>
-            <p className="mt-1 font-redaction text-muted-foreground text-sm">
-              Inspired from{" "}
-              <a
-                href="https://github.com/shadcn/ui"
-                target="_blank"
-                rel="noreferrer"
-                className="font-medium no-underline hover:underline"
-              >
-                shadcn/ui
-              </a>{" "}
-              and{" "}
-              <a
-                href="https://github.com/ibelick/buttons"
-                target="_blank"
-                rel="noreferrer"
-                className="font-medium no-underline hover:underline"
-              >
-                buttons-ibelick.
-              </a>
-            </p>
           </div>
           <span className="mt-2 flex items-center space-x-1 font-redaction text-muted-foreground text-sm sm:mt-0">
             <a

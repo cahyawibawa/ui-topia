@@ -51,7 +51,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
         <DocsDescription className="text-base">
           {page.data.description}
         </DocsDescription>
-        <DocsBody className="text-fd-foreground/80">
+        <DocsBody className="prose prose-zinc dark:prose-invert min-w-0 max-w-full flex-1 prose-h1:scroll-m-20 prose-h2:scroll-m-20 prose-h3:scroll-m-20 prose-h4:scroll-m-20 prose-h5:scroll-m-20 prose-h6:scroll-m-20 pb-16 prose-h1:font-semibold prose-h2:font-medium prose-h3:font-medium prose-strong:font-medium prose-h1:text-2xl prose-h2:text-xl prose-h3:text-base ">
           <page.data.body components={useMDXComponents({})} />
           {page.data.index ? <DocsCategory page={page} from={source} /> : null}
         </DocsBody>
