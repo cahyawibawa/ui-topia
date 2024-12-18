@@ -1,73 +1,71 @@
 ---
 title: Installation
-description: A guide to setting up your project with the necessary dependencies and structure.
+description: A simple guide to set up ui/topia with the required dependencies and structure.
 icon: PackagePlus
 ---
 
-This project is built with Next.js and leverages TypeScript and Tailwind CSS for all its components. Some components also require [shadcn/ui](https://ui.shadcn.com/docs/installation) and Framer Motion. While we recommend TypeScript for optimal development experience, JavaScript is also supported.
+This project is built with **Next.js**, using **TypeScript** and **Tailwind CSS** for all components. Some components also rely on [shadcn/ui](https://ui.shadcn.com/docs/installation) and [Motion](https://motion.dev).  
+For the best development experience, I recommend using **TypeScript**, but it’s not mandatory.
 
 <Steps>
-<Step>
-### Install Tailwind CSS
+  <Step>
+    ### Install Tailwind CSS
 
-Components are styled using Tailwind CSS. Follow the official [installation guide](https://tailwindcss.com/docs/installation) to add it to your project.
-</Step>
+    The components are styled using **Tailwind CSS**.  
+    Follow the official [installation guide](https://tailwindcss.com/docs/installation) to set it up in your project.
+  </Step>
 
-<Step>
+  <Step>
+    ### Install Motion
 
-### Install Framer Motion
+    To use components with animations, you’ll need to add **Motion** to your project.
 
-<InstallTabs items={['pnpm', 'bun']}>
+    <InstallTabs items={['npm', 'pnpm', 'bun']}>
+    ```bash tab="npm"
+    npm install motion
+    ```
+    ```bash tab="pnpm"
+    pnpm add motion
+    ```
+    ```bash tab="bun"
+    bun add motion
+    ```
+    </InstallTabs>
+  </Step>
 
-```bash tab="pnpm"
-pnpm add framer-motion
+  <Step>
+    ### Add a Utility Helper
 
-```
-```bash tab="bun"
-bunx add framer-motion
+    To make it easier to conditionally apply Tailwind CSS classes, add this `cn` helper function to your project.
 
-```
+    ```ts title="lib/utils.ts"
+    import { clsx, type ClassValue } from 'clsx'
+    import { twMerge } from 'tailwind-merge'
 
-</InstallTabs>
+    export function cn(...inputs: ClassValue[]) {
+      return twMerge(clsx(inputs))
+    }
+    ```
+  </Step>
 
-</Step>
+  <Step>
+    ### Folder Structure
 
+    Here’s a recommended folder structure to organize your components and utilities:
 
-<Step>
-
-### Add cn helper
-
-Add a `cn` helper to make it easier to conditionally add Tailwind CSS classes.
-
-```ts title="lib/utils.ts"
-import { clsx, type ClassValue } from 'clsx'
-import { twMerge } from 'tailwind-merge'
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}
-```
-
-</Step>
-<Step>
-### Folder structure
-Here's the recommended folder structure:
-
-      <Files>
-        <Folder name="components" defaultOpen>
+    <Files>
+      <Folder name="components" defaultOpen>
         <Folder name="ui-topia" defaultOpen>
-             <File name="accordion.tsx" />
+          <File name="your-desired-components.tsx" />
         </Folder>
-        </Folder>
-          <Folder name="lib" defaultOpen>
-             <File name="utils.ts" />
-        </Folder>
+      </Folder>
+      <Folder name="lib" defaultOpen>
+        <File name="utils.ts" />
+      </Folder>
+    </Files>
 
-      </Files>
+    Feel free to adapt it based on your project’s needs.
+  </Step>
+</Steps>
 
 You're all set! You can now start enjoying the components.
-
-</Step>
-
-
-</Steps>
