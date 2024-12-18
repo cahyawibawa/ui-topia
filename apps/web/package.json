@@ -32,13 +32,14 @@
     "react-dom": "^19.0.0",
     "react-wrap-balancer": "^1.1.0",
     "sharp": "^0.33.3",
-    "shiki": "^1.10.3",
+    "shiki": "^1.24.2",
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^15.0.1",
+    "@shikijs/types": "^1.24.2",
     "@types/mdx": "^2.0.13",
     "@types/node": "^20",
     "@types/react": "^19.0.0",
