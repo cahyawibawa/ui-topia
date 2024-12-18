@@ -1,38 +1,48 @@
-import { bundledLanguages, createHighlighter } from "shiki/bundle/web";
+import { type Highlighter, bundledLanguages, createHighlighter } from "shiki";
 
-let highlighter: any = null;
+// Global highlighter instance
+let highlighterInstance: Highlighter | null = null;
 const codeCache = new Map<string, string>();
 
-export const codeToHtml = async ({
+// Initialize highlighter once
+async function getShikiHighlighter() {
+  if (!highlighterInstance) {
+    highlighterInstance = await createHighlighter({
+      themes: ["vesper", "snazzy-light"],
+      langs: Object.keys(bundledLanguages),
+    });
+  }
+  return highlighterInstance;
+}
+
+export async function codeToHtml({
   code,
   lang,
 }: {
   code: string;
   lang: string;
-}) => {
+}) {
+  // Check cache first
   const cacheKey = `${code}-${lang}`;
   if (codeCache.has(cacheKey)) {
     return codeCache.get(cacheKey)!;
   }
 
-  if (!highlighter) {
-    highlighter = await createHighlighter({
-      themes: ["github-dark", "github-light"],
-      langs: [...Object.keys(bundledLanguages)],
-    });
-  }
+  // Get or initialize highlighter
+  const highlighter = await getShikiHighlighter();
 
+  // Generate HTML for both themes
   const htmlDark = highlighter.codeToHtml(code, {
     lang,
-    theme: "github-dark",
+    theme: "vesper",
   });
 
   const htmlLight = highlighter.codeToHtml(code, {
     lang,
-    theme: "github-light",
+    theme: "snazzy-light",
   });
 
-  // Use data-theme attribute for theme switching
+  // Combine light and dark theme HTML
   const html = `
     <div data-theme-code>
       <div class="only-light">${htmlLight}</div>
@@ -40,6 +50,15 @@ export const codeToHtml = async ({
     </div>
   `;
 
+  // Cache the result
   codeCache.set(cacheKey, html);
   return html;
-};
+}
+
+// Cleanup function to dispose highlighter when needed
+export function disposeHighlighter() {
+  if (highlighterInstance) {
+    highlighterInstance.dispose();
+    highlighterInstance = null;
+  }
+}
