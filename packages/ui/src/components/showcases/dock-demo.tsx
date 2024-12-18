@@ -41,12 +41,7 @@ export default function DockDemo() {
 
   return (
     <>
-      <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden">
-        <div className="-translate-x-1/2 absolute top-8 left-1/2">
-          <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center font-semibold text-5xl text-transparent leading-none dark:from-white dark:to-slate-900/10">
-            Dock
-          </span>
-        </div>
+      <div className="relative flex h-[100px] w-full flex-col items-center justify-center overflow-hidden">
         <div
           onMouseMove={(e) => mouseX.set(e.pageX)}
           onMouseLeave={() => mouseX.set(Number.POSITIVE_INFINITY)}

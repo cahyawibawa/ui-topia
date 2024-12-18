@@ -51,13 +51,7 @@ const FancyCarousel = () => {
   };
 
   return (
-    <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden px-4">
-      <div className="-translate-x-1/2 absolute top-1 left-1/2">
-        <h1 className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center font-semibold text-5xl text-transparent leading-none dark:from-white dark:to-slate-900/10">
-          Accordion
-        </h1>
-      </div>
-
+    <div className="relative flex h-[450px] w-full flex-col items-center justify-center overflow-hidden px-4">
       <div className="w-full space-y-3">
         {FAQS.map((faq) => (
           <AccordionItem

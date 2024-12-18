@@ -85,7 +85,7 @@ function CD() {
   );
 }
 
-export default function HomePage() {
+export default function CDPlayer() {
   const [status, setStatus] = React.useState("idle");
   const [time, setTime] = React.useState(10);
   const isNotIdle = status !== "idle";

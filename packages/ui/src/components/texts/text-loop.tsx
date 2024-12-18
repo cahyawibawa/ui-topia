@@ -17,7 +17,7 @@ type TextLoopProps = {
   onIndexChange?: (index: number) => void;
 };
 
-export function TextLoop({
+export default function TextLoop({
   children,
   className,
   interval = 2,
