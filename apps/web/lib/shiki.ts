@@ -1,18 +1,16 @@
-import { type Highlighter, bundledLanguages, createHighlighter } from "shiki";
+import { type Highlighter, bundledLanguages, createHighlighter } from 'shiki/bundle/web';
 
-// Global highlighter instance
-let highlighterInstance: Highlighter | null = null;
-const codeCache = new Map<string, string>();
+// Global highlighter promise to prevent race conditions
+let highlighterPromise: Promise<Highlighter> | null = null;
 
-// Initialize highlighter once
-async function getShikiHighlighter() {
-  if (!highlighterInstance) {
-    highlighterInstance = await createHighlighter({
-      themes: ["vesper", "snazzy-light"],
-      langs: Object.keys(bundledLanguages),
+async function getHighlighter() {
+  if (!highlighterPromise) {
+    highlighterPromise = createHighlighter({
+      themes: ['vesper', 'snazzy-light'],
+      langs: [...Object.keys(bundledLanguages)],
     });
   }
-  return highlighterInstance;
+  return highlighterPromise;
 }
 
 export async function codeToHtml({
@@ -22,43 +20,36 @@ export async function codeToHtml({
   code: string;
   lang: string;
 }) {
-  // Check cache first
-  const cacheKey = `${code}-${lang}`;
-  if (codeCache.has(cacheKey)) {
-    return codeCache.get(cacheKey)!;
+  try {
+    const highlighter = await getHighlighter();
+
+    const htmlDark = highlighter.codeToHtml(code, {
+      lang,
+      theme: 'vesper',
+    });
+
+    const htmlLight = highlighter.codeToHtml(code, {
+      lang,
+      theme: 'snazzy-light',
+    });
+
+    return `
+      <div data-theme-code>
+        <div class="only-light">${htmlLight}</div>
+        <div class="only-dark">${htmlDark}</div>
+      </div>
+    `;
+  } catch (error) {
+    console.error('Error highlighting code:', error);
+    return `<pre><code>${code}</code></pre>`;
   }
-
-  // Get or initialize highlighter
-  const highlighter = await getShikiHighlighter();
-
-  // Generate HTML for both themes
-  const htmlDark = highlighter.codeToHtml(code, {
-    lang,
-    theme: "vesper",
-  });
-
-  const htmlLight = highlighter.codeToHtml(code, {
-    lang,
-    theme: "snazzy-light",
-  });
-
-  // Combine light and dark theme HTML
-  const html = `
-    <div data-theme-code>
-      <div class="only-light">${htmlLight}</div>
-      <div class="only-dark">${htmlDark}</div>
-    </div>
-  `;
-
-  // Cache the result
-  codeCache.set(cacheKey, html);
-  return html;
 }
 
-// Cleanup function to dispose highlighter when needed
+// Optional: Cleanup function if needed
 export function disposeHighlighter() {
-  if (highlighterInstance) {
-    highlighterInstance.dispose();
-    highlighterInstance = null;
+  if (highlighterPromise) {
+    highlighterPromise.then(highlighter => highlighter.dispose());
+    highlighterPromise = null;
   }
 }
+
