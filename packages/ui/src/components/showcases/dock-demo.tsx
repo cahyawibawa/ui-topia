@@ -79,7 +79,7 @@ function EachIcon({
   return (
     <motion.div
       ref={ref}
-      className="group flex aspect-square w-12 flex-col items-center rounded-xl"
+      className="group flex aspect-square w-10 flex-col items-center rounded-xl"
       style={{ width }}
     >
       <div className="-translate-y-16 pointer-events-none absolute top-0 isolate flex justify-center rounded-lg border border-[#6e6867] bg-[#2C2625] px-3 py-1 font-light text-sm text-white capitalize opacity-0 group-hover:opacity-100">

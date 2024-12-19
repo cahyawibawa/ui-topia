@@ -2,14 +2,7 @@ import type { Registry } from "@/registry/schema";
 import * as React from "react";
 
 export const showcase: Registry = {
-  "family-wallet-demo": {
-    name: "family-wallet-demo",
-    type: "components:showcase",
-    files: ["@/components/showcases/family-wallet-demo.tsx"],
-    component: React.lazy(
-      () => import("@/components/showcases/family-wallet-demo"),
-    ),
-  },
+
   "cd-demo": {
     name: "cd-demo",
     type: "components:showcase",
@@ -24,11 +17,35 @@ export const showcase: Registry = {
       () => import("@/components/showcases/clip-path-demo"),
     ),
   },
+  "clip-path-tabs-demo": {
+    name: "clip-path-tabs-demo",
+    type: "components:showcase",
+    files: ["@/components/showcases/clip-path-tabs-demo.tsx"],
+    component: React.lazy(
+      () => import("@/components/showcases/clip-path-tabs-demo"),
+    ),
+  },
   "dock-demo": {
     name: "dock-demo",
     type: "components:showcase",
     files: ["@/components/showcases/dock-demo.tsx"],
     component: React.lazy(() => import("@/components/showcases/dock-demo")),
+  },
+  "expandable-tabs-demo": {
+    name: "expandable-tabs-demo",
+    type: "components:showcase",
+    files: ["@/components/showcases/expandable-tabs-demo.tsx"],
+    component: React.lazy(
+      () => import("@/components/showcases/expandable-tabs-demo"),
+    ),
+  },
+  "family-wallet-demo": {
+    name: "family-wallet-demo",
+    type: "components:showcase",
+    files: ["@/components/showcases/family-wallet-demo.tsx"],
+    component: React.lazy(
+      () => import("@/components/showcases/family-wallet-demo"),
+    ),
   },
   "faq-accordion-demo": {
     name: "faq-accordion-demo",
