@@ -86,7 +86,7 @@ const CopyButton: React.FC<CopyButtonProps> = ({ componentSource }) => {
   return (
     <div
       className={cn(
-        "absolute top-2 right-3 z-10 transition-opacity",
+        "absolute top-2 right-2 z-10 transition-opacity",
         !copied &&
           "lg:opacity-0 lg:group-hover/item:opacity-100 lg:group-focus-within/item:opacity-100",
       )}

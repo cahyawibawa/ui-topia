@@ -36,7 +36,7 @@ export function ExamplesNav({ className, ...props }: ExamplesNavProps) {
               href={example.href}
               key={example.href}
               className={cn(
-                "relative flex h-7 items-center justify-center rounded-xl px-4 text-center text-[13px] transition-colors",
+                "relative flex h-7 items-center justify-center rounded-xl px-4 text-center text-[12px] transition-colors",
                 pathname?.startsWith(example.href) ||
                   (index === 0 && pathname === "/")
                   ? "bg-neutral-200 font-medium text-primary dark:bg-slated dark:text-white"
@@ -47,7 +47,7 @@ export function ExamplesNav({ className, ...props }: ExamplesNavProps) {
                 {example.name}
                 <Badge
                   variant="secondary"
-                  className="-top-3.5 -right-5 absolute flex size-5 items-center justify-center rounded-full border-1 border-muted bg-muted p-0 font-light text-[10px] text-muted-foreground"
+                  className="-top-3.5 -right-4 absolute flex size-5 items-center justify-center rounded-2xl border-1 border-muted bg-muted p-0 font-light text-[10px] text-muted-foreground"
                 >
                   {example.getCount()}
                 </Badge>
