@@ -4,10 +4,7 @@
   "description": "UI components for uitopia.xyz",
   "type": "module",
   "sideEffects": false,
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "files": ["dist/**"],
+  "files": ["dist/*"],
   "scripts": {
     "dev": "tsup --watch",
     "clean": "rimraf dist",
@@ -17,66 +14,16 @@
   "keywords": [],
   "author": "Cahya Wibawa <cahyawbwa@gmail.com>",
   "exports": {
-    ".": {
+    "./registry": {
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
-    },
-    "./badge": {
-      "import": "./src/components/shadcn-ui/badge.tsx",
-      "types": "./src/components/shadcn-ui/badge.d.ts"
-    },
-    "./button": {
-      "import": "./src/components/shadcn-ui/button.tsx",
-      "types": "./src/components/shadcn-ui/button.d.ts"
-    },
-    "./card": {
-      "import": "./src/components/shadcn-ui/card.tsx",
-      "types": "./src/components/shadcn-ui/card.d.ts"
-    },
-    "./collapsible": {
-      "import": "./src/components/shadcn-ui/collapsible.tsx",
-      "types": "./src/components/shadcn-ui/collapsible.d.ts"
     },
     "./icons": {
       "import": "./src/components/icons.tsx",
       "types": "./src/components/icons.d.ts"
     },
-    "./label": {
-      "import": "./src/components/shadcn-ui/label.tsx",
-      "types": "./src/components/shadcn-ui/label.d.ts"
-    },
-    "./scroll-area": {
-      "import": "./src/components/shadcn-ui/scroll-area.tsx",
-      "types": "./src/components/shadcn-ui/scroll-area.d.ts"
-    },
-    "./skeleton": {
-      "import": "./src/components/shadcn-ui/skeleton.tsx",
-      "types": "./src/components/shadcn-ui/skeleton.d.ts"
-    },
-    "./tabs": {
-      "import": "./src/components/shadcn-ui/tabs.tsx",
-      "types": "./src/components/shadcn-ui/tabs.d.ts"
-    },
-    "./tooltip": {
-      "import": "./src/components/shadcn-ui/tooltip.tsx",
-      "types": "./src/components/shadcn-ui/tooltip.d.ts"
-    },
-    "./button-gradient": {
-      "import": "./src/components/hover-border-gradient.tsx",
-      "types": "./src/components/hover-border-gradient.d.ts"
-    },
-    "./copy-button": {
-      "import": "./src/components/copy-btn.tsx",
-      "types": "./src/components/copy-btn.d.ts"
-    },
-    "./text-morph": {
-      "import": "./src/components/texts/text-morph.tsx",
-      "types": "./src/components/texts/text-morph.d.ts"
-    },
-    "./text-loop": {
-      "import": "./src/components/texts/text-loop.tsx",
-      "types": "./src/components/texts/text-loop.d.ts"
-    }
+    "./texts/*": "./src/components/examples/texts/*.tsx",
+    "./globals.css": "./src/styles/globals.css"
   },
   "dependencies": {
     "@radix-ui/react-collapsible": "^1.1.0",
