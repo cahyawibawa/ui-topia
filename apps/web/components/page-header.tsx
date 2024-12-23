@@ -40,7 +40,7 @@ function PageHeaderDescription({
   return (
     <p
       className={cn(
-        "max-w-2xl text-balance font-light text-accent-foreground text-sm md:text-base",
+        "max-w-2xl text-balance font-light text-sm md:text-base",
         className,
       )}
       {...props}

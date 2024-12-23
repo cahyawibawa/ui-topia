@@ -3,7 +3,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@/components/ui/*": ["./src/components/shadcn-ui/*"],
+      "@/examples/texts/*": ["./src/components/examples/texts/*"],
+      "@/lib/*": ["./src/lib/*"]
     },
     "outDir": "./dist"
   },

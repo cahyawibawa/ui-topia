@@ -1,7 +1,7 @@
 import CopyButton from "@/components/copy-btn";
 import { extractSourceCode } from "@/lib/code";
 import { cn } from "@/lib/utils";
-import { registry } from "@ui/topia";
+import { registry } from "@ui/topia/registry";
 
 interface ComponentListProps {
   componentName: string;

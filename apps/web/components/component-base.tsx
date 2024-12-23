@@ -1,14 +1,14 @@
 "use client";
 
+import CopyButton from "@/components/copy-btn";
 import { cn } from "@/lib/utils";
-import { Button } from "@ui/topia/button";
+import { Button } from "@/uitopia/button";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@ui/topia/collapsible";
+} from "@/uitopia/collapsible";
 import * as React from "react";
-import CopyButton from "./copy-btn";
 
 interface ComponentBaseProps extends React.HTMLAttributes<HTMLDivElement> {
   code: string;
@@ -35,7 +35,7 @@ export function ComponentBase({
   );
 
   React.useEffect(() => {
-    import("@ui/topia").then((module) => {
+    import("@ui/topia/registry").then((module) => {
       const component = module.registry[name]?.component;
       if (component) {
         setComponent(() => component);

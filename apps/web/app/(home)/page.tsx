@@ -8,9 +8,8 @@ import {
 } from "@/components/page-header";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "@ui/topia/button";
-import { HoverBorderGradient } from "@ui/topia/button-gradient";
-import TextLoop from "@ui/topia/text-loop";
+import { buttonVariants } from "@/uitopia/button";
+import TextLoop from "@ui/topia/texts/text-loop";
 import Link from "next/link";
 
 export default function Home() {
@@ -59,16 +58,15 @@ export default function Home() {
           A dream library of fine components, ready for instant use.
         </PageHeaderDescription>
         <PageActions>
-          <Link href="/docs">
-            <HoverBorderGradient
-              containerClassName="rounded-full"
-              as="button"
-              className="flex items-center space-x-2 bg-white text-foreground dark:bg-[#121212]"
-            >
-              <span className="text-xs">Explore now</span>
-            </HoverBorderGradient>
+          <Link
+            href="/docs"
+            className={cn(
+              buttonVariants({ variant: "outline", size: "sm" }),
+              "rounded-full text-xs",
+            )}
+          >
+            Explore now
           </Link>
-
           <Link
             target="_blank"
             rel="noreferrer"
@@ -82,7 +80,7 @@ export default function Home() {
           </Link>
         </PageActions>
       </PageHeader>
-      <ExamplesNav className="[&>a:first-child]:text-muted-foreground" />
+      <ExamplesNav />
       <ButtonsPage />
     </div>
   );

@@ -1,8 +1,8 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/uitopia/tabs";
 import { Icons } from "@ui/topia/icons";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@ui/topia/tabs";
 import { cloneElement, useEffect, useState } from "react";
 import React from "react";
 import type {
@@ -25,7 +25,7 @@ export function ComponentPreview({
   const [reTriggerKey, setReTriggerKey] = useState<number>(Date.now());
 
   useEffect(() => {
-    import("@ui/topia").then((module) => {
+    import("@ui/topia/registry").then((module) => {
       const component = module.registry[name]?.component;
       if (component) {
         setComponent(() => component);

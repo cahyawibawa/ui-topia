@@ -6,9 +6,8 @@ import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@ui/topia/collapsible";
+} from "@/uitopia/collapsible";
 import { Icons } from "@ui/topia/icons";
-import { ChevronDown } from "lucide-react";
 import React, { cloneElement, useEffect, useState } from "react";
 
 import type { ComponentPreviewProps } from "types/component";
@@ -25,7 +24,7 @@ export function ComponentCollapse({
   const [reTriggerKey, setReTriggerKey] = useState<number>(Date.now());
 
   useEffect(() => {
-    import("@ui/topia").then((module) => {
+    import("@ui/topia/registry").then((module) => {
       const component = module.registry[name]?.component;
       if (component) {
         setComponent(() => component);
@@ -79,7 +78,7 @@ export function ComponentCollapse({
         </div>
         <CollapsibleTrigger asChild>
           <div className="flex cursor-pointer items-center gap-2 rounded-b-md border-t bg-fd-primary/10 px-4 py-2 text-muted-foreground text-sm hover:text-foreground">
-            <ChevronDown
+            <Icons.chevronDown
               className={cn(
                 "h-4 w-4 transition-transform duration-200",
                 isOpen && "rotate-180",

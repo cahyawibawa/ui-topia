@@ -4,7 +4,7 @@ import {
   ogMetadata,
   twitterMetadata,
 } from "@/lib/metadata/shared-metadata";
-import { registry } from "@ui/topia";
+import { registry } from "@ui/topia/registry";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

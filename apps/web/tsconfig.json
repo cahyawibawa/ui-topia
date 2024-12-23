@@ -3,7 +3,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@/uitopia/*": ["../../packages/ui/src/components/shadcn-ui/*"]
     },
     "target": "ES2017"
   },
