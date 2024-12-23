@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { codeToHtml } from "@/lib/shiki";
-import { registry } from "@ui/topia";
+import { registry } from "@ui/topia/registry";
 
 export async function extractSourceCode(
   componentName: string,

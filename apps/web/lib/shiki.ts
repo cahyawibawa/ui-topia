@@ -1,4 +1,8 @@
-import { type Highlighter, bundledLanguages, createHighlighter } from 'shiki/bundle/web';
+import {
+  type Highlighter,
+  bundledLanguages,
+  createHighlighter,
+} from "shiki/bundle/web";
 
 // Global highlighter promise to prevent race conditions
 let highlighterPromise: Promise<Highlighter> | null = null;
@@ -6,7 +10,7 @@ let highlighterPromise: Promise<Highlighter> | null = null;
 async function getHighlighter() {
   if (!highlighterPromise) {
     highlighterPromise = createHighlighter({
-      themes: ['vesper', 'snazzy-light'],
+      themes: ["vesper", "snazzy-light"],
       langs: [...Object.keys(bundledLanguages)],
     });
   }
@@ -25,12 +29,12 @@ export async function codeToHtml({
 
     const htmlDark = highlighter.codeToHtml(code, {
       lang,
-      theme: 'vesper',
+      theme: "vesper",
     });
 
     const htmlLight = highlighter.codeToHtml(code, {
       lang,
-      theme: 'snazzy-light',
+      theme: "snazzy-light",
     });
 
     return `
@@ -40,7 +44,7 @@ export async function codeToHtml({
       </div>
     `;
   } catch (error) {
-    console.error('Error highlighting code:', error);
+    console.error("Error highlighting code:", error);
     return `<pre><code>${code}</code></pre>`;
   }
 }
@@ -48,8 +52,7 @@ export async function codeToHtml({
 // Optional: Cleanup function if needed
 export function disposeHighlighter() {
   if (highlighterPromise) {
-    highlighterPromise.then(highlighter => highlighter.dispose());
+    highlighterPromise.then((highlighter) => highlighter.dispose());
     highlighterPromise = null;
   }
 }
-

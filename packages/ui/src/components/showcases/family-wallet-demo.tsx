@@ -2,7 +2,7 @@
 
 import { Icons } from "@/components/icons";
 import { AnimatePresence, MotionConfig, motion } from "motion/react";
-import { type FC, useEffect, useRef, useState } from "react";
+import { type FC, type JSX, useEffect, useRef, useState } from "react";
 import { useOnClickOutside } from "usehooks-ts";
 
 interface WalletCardProps {
