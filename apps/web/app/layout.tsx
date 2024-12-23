@@ -3,7 +3,9 @@ import { RootProvider } from "fumadocs-ui/provider";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata, Viewport } from "next";
-import "@/styles/globals.css";
+
+import "@ui/topia/globals.css";
+
 import { fontRedaction } from "@/lib/fonts";
 import {
   defaultMetadata,
