@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/shadcn-ui/button";
+import { Button } from "@/components/ui/button";
 import type { Variants } from "motion/react";
 import { motion, useAnimation } from "motion/react";
 
@@ -77,7 +77,7 @@ export default function ButtonDemo() {
         />
       </svg>
 
-      <span className="ml-1.5 text-white">Delete</span>
+      <span className="ml-1.5 text-zinc-100">Delete</span>
     </Button>
   );
 }

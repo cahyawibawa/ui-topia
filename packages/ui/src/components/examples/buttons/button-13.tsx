@@ -1,10 +1,5 @@
-import { Button } from "@/components/shadcn-ui/button";
-import {
-  RiFacebookFill,
-  RiGithubFill,
-  RiGoogleFill,
-  RiTwitterXFill,
-} from "@remixicon/react";
+import { Button } from "@/components/ui/button";
+import { RiGithubFill, RiGoogleFill } from "@remixicon/react";
 
 export default function ButtonDemo() {
   return (

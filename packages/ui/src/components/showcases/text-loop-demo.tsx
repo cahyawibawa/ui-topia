@@ -1,6 +1,6 @@
 "use client";
 
-import TextLoop from "@/components/texts/text-loop";
+import TextLoop from "@/examples/texts/text-loop";
 
 export default function TextLoopDemo() {
   return (

@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "@/components/shadcn-ui/button";
+import { Button } from "@/components/ui/button";
 import { motion, useAnimation } from "motion/react";
 
 export default function ButtonDemo() {
