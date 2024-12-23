@@ -2,7 +2,7 @@ import { Control } from "@/app/(home)/blog/[slug]/page.client";
 import { blog } from "@/app/source";
 import { siteConfig } from "@/config/site";
 import { createMetadata } from "@/lib//metadata/metadata";
-import { buttonVariants } from "@ui/topia/button";
+import { buttonVariants } from "@/uitopia/button";
 import { InlineTOC } from "fumadocs-ui/components/inline-toc";
 import defaultMdxComponents from "fumadocs-ui/mdx";
 import type { Metadata } from "next";
