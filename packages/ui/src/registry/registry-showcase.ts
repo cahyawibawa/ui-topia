@@ -92,6 +92,22 @@ export const showcase: Registry = {
       () => import("../components/showcases/text-loop-demo"),
     ),
   },
+  "text-type-base": {
+    name: "text-type-base",
+    type: "components:showcase",
+    files: ["@/components/examples/texts/text-type.tsx"],
+    component: React.lazy(
+      () => import("../components/examples/texts/text-type"),
+    ),
+  },
+  "text-type-demo": {
+    name: "text-type-demo",
+    type: "components:showcase",
+    files: ["@/components/showcases/text-type-demo.tsx"],
+    component: React.lazy(
+      () => import("../components/showcases/text-type-demo"),
+    ),
+  },
   "transaction-button-demo": {
     name: "transaction-button-demo",
     type: "components:showcase",
