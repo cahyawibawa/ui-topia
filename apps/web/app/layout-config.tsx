@@ -29,13 +29,13 @@ export const baseOptions: BaseLayoutProps = {
   nav: {
     transparentMode: "top",
     title: (
-      <>
+      <div className="relative flex items-center space-x-2">
         <Icons.logo />
-        <div className="font-semibold sm:inline-block">ui/topia</div>
-        <span className="mb-3 ml-0.5 select-none rounded-full bg-neutral-200 px-2 py-0.5 font-medium text-[10px] text-primary dark:bg-slated dark:text-white">
+        <div className="font-semibold text-sm sm:inline-block">ui/topia</div>
+        <span className="ml-0.5 select-none rounded-full bg-neutral-200 px-1.5 py-px font-medium text-[10px] text-primary dark:bg-slated dark:text-white">
           beta
         </span>
-      </>
+      </div>
     ),
   },
   links: [

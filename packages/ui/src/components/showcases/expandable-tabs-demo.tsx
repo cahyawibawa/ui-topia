@@ -27,12 +27,12 @@ export default function ExpandableTabs() {
   useOnClickOutside(outsideClickRef, () => setSelected(null));
 
   const tabs: TabItem[] = [
-    { title: "Dashboard", icon: <Home size={20} /> },
-    { title: "Notifications", icon: <Bell size={20} /> },
+    { title: "Dashboard", icon: <Home size={16} /> },
+    { title: "Notifications", icon: <Bell size={16} /> },
     { type: "separator" },
-    { title: "Settings", icon: <Settings size={20} /> },
-    { title: "Support", icon: <HelpCircle size={20} /> },
-    { title: "Security", icon: <Shield size={20} /> },
+    { title: "Settings", icon: <Settings size={16} /> },
+    { title: "Support", icon: <HelpCircle size={16} /> },
+    { title: "Security", icon: <Shield size={16} /> },
   ];
 
   const buttonVariants = {
@@ -83,7 +83,7 @@ export default function ExpandableTabs() {
                 selected === index
                   ? "bg-neutral-800 text-opacity-100 [&]:text-blue-500"
                   : "hover:bg-neutral-800"
-              } relative flex items-center rounded-xl px-4 py-2 font-medium text-sm text-white transition-colors duration-300`}
+              } relative flex items-center rounded-xl px-4 py-2 font-medium text-white text-xs transition-colors duration-300`}
             >
               {tab.icon}
               <AnimatePresence initial={false}>

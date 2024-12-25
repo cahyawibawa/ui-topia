@@ -5,9 +5,9 @@ import TextLoop from "@/examples/texts/text-loop";
 export default function TextLoopDemo() {
   return (
     <h3 className="inline-flex whitespace-pre-wrap text-base">
-      Make your website look{" "}
+      Some days you're{" "}
       <TextLoop
-        className="overflow-y-clip font-medium text-primary"
+        className="overflow-y-clip font-medium text-yellow-600"
         transition={{
           type: "spring",
           stiffness: 900,
@@ -36,9 +36,10 @@ export default function TextLoopDemo() {
           },
         }}
       >
-        <span>Shiny</span>
-        <span>Intuitive</span>
-        <span>Effortless</span>
+        <span>Healing</span>
+        <span>Feeling</span>
+        <span>Thriving</span>
+        <span>Surviving</span>
       </TextLoop>
     </h3>
   );
