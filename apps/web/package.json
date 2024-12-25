@@ -41,7 +41,6 @@
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^15.0.1",
-    "@shikijs/types": "^1.22.2",
     "@types/mdx": "^2.0.13",
     "@types/node": "^20",
     "@types/react": "^19.0.0",
