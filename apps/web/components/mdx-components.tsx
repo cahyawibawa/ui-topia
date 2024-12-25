@@ -1,6 +1,7 @@
 import { ComponentBase } from "@/components/component-base";
 import { ComponentCollapse } from "@/components/component-collapse";
 import { ComponentPreview } from "@/components/component-preview";
+import { Reference, References } from "@/components/references";
 import { extractSourceCode } from "@/lib/code";
 import { createTypeTable } from "fumadocs-typescript/ui";
 import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
@@ -24,14 +25,17 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     AutoTypeTable,
     Accordion,
     Accordions,
+    Callout,
     Card,
     Cards,
     Files,
     File,
     Folder,
+    Reference,
+    References,
     Tabs,
     Tab,
-    Callout,
+
     TypeTable,
     ImageZoom,
     Steps,
