@@ -1,5 +1,5 @@
 import { blog as blogPosts, docs, meta } from "@/.source";
-import { create } from "@ui/topia/icons";
+import { create } from "@/uitopia/icons";
 import type { InferMetaType, InferPageType } from "fumadocs-core/source";
 import { loader } from "fumadocs-core/source";
 import { createMDXSource } from "fumadocs-mdx";

@@ -1,4 +1,4 @@
-import type { Registry } from "@/registry/schema";
+import type { Registry } from "./schema";
 import * as React from "react";
 
 export const showcase: Registry = {

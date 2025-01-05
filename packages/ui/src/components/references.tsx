@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
-import { badgeVariants } from "@/uitopia/badge";
-import { ExternalLinkIcon } from "@ui/topia/icons";
+import { badgeVariants } from "@/components/badge";
+import { ExternalLinkIcon } from "./icons";
 import Link from "next/link";
 import type React from "react";
 

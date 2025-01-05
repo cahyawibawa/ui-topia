@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/uitopia/tabs";
-import { Icons } from "@ui/topia/icons";
+import { Icons } from "@/uitopia/icons";
 import { cloneElement, useEffect, useState } from "react";
 import React from "react";
 import type {

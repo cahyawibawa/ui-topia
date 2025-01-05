@@ -1,7 +1,7 @@
 import { ComponentBase } from "@/components/component-base";
 import { ComponentCollapse } from "@/components/component-collapse";
 import { ComponentPreview } from "@/components/component-preview";
-import { Reference, References } from "@/components/references";
+import { Reference, References } from "@/uitopia/references";
 import { extractSourceCode } from "@/lib/code";
 import { createTypeTable } from "fumadocs-typescript/ui";
 import { Accordion, Accordions } from "fumadocs-ui/components/accordion";

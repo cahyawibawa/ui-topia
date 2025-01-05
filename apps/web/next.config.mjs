@@ -8,6 +8,7 @@ const withAnalyzer = createBundleAnalyzer({
 /** @type {import('next').NextConfig} */
 
 const config = {
+  transpilePackages: ["@ui/topia"],
   images: {
     unoptimized: true,
     remotePatterns: [

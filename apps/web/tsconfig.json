@@ -3,9 +3,18 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
-      "@/uitopia/*": ["../../packages/ui/src/components/shadcn-ui/*"]
+      "@/*": [
+        "./*"
+      ],
+      "@/uitopia/*": [
+        "../../packages/ui/src/components/*"
+      ]
     },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     "target": "ES2017"
   },
   "include": [
@@ -17,5 +26,7 @@
     "tailwind.config.ts",
     "next.config.mjs"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

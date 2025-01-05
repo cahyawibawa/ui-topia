@@ -11,10 +11,9 @@
     "format": "biome format --write .",
     "check": "biome check --fix .",
     "postinstall": "fumadocs-mdx",
-    "shadcn": "bun x shadcn-ui@latest add"
+    "shadcn": "bun x shadcn@latest add"
   },
   "dependencies": {
-    "@radix-ui/react-slot": "^1.1.1",
     "@ui/topia": "workspace:*",
     "@vercel/analytics": "^1.2.2",
     "class-variance-authority": "^0.7.1",

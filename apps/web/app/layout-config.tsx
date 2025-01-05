@@ -1,6 +1,6 @@
 import { siteConfig } from "@/config/site";
 import Preview from "@/public/banner.png";
-import { Icons } from "@ui/topia/icons";
+import { Icons } from "@/uitopia/icons";
 import type { LinkItemType } from "fumadocs-ui/layouts/docs";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 import Image from "next/image";

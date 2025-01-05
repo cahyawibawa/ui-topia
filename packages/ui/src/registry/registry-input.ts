@@ -22,7 +22,9 @@ export const input: Registry = {
     name: "input-3",
     type: "components:ui",
     files: ["@/components/examples/inputs/input-3.tsx"],
-    component: React.lazy(() => import("@/components/examples/inputs/input-3")),
+    component: React.lazy(
+      () => import("../components/examples/inputs/input-3"),
+    ),
   },
   "input-4": {
     name: "Input with start icon",

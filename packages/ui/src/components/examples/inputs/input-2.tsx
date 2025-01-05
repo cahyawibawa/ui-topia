@@ -1,5 +1,5 @@
-import { Input } from "@/components/shadcn-ui/input";
-import { Label } from "@/components/shadcn-ui/label";
+import { Input } from "@/components/input";
+import { Label } from "@/components/label";
 
 export default function InputDemo() {
   return (
