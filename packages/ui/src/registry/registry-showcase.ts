@@ -1,5 +1,5 @@
-import type { Registry } from "./schema";
 import * as React from "react";
+import type { Registry } from "./schema";
 
 export const showcase: Registry = {
   "cd-demo": {

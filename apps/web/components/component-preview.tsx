@@ -1,8 +1,8 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/uitopia/tabs";
 import { Icons } from "@/uitopia/icons";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/uitopia/tabs";
 import { cloneElement, useEffect, useState } from "react";
 import React from "react";
 import type {

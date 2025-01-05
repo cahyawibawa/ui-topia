@@ -3,12 +3,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "@/uitopia/*": [
-        "../../packages/ui/src/components/*"
-      ]
+      "@/*": ["./*"],
+      "@/uitopia/*": ["../../packages/ui/src/components/*"]
     },
     "plugins": [
       {
@@ -26,7 +22,5 @@
     "tailwind.config.ts",
     "next.config.mjs"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
