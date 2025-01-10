@@ -9,12 +9,11 @@ const config = {
     "./app/**/*.{ts,tsx}",
     "./content/**/*.{mdx,tsx}",
     "../../node_modules/fumadocs-ui/dist/**/*.js",
-    "../../packages/ui/dist/*.js",
+    "../../node_modules/@ui/topia/dist/**/*.js",
   ],
   presets: [
     createPreset({
       preset: "neutral",
-      cssPrefix: "",
     }),
   ],
   theme: {
