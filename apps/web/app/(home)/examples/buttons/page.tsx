@@ -1,29 +1,14 @@
 import ComponentList from "@/components/component-list";
-import {
-  defaultMetadata,
-  ogMetadata,
-  twitterMetadata,
-} from "@/lib/metadata/shared-metadata";
-import { registry } from "@ui/topia/registry";
+import { createMetadata } from "@/lib/metadata";
+import { getComponentsByCategory } from "@ui/topia/registry";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  ...defaultMetadata,
+export const metadata: Metadata = createMetadata({
   title: "Buttons - ui/topia",
-  openGraph: {
-    ...ogMetadata,
-    title: "Buttons - ui/topia",
-  },
-  twitter: {
-    ...twitterMetadata,
-    title: "Buttons - ui/topia",
-  },
-};
+});
 
 export default function ButtonsPage() {
-  const buttonComponents = Object.entries(registry)
-    .filter(([key]) => key.startsWith("button-"))
-    .map(([key]) => key);
+  const buttonComponents = getComponentsByCategory("buttons");
 
   if (buttonComponents.length === 0) {
     return <div>No button components found</div>;
@@ -32,10 +17,10 @@ export default function ButtonsPage() {
   return (
     <section className="mx-auto">
       <div className="grid gap-6 pb-6 md:grid-cols-2 lg:grid-cols-4">
-        {buttonComponents.map((componentName) => (
+        {buttonComponents.map((component) => (
           <ComponentList
-            key={componentName}
-            componentName={componentName}
+            key={component.name}
+            componentName={component.name}
             className="flex items-center justify-center rounded-md border px-0 py-24 md:px-2"
           />
         ))}

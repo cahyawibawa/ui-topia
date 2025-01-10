@@ -1,29 +1,14 @@
 import ComponentList from "@/components/component-list";
-import {
-  defaultMetadata,
-  ogMetadata,
-  twitterMetadata,
-} from "@/lib/metadata/shared-metadata";
-import { registry } from "@ui/topia/registry";
+import { createMetadata } from "@/lib/metadata";
+import { getComponentsByCategory } from "@ui/topia/registry";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  ...defaultMetadata,
+export const metadata: Metadata = createMetadata({
   title: "Inputs - ui/topia",
-  openGraph: {
-    ...ogMetadata,
-    title: "Inputs - ui/topia",
-  },
-  twitter: {
-    ...twitterMetadata,
-    title: "Inputs - ui/topia",
-  },
-};
+});
 
 export default function InputsPage() {
-  const inputComponents = Object.entries(registry)
-    .filter(([key]) => key.startsWith("input-"))
-    .map(([key]) => key);
+  const inputComponents = getComponentsByCategory("inputs");
 
   if (inputComponents.length === 0) {
     return <div>No input components found</div>;
@@ -31,11 +16,11 @@ export default function InputsPage() {
 
   return (
     <section className="mx-auto">
-      <div className="grid gap-6 pb-6 md:grid-cols-2 lg:grid-cols-4">
-        {inputComponents.map((componentName) => (
+      <div className="grid gap-6 pb-6 md:grid-cols-2 lg:grid-cols-3">
+        {inputComponents.map((component) => (
           <ComponentList
-            key={componentName}
-            componentName={componentName}
+            key={component.name}
+            componentName={component.name}
             className="flex items-center justify-center rounded-md border px-0 py-24 md:px-2"
           />
         ))}
