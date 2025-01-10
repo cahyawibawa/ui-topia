@@ -10,7 +10,6 @@
     "clean": "git clean -xdf .next .turbo node_modules",
     "format": "biome format --write .",
     "check": "biome check --fix .",
-    "postinstall": "fumadocs-mdx",
     "shadcn": "bun x shadcn@latest add"
   },
   "dependencies": {
@@ -20,7 +19,7 @@
     "clsx": "^2.1.1",
     "fumadocs-core": "^14.7.2",
     "fumadocs-docgen": "^1.3.2",
-    "fumadocs-mdx": "^11.2.3",
+    "fumadocs-mdx": "^11.3.0",
     "fumadocs-twoslash": "^2.0.1",
     "fumadocs-ui": "^14.7.2",
     "geist": "^1.3.1",
