@@ -1,5 +1,5 @@
 import { siteConfig } from "@/config/site";
-import { Icons } from "@/uitopia/icons";
+import { Icons } from "@ui-topia/icons";
 import type { LinkItemType } from "fumadocs-ui/layouts/docs";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 

@@ -1,8 +1,8 @@
-import type { Page } from "@/app/source";
-import { source } from "@/app/source";
 import { useMDXComponents } from "@/components/mdx-components";
 import { siteConfig } from "@/config/site";
-import { createMetadata } from "@/lib/metadata/metadata";
+import { createMetadata } from "@/lib/metadata";
+import type { Page } from "@/lib/source";
+import { source } from "@/lib/source";
 import {
   DocsBody,
   DocsCategory,

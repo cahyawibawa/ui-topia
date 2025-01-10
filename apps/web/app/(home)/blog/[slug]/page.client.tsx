@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/uitopia/button";
-import { TextMorph } from "@/uitopia/examples/texts/text-morph";
+import { buttonVariants } from "@ui-topia/button";
+import { TextMorph } from "@ui-topia/examples/texts/text-morph";
 import { Check, Share } from "lucide-react";
 import { useState } from "react";
 

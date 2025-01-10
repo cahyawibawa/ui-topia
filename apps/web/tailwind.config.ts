@@ -8,13 +8,13 @@ const config = {
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./content/**/*.{mdx,tsx}",
-    "./src/**/*.{ts,tsx}",
-    "../../packages/ui/dist/**/*.{js,jsx,ts,tsx}",
-    "./node_modules/fumadocs-ui/dist/**/*.js",
+    "../../node_modules/fumadocs-ui/dist/**/*.js",
+    "../../packages/ui/dist/*.js",
   ],
   presets: [
     createPreset({
-      addGlobalColors: true,
+      preset: "neutral",
+      cssPrefix: "",
     }),
   ],
   theme: {

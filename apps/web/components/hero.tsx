@@ -6,13 +6,13 @@ import {
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/uitopia/button";
-import TextLoop from "@/uitopia/examples/texts/text-loop";
-import Link from "next/link";
-import { lazy, Suspense, useEffect, useState } from "react";
-import { motion } from "motion/react";
 import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@ui-topia/button";
+import TextLoop from "@ui-topia/examples/texts/text-loop";
+import { motion } from "motion/react";
+import Link from "next/link";
+import { Suspense, lazy, useEffect, useState } from "react";
 
 const LazySpline = lazy(() => import("@splinetool/react-spline"));
 

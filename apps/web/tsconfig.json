@@ -4,7 +4,10 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "@/uitopia/*": ["../../packages/ui/src/components/*"]
+      "@ui-topia/*": [
+        "../../packages/ui/src/components/*",
+        "../../packages/ui/src/components/examples/*"
+      ]
     },
     "plugins": [
       {
