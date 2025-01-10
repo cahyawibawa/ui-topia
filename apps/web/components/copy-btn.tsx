@@ -1,13 +1,13 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { Button } from "@/uitopia/button";
+import { Button } from "@ui-topia/button";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/uitopia/tooltip";
+} from "@ui-topia/tooltip";
 import { type Transition, motion, useAnimation } from "motion/react";
 import { useState } from "react";
 

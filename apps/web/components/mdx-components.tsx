@@ -1,9 +1,8 @@
-import { ComponentBase } from "@/components/component-base";
-import { ComponentCollapse } from "@/components/component-collapse";
-import { ComponentPreview } from "@/components/component-preview";
+import { ComponentBase } from "@/components/preview/component-base";
+import { ComponentCollapse } from "@/components/preview/component-collapse";
+import { ComponentPreview } from "@/components/preview/component-preview";
 import { extractSourceCode } from "@/lib/code";
-import { Reference, References } from "@/uitopia/references";
-import { createTypeTable } from "fumadocs-typescript/ui";
+import { Reference, References } from "@ui-topia/references";
 import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
 import { Callout } from "fumadocs-ui/components/callout";
 import { Card, Cards } from "fumadocs-ui/components/card";
@@ -17,12 +16,9 @@ import defaultComponents from "fumadocs-ui/mdx";
 import type { MDXComponents } from "mdx/types";
 import type { ReactNode } from "react";
 
-const { AutoTypeTable } = createTypeTable();
-
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     ...defaultComponents,
-    AutoTypeTable,
     Accordion,
     Accordions,
     Callout,
@@ -35,7 +31,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     References,
     Tabs,
     Tab,
-
     TypeTable,
     ImageZoom,
     Steps,

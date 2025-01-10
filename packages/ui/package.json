@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "UI components for uitopia.xyz",
   "type": "module",
-  "files": ["dist/*"],
+  "sideEffects": false,
+  "files": ["dist"],
   "scripts": {
     "dev": "tsup --watch",
     "clean": "rimraf dist",

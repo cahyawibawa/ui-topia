@@ -1,22 +1,21 @@
 "use client";
 
-import CopyButton from "@/components/copy-btn";
 import { cn } from "@/lib/utils";
-import { Button } from "@/uitopia/button";
+import { Button } from "@ui-topia/button";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/uitopia/collapsible";
+} from "@ui-topia/collapsible";
 import * as React from "react";
+import type { ComponentPreviewProps } from "types/component";
+import { CodeRenderer } from "../code-renderer";
 
-interface ComponentBaseProps extends React.HTMLAttributes<HTMLDivElement> {
-  code: string;
-  name: string;
-  highlightedCode: string;
+interface ComponentBaseProps extends ComponentPreviewProps {
   expandButtonTitle?: string;
   defaultExpanded?: boolean;
   maxHeight?: string;
+  className?: string;
 }
 
 export function ComponentBase({
@@ -30,18 +29,6 @@ export function ComponentBase({
   ...props
 }: ComponentBaseProps) {
   const [isOpened, setIsOpened] = React.useState(defaultExpanded);
-  const [Component, setComponent] = React.useState<React.ComponentType | null>(
-    null,
-  );
-
-  React.useEffect(() => {
-    import("@ui/topia/registry").then((module) => {
-      const component = module.registry[name]?.component;
-      if (component) {
-        setComponent(() => component);
-      }
-    });
-  }, [name]);
 
   return (
     <Collapsible
@@ -56,8 +43,6 @@ export function ComponentBase({
         )}
         {...props}
       >
-        <CopyButton componentSource={code} />
-
         <CollapsibleContent
           forceMount
           className={cn("overflow-hidden", !isOpened && "max-h-32")}
@@ -70,14 +55,9 @@ export function ComponentBase({
             style={{
               maxHeight: isOpened ? maxHeight : "none",
               overflow: "auto",
-            }} // Added overflow: 'auto'
+            }}
           >
-            <div className="[&_pre]:!bg-transparent inline-block w-full overflow-x-auto bg-background p-4">
-              <div
-                className="[&_.shiki]:!bg-transparent font-mono text-sm [&_.only-dark]:hidden [&_.only-dark]:dark:block [&_.only-light]:block [&_.only-light]:dark:hidden"
-                dangerouslySetInnerHTML={{ __html: highlightedCode }}
-              />
-            </div>
+            <CodeRenderer code={code} highlightedCode={highlightedCode} />
           </div>
         </CollapsibleContent>
 

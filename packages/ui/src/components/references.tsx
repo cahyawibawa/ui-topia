@@ -1,7 +1,7 @@
-import { badgeVariants } from "./badge";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import type React from "react";
+import { badgeVariants } from "./badge";
 import { ExternalLinkIcon } from "./icons";
 
 interface LinkItem {
@@ -20,7 +20,7 @@ export function Reference({ label, link }: LinkItem) {
       target="_blank"
       rel="noreferrer"
       className={cn(
-        badgeVariants({ variant: "secondary" }),
+        badgeVariants({ variant: "outline" }),
         "gap-1 px-2 font-medium no-underline",
       )}
     >

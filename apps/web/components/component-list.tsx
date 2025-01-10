@@ -1,7 +1,8 @@
 import CopyButton from "@/components/copy-btn";
 import { extractSourceCode } from "@/lib/code";
 import { cn } from "@/lib/utils";
-import { registry } from "@ui/topia/registry";
+import { getComponentByName } from "@ui/topia/registry";
+import { Suspense } from "react";
 
 interface ComponentListProps {
   componentName: string;
@@ -12,7 +13,7 @@ export default async function ComponentList({
   componentName,
   className,
 }: ComponentListProps) {
-  const component = registry[componentName];
+  const component = getComponentByName(componentName);
 
   if (!component || !component.component) {
     return <div>Component not found</div>;
@@ -31,7 +32,9 @@ export default async function ComponentList({
 
   return (
     <div className={cn("group/item relative", className)}>
-      <Component />
+      <Suspense fallback={<div>Loading component...</div>}>
+        <Component />
+      </Suspense>
       {code && <CopyButton componentSource={code} />}
     </div>
   );

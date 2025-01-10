@@ -4,8 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
-import { Badge } from "@/uitopia/badge";
-import { ScrollArea, ScrollBar } from "@/uitopia/scroll-area";
+import { Badge } from "@ui-topia/badge";
+import { ScrollArea, ScrollBar } from "@ui-topia/scroll-area";
 import { registry } from "@ui/topia/registry";
 
 const examples = [
@@ -13,13 +13,13 @@ const examples = [
     name: "Button",
     href: "/examples/buttons",
     getCount: () =>
-      Object.keys(registry).filter((key) => key.startsWith("button-")).length,
+      registry.filter((item) => item.categories?.includes("buttons")).length,
   },
   {
     name: "Input",
     href: "/examples/inputs",
     getCount: () =>
-      Object.keys(registry).filter((key) => key.startsWith("input-")).length,
+      registry.filter((item) => item.categories?.includes("inputs")).length,
   },
 ];
 

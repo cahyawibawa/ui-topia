@@ -1,53 +1,63 @@
 import * as React from "react";
 import type { Registry } from "./schema";
 
-export const input: Registry = {
-  "input-1": {
-    name: "Show/hide password input",
-    type: "components:ui",
+export const input: Registry = [
+  {
+    name: "input-1",
+    description: "Show/hide password input",
+    type: "registry:component",
     files: ["@/components/examples/inputs/input-1.tsx"],
     component: React.lazy(
       () => import("../components/examples/inputs/input-1"),
     ),
+    categories: ["inputs"],
   },
-  "input-2": {
+  {
     name: "input-2",
-    type: "components:ui",
+    type: "registry:component",
     files: ["@/components/examples/inputs/input-2.tsx"],
     component: React.lazy(
       () => import("../components/examples/inputs/input-2"),
     ),
+    categories: ["inputs"],
   },
-  "input-3": {
+  {
     name: "input-3",
-    type: "components:ui",
+    type: "registry:component",
     files: ["@/components/examples/inputs/input-3.tsx"],
     component: React.lazy(
       () => import("../components/examples/inputs/input-3"),
     ),
+    categories: ["inputs"],
   },
-  "input-4": {
-    name: "Input with start icon",
-    type: "components:ui",
+  {
+    name: "input-4",
+    description: "Input with start icon",
+    type: "registry:component",
     files: ["@/components/inputs/input-4.tsx"],
     component: React.lazy(
       () => import("../components/examples/inputs/input-4"),
     ),
+    categories: ["inputs"],
   },
-  "input-5": {
-    name: "Input with start inline add-on",
-    type: "components:ui",
+  {
+    name: "input-5",
+    description: "Input with start inline add-on",
+    type: "registry:component",
     files: ["@/components/examples/inputs/input-5.tsx"],
     component: React.lazy(
       () => import("../components/examples/inputs/input-5"),
     ),
+    categories: ["inputs"],
   },
-  "input-6": {
-    name: "Input with button",
-    type: "components:ui",
+  {
+    name: "input-6",
+    description: "Input with button",
+    type: "registry:component",
     files: ["@/components/examples/inputs/input-6.tsx"],
     component: React.lazy(
       () => import("../components/examples/inputs/input-6"),
     ),
+    categories: ["inputs"],
   },
-};
+];

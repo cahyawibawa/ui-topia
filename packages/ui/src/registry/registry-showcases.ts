@@ -1,119 +1,132 @@
 import * as React from "react";
 import type { Registry } from "./schema";
 
-export const showcase: Registry = {
-  "cd-demo": {
+export const showcase: Registry = [
+  {
     name: "cd-demo",
-    type: "components:showcase",
+    type: "registry:showcase",
     files: ["@/components/showcases/cd-demo.tsx"],
+    dependencies: ["motion", "motion-number"],
     component: React.lazy(() => import("../components/showcases/cd-demo")),
   },
-  "clip-path-demo": {
+  {
     name: "clip-path-demo",
-    type: "components:showcase",
+    type: "registry:showcase",
     files: ["@/components/showcases/clip-path-demo.tsx"],
+    dependencies: ["motion"],
     component: React.lazy(
       () => import("../components/showcases/clip-path-demo"),
     ),
   },
-  "clip-path-tabs-demo": {
+  {
     name: "clip-path-tabs-demo",
-    type: "components:showcase",
+    type: "registry:showcase",
     files: ["@/components/showcases/clip-path-tabs-demo.tsx"],
     component: React.lazy(
       () => import("../components/showcases/clip-path-tabs-demo"),
     ),
   },
-  "dock-demo": {
+  {
     name: "dock-demo",
-    type: "components:showcase",
+    type: "registry:showcase",
     files: ["@/components/showcases/dock-demo.tsx"],
+    dependencies: ["motion"],
     component: React.lazy(() => import("../components/showcases/dock-demo")),
   },
-  "expandable-tabs-demo": {
+  {
     name: "expandable-tabs-demo",
-    type: "components:showcase",
+    type: "registry:showcase",
     files: ["@/components/showcases/expandable-tabs-demo.tsx"],
+    dependencies: ["motion", "usehooks-ts"],
     component: React.lazy(
       () => import("../components/showcases/expandable-tabs-demo"),
     ),
   },
-  "family-wallet-demo": {
+  {
     name: "family-wallet-demo",
-    type: "components:showcase",
+    type: "registry:showcase",
     files: ["@/components/showcases/family-wallet-demo.tsx"],
+    dependencies: ["motion", "usehooks-ts"],
     component: React.lazy(
       () => import("../components/showcases/family-wallet-demo"),
     ),
   },
-  "faq-accordion-demo": {
+  {
     name: "faq-accordion-demo",
-    type: "components:showcase",
+    type: "registry:showcase",
+    dependencies: ["motion"],
     files: ["@/components/showcases/faq-accordion-demo.tsx"],
     component: React.lazy(
       () => import("../components/showcases/faq-accordion-demo"),
     ),
   },
-  "inline-dropdown-demo": {
+  {
     name: "inline-dropdown-demo",
-    type: "components:showcase",
+    type: "registry:showcase",
     files: ["@/components/showcases/inline-dropdown-demo.tsx"],
+    dependencies: ["motion"],
     component: React.lazy(
       () => import("../components/showcases/inline-dropdown-demo"),
     ),
   },
-  "linear-card-demo": {
+  {
     name: "linear-card-demo",
-    type: "components:showcase",
+    type: "registry:showcase",
     files: ["@/components/showcases/linear-card-demo.tsx"],
+    dependencies: ["motion"],
     component: React.lazy(
       () => import("../components/showcases/linear-card-demo"),
     ),
   },
-  "paper-fold": {
+  {
     name: "paper-fold-card",
-    type: "components:showcase",
+    type: "registry:showcase",
     files: ["@/components/showcases/paper-fold.tsx"],
     component: React.lazy(() => import("../components/showcases/paper-fold")),
   },
-  "text-loop-base": {
+  {
     name: "text-loop-base",
-    type: "components:showcase",
+    type: "registry:showcase",
     files: ["@/components/examples/texts/text-loop.tsx"],
+    dependencies: ["motion"],
     component: React.lazy(
       () => import("../components/examples/texts/text-loop"),
     ),
   },
-  "text-loop-demo": {
+  {
     name: "text-loop-demo",
-    type: "components:showcase",
+    type: "registry:showcase",
     files: ["@/components/showcases/text-loop-demo.tsx"],
+    dependencies: ["motion"],
     component: React.lazy(
       () => import("../components/showcases/text-loop-demo"),
     ),
   },
-  "text-type-base": {
+  {
     name: "text-type-base",
-    type: "components:showcase",
+    type: "registry:showcase",
     files: ["@/components/examples/texts/text-type.tsx"],
+    dependencies: ["motion"],
     component: React.lazy(
       () => import("../components/examples/texts/text-type"),
     ),
   },
-  "text-type-demo": {
+  {
     name: "text-type-demo",
-    type: "components:showcase",
+    type: "registry:showcase",
+    dependencies: ["motion"],
     files: ["@/components/showcases/text-type-demo.tsx"],
     component: React.lazy(
       () => import("../components/showcases/text-type-demo"),
     ),
   },
-  "transaction-button-demo": {
+  {
     name: "transaction-button-demo",
-    type: "components:showcase",
+    type: "registry:showcase",
     files: ["@/components/showcases/transaction-btn-demo.tsx"],
+    dependencies: ["motion", "usehooks-ts"],
     component: React.lazy(
       () => import("../components/showcases/transaction-btn-demo"),
     ),
   },
-};
+];

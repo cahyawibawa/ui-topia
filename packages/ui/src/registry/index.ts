@@ -1,11 +1,12 @@
-import { buttons } from "./registry-button";
-import { input } from "./registry-input";
-import { showcase } from "./registry-showcase";
-// import { ui } from "@/registry/registry-ui";
+import { buttons } from "./registry-buttons";
+import { input } from "./registry-inputs";
+import { showcase } from "./registry-showcases";
 import type { Registry } from "./schema";
 
-export const registry: Registry = {
-  ...buttons,
-  ...input,
-  ...showcase,
-};
+export const registry: Registry = [...buttons, ...input, ...showcase];
+
+export const getComponentsByCategory = (category: string) =>
+  registry.filter((item) => item.categories?.includes(category));
+
+export const getComponentByName = (name: string) =>
+  registry.find((item) => item.name === name);
