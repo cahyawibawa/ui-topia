@@ -36,7 +36,7 @@ export function ComponentCollapse({
           />
         </div>
         <CollapsibleTrigger asChild>
-          <div className="flex cursor-pointer items-center gap-2 rounded-b-md border-t bg-fd-primary/10 px-4 py-2 text-muted-foreground text-sm hover:text-foreground">
+          <div className="flex cursor-pointer items-center gap-2 rounded-b-md border-t bg-secondary px-4 py-2 text-muted-foreground text-sm hover:text-foreground">
             <Icons.chevronDown
               className={cn(
                 "h-4 w-4 transition-transform duration-200",

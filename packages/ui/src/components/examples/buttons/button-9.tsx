@@ -13,7 +13,7 @@ export default function ButtonDemo() {
 
   return (
     <Button
-      variant="ghost"
+      variant="outline"
       onClick={toggleExpand}
       aria-expanded={isExpanded}
       aria-controls="expandable-content" // Use this ID on the element that this button controls
