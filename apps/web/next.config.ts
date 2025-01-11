@@ -6,10 +6,10 @@ const withAnalyzer = createBundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
 });
 
-const config: NextConfig = {
+const nextConfig: NextConfig = {
   transpilePackages: ["@ui/topia"],
 };
 
 const withMDX = createMDX();
 
-export default withAnalyzer(withMDX(config));
+export default withAnalyzer(withMDX(nextConfig));
