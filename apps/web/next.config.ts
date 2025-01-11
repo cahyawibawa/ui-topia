@@ -8,9 +8,9 @@ const withAnalyzer = createBundleAnalyzer({
 
 const nextConfig: NextConfig = {
   transpilePackages: ["@ui/topia"],
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  // typescript: {
+  //   ignoreBuildErrors: true,
+  // },
 };
 
 const withMDX = createMDX();
