@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --fd-layout-width: 1400px;
+
     --background: 0 0% 96%;
     --foreground: 0 0% 3.9%;
     --muted: 0 0% 96.1%;
@@ -25,6 +25,7 @@
     --destructive-foreground: 0 0% 98%;
     --ring: 240 5.9% 10%;
     --radius: 0.5rem;
+    /* --fd-layout-width: 1400px; */
   }
 
   .dark {
@@ -91,17 +92,6 @@
   }
 }
 
-@layer utilities {
-  /* Hide scrollbar for Chrome, Safari and Opera */
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  /* Hide scrollbar for IE, Edge and Firefox */
-  .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-  }
-}
 
 [data-theme-code] {
   @apply relative;

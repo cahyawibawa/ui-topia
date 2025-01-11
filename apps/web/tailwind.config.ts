@@ -1,9 +1,8 @@
 import { createPreset } from "fumadocs-ui/tailwind-plugin";
 import { fontFamily } from "tailwindcss/defaultTheme";
-import type { Config } from "tailwindcss/types/config";
+import animate from "tailwindcss-animate";
 
-const config = {
-  darkMode: ["class"],
+export default {
   content: [
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
@@ -13,6 +12,8 @@ const config = {
   ],
   presets: [
     createPreset({
+      addGlobalColors: true,
+      cssPrefix: "",
       preset: "neutral",
     }),
   ],
@@ -65,60 +66,14 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        chart: {
-          "1": "hsl(var(--chart-1))",
-          "2": "hsl(var(--chart-2))",
-          "3": "hsl(var(--chart-3))",
-          "4": "hsl(var(--chart-4))",
-          "5": "hsl(var(--chart-5))",
-        },
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      keyframes: {
-        "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
-        },
-        "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
-        },
-        marquee: {
-          from: {
-            transform: "translateX(0)",
-          },
-          to: {
-            transform: "translateX(calc(-100% - var(--gap)))",
-          },
-        },
-        "marquee-vertical": {
-          from: {
-            transform: "translateY(0)",
-          },
-          to: {
-            transform: "translateY(calc(-100% - var(--gap)))",
-          },
-        },
-      },
-      animation: {
-        marquee: "marquee var(--duration) linear infinite",
-        "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
-      },
+      keyframes: {},
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config;
-
-export default config;
+  plugins: [animate],
+};
