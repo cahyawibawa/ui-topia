@@ -1,12 +1,4 @@
 {
   "root": true,
-  "pages": [
-    "---Getting Started---",
-    "index",
-    "installation",
-    "---Showcase---",
-    "...showcases",
-    "---Text---",
-    "...texts"
-  ]
+  "pages": ["---Getting Started---", "index", "installation"]
 }
