@@ -38,7 +38,7 @@
   "devDependencies": {
     "@next/bundle-analyzer": "^15.1.4",
     "@types/mdx": "^2.0.13",
-    "@types/node": "^20",
+    "@types/node": "^22.10.5",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@uitopia/tsconfig": "workspace:*",
