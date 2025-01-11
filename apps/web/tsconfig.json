@@ -4,10 +4,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "@ui-topia/*": [
-        "../../packages/ui/src/components/*",
-        "../../packages/ui/src/components/examples/*"
-      ]
+      "@ui-topia/*": ["../../packages/ui/src/components/*"]
     },
     "plugins": [
       {
@@ -23,7 +20,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "tailwind.config.ts",
-    "next.config.mjs"
+    "next.config.ts"
   ],
   "exclude": ["node_modules"]
 }
