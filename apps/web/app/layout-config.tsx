@@ -5,12 +5,6 @@ import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 
 export const linkItems: LinkItemType[] = [
   {
-    icon: <Icons.book />,
-    text: "Docs",
-    url: "/docs",
-    active: "nested-url",
-  },
-  {
     icon: <Icons.news />,
     text: "Blog",
     url: "/blog",
@@ -42,46 +36,5 @@ export const baseOptions: BaseLayoutProps = {
       </div>
     ),
   },
-  links: [
-    // {
-    //   type: "menu",
-    //   text: "Docs",
-    //   url: "/docs",
-    //   items: [
-    //     {
-    //       menu: {
-    //         banner: (
-    //           <div className="-mx-3 -mt-3">
-    //             <Image
-    //               src={Preview}
-    //               alt="Perview"
-    //               className="rounded-t-lg object-cover"
-    //               style={{
-    //                 maskImage:
-    //                   "linear-gradient(to bottom,white 60%,transparent)",
-    //               }}
-    //               priority
-    //             />
-    //           </div>
-    //         ),
-    //         className: "md:row-span-2",
-    //       },
-    //       icon: <Icons.book />,
-    //       text: "Getting Started",
-    //       description: "Learn how to get started with ui/topia.",
-    //       url: "/docs",
-    //     },
-    //     {
-    //       icon: <Icons.component />,
-    //       text: "Components",
-    //       description: "Explore all the components on ui/topia.",
-    //       url: "/docs/components/accordion",
-    //       menu: {
-    //         className: "lg:col-start-2",
-    //       },
-    //     },
-    //   ],
-    // },
-    ...linkItems,
-  ],
+  links: [...linkItems],
 };

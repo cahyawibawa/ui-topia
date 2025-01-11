@@ -118,20 +118,11 @@ function HeroCTA() {
       </PageHeaderDescription>
       <PageActions>
         <Link
-          href="/docs"
-          className={cn(
-            buttonVariants({ variant: "default", size: "sm" }),
-            "rounded-xl text-xs",
-          )}
-        >
-          Explore now
-        </Link>
-        <Link
           target="_blank"
           rel="noreferrer"
           href={siteConfig.links.github}
           className={cn(
-            buttonVariants({ variant: "ghost", size: "sm" }),
+            buttonVariants({ variant: "secondary", size: "sm" }),
             "rounded-xl text-xs",
           )}
         >

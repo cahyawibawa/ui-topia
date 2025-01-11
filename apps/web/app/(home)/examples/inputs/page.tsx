@@ -10,7 +10,7 @@ export const metadata: Metadata = createMetadata({
 
 export default function ButtonsPage() {
   const inputComponents = Object.entries(registry)
-    .filter(([key]) => key.startsWith("button-"))
+    .filter(([key]) => key.startsWith("input-"))
     .map(([key]) => key);
 
   if (inputComponents.length === 0) {
@@ -19,7 +19,7 @@ export default function ButtonsPage() {
 
   return (
     <section className="mx-auto">
-      <div className="grid gap-6 pb-6 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-6 pb-6 md:grid-cols-2 lg:grid-cols-3">
         {inputComponents.map((componentName) => (
           <ComponentList
             key={componentName}
