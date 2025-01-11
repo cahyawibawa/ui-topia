@@ -1,15 +1,14 @@
 {
   "extends": "@uitopia/tsconfig/react-library.json",
   "compilerOptions": {
+    "outDir": "./dist",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@/components/ui/*": ["./src/components/shadcn-ui/*"],
-      "@/examples/texts/*": ["./src/components/examples/texts/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/examples/*": ["./src/components/examples/texts/*"],
       "@/lib/*": ["./src/lib/*"]
-    },
-    "outDir": "./dist"
+    }
   },
-  "exclude": ["dist", "build", "node_modules"],
+  "exclude": ["dist", "node_modules"],
   "include": ["."]
 }

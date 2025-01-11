@@ -1,7 +1,7 @@
 "use client";
 
-import { Input } from "@/components/shadcn-ui/input";
-import { Label } from "@/components/shadcn-ui/label";
+import { Input } from "@/components/input";
+import { Label } from "@/components/label";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 

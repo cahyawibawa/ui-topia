@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/button";
 import { RiGithubFill, RiGoogleFill } from "@remixicon/react";
 
 export default function ButtonDemo() {

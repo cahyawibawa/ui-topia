@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/button";
 import type { Variants } from "motion/react";
 import { motion, useAnimation } from "motion/react";
 

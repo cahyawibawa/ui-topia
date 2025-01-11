@@ -1,5 +1,5 @@
-import { Input } from "@/components/shadcn-ui/input";
-import { Label } from "@/components/shadcn-ui/label";
+import { Input } from "@/components/input";
+import { Label } from "@/components/label";
 import { AtSign } from "lucide-react";
 
 export default function InputDemo() {
