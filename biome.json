@@ -49,7 +49,8 @@
       },
       "suspicious": {
         "noArrayIndexKey": "off",
-        "noExplicitAny": "warn"
+        "noExplicitAny": "warn",
+        "noRedeclare": "off"
       },
       "security": {
         "noDangerouslySetInnerHtml": "off"
