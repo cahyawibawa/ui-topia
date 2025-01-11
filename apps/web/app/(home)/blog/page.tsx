@@ -1,4 +1,4 @@
-import { blog } from "@/app/source";
+import { blog } from "@/lib/source";
 import Link from "next/link";
 
 export default function Page(): React.ReactElement {

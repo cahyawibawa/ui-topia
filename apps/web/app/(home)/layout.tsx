@@ -33,11 +33,11 @@ function Footer(): React.ReactElement {
       <div className="flex flex-col items-start justify-between gap-2 py-4">
         <div className="flex w-full flex-col items-start justify-between sm:flex-row sm:items-start">
           <div className="mb-2 flex flex-col sm:mb-0">
-            <span className="font-redaction text-foreground text-sm">
+            <span className="font-redaction text-muted-foreground text-sm">
               Built with Next.js
             </span>
           </div>
-          <span className="mt-2 flex items-center space-x-1 font-redaction text-foreground text-sm sm:mt-0">
+          <span className="mt-2 flex items-center space-x-1 font-redaction text-muted-foreground text-sm sm:mt-0">
             <a
               href={siteConfig.links.portfolio}
               // biome-ignore lint/a11y/noBlankTarget: <explanation>

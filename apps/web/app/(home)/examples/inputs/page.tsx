@@ -1,24 +1,11 @@
 import ComponentList from "@/components/component-list";
-import {
-  defaultMetadata,
-  ogMetadata,
-  twitterMetadata,
-} from "@/lib/metadata/shared-metadata";
+import { createMetadata } from "@/lib/metadata";
 import { registry } from "@ui/topia/registry";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  ...defaultMetadata,
-  title: "Inputs - ui/topia",
-  openGraph: {
-    ...ogMetadata,
-    title: "Inputs - ui/topia",
-  },
-  twitter: {
-    ...twitterMetadata,
-    title: "Inputs - ui/topia",
-  },
-};
+export const metadata: Metadata = createMetadata({
+  title: "InPUTS - ui/topia",
+});
 
 export default function InputsPage() {
   const inputComponents = Object.entries(registry)
@@ -31,7 +18,7 @@ export default function InputsPage() {
 
   return (
     <section className="mx-auto">
-      <div className="grid gap-6 pb-6 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-6 pb-6 md:grid-cols-2 lg:grid-cols-3">
         {inputComponents.map((componentName) => (
           <ComponentList
             key={componentName}

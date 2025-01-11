@@ -4,7 +4,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "@/uitopia/*": ["../../packages/ui/src/components/shadcn-ui/*"]
+      "@/uitopia/*": ["../../packages/ui/src/components/*"]
     },
     "target": "ES2017"
   },

@@ -17,7 +17,7 @@ export const siteConfig = {
     "shadcn/ui",
   ],
   links: {
-    portfolio: "https://cahyawibawa.dev/",
+    portfolio: "https://cahyawibawa.com/",
     github: "https://git.new/ui/topia",
   },
 };

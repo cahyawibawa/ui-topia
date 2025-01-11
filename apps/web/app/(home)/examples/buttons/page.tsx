@@ -1,24 +1,11 @@
 import ComponentList from "@/components/component-list";
-import {
-  defaultMetadata,
-  ogMetadata,
-  twitterMetadata,
-} from "@/lib/metadata/shared-metadata";
+import { createMetadata } from "@/lib/metadata";
 import { registry } from "@ui/topia/registry";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  ...defaultMetadata,
+export const metadata: Metadata = createMetadata({
   title: "Buttons - ui/topia",
-  openGraph: {
-    ...ogMetadata,
-    title: "Buttons - ui/topia",
-  },
-  twitter: {
-    ...twitterMetadata,
-    title: "Buttons - ui/topia",
-  },
-};
+});
 
 export default function ButtonsPage() {
   const buttonComponents = Object.entries(registry)

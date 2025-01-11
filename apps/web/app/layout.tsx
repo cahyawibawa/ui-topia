@@ -1,28 +1,14 @@
+import { fontRedaction } from "@/lib/fonts";
+import { createMetadata } from "@/lib/metadata";
+import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/react";
 import { RootProvider } from "fumadocs-ui/provider";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
-import type { Metadata, Viewport } from "next";
-
+import type { Viewport } from "next";
 import "@ui/topia/globals.css";
 
-import { fontRedaction } from "@/lib/fonts";
-import {
-  defaultMetadata,
-  ogMetadata,
-  twitterMetadata,
-} from "@/lib/metadata/shared-metadata";
-import { cn } from "@/lib/utils";
-
-export const metadata: Metadata = {
-  ...defaultMetadata,
-  openGraph: {
-    ...ogMetadata,
-  },
-  twitter: {
-    ...twitterMetadata,
-  },
-};
+export const metadata = createMetadata({});
 
 export const viewport: Viewport = {
   colorScheme: "dark light",
@@ -46,7 +32,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         fontRedaction.variable,
       )}
     >
-      <body className="min-h-screen bg-background font-sans antialiased">
+      <body className="relative flex min-h-screen flex-col bg-background font-sans antialiased">
         <RootProvider>
           {children}
           <Analytics />

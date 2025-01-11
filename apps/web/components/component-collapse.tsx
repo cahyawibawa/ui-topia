@@ -8,7 +8,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/uitopia/collapsible";
-import { Icons } from "@ui/topia/icons";
+import { Icons } from "@/uitopia/icons";
 import React, { cloneElement, useEffect, useState } from "react";
 
 import type { ComponentPreviewProps } from "types/component";

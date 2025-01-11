@@ -1,7 +1,7 @@
 # UI/TOPIA
 
 Welcome to **UI/TOPIA**—a curated collection of fine UI components built with **[Motion](https://motion.dev/)** and **Tailwind CSS**.  
-This project extend showcases experimental designs from [cahyawibawa.dev](https://cahyawibawa.dev).
+This project extend showcases experimental designs from [cahyawibawa.com](https://cahyawibawa.com).
 
 
 ## Documentation
