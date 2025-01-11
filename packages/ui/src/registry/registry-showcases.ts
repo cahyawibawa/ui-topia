@@ -7,7 +7,7 @@ export const showcase: Registry = [
     type: "registry:showcase",
     files: ["@/components/showcases/cd-demo.tsx"],
     dependencies: ["motion", "motion-number"],
-    component: React.lazy(() => import("../components/showcases/cd-demo")),
+    component: React.lazy(() => import("@/components/showcases/cd-demo")),
   },
   {
     name: "clip-path-demo",
@@ -15,7 +15,7 @@ export const showcase: Registry = [
     files: ["@/components/showcases/clip-path-demo.tsx"],
     dependencies: ["motion"],
     component: React.lazy(
-      () => import("../components/showcases/clip-path-demo"),
+      () => import("@/components/showcases/clip-path-demo"),
     ),
   },
   {
@@ -23,7 +23,7 @@ export const showcase: Registry = [
     type: "registry:showcase",
     files: ["@/components/showcases/clip-path-tabs-demo.tsx"],
     component: React.lazy(
-      () => import("../components/showcases/clip-path-tabs-demo"),
+      () => import("@/components/showcases/clip-path-tabs-demo"),
     ),
   },
   {
@@ -31,7 +31,7 @@ export const showcase: Registry = [
     type: "registry:showcase",
     files: ["@/components/showcases/dock-demo.tsx"],
     dependencies: ["motion"],
-    component: React.lazy(() => import("../components/showcases/dock-demo")),
+    component: React.lazy(() => import("@/components/showcases/dock-demo")),
   },
   {
     name: "expandable-tabs-demo",
@@ -39,7 +39,7 @@ export const showcase: Registry = [
     files: ["@/components/showcases/expandable-tabs-demo.tsx"],
     dependencies: ["motion", "usehooks-ts"],
     component: React.lazy(
-      () => import("../components/showcases/expandable-tabs-demo"),
+      () => import("@/components/showcases/expandable-tabs-demo"),
     ),
   },
   {
@@ -48,7 +48,7 @@ export const showcase: Registry = [
     files: ["@/components/showcases/family-wallet-demo.tsx"],
     dependencies: ["motion", "usehooks-ts"],
     component: React.lazy(
-      () => import("../components/showcases/family-wallet-demo"),
+      () => import("@/components/showcases/family-wallet-demo"),
     ),
   },
   {
@@ -57,7 +57,7 @@ export const showcase: Registry = [
     dependencies: ["motion"],
     files: ["@/components/showcases/faq-accordion-demo.tsx"],
     component: React.lazy(
-      () => import("../components/showcases/faq-accordion-demo"),
+      () => import("@/components/showcases/faq-accordion-demo"),
     ),
   },
   {
@@ -66,7 +66,7 @@ export const showcase: Registry = [
     files: ["@/components/showcases/inline-dropdown-demo.tsx"],
     dependencies: ["motion"],
     component: React.lazy(
-      () => import("../components/showcases/inline-dropdown-demo"),
+      () => import("@/components/showcases/inline-dropdown-demo"),
     ),
   },
   {
@@ -75,14 +75,14 @@ export const showcase: Registry = [
     files: ["@/components/showcases/linear-card-demo.tsx"],
     dependencies: ["motion"],
     component: React.lazy(
-      () => import("../components/showcases/linear-card-demo"),
+      () => import("@/components/showcases/linear-card-demo"),
     ),
   },
   {
     name: "paper-fold-card",
     type: "registry:showcase",
     files: ["@/components/showcases/paper-fold.tsx"],
-    component: React.lazy(() => import("../components/showcases/paper-fold")),
+    component: React.lazy(() => import("@/components/showcases/paper-fold")),
   },
   {
     name: "text-loop-base",
@@ -90,7 +90,7 @@ export const showcase: Registry = [
     files: ["@/components/examples/texts/text-loop.tsx"],
     dependencies: ["motion"],
     component: React.lazy(
-      () => import("../components/examples/texts/text-loop"),
+      () => import("@/components/examples/texts/text-loop"),
     ),
   },
   {
@@ -99,7 +99,7 @@ export const showcase: Registry = [
     files: ["@/components/showcases/text-loop-demo.tsx"],
     dependencies: ["motion"],
     component: React.lazy(
-      () => import("../components/showcases/text-loop-demo"),
+      () => import("@/components/showcases/text-loop-demo"),
     ),
   },
   {
@@ -108,7 +108,7 @@ export const showcase: Registry = [
     files: ["@/components/examples/texts/text-type.tsx"],
     dependencies: ["motion"],
     component: React.lazy(
-      () => import("../components/examples/texts/text-type"),
+      () => import("@/components/examples/texts/text-type"),
     ),
   },
   {
@@ -117,7 +117,7 @@ export const showcase: Registry = [
     dependencies: ["motion"],
     files: ["@/components/showcases/text-type-demo.tsx"],
     component: React.lazy(
-      () => import("../components/showcases/text-type-demo"),
+      () => import("@/components/showcases/text-type-demo"),
     ),
   },
   {
@@ -126,7 +126,7 @@ export const showcase: Registry = [
     files: ["@/components/showcases/transaction-btn-demo.tsx"],
     dependencies: ["motion", "usehooks-ts"],
     component: React.lazy(
-      () => import("../components/showcases/transaction-btn-demo"),
+      () => import("@/components/showcases/transaction-btn-demo"),
     ),
   },
 ];
