@@ -6,16 +6,19 @@
       "@/*": ["./*"],
       "@/uitopia/*": ["../../packages/ui/src/components/*"]
     },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     "target": "ES2017"
   },
   "include": [
     "next-env.d.ts",
-    "next.config.js",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "tailwind.config.ts",
-    "next.config.mjs"
+    "tailwind.config.ts"
   ],
   "exclude": ["node_modules"]
 }

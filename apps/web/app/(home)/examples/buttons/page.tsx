@@ -1,6 +1,7 @@
 import ComponentList from "@/components/component-list";
 import { createMetadata } from "@/lib/metadata";
 import { registry } from "@ui/topia/registry";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = createMetadata({

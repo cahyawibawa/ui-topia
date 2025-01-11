@@ -1,15 +1,16 @@
 import ComponentList from "@/components/component-list";
 import { createMetadata } from "@/lib/metadata";
+
 import { registry } from "@ui/topia/registry";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = createMetadata({
-  title: "InPUTS - ui/topia",
+  title: "Inputs - ui/topia",
 });
 
-export default function InputsPage() {
+export default function ButtonsPage() {
   const inputComponents = Object.entries(registry)
-    .filter(([key]) => key.startsWith("input-"))
+    .filter(([key]) => key.startsWith("button-"))
     .map(([key]) => key);
 
   if (inputComponents.length === 0) {
@@ -18,7 +19,7 @@ export default function InputsPage() {
 
   return (
     <section className="mx-auto">
-      <div className="grid gap-6 pb-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 pb-6 md:grid-cols-2 lg:grid-cols-4">
         {inputComponents.map((componentName) => (
           <ComponentList
             key={componentName}

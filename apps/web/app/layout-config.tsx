@@ -1,11 +1,15 @@
 import { siteConfig } from "@/config/site";
-import Preview from "@/public/banner.png";
 import { Icons } from "@/uitopia/icons";
 import type { LinkItemType } from "fumadocs-ui/layouts/docs";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
-import Image from "next/image";
 
 export const linkItems: LinkItemType[] = [
+  {
+    icon: <Icons.book />,
+    text: "Docs",
+    url: "/docs",
+    active: "nested-url",
+  },
   {
     icon: <Icons.news />,
     text: "Blog",
@@ -39,45 +43,45 @@ export const baseOptions: BaseLayoutProps = {
     ),
   },
   links: [
-    {
-      type: "menu",
-      text: "Docs",
-      url: "/docs",
-      items: [
-        {
-          menu: {
-            banner: (
-              <div className="-mx-3 -mt-3">
-                <Image
-                  src={Preview}
-                  alt="Perview"
-                  className="rounded-t-lg object-cover"
-                  style={{
-                    maskImage:
-                      "linear-gradient(to bottom,white 60%,transparent)",
-                  }}
-                  priority
-                />
-              </div>
-            ),
-            className: "md:row-span-2",
-          },
-          icon: <Icons.book />,
-          text: "Getting Started",
-          description: "Learn how to get started with ui/topia.",
-          url: "/docs",
-        },
-        // {
-        //   icon: <Icons.component />,
-        //   text: "Components",
-        //   description: "Explore all the components on ui/topia.",
-        //   url: "/docs/components/accordion",
-        //   menu: {
-        //     className: "lg:col-start-2",
-        //   },
-        // },
-      ],
-    },
+    // {
+    //   type: "menu",
+    //   text: "Docs",
+    //   url: "/docs",
+    //   items: [
+    //     {
+    //       menu: {
+    //         banner: (
+    //           <div className="-mx-3 -mt-3">
+    //             <Image
+    //               src={Preview}
+    //               alt="Perview"
+    //               className="rounded-t-lg object-cover"
+    //               style={{
+    //                 maskImage:
+    //                   "linear-gradient(to bottom,white 60%,transparent)",
+    //               }}
+    //               priority
+    //             />
+    //           </div>
+    //         ),
+    //         className: "md:row-span-2",
+    //       },
+    //       icon: <Icons.book />,
+    //       text: "Getting Started",
+    //       description: "Learn how to get started with ui/topia.",
+    //       url: "/docs",
+    //     },
+    //     {
+    //       icon: <Icons.component />,
+    //       text: "Components",
+    //       description: "Explore all the components on ui/topia.",
+    //       url: "/docs/components/accordion",
+    //       menu: {
+    //         className: "lg:col-start-2",
+    //       },
+    //     },
+    //   ],
+    // },
     ...linkItems,
   ],
 };

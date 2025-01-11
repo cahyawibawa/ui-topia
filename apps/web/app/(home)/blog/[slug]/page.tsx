@@ -1,7 +1,7 @@
 import { Control } from "@/app/(home)/blog/[slug]/page.client";
-import { blog } from "@/lib/source";
 import { siteConfig } from "@/config/site";
 import { createMetadata } from "@/lib/metadata";
+import { blog } from "@/lib/source";
 import { buttonVariants } from "@/uitopia/button";
 import { InlineTOC } from "fumadocs-ui/components/inline-toc";
 import defaultMdxComponents from "fumadocs-ui/mdx";
