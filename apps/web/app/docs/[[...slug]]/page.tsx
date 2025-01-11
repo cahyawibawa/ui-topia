@@ -5,7 +5,6 @@ import type { Page } from "@/lib/source";
 import { source } from "@/lib/source";
 import {
   DocsBody,
-  DocsCategory,
   DocsDescription,
   DocsPage,
   DocsTitle,
@@ -15,9 +14,6 @@ import { notFound } from "next/navigation";
 interface Params {
   slug?: string[];
 }
-
-export const dynamicParams = false;
-export const revalidate = false;
 
 // biome-ignore lint/suspicious/noRedeclare: <explanation>
 export default async function Page({ params }: { params: Promise<Params> }) {
@@ -29,6 +25,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
   if (!page) notFound();
 
   const path = `apps/web/content/docs/${page.file.path}`;
+  const MDX = page.data.body;
 
   return (
     <DocsPage
@@ -45,15 +42,10 @@ export default async function Page({ params }: { params: Promise<Params> }) {
         path,
       }}
     >
-      <DocsTitle className="font-semibold text-2xl">
-        {page.data.title}
-      </DocsTitle>
-      <DocsDescription className="mb-6 text-base">
-        {page.data.description}
-      </DocsDescription>
-      <DocsBody className="text-fd-foreground/80">
-        <page.data.body components={useMDXComponents({})} />
-        {page.data.index ? <DocsCategory page={page} from={source} /> : null}
+      <DocsTitle className="text-2xl">{page.data.title}</DocsTitle>
+      <DocsDescription>{page.data.description}</DocsDescription>
+      <DocsBody className="prose-h2:text-xl">
+        <MDX components={useMDXComponents({})} />
       </DocsBody>
     </DocsPage>
   );
