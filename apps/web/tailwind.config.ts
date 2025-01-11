@@ -1,6 +1,6 @@
 import { createPreset } from "fumadocs-ui/tailwind-plugin";
-import { fontFamily } from "tailwindcss/defaultTheme";
 import animate from "tailwindcss-animate";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
   content: [
