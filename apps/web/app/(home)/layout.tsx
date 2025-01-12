@@ -1,4 +1,4 @@
-import { baseOptions } from "@/app/layout-config";
+import { baseOptions } from "@/app/layout.config";
 import { siteConfig } from "@/config/site";
 import { HomeLayout } from "fumadocs-ui/layouts/home";
 import type { ReactNode } from "react";

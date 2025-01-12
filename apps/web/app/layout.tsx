@@ -6,7 +6,7 @@ import { RootProvider } from "fumadocs-ui/provider";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { Viewport } from "next";
-import "@ui/topia/globals.css";
+import "styles/globals.css";
 
 export const metadata = createMetadata({});
 

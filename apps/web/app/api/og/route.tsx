@@ -1,5 +1,7 @@
 import { Icons } from "@/uitopia/icons";
 import { ImageResponse } from "next/og";
+import { readFileSync } from "fs";
+import { join } from "path";
 import type { NextRequest } from "next/server";
 
 export async function GET(req: NextRequest) {
@@ -7,9 +9,9 @@ export async function GET(req: NextRequest) {
     const { searchParams } = req.nextUrl;
     const title = searchParams.get("title");
     const description = searchParams.get("description");
-    const font = await fetch(
-      new URL("../../../public/fonts/Geist-Medium.otf", import.meta.url),
-    ).then((res) => res.arrayBuffer());
+
+    const fontPath = join(process.cwd(), "public", "fonts", "Geist-Medium.otf");
+    const fontData = readFileSync(fontPath);
 
     return new ImageResponse(
       <div
@@ -68,15 +70,15 @@ export async function GET(req: NextRequest) {
         fonts: [
           {
             name: "Geist",
-            data: font,
+            data: fontData,
             style: "normal",
           },
         ],
       },
     );
   } catch (error) {
-    console.error("Failed to generate the image", error);
-    return new Response("Failed to generate the image", {
+    console.error("Failed to generate the image:", error);
+    return new Response(`Failed to generate the image: ${error}`, {
       status: 500,
     });
   }
