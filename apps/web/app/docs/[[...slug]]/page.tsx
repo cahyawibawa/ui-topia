@@ -5,6 +5,7 @@ import type { Page } from "@/lib/source";
 import { source } from "@/lib/source";
 import {
   DocsBody,
+  DocsCategory,
   DocsDescription,
   DocsPage,
   DocsTitle,
@@ -42,6 +43,7 @@ export default async function Page(props: {
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody className="prose-h2:text-xl">
         <MDX components={useMDXComponents({})} />
+        {page.data.index ? <DocsCategory page={page} from={source} /> : null}
       </DocsBody>
     </DocsPage>
   );
