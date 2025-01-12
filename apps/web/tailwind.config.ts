@@ -13,6 +13,8 @@ export default {
   presets: [
     createPreset({
       preset: "neutral",
+      addGlobalColors: true,
+      cssPrefix: "",
     }),
   ],
   theme: {

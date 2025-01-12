@@ -24,7 +24,8 @@
     --destructive-foreground: 0 0% 98%;
     --ring: 240 5.9% 10%;
     --radius: 0.5rem;
-    /* --fd-layout-width: 1400px; */
+    /* --fd-nav-height: 40px !important;
+    --fd-layout-width: 1400px; */
   }
 
   .dark {
@@ -79,7 +80,7 @@
   }
 }
 
-[data-theme-code] {
+/* [data-theme-code] {
   @apply relative;
 }
 
@@ -89,4 +90,4 @@
 
 [data-theme-code] .only-dark {
   @apply hidden dark:block;
-}
+} */
