@@ -1,11 +1,11 @@
 "use client";
 
+import * as React from "react";
 import { Button } from "@/components/button";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import { useState } from "react";
 
 export default function ButtonDemo() {
-  const [isExpanded, setIsExpanded] = useState<boolean>(false);
+  const [isExpanded, setIsExpanded] = React.useState<boolean>(false);
 
   const toggleExpand = () => {
     setIsExpanded((prevState) => !prevState);
@@ -16,7 +16,7 @@ export default function ButtonDemo() {
       variant="outline"
       onClick={toggleExpand}
       aria-expanded={isExpanded}
-      aria-controls="expandable-content" // Use this ID on the element that this button controls
+      aria-controls="expandable-content"
     >
       {isExpanded ? "Show less" : "Show more"}
       {isExpanded ? (

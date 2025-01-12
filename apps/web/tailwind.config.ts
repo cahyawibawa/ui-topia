@@ -6,7 +6,7 @@ export default {
   content: [
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
-    "./content/**/*.{mdx,tsx,js,jsx}",
+    "./content/**/*.{mdx,tsx}",
     "../../node_modules/fumadocs-ui/dist/**/*.js",
     "../../node_modules/@ui/topia/dist/**/*.js",
   ],
