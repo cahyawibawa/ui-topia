@@ -6,14 +6,13 @@ export default {
   content: [
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
-    "./content/**/*.{mdx,tsx}",
+    "./content/**/*.{mdx,tsx,js,jsx}",
     "../../node_modules/fumadocs-ui/dist/**/*.js",
     "../../node_modules/@ui/topia/dist/**/*.js",
   ],
   presets: [
     createPreset({
       preset: "neutral",
-      addGlobalColors: true,
     }),
   ],
   theme: {
