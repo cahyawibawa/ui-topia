@@ -1,9 +1,17 @@
 {
   "name": "uitopia",
   "version": "1.0.0",
-  "workspaces": ["apps/*", "packages/*"],
-  "private": true,
+  "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
+    "@uitopia/tsconfig": "workspace:*",
+    "turbo": "^2.3.3"
+  },
+  "engines": {
+    "node": ">=22.10.0"
+  },
   "license": "MIT",
+  "packageManager": "bun@1.1.42",
+  "private": true,
   "scripts": {
     "dev": "turbo run dev",
     "clean": "turbo run clean",
@@ -12,21 +20,5 @@
     "format": "biome format --write .",
     "check": "biome check --fix ."
   },
-  "devDependencies": {
-    "@biomejs/biome": "^1.8.3",
-    "@uitopia/tsconfig": "workspace:*",
-    "turbo": "^2.3.3"
-  },
-  "packageManager": "bun@1.1.42",
-  "engines": {
-    "node": ">=22.10.0"
-  },
-  "dependencies": {
-    "fumadocs-core": "^14.7.3",
-    "fumadocs-docgen": "^1.3.4",
-    "fumadocs-mdx": "^11.3.0",
-    "fumadocs-twoslash": "^2.0.2",
-    "fumadocs-typescript": "^3.0.2",
-    "fumadocs-ui": "^14.7.3"
-  }
+  "workspaces": ["apps/*", "packages/*"]
 }
