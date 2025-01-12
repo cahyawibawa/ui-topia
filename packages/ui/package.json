@@ -17,8 +17,7 @@
     "./registry": {
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
-    },
-    "./globals.css": "./src/styles/globals.css"
+    }
   },
   "dependencies": {
     "@radix-ui/react-collapsible": "^1.1.0",
