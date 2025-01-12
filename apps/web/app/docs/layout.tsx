@@ -1,8 +1,7 @@
 import { baseOptions, linkItems } from "@/app/layout.config";
 import { source } from "@/lib/source";
-import { DocsLayout, type DocsLayoutProps } from "fumadocs-ui/layouts/docs";
+import { DocsLayout, type DocsLayoutProps } from "fumadocs-ui/layouts/notebook";
 import type { ReactNode } from "react";
-import "fumadocs-twoslash/twoslash.css";
 
 const docsOptions: DocsLayoutProps = {
   ...baseOptions,
