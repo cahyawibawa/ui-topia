@@ -1,6 +1,6 @@
 "use client";
 
-import TextType from "@/examples/text-type";
+import TextType from "@/components/elements/texts/text-type";
 
 export default function TextLoopDemo() {
   return (

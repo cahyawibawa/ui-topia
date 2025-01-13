@@ -1,8 +1,8 @@
 "use client";
 
-import * as React from "react";
 import { Button } from "@/components/button";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import * as React from "react";
 
 export default function ButtonDemo() {
   const [isExpanded, setIsExpanded] = React.useState<boolean>(false);
