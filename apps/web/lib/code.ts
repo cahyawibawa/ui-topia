@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { codeToHtml } from "@/lib/shiki";
-import { registry } from "@ui/topia/registry";
+import { getComponentByName } from "@ui/topia/registry";
 
 export async function extractSourceCode(
   componentName: string,
@@ -15,7 +15,7 @@ export async function extractSourceCode(
     "src",
   );
 
-  const component = registry[componentName];
+  const component = getComponentByName(componentName);
 
   if (!component) {
     const errorMsg = "// Component not found in registry";
@@ -35,8 +35,8 @@ export async function extractSourceCode(
 
   const componentFile = component.files[0];
 
-  if (!componentFile) {
-    const errorMsg = "// No source file found for this component";
+  if (!componentFile || !componentFile.path) {
+    const errorMsg = "// No valid source file found for this component";
     return {
       code: errorMsg,
       highlightedCode: await codeToHtml({ code: errorMsg, lang: "tsx" }),
@@ -44,9 +44,9 @@ export async function extractSourceCode(
   }
 
   // Remove the '@' from the path if it exists
-  const sanitizedFilePath = componentFile.replace(/^@/, "");
+  const sanitizedFilePath = componentFile.path.replace(/^@/, "");
 
-  const fullPath = path.join(basePath, sanitizedFilePath.replace(/^\.\//, ""));
+  const fullPath = path.join(basePath, sanitizedFilePath);
 
   try {
     const code = await fs.readFile(fullPath, "utf8");

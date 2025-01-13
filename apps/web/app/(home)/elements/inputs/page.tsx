@@ -1,17 +1,15 @@
 import ComponentList from "@/components/component-list";
 import { createMetadata } from "@/lib/metadata";
 
-import { registry } from "@ui/topia/registry";
+import { getComponentsByCategory } from "@ui/topia/registry";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = createMetadata({
   title: "Inputs - ui/topia",
 });
 
-export default function ButtonsPage() {
-  const inputComponents = Object.entries(registry)
-    .filter(([key]) => key.startsWith("input-"))
-    .map(([key]) => key);
+export default function InputsPage() {
+  const inputComponents = getComponentsByCategory("input");
 
   if (inputComponents.length === 0) {
     return <div>No input components found</div>;

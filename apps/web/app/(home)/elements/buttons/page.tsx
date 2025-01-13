@@ -1,6 +1,6 @@
 import ComponentList from "@/components/component-list";
 import { createMetadata } from "@/lib/metadata";
-import { registry } from "@ui/topia/registry";
+import { getComponentsByCategory } from "@ui/topia/registry";
 
 import type { Metadata } from "next";
 
@@ -9,9 +9,7 @@ export const metadata: Metadata = createMetadata({
 });
 
 export default function ButtonsPage() {
-  const buttonComponents = Object.entries(registry)
-    .filter(([key]) => key.startsWith("button-"))
-    .map(([key]) => key);
+  const buttonComponents = getComponentsByCategory("button");
 
   if (buttonComponents.length === 0) {
     return <div>No button components found</div>;

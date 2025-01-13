@@ -3,8 +3,8 @@ import { Hero } from "@/components/hero";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Examples",
-  description: "Check out some examples components.",
+  title: "Elements",
+  description: "Check out some element components.",
 };
 
 interface ExamplesLayoutProps {
