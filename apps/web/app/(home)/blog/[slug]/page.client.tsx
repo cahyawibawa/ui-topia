@@ -2,7 +2,7 @@
 import { cn } from "@/lib/utils";
 
 import { buttonVariants } from "@/uitopia/button";
-import { TextMorph } from "@/uitopia/examples/texts/text-morph";
+import { TextMorph } from "@/uitopia/elements/texts/text-morph";
 
 import { Check, Share } from "lucide-react";
 import { useState } from "react";

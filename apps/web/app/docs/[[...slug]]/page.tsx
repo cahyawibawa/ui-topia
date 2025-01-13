@@ -40,7 +40,9 @@ export default async function Page(props: {
       }}
     >
       <DocsTitle className="text-2xl">{page.data.title}</DocsTitle>
-      <DocsDescription>{page.data.description}</DocsDescription>
+      <DocsDescription className="text-base">
+        {page.data.description}
+      </DocsDescription>
       <DocsBody className="prose-h2:text-xl">
         <MDX components={useMDXComponents({})} />
         {page.data.index ? <DocsCategory page={page} from={source} /> : null}

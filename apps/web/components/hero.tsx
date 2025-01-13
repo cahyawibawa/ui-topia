@@ -10,7 +10,7 @@ import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 import { buttonVariants } from "@/uitopia/button";
-import TextLoop from "@/uitopia/examples/texts/text-loop";
+import TextLoop from "@/uitopia/elements/texts/text-loop";
 import { motion } from "motion/react";
 import Link from "next/link";
 import { Suspense, lazy, useEffect, useState } from "react";
@@ -117,6 +117,15 @@ function HeroCTA() {
         Tailwind CSS. Open source.
       </PageHeaderDescription>
       <PageActions>
+        <Link
+          href="/docs"
+          className={cn(
+            buttonVariants({ variant: "default", size: "sm" }),
+            "rounded-xl text-xs",
+          )}
+        >
+          Explore now
+        </Link>
         <Link
           target="_blank"
           rel="noreferrer"

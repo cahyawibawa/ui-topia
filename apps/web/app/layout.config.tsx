@@ -4,30 +4,31 @@ import type { LinkItemType } from "fumadocs-ui/layouts/docs";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 
 export const linkItems: LinkItemType[] = [
-  // {
-  //   text: "Docs",
-  //   type: "menu",
-  //   items: [
-  //     {
-  //       text: "Getting Started",
-  //       description: "Getting started with ui/topia",
-  //       url: "/docs",
-  //       icon: <Icons.album />,
-  //     },
-  //     {
-  //       text: "Showcases",
-  //       description: "Collection of interactive components",
-  //       url: "/docs/showcases/cd",
-  //       icon: <Icons.lab />,
-  //     },
-  //     {
-  //       text: "Texts",
-  //       description: "Collection of text components",
-  //       url: "/docs/texts/text-loop",
-  //       icon: <Icons.caseLower />,
-  //     },
-  //   ],
-  // },
+  {
+    text: "Docs",
+    type: "menu",
+    url: "/docs",
+    items: [
+      {
+        text: "Getting Started",
+        description: "Getting started with ui/topia",
+        url: "/docs",
+        icon: <Icons.album />,
+      },
+      {
+        text: "Showcases",
+        description: "Collection of interactive components",
+        url: "/docs/showcases/cd",
+        icon: <Icons.lab />,
+      },
+      {
+        text: "Texts",
+        description: "Collection of text components",
+        url: "/docs/texts/text-loop",
+        icon: <Icons.caseLower />,
+      },
+    ],
+  },
   {
     label: "Utopia Blog",
     text: "Blog",
@@ -54,8 +55,10 @@ export const baseOptions: BaseLayoutProps = {
     title: (
       <div className="relative flex items-center space-x-2">
         <Icons.logo />
-        <div className="font-semibold text-sm sm:inline-block">ui/topia</div>
-        <span className="ml-0.5 select-none rounded-full bg-neutral-200 px-1.5 py-px font-medium text-[10px] text-primary dark:bg-slated dark:text-white">
+        <div className="font-semibold text-sm sm:inline-block">
+          {siteConfig.name}
+        </div>
+        <span className="ml-0.5 select-none rounded-full bg-secondary px-1.5 py-px font-medium text-[10px] text-foreground">
           beta
         </span>
       </div>

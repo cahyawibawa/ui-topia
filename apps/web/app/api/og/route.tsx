@@ -1,7 +1,7 @@
-import { Icons } from "@/uitopia/icons";
-import { ImageResponse } from "next/og";
 import { readFileSync } from "fs";
 import { join } from "path";
+import { Icons } from "@/uitopia/icons";
+import { ImageResponse } from "next/og";
 import type { NextRequest } from "next/server";
 
 export async function GET(req: NextRequest) {
