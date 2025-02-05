@@ -3,11 +3,22 @@
   "version": "1.0.0",
   "description": "UI components for uitopia.xyz",
   "sideEffects": false,
-  "main": "./src/index.tsx",
-  "types": "./src/index.tsx",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": ["dist"],
   "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
     "check-types": "tsc --noEmit",
     "shadcn": "bun x --bun shadcn@latest add"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.2",
@@ -44,6 +55,7 @@
     "latest": "^0.2.0",
     "postcss": "^8.5.1",
     "tailwindcss": "^4.0.3",
+    "tsup": "^8.3.6",
     "typescript": "^5.7.3"
   }
 }
