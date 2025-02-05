@@ -28,10 +28,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
     >
       <body className="min-h-svh bg-background font-sans antialiased">
         <RootProvider>
-        <div vaul-drawer-wrapper="">
           <div className="relative flex min-h-svh flex-col bg-background">
             {children}
-            </div>
           </div>
           <Analytics />
         </RootProvider>

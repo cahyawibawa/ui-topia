@@ -3,13 +3,13 @@
 import ComponentCli from "@/components/cli-commands";
 import { OpenInV0Button } from "@/components/v0-button";
 import { useMediaQuery } from "@/hooks/use-media-query";
-import { Button } from "@/uitopia/button";
 import {
   Drawer,
   DrawerContent,
   DrawerTitle,
   DrawerTrigger,
-} from "@/uitopia/drawer";
+} from "@/registry/ui/drawer";
+import { Button } from "@/uitopia/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/uitopia/sheet";
 import type React from "react";
 

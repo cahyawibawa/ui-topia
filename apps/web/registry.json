@@ -58,7 +58,7 @@
     {
       "name": "family-wallets-demo",
       "type": "registry:component",
-      "description": "An interactive wallet management interface featuring smooth layout transitions and animations. Each wallet card can expand to show additional details and controls while collapsing others into a compact view, creating a fluid and engaging user experience.",
+      "description": "An interactive interaction from Family wallets interface featuring smooth layout transitions and animations. Each wallet card can expand to show additional details and controls while collapsing others into a compact view.",
       "registryDependencies": ["motion", "react"],
       "files": [
         {

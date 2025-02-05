@@ -10,8 +10,8 @@ import {
   useRef,
   useState,
 } from "react";
-import { useOnClickOutside } from "usehooks-ts";
 import type { RefObject } from "react";
+import { useOnClickOutside } from "usehooks-ts";
 
 // Types
 interface WalletCardProps {

@@ -9,7 +9,7 @@ export function Hero() {
         <h1 className="relative mb-4 font-medium text-4xl text-zinc-950 dark:text-zinc-50">
           Make your UI doesn't look the same anymore
         </h1>
-        <p className="text-[15px] text-zinc-600 dark:text-zinc-200">
+        <p className="text-muted-foreground">
           Collection set of beautifully designed motions components. Easy
           copy-paste. Customizable. Open Source.
         </p>
@@ -25,14 +25,11 @@ export function Hero() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Button size={"sm"} variant="secondary">
+          <Button size="sm" variant="secondary">
             GitHub
           </Button>
         </a>
       </div>
-      {/* <span className="mt-2 text-center text-sm text-zinc-500 dark:text-zinc-400">
-        Free updates and new components released regularly.
-      </span> */}
     </section>
   );
 }
