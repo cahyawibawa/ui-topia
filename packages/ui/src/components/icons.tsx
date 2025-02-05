@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import type { LucideIcon } from "lucide-react";
 import {
   Album,
+  ArrowRight,
   ArrowUpRight,
   BookIcon,
   BookOpenIcon,
@@ -10,6 +11,7 @@ import {
   ChevronDown,
   ChevronRight,
   Clipboard,
+  Code,
   Component,
   Copy,
   Edit,
@@ -41,7 +43,9 @@ export type Position =
 export const Icons = {
   album: Album,
   arrowUpRight: ArrowUpRight,
+  arrowRight: ArrowRight,
   copy: Copy,
+  code: Code,
   caseLower: CaseLower,
   component: Component,
   check: Check,
@@ -54,7 +58,7 @@ export const Icons = {
   sdk: FolderTreeIcon,
   chat: MessagesSquare,
   news: Newspaper,
-  arrow: ChevronRight,
+  chevronRight: ChevronRight,
   leaf: Leaf,
   loader: Loader,
   life: LifeBuoyIcon,

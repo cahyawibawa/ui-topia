@@ -8,7 +8,7 @@ function PageHeader({
   return (
     <section
       className={cn(
-        "mx-auto flex flex-col items-start gap-2 py-12 pb-8 md:py-20 md:pb-16",
+        "mx-auto flex flex-col items-start gap-2 py-12 pb-8 md:py-16 md:pb-12",
         className,
       )}
       {...props}
@@ -25,7 +25,7 @@ function PageHeaderHeading({
   return (
     <h1
       className={cn(
-        "font-redaction text-3xl leading-tight md:text-5xl",
+        "font-redaction text-3xl leading-tight tracking-tighter md:text-5xl lg:leading-[1.1]",
         className,
       )}
       {...props}
@@ -40,7 +40,7 @@ function PageHeaderDescription({
   return (
     <p
       className={cn(
-        "max-w-2xl text-balance font-light text-sm md:text-base",
+        "max-w-2xl text-balance font-light text-base text-foreground",
         className,
       )}
       {...props}
@@ -55,7 +55,7 @@ function PageActions({
   return (
     <div
       className={cn(
-        "flex w-full items-center justify-start gap-2 py-2",
+        "flex w-full items-center justify-start gap-2 pt-2",
         className,
       )}
       {...props}
