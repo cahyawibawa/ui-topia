@@ -7,8 +7,6 @@ description: Text animation that transitions between multiple items, creating an
 <Reference label="Motion Primitives" link="https://motion-primitives.com/docs/text-loop" />
 </References>
 
-### Text Loop with custom variants and transition
-
 <ComponentCollapse
   name="text-loop-demo"
   hasReTrigger
@@ -17,18 +15,43 @@ description: Text animation that transitions between multiple items, creating an
 
 ## Installation
 
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+<ComponentCli name="text-loop-base"/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
 <Steps>
 
+<Step>Install the following dependencies:</Step>
+
+<ComponentCli name="text-loop-base"/>
+
 <Step>Copy and paste the following code into your project.</Step>
-<ComponentBase name="text-loop-base" />
 
+<ComponentSource name="text-loop-base" />
 
+<Step>Update the import paths to match your project setup.</Step>
 
 </Steps>
 
+</TabsContent>
+
+</Tabs>
+
 ## Props
 
-<TypeTable
+<AutoTypeTable path="./content/docs/props.ts" name="TextLoop" />
+
+{/* <TypeTable
   type={{
     children: {
       description:
@@ -67,5 +90,5 @@ description: Text animation that transitions between multiple items, creating an
       default: '-',
     },
   }}
-/>
+/> */}
 

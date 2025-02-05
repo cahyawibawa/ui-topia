@@ -7,8 +7,6 @@ description: Text animation that types out a text, one letter at a time.
 <Reference label="Fancy Components" link="https://www.fancycomponents.dev/docs/components/text/typewriter" />
 </References>
 
-### Example
-
 <ComponentCollapse
   name="text-type-demo"
   hasReTrigger
@@ -17,14 +15,43 @@ description: Text animation that types out a text, one letter at a time.
 
 ## Installation
 
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+<ComponentCli name="text-type-base"/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
 <Steps>
+
+<Step>Install the following dependencies:</Step>
+
+<ComponentCli name="text-type-base"/>
+
 <Step>Copy and paste the following code into your project.</Step>
-<ComponentBase name="text-type-base" />
+
+<ComponentSource name="text-type-base" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
 </Steps>
+
+</TabsContent>
+
+</Tabs>
 
 ## Props
 
-<TypeTable
+<AutoTypeTable path="./content/docs/props.ts" name="TextType" />
+
+{/* <TypeTable
   type={{
     text: {
       description:
@@ -93,5 +120,5 @@ description: Text animation that types out a text, one letter at a time.
       default: '"ml-0.5"',
     },
   }}
-/>
+/> */}
 
