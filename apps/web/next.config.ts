@@ -7,9 +7,13 @@ const withAnalyzer = createBundleAnalyzer({
 });
 
 const nextConfig: NextConfig = {
-  typescript: {
-    ignoreBuildErrors: true,
+  outputFileTracingIncludes: {
+    registry: ["./registry/**/*"],
   },
+  serverExternalPackages: ["ts-morph", "typescript", "@shikijs/twoslash"],
+  // typescript: {
+  //   ignoreBuildErrors: true,
+  // },
 };
 
 const withMDX = createMDX();
