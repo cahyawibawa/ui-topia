@@ -1,10 +1,8 @@
-import { fontRedaction } from "@/lib/fonts";
+import { Redaction, geistMono, geistSans } from "@/lib/fonts";
 import { createMetadata } from "@/lib/metadata";
 import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/react";
 import { RootProvider } from "fumadocs-ui/provider";
-import { GeistMono } from "geist/font/mono";
-import { GeistSans } from "geist/font/sans";
 import type { Viewport } from "next";
 import "styles/globals.css";
 
@@ -26,15 +24,15 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn(
-        GeistSans.variable,
-        GeistMono.variable,
-        fontRedaction.variable,
-      )}
+      className={`${geistSans.variable} ${geistMono.variable} ${Redaction.variable}`}
     >
-      <body className="relative flex min-h-screen flex-col bg-background font-sans antialiased">
+      <body className="min-h-svh bg-background font-sans antialiased">
         <RootProvider>
-          {children}
+        <div vaul-drawer-wrapper="">
+          <div className="relative flex min-h-svh flex-col bg-background">
+            {children}
+            </div>
+          </div>
           <Analytics />
         </RootProvider>
       </body>
