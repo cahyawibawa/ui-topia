@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-loop-demo",
+  "type": "registry:component",
+  "description": "Text animation that transitions between multiple items, creating an engaging looping effect",
+  "registryDependencies": ["motion"],
+  "files": [
+    {
+      "path": "registry/showcases/text-loop-demo.tsx",
+      "content": "\"use client\";\n\nimport TextLoop from \"@/registry/ui/text-loop\";\n\nexport default function TextLoopDemo() {\n  return (\n    <h3 className=\"inline-flex whitespace-pre-wrap text-base\">\n      Some days you're{\" \"}\n      <TextLoop\n        className=\"overflow-y-clip font-medium text-yellow-600\"\n        transition={{\n          type: \"spring\",\n          stiffness: 900,\n          damping: 80,\n          mass: 10,\n        }}\n        interval={2.5}\n        variants={{\n          initial: {\n            y: 20,\n            rotateX: 90,\n            opacity: 0,\n            filter: \"blur(4px)\",\n          },\n          animate: {\n            y: 0,\n            rotateX: 0,\n            opacity: 1,\n            filter: \"blur(0px)\",\n          },\n          exit: {\n            y: -20,\n            rotateX: -90,\n            opacity: 0,\n            filter: \"blur(4px)\",\n          },\n        }}\n      >\n        <span>Healing</span>\n        <span>Feeling</span>\n        <span>Thriving</span>\n        <span>Surviving</span>\n      </TextLoop>\n    </h3>\n  );\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": ["motion", "react"]
+}

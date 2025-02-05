@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-type-demo",
+  "type": "registry:component",
+  "description": "text type",
+  "registryDependencies": ["motion"],
+  "files": [
+    {
+      "path": "registry/showcases/text-type-demo.tsx",
+      "content": "\"use client\";\n\nimport TextType from \"@/registry/ui/text-type\";\n\nexport default function TextLoopDemo() {\n  return (\n    <h3 className=\"inline-flex whitespace-pre-wrap text-base\">\n      <span>{\"Don't forget how \"}</span>\n      <TextType\n        text={[\n          \"loved\",\n          \"talented\",\n          \"capable\",\n          \"special\",\n          \"worthy\",\n          \"powerful\",\n          \"inspiring\",\n          \"unstoppable\",\n          \"resilient\",\n          \"boundless\",\n          \"needed\",\n          \"extraordinary\",\n        ]}\n        speed={60}\n        className=\"text-yellow-600\"\n        waitTime={1500}\n        deleteSpeed={40}\n        cursorChar={\"|\"}\n      />\n      <span>{\" you are.\"}</span>\n    </h3>\n  );\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "categories": ["motion", "react"]
+}
