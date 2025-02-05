@@ -1,20 +1,30 @@
-export type ComponentPreviewProps = {
+import type { ReactNode } from "react";
+
+export interface ComponentLoaderProps {
   name: string;
-  code: string;
-  highlightedCode: string;
   hasReTrigger?: boolean;
   classNameComponentContainer?: string;
-};
+}
 
-export type ComponentDisplayProps = {
-  component: React.ReactElement;
+export interface ComponentDisplayProps {
+  component: ReactNode;
   hasReTrigger: boolean;
   className?: string;
   reTriggerKey: number;
   reTrigger: () => void;
-};
+  name: string;
+}
 
-export type CodePreviewProps = {
-  code: string;
-  highlightedCode: string;
-};
+export interface ComponentPreviewProps {
+  name: string;
+  hasReTrigger?: boolean;
+  classNameComponentContainer?: string;
+}
+
+export interface ComponentSourceProps {
+  name: string;
+  expandButtonTitle?: string;
+  defaultExpanded?: boolean;
+  maxHeight?: string;
+  className?: string;
+}
