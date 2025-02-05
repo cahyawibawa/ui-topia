@@ -11,7 +11,7 @@ export default function Layout({
   return (
     <HomeLayout {...baseOptions}>
       {children}
-      <div
+      {/* <div
         className="2xl:!px-0 hidden justify-center xl:flex"
         style={{ padding: "0 11.5vw" }}
       >
@@ -20,7 +20,7 @@ export default function Layout({
           alt="separator"
           className="h-auto object-contain dark:invert"
         />
-      </div>
+      </div> */}
       <Footer />
     </HomeLayout>
   );

@@ -1,4 +1,4 @@
-import { useMDXComponents } from "@/components/mdx-components";
+import { useMDXComponents } from "@/components/content/mdx-components";
 import { siteConfig } from "@/config/site";
 import { createMetadata } from "@/lib/metadata";
 import type { Page } from "@/lib/source";
@@ -39,11 +39,11 @@ export default async function Page(props: {
         path,
       }}
     >
-      <DocsTitle className="text-2xl">{page.data.title}</DocsTitle>
+      <DocsTitle className="font-semibold text-xl">{page.data.title}</DocsTitle>
       <DocsDescription className="text-base">
         {page.data.description}
       </DocsDescription>
-      <DocsBody className="prose-h2:text-xl">
+      <DocsBody className="prose-h2:text-lg prose-h3:text-base">
         <MDX components={useMDXComponents({})} />
         {page.data.index ? <DocsCategory page={page} from={source} /> : null}
       </DocsBody>
