@@ -6,28 +6,8 @@ import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 export const linkItems: LinkItemType[] = [
   {
     text: "Docs",
-    type: "menu",
+    icon: <Icons.album />,
     url: "/docs",
-    items: [
-      {
-        text: "Getting Started",
-        description: "Getting started with ui/topia",
-        url: "/docs",
-        icon: <Icons.album />,
-      },
-      {
-        text: "Showcases",
-        description: "Collection of interactive components",
-        url: "/docs/showcases/cd",
-        icon: <Icons.lab />,
-      },
-      {
-        text: "Texts",
-        description: "Collection of text components",
-        url: "/docs/texts/text-loop",
-        icon: <Icons.caseLower />,
-      },
-    ],
   },
   {
     label: "Utopia Blog",
