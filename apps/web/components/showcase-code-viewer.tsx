@@ -72,7 +72,7 @@ export function CodeViewer({ name, children }: CodeViewerProps) {
         <Button
           variant="outline"
           size="sm"
-          className="h-6 rounded-[6px] border bg-transparent px-2 text-foreground text-xs shadow-none hover:bg-muted dark:text-foreground"
+          className="h-6 cursor-pointer rounded-[6px] border bg-transparent px-2 text-foreground text-xs shadow-none hover:bg-muted dark:text-foreground"
         >
           View Code
         </Button>

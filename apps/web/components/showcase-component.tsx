@@ -55,7 +55,7 @@ export function ShowcaseComponent({
   return (
     <div className="relative my-16 flex w-full flex-col items-start gap-12 md:flex-row md:gap-x-40">
       {/* Component Display */}
-      <div className="relative flex h-[550px] w-full items-center justify-center rounded-lg border border-gray-200 md:h-[600px] md:flex-1 dark:border-muted">
+      <div className="relative flex h-[550px] w-full items-center justify-center rounded-lg border border border-grid md:h-[600px] md:flex-1 dark:border-muted">
         <div className="absolute top-4 right-4 z-10">
           <CodeViewer name={name}>
             {error ? (
@@ -76,13 +76,13 @@ export function ShowcaseComponent({
       <div className="flex w-full flex-col gap-4 md:w-[256px] md:gap-9">
         <div className="flex w-full flex-col gap-3">
           <h2 className="font-medium text-sm">{formatComponentName(name)}</h2>
-          <p className="text-muted-foreground text-sm leading-relaxed">
+          <p className="font-normal text-gray-600 text-sm leading-relaxed dark:text-gray-300">
             {component.description}
           </p>
         </div>
         <div className="flex w-full flex-wrap gap-2">
           {component.categories?.map((category) => (
-            <Badge key={category} variant="secondary">
+            <Badge key={category} variant="outline">
               {category}
             </Badge>
           ))}

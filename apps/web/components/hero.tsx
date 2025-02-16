@@ -9,14 +9,14 @@ export function Hero() {
         <h1 className="relative mb-4 font-medium text-4xl text-zinc-950 dark:text-zinc-50">
           Make your UI doesn't look the same anymore
         </h1>
-        <p className="text-muted-foreground">
+        <p className="font-light text-muted-foreground">
           Collection set of beautifully designed motions components. Easy
           copy-paste. Customizable. Open Source.
         </p>
       </div>
       <div className="flex items-start space-x-4 py-6">
         <Link href="/docs">
-          <Button size="sm" className="rounded-lg">
+          <Button size="sm" className="rounded-lg text-xs">
             Explore Now
           </Button>
         </Link>
@@ -25,7 +25,7 @@ export function Hero() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Button size="sm" variant="secondary">
+          <Button size="sm" variant="ghost" className="rounded-lg text-xs">
             GitHub
           </Button>
         </a>

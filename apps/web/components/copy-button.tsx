@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/uitopia/button";
-import { CheckIcon, CopyIcon } from "lucide-react";
+import { Icons } from "@/uitopia/icons";
 import { useState } from "react";
 
 interface CopyButtonProps {
@@ -43,7 +43,7 @@ function CopyButton({
         onClick={() => copy(componentSource)}
         aria-label={copied ? "Copied" : "Copy code"}
       >
-        {copied ? <CheckIcon /> : <CopyIcon />}
+        {copied ? <Icons.check /> : <Icons.copy />}
       </Button>
     </div>
   );

@@ -1,6 +1,5 @@
 import { Redaction, geistMono, geistSans } from "@/lib/fonts";
 import { createMetadata } from "@/lib/metadata";
-import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/react";
 import { RootProvider } from "fumadocs-ui/provider";
 import type { Viewport } from "next";
