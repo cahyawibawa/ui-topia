@@ -14,7 +14,7 @@ interface CopyButtonProps {
 function CopyButton({
   componentSource,
   className,
-  duration = 1500,
+  duration = 2000,
 }: CopyButtonProps) {
   const [copied, setCopied] = useState(false);
 
@@ -33,12 +33,11 @@ function CopyButton({
   return (
     <div className={cn("absolute top-2 right-2.5", className)}>
       <Button
-        variant="ghost"
         size="icon"
         className={cn(
-          "size-6 text-muted-foreground hover:text-foreground",
-          "transition-colors [&_svg]:h-3.5 [&_svg]:w-3.5",
-          copied && "text-green-500 hover:text-green-500",
+          "size-6 text-zinc-50 hover:bg-zinc-700 hover:text-zinc-50 ",
+          "[&_svg]:h-3 [&_svg]:w-3",
+          className,
         )}
         onClick={() => copy(componentSource)}
         aria-label={copied ? "Copied" : "Copy code"}

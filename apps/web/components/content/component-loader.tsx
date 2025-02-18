@@ -79,7 +79,10 @@ function ComponentDisplay({
       )}
     >
       <div className="absolute top-2 right-2 flex items-center gap-2">
-        <OpenInV0Button name={name} className="hidden md:flex" />
+        <OpenInV0Button
+          componentSource={`https://uitopia.xyz/r/${name}.json`}
+          className="hidden md:flex"
+        />
         {hasReTrigger && (
           <Button
             variant="ghost"

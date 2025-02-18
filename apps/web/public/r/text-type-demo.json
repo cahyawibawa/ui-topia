@@ -2,8 +2,11 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "text-type-demo",
   "type": "registry:component",
+  "title": "Text Type",
   "description": "text type",
-  "registryDependencies": ["motion"],
+  "dependencies": [
+    "motion"
+  ],
   "files": [
     {
       "path": "registry/showcases/text-type-demo.tsx",
@@ -11,5 +14,8 @@
       "type": "registry:component"
     }
   ],
-  "categories": ["motion", "react"]
+  "categories": [
+    "motion",
+    "react"
+  ]
 }

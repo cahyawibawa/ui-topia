@@ -6,8 +6,9 @@
     {
       "name": "text-loop-base",
       "type": "registry:component",
+      "title": "Text Loop",
       "description": "text loop base",
-      "registryDependencies": ["motion"],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/ui/text-loop.tsx",
@@ -19,8 +20,9 @@
     {
       "name": "text-loop-demo",
       "type": "registry:component",
+      "title": "Text Loop",
       "description": "Text animation that transitions between multiple items, creating an engaging looping effect",
-      "registryDependencies": ["motion"],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/showcases/text-loop-demo.tsx",
@@ -32,8 +34,9 @@
     {
       "name": "text-type-base",
       "type": "registry:component",
+      "title": "Text Type",
       "description": "text type base",
-      "registryDependencies": ["motion"],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/ui/text-type.tsx",
@@ -45,8 +48,9 @@
     {
       "name": "text-type-demo",
       "type": "registry:component",
+      "title": "Text Type",
       "description": "text type",
-      "registryDependencies": ["motion"],
+      "dependencies": ["motion"],
       "files": [
         {
           "path": "registry/showcases/text-type-demo.tsx",
@@ -58,8 +62,9 @@
     {
       "name": "family-wallets-demo",
       "type": "registry:component",
+      "title": "Family Wallets",
       "description": "An interactive interaction from Family wallets interface featuring smooth layout transitions and animations. Each wallet card can expand to show additional details and controls while collapsing others into a compact view.",
-      "registryDependencies": ["motion", "react"],
+      "dependencies": ["motion", "usehooks-ts"],
       "files": [
         {
           "path": "registry/showcases/family-wallets-demo.tsx",

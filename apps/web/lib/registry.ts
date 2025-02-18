@@ -24,10 +24,3 @@ export function convertRegistryPaths(content: string): string {
     content,
   );
 }
-
-export function formatComponentName(name: string) {
-  return name
-    .split("-")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
-}

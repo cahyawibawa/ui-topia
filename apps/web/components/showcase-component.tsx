@@ -1,11 +1,7 @@
 "use client";
 
 import { CodeBlock } from "@/components/code-block";
-import {
-  convertRegistryPaths,
-  formatComponentName,
-  getComponentsByName,
-} from "@/lib/registry";
+import { convertRegistryPaths, getComponentsByName } from "@/lib/registry";
 import { Badge } from "@/uitopia/badge";
 import { useEffect, useState } from "react";
 import type { RegistryItem } from "shadcn/registry";
@@ -55,9 +51,9 @@ export function ShowcaseComponent({
   return (
     <div className="relative my-16 flex w-full flex-col items-start gap-12 md:flex-row md:gap-x-40">
       {/* Component Display */}
-      <div className="relative flex h-[550px] w-full items-center justify-center rounded-lg border border border-grid md:h-[600px] md:flex-1 dark:border-muted">
+      <div className="relative flex h-[550px] w-full items-center justify-center rounded-lg border border-grid md:h-[600px] md:flex-1 dark:border-muted">
         <div className="absolute top-4 right-4 z-10">
-          <CodeViewer name={name}>
+          <CodeViewer component={component}>
             {error ? (
               <div className="p-4 text-destructive text-sm">{error}</div>
             ) : code ? (
@@ -75,7 +71,7 @@ export function ShowcaseComponent({
       {/* Component Preview */}
       <div className="flex w-full flex-col gap-4 md:w-[256px] md:gap-9">
         <div className="flex w-full flex-col gap-3">
-          <h2 className="font-medium text-sm">{formatComponentName(name)}</h2>
+          <h2 className="font-medium text-sm">{component.title}</h2>
           <p className="font-normal text-gray-600 text-sm leading-relaxed dark:text-gray-300">
             {component.description}
           </p>

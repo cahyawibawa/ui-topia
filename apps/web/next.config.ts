@@ -10,10 +10,6 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     registry: ["./registry/**/*"],
   },
-  serverExternalPackages: ["ts-morph", "typescript", "@shikijs/twoslash"],
-  // typescript: {
-  //   ignoreBuildErrors: true,
-  // },
 };
 
 const withMDX = createMDX();

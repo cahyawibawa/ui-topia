@@ -12,23 +12,26 @@ import {
 import { Button } from "@/uitopia/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/uitopia/sheet";
 import type React from "react";
+import type { RegistryItem } from "shadcn/registry";
 
-interface ContentProps {
+interface CodeViewerProps {
   children: React.ReactNode;
-  name: string;
+  component: RegistryItem;
 }
 
-function Content({ children, name }: ContentProps) {
+function Content({ children, component }: CodeViewerProps) {
   return (
     <div className="min-w-0 space-y-6">
       <div>
         <h2 className="mb-4 font-medium text-base">Installation</h2>
-        <ComponentCli name={name} />
+        <ComponentCli name={component.name} />
       </div>
       <div>
         <div className="mb-4 flex items-center justify-between">
           <h2 className="font-medium text-base">Code</h2>
-          <OpenInV0Button name={name} />
+          <OpenInV0Button
+            componentSource={`https://uitopia.xyz/r/${component.name}.json`}
+          />
         </div>
         {children}
       </div>
@@ -36,12 +39,7 @@ function Content({ children, name }: ContentProps) {
   );
 }
 
-interface CodeViewerProps {
-  name: string;
-  children: React.ReactNode;
-}
-
-export function CodeViewer({ name, children }: CodeViewerProps) {
+export function CodeViewer({ component, children }: CodeViewerProps) {
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
   if (!isDesktop) {
@@ -59,7 +57,7 @@ export function CodeViewer({ name, children }: CodeViewerProps) {
         <DrawerContent className="flex max-h-[80vh] flex-col sm:max-h-[90vh]">
           <DrawerTitle className="sr-only">Code</DrawerTitle>
           <div className="px-4 py-4">
-            <Content name={name}>{children}</Content>
+            <Content component={component}>{children}</Content>
           </div>
         </DrawerContent>
       </Drawer>
@@ -82,7 +80,7 @@ export function CodeViewer({ name, children }: CodeViewerProps) {
         className="mb-2 sm:max-w-sm md:w-[600px] md:max-w-[600px]"
       >
         <SheetTitle className="sr-only">Code</SheetTitle>
-        <Content name={name}>{children}</Content>
+        <Content component={component}>{children}</Content>
       </SheetContent>
     </Sheet>
   );
