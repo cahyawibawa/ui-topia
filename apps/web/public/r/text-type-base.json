@@ -4,9 +4,7 @@
   "type": "registry:component",
   "title": "Text Type",
   "description": "text type base",
-  "dependencies": [
-    "motion"
-  ],
+  "dependencies": ["motion"],
   "files": [
     {
       "path": "registry/ui/text-type.tsx",
@@ -14,8 +12,5 @@
       "type": "registry:component"
     }
   ],
-  "categories": [
-    "motion",
-    "react"
-  ]
+  "categories": ["motion", "react"]
 }

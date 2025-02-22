@@ -4,9 +4,7 @@
   "type": "registry:component",
   "title": "Text Loop",
   "description": "Text animation that transitions between multiple items, creating an engaging looping effect",
-  "dependencies": [
-    "motion"
-  ],
+  "dependencies": ["motion"],
   "files": [
     {
       "path": "registry/showcases/text-loop-demo.tsx",
@@ -14,8 +12,5 @@
       "type": "registry:component"
     }
   ],
-  "categories": [
-    "motion",
-    "react"
-  ]
+  "categories": ["motion", "react"]
 }
