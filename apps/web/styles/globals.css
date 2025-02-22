@@ -16,6 +16,7 @@
   --font-redaction: var(--font-redaction);
 
   --color-background: var(--background);
+  --color-background-subtle: var(--background-subtle);
   --color-foreground: var(--foreground);
 
   --color-card: var(--card);
@@ -31,7 +32,7 @@
   --color-secondary-foreground: var(--secondary-foreground);
 
   --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foregro);
+  --color-muted-foreground: var(--muted-foreground);
 
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
@@ -43,9 +44,14 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
+  --color-fd-card: var(--fd-card);
+
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
+
+  --indigo-100: 226.5 100% 93.9%;
+  --indigo-700: 244.5 57.9% 50.6%;
 
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
@@ -71,7 +77,7 @@
 
 :root {
   --background: hsl(0 0% 96%);
-  --foreground: hsl(240 10% 3.9%);
+  --foreground: hsl(0 0% 3.9%);
   --card: hsl(0 0% 100%);
   --card-foreground: hsl(240 10% 3.9%);
   --popover: hsl(0 0% 100%);
@@ -80,10 +86,10 @@
   --primary-foreground: hsl(0 0% 98%);
   --secondary: hsl(240 4.8% 95.9%);
   --secondary-foreground: hsl(240 5.9% 10%);
-  --muted: hsl(240 4.8% 95.9%);
-  --muted-foreground: hsl(240 3.8% 46.1%);
-  --accent: hsl(240 4.8% 95.9%);
-  --accent-foreground: hsl(240 5.9% 10%);
+  --muted: hsl(0 0% 96.1%);
+  --muted-foreground: hsl(0 0% 45.1%);
+  --accent: hsl(0 0% 90.1%);
+  --accent-foreground: hsl(0 0% 9%);
   --destructive: hsl(0 84.2% 60.2%);
   --destructive-foreground: hsl(0 0% 98%);
   --border: hsl(240 5.9% 90%);
@@ -103,10 +109,14 @@
   --sidebar-accent-foreground: hsl(240 5.9% 10%);
   --sidebar-border: hsl(220 13% 91%);
   --sidebar-ring: hsl(217.2 91.2% 59.8%);
+  --fd-layout-width: 1400px;
+  --fd-nav-height: 57px !important;
+  --fd-card: hsl(0 0% 96%);
 }
 
 .dark {
   --background: hsl(0 0% 7.04%);
+  --background-subtle: hsl(240 3% 8%);
   --foreground: hsl(0 0% 98%);
   --card: hsl(240 10% 3.9%);
   --card-foreground: hsl(0 0% 98%);
@@ -138,6 +148,7 @@
   --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
   --sidebar-border: hsl(240 3.7% 15.9%);
   --sidebar-ring: hsl(217.2 91.2% 59.8%);
+  --fd-card: hsl(0 0% 7.04%);
 }
 
 @layer base {
@@ -150,6 +161,10 @@
   ::backdrop,
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
+  }
+  ::selection {
+    background-color: hsl(var(--indigo-100)) !important;
+    color: hsl(var(--indigo-700)) !important;
   }
   ::-webkit-scrollbar {
     width: 5px;

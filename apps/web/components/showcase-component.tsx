@@ -72,7 +72,7 @@ export function ShowcaseComponent({
       <div className="flex w-full flex-col gap-4 md:w-[256px] md:gap-9">
         <div className="flex w-full flex-col gap-3">
           <h2 className="font-medium text-sm">{component.title}</h2>
-          <p className="font-normal text-gray-600 text-sm leading-relaxed dark:text-gray-300">
+          <p className="font-normal text-muted-foreground text-sm leading-relaxed">
             {component.description}
           </p>
         </div>

@@ -35,14 +35,18 @@ function CopyButton({
       <Button
         size="icon"
         className={cn(
-          "size-6 text-zinc-50 hover:bg-zinc-700 hover:text-zinc-50 ",
-          "[&_svg]:h-3 [&_svg]:w-3",
+          "size-7 bg-transparent text-zinc-50 hover:bg-zinc-800 hover:text-zinc-50 ",
+          "[&_svg]:h-3.5 [&_svg]:w-3.5",
           className,
         )}
         onClick={() => copy(componentSource)}
         aria-label={copied ? "Copied" : "Copy code"}
       >
-        {copied ? <Icons.check /> : <Icons.copy />}
+        {copied ? (
+          <Icons.check className="size-3.5" />
+        ) : (
+          <Icons.copy className="size-3.5" />
+        )}
       </Button>
     </div>
   );
