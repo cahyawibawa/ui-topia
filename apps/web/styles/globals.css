@@ -199,4 +199,12 @@
   .border-grid {
     @apply border-border dark:border-border border-dashed;
   }
+  .span-highlight {
+    background-image: url(/images/brush-line.png);
+    background-position: 60% 100%;
+    background-repeat: repeat-x;
+    background-size: contain;
+    background-attachment: scroll;
+    user-select: none;
+  }
 }
