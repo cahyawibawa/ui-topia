@@ -70,13 +70,13 @@ export function ShowcaseComponent({
 
       {/* Component Preview */}
       <div className="flex w-full flex-col gap-4 md:w-[256px] md:gap-9">
-        <div className="flex w-full flex-col gap-3">
+        <div className="flex w-full flex-col gap-3 text-left md:text-center">
           <h2 className="font-medium text-sm">{component.title}</h2>
           <p className="font-normal text-muted-foreground text-sm leading-relaxed">
             {component.description}
           </p>
         </div>
-        <div className="flex w-full flex-wrap gap-2">
+        <div className="flex w-full flex-row items-center justify-center gap-2">
           {component.categories?.map((category) => (
             <Badge key={category} variant="outline">
               {category}
