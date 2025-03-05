@@ -1,11 +1,11 @@
 import { OpenInV0Button } from "@/components/v0-button";
 import { cn } from "@/lib/utils";
+import { Icons } from "@/registry/components/icons";
 import type {
   ComponentDisplayProps,
   ComponentLoaderProps,
 } from "@/types/component";
 import { Button } from "@/uitopia/button";
-import { Icons } from "@/uitopia/icons";
 import React, { useEffect, useState } from "react";
 
 export function ComponentLoader({
@@ -19,7 +19,7 @@ export function ComponentLoader({
   useEffect(() => {
     async function loadComponent() {
       try {
-        const importedComponent = await import(`@/registry/showcases/${name}`);
+        const importedComponent = await import(`@/registry/components/${name}`);
         setComponent(() => importedComponent.default);
       } catch (error) {
         console.error(`Failed to load component: ${name}`, error);
@@ -91,7 +91,7 @@ function ComponentDisplay({
             onClick={reTrigger}
             aria-label="Refresh component"
           >
-            <Icons.refreshComponent className="h-4 w-4" />
+            <Icons.refresh className="h-4 w-4" />
           </Button>
         )}
       </div>

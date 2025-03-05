@@ -1,8 +1,8 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { Icons } from "@/registry/components/icons";
 import { Button } from "@/uitopia/button";
-import { Icons } from "@/uitopia/icons";
 import { useState } from "react";
 
 interface CopyButtonProps {

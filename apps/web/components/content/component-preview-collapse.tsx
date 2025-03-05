@@ -4,13 +4,13 @@ import { CodeBlock } from "@/components/code-block";
 import { ComponentLoader } from "@/components/content/component-loader";
 import { convertRegistryPaths, getComponentsByName } from "@/lib/registry";
 import { cn } from "@/lib/utils";
+import { Icons } from "@/registry/components/icons";
 import type { ComponentPreviewProps } from "@/types/component";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/uitopia/collapsible";
-import { Icons } from "@/uitopia/icons";
 import { useEffect, useState } from "react";
 import type { RegistryItem } from "shadcn/registry";
 

@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "text-type-base",
+  "name": "text-type",
   "type": "registry:component",
   "title": "Text Type",
   "description": "text type base",

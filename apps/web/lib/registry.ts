@@ -6,6 +6,7 @@ const components = registry.items as RegistryItem[];
 const PATH_MAPPINGS = {
   "@/uitopia/": "@/components/ui/",
   "@/registry/ui": "@/components/ui",
+  "@/registry/components": "@/components/ui",
   "@/registry/hooks": "@/hooks",
   "@/registry/lib": "@/lib",
 } as const;

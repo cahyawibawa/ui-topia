@@ -1,6 +1,6 @@
 "use client";
 
-import { Icons } from "@/uitopia/icons";
+import { Icons } from "@/registry/components/icons";
 import { AnimatePresence, MotionConfig, motion } from "motion/react";
 import {
   type FC,

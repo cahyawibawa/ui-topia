@@ -13,9 +13,6 @@ export * from "./components/sheet";
 export * from "./components/tabs";
 export * from "./components/tooltip";
 
-// icons
-export * from "./components/icons";
-
 // misc
 export * from "./components/page-header";
 export * from "./components/references";

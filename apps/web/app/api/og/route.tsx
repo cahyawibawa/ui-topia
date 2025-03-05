@@ -1,6 +1,6 @@
 import { readFileSync } from "fs";
 import { join } from "path";
-import { Icons } from "@/uitopia/icons";
+import { Icons } from "@/registry/components/icons";
 import { ImageResponse } from "next/og";
 import type { NextRequest } from "next/server";
 
