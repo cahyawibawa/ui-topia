@@ -4,7 +4,37 @@
   "homepage": "https://acme.com",
   "items": [
     {
-      "name": "text-loop-base",
+      "name": "family-wallets-demo",
+      "type": "registry:component",
+      "title": "Family Wallets",
+      "description": "An interactive interaction from Family wallets interface featuring smooth layout transitions and animations. Each wallet card can expand to show additional details and controls while collapsing others into a compact view.",
+      "dependencies": ["motion", "usehooks-ts"],
+      "registryDependencies": ["https://uitopia.xyz/r/icons.json"],
+      "files": [
+        {
+          "path": "registry/components/family-wallets-demo.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/components/icons.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["motion", "react"]
+    },
+    {
+      "name": "icons",
+      "type": "registry:component",
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/components/icons.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "text-loop",
       "type": "registry:component",
       "title": "Text Loop",
       "description": "text loop base",
@@ -23,16 +53,21 @@
       "title": "Text Loop",
       "description": "Text animation that transitions between multiple items, creating an engaging looping effect",
       "dependencies": ["motion"],
+      "registryDependencies": ["https://uitopia.xyz/r/text-loop.json"],
       "files": [
         {
-          "path": "registry/showcases/text-loop-demo.tsx",
+          "path": "registry/components/text-loop-demo.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/ui/text-loop.tsx",
           "type": "registry:component"
         }
       ],
       "categories": ["motion", "react"]
     },
     {
-      "name": "text-type-base",
+      "name": "text-type",
       "type": "registry:component",
       "title": "Text Type",
       "description": "text type base",
@@ -48,26 +83,17 @@
     {
       "name": "text-type-demo",
       "type": "registry:component",
-      "title": "Text Type",
+      "title": "Typewriter",
       "description": "text type",
       "dependencies": ["motion"],
+      "registryDependencies": ["https://uitopia.xyz/r/text-type.json"],
       "files": [
         {
-          "path": "registry/showcases/text-type-demo.tsx",
+          "path": "registry/components/text-type-demo.tsx",
           "type": "registry:component"
-        }
-      ],
-      "categories": ["motion", "react"]
-    },
-    {
-      "name": "family-wallets-demo",
-      "type": "registry:component",
-      "title": "Family Wallets",
-      "description": "An interactive interaction from Family wallets interface featuring smooth layout transitions and animations. Each wallet card can expand to show additional details and controls while collapsing others into a compact view.",
-      "dependencies": ["motion", "usehooks-ts"],
-      "files": [
+        },
         {
-          "path": "registry/showcases/family-wallets-demo.tsx",
+          "path": "registry/ui/text-type.tsx",
           "type": "registry:component"
         }
       ],
