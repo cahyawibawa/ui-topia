@@ -43,7 +43,7 @@ export default async function Page(props: {
       <DocsDescription className="text-base">
         {page.data.description}
       </DocsDescription>
-      <DocsBody className="prose-h2:text-lg prose-h3:text-base">
+      <DocsBody className="prose-h2:text-lg prose-h3:text-base opacity-[0.9]">
         <MDX components={useMDXComponents({})} />
         {page.data.index ? <DocsCategory page={page} from={source} /> : null}
       </DocsBody>

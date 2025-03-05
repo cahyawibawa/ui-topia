@@ -1,12 +1,18 @@
 import { baseOptions, linkItems } from "@/app/layout.config";
 import { source } from "@/lib/source";
+import { GithubInfo } from "fumadocs-ui/components/github-info";
 import { DocsLayout, type DocsLayoutProps } from "fumadocs-ui/layouts/docs";
 import type { ReactNode } from "react";
 
 const docsOptions: DocsLayoutProps = {
   ...baseOptions,
   tree: source.pageTree,
-  links: linkItems,
+  links: [
+    {
+      type: "custom",
+      children: <GithubInfo owner="cahyawibawa" repo="ui-topia" />,
+    },
+  ],
 };
 
 export default function Layout({ children }: { children: ReactNode }) {
