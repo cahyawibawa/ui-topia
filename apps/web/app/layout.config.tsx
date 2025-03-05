@@ -1,5 +1,5 @@
 import { siteConfig } from "@/config/site";
-import { Icons } from "@/uitopia/icons";
+import { Icons } from "@/registry/components/icons";
 import type { LinkItemType } from "fumadocs-ui/layouts/docs";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 
@@ -8,13 +8,6 @@ export const linkItems: LinkItemType[] = [
     text: "Docs",
     icon: <Icons.album />,
     url: "/docs",
-  },
-  {
-    label: "Utopia Blog",
-    text: "Blog",
-    url: "/blog",
-    active: "nested-url",
-    icon: <Icons.news />,
   },
   {
     type: "icon",

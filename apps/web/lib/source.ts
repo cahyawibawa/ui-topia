@@ -1,5 +1,5 @@
-import { blog as blogPosts, docs, meta } from "@/.source";
-import { create } from "@/uitopia/icons";
+import { docs, meta } from "@/.source";
+import { create } from "@/registry/components/icons";
 import type { InferMetaType, InferPageType } from "fumadocs-core/source";
 import { loader } from "fumadocs-core/source";
 import { createMDXSource } from "fumadocs-mdx";
@@ -12,11 +12,6 @@ export const source = loader({
     if (icon && icon in icons)
       return create({ icon: icons[icon as keyof typeof icons] });
   },
-});
-
-export const blog = loader({
-  baseUrl: "/blog",
-  source: createMDXSource(blogPosts, []),
 });
 
 export type Page = InferPageType<typeof source>;
