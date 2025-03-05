@@ -16,6 +16,10 @@
           "type": "registry:component"
         },
         {
+          "path": "registry/ui/input.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "registry/hooks/use-debounce.ts",
           "type": "registry:hook"
         }
@@ -49,6 +53,16 @@
         {
           "path": "registry/components/icons.tsx",
           "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/ui/input.tsx",
+          "type": "registry:ui"
         }
       ]
     },

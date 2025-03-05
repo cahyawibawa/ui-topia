@@ -1,7 +1,7 @@
 "use client";
 
 import useDebounce from "@/registry/hooks/use-debounce";
-import { Input } from "@/uitopia/input";
+import { Input } from "@/registry/ui/input";
 import {
   AudioLines,
   BarChart2,
