@@ -21,7 +21,7 @@ function Footer(): React.ReactElement {
   const currentYear = new Date().getFullYear();
   return (
     <footer className="container mt-auto">
-      <div className="mb-8 text-center text-sm text-zinc-500 dark:text-zinc-400">
+      <div className="mb-8 text-center text-muted-foreground text-sm">
         more coming soon...
       </div>
       <div

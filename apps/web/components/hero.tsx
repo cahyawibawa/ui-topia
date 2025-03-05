@@ -21,7 +21,7 @@ export function Hero() {
           href="/docs"
           className={cn(
             buttonVariants({ variant: "default", size: "sm" }),
-            "rounded-lg text-xs",
+            "inset-shadow-2xs inset-shadow-white/25 border border-zinc-950/35 bg-linear-to-b from-primary/85 to-primary text-primary-foreground shadow-md shadow-zinc-950/20 ring-0 transition-[filter] duration-200 hover:brightness-110 active:brightness-95 dark:border-0 dark:border-zinc-950/50 dark:bg-linear-to-t dark:from-primary/75",
           )}
         >
           Explore Now
