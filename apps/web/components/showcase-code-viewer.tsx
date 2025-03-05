@@ -3,6 +3,8 @@
 import ComponentCli from "@/components/cli-commands";
 import { OpenInV0Button } from "@/components/v0-button";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import { cn } from "@/lib/utils";
+import { Icons } from "@/registry/components/icons";
 import {
   Drawer,
   DrawerContent,
@@ -12,6 +14,7 @@ import {
 import { Button } from "@/uitopia/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/uitopia/sheet";
 import type React from "react";
+import { Suspense } from "react";
 import type { RegistryItem } from "shadcn/registry";
 
 interface CodeViewerProps {
@@ -70,7 +73,15 @@ export function CodeViewer({ component, children }: CodeViewerProps) {
         <Button
           variant="outline"
           size="sm"
-          className="h-6 cursor-pointer rounded-[6px] border bg-transparent px-2 text-foreground text-xs shadow-none hover:bg-muted dark:text-foreground"
+          className={cn(
+            "h-6 rounded-[6px] px-2 text-xs",
+            "text-foreground hover:bg-primary-foreground",
+            "transform-gpu",
+            "will-change-transform",
+            "select-none",
+            "dark:text-foreground",
+            "cursor-pointer",
+          )}
         >
           View Code
         </Button>
@@ -80,7 +91,16 @@ export function CodeViewer({ component, children }: CodeViewerProps) {
         className="mb-2 sm:max-w-sm md:w-[600px] md:max-w-[600px]"
       >
         <SheetTitle className="sr-only">Code</SheetTitle>
-        <Content component={component}>{children}</Content>
+        <Suspense
+          fallback={
+            <div className="flex items-center justify-center text-muted-foreground text-sm">
+              <Icons.loader className="mr-2 h-4 w-4 animate-spin" />
+              Loading...
+            </div>
+          }
+        >
+          <Content component={component}>{children}</Content>
+        </Suspense>
       </SheetContent>
     </Sheet>
   );
