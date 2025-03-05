@@ -4,6 +4,25 @@
   "homepage": "https://acme.com",
   "items": [
     {
+      "name": "action-search-input-demo",
+      "type": "registry:component",
+      "title": "Action Search Input",
+      "description": "Search input that show command menu when focused.",
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": ["input"],
+      "files": [
+        {
+          "path": "registry/components/action-search-input.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/hooks/use-debounce.ts",
+          "type": "registry:hook"
+        }
+      ],
+      "categories": ["motion", "react"]
+    },
+    {
       "name": "family-wallets-demo",
       "type": "registry:component",
       "title": "Family Wallets",

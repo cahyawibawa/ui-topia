@@ -2,18 +2,23 @@
 
 import { CodeBlock } from "@/components/code-block";
 import { convertRegistryPaths, getComponentsByName } from "@/lib/registry";
+import { cn } from "@/lib/utils";
 import { Badge } from "@/uitopia/badge";
 import { useEffect, useState } from "react";
 import type { RegistryItem } from "shadcn/registry";
 import { CodeViewer } from "./showcase-code-viewer";
 
+interface ShowcaseComponentProps {
+  name: string;
+  demo: React.ComponentType;
+  height?: string;
+}
+
 export function ShowcaseComponent({
   name,
   demo: Demo,
-}: {
-  name: string;
-  demo: React.ComponentType;
-}) {
+  height = "h-[600px]",
+}: ShowcaseComponentProps) {
   const [code, setCode] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [component, setComponent] = useState<RegistryItem | null>(null);
@@ -51,7 +56,12 @@ export function ShowcaseComponent({
   return (
     <div className="relative my-16 flex w-full flex-col items-start gap-12 md:flex-row md:gap-x-40">
       {/* Component Display */}
-      <div className="relative flex h-[550px] w-full items-center justify-center rounded-lg border border-grid md:h-[600px] md:flex-1 dark:border-muted">
+      <div
+        className={cn(
+          "relative flex w-full items-center justify-center rounded-lg border border-grid md:flex-1 dark:border-muted",
+          height,
+        )}
+      >
         <div className="absolute top-4 right-4 z-10">
           <CodeViewer component={component}>
             {error ? (
