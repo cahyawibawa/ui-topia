@@ -3,7 +3,6 @@ import { ShowcaseComponent } from "@/components/showcase-component";
 import ActionSearchInput from "@/registry/components/action-search-input";
 import FamilyWallets from "@/registry/components/family-wallets-demo";
 import TextLoopDemo from "@/registry/components/text-loop-demo";
-import { Shell } from "@/uitopia/shell";
 
 export default function Home() {
   return (
@@ -16,9 +15,6 @@ export default function Home() {
         />
         <ShowcaseComponent name="family-wallets-demo" demo={FamilyWallets} />
         <ShowcaseComponent name="text-loop-demo" demo={TextLoopDemo} />
-        {/* <div className="mb-8 text-center text-muted-foreground text-sm">
-          more coming soon...
-        </div> */}
       </div>
     </div>
   );
