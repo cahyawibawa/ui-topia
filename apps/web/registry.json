@@ -27,6 +27,102 @@
       "categories": ["motion", "react"]
     },
     {
+      "name": "button-demo",
+      "type": "registry:component",
+      "title": "Button Demo",
+      "description": "custom shadcn/ui button.",
+      "registryDependencies": [
+        "https://uitopia.xyz/r/button.json",
+        "https://uitopia.xyz/r/stack.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/button-demo.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/ui/button.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ui/stack.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button-primary",
+      "type": "registry:component",
+      "title": "Button Primary",
+      "description": "custom shadcn/ui button.",
+      "registryDependencies": [
+        "https://uitopia.xyz/r/button.json",
+        "https://uitopia.xyz/r/stack.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/button-primary.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/ui/button.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ui/stack.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button-outline",
+      "type": "registry:component",
+      "title": "Button Outline",
+      "description": "custom shadcn/ui button.",
+      "registryDependencies": [
+        "https://uitopia.xyz/r/button.json",
+        "https://uitopia.xyz/r/stack.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/button-outline.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/ui/button.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ui/stack.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button-destructive",
+      "type": "registry:component",
+      "title": "Button Destructive",
+      "description": "custom shadcn/ui button.",
+      "registryDependencies": [
+        "https://uitopia.xyz/r/button.json",
+        "https://uitopia.xyz/r/stack.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/button-destructive.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/ui/button.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ui/stack.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "family-wallets-demo",
       "type": "registry:component",
       "title": "Family Wallets",
@@ -62,6 +158,26 @@
       "files": [
         {
           "path": "registry/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "stack",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/ui/stack.tsx",
           "type": "registry:ui"
         }
       ]

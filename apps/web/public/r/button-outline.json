@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-outline",
+  "type": "registry:component",
+  "title": "Button Outline",
+  "description": "custom shadcn/ui button.",
+  "registryDependencies": [
+    "https://uitopia.xyz/r/button.json",
+    "https://uitopia.xyz/r/stack.json"
+  ],
+  "files": [
+    {
+      "path": "registry/components/button-outline.tsx",
+      "content": "\"use client\";\r\n\r\nimport { Stack } from \"@/registry/ui/stack\";\r\nimport { Button } from \"@/registry/ui/button\";\r\n\r\nexport default function ButtonOutline() {\r\n  return (\r\n    <Stack\r\n      align=\"start\"\r\n      direction={{ sm: \"column\", md: \"row\" }}\r\n      gap={4}\r\n      justify=\"space-between\"\r\n    >\r\n      <Button\r\n        variant=\"outline\"\r\n        className=\"relative inset-shadow-2xs inset-shadow-white flex border border-zinc-300 bg-muted shadow-sm shadow-zinc-950/10 ring-0 duration-150 hover:bg-background dark:inset-shadow-transparent dark:border-border dark:bg-muted/25 dark:hover:bg-muted/50\"\r\n      >\r\n        Outline\r\n      </Button>\r\n\r\n      <Button\r\n        variant=\"outline\"\r\n        className=\"border border-zinc-300 bg-linear-to-t from-muted to-background shadow-xs shadow-zinc-950/10 ring-0 duration-200 hover:to-muted/50 dark:border-border dark:from-muted/50\"\r\n      >\r\n        Outline\r\n      </Button>\r\n\r\n      <Button\r\n        variant=\"outline\"\r\n        className=\"relative border-input/50 border-b-2 bg-background shadow-sm shadow-zinc-950/15 ring-1 ring-zinc-300 hover:bg-muted/50 dark:border-input dark:ring-input\"\r\n      >\r\n        Outline\r\n      </Button>\r\n    </Stack>\r\n  );\r\n}\r\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/ui/button.tsx",
+      "content": "import { Slot } from \"@radix-ui/react-slot\";\r\nimport { type VariantProps, cva } from \"class-variance-authority\";\r\nimport * as React from \"react\";\r\n\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nconst buttonVariants = cva(\r\n  \"inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0\",\r\n  {\r\n    variants: {\r\n      variant: {\r\n        default:\r\n          \"bg-primary text-primary-foreground shadow hover:bg-primary/90 ring-1 ring-inset ring-white/20 ring-offset-primary/90\",\r\n        destructive:\r\n          \"bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90\",\r\n        outline:\r\n          \"border border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground\",\r\n        secondary:\r\n          \"bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80\",\r\n        ghost: \"hover:bg-accent hover:text-accent-foreground\",\r\n        link: \"text-primary underline-offset-4 hover:underline\",\r\n      },\r\n      size: {\r\n        default: \"h-9 px-4 py-2\",\r\n        sm: \"h-8 rounded-md px-3 text-xs\",\r\n        lg: \"h-10 rounded-md px-8\",\r\n        icon: \"h-9 w-9\",\r\n      },\r\n    },\r\n    defaultVariants: {\r\n      variant: \"default\",\r\n      size: \"default\",\r\n    },\r\n  },\r\n);\r\n\r\nexport interface ButtonProps\r\n  extends React.ButtonHTMLAttributes<HTMLButtonElement>,\r\n    VariantProps<typeof buttonVariants> {\r\n  asChild?: boolean;\r\n}\r\n\r\nconst Button = React.forwardRef<HTMLButtonElement, ButtonProps>(\r\n  ({ className, variant, size, asChild = false, ...props }, ref) => {\r\n    const Comp = asChild ? Slot : \"button\";\r\n    return (\r\n      <Comp\r\n        className={cn(buttonVariants({ variant, size, className }))}\r\n        ref={ref}\r\n        {...props}\r\n      />\r\n    );\r\n  },\r\n);\r\nButton.displayName = \"Button\";\r\n\r\nexport { Button, buttonVariants };\r\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/ui/stack.tsx",
+      "content": "\"use client\";\r\n\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ntype Direction = \"row\" | \"column\";\r\ntype ResponsiveDirection = {\r\n  sm?: Direction;\r\n  md?: Direction;\r\n};\r\n\r\ntype StackProps = React.PropsWithChildren<{\r\n  direction?: ResponsiveDirection;\r\n  gap?: number;\r\n  align?: \"start\" | \"center\" | \"end\";\r\n  justify?: \"start\" | \"center\" | \"end\" | \"space-between\" | \"space-around\";\r\n  className?: string;\r\n}>;\r\n\r\nexport function Stack({\r\n  direction = { sm: \"column\", md: \"row\" },\r\n  gap = 4,\r\n  align = \"start\",\r\n  justify = \"start\",\r\n  children,\r\n  className,\r\n}: StackProps) {\r\n  // Map justify value to appropriate Tailwind class\r\n  const justifyClass = justify.includes(\"space-\")\r\n    ? `justify-${justify.replace(\"space-\", \"\")}`\r\n    : `justify-${justify}`;\r\n\r\n  return (\r\n    <div\r\n      className={cn(\r\n        \"flex\",\r\n        direction.sm === \"row\" ? \"flex-row\" : \"flex-col\",\r\n        direction.md === \"row\" ? \"md:flex-row\" : \"md:flex-col\",\r\n        \"gap-2 md:gap-5 lg:gap-10 xl:gap-[60px]\",\r\n        `items-${align}`,\r\n        justifyClass,\r\n        className,\r\n      )}\r\n    >\r\n      {children}\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:ui"
+    }
+  ]
+}

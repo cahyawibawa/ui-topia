@@ -86,7 +86,7 @@ export function ShowcaseComponent({
             {component.description}
           </p>
         </div>
-        <div className="flex w-full flex-row items-center justify-center gap-2">
+        <div className="flex w-full flex-row gap-2 sm:justify-start md:items-center md:justify-center">
           {component.categories?.map((category) => (
             <Badge key={category} variant="outline">
               {category}

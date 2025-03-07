@@ -155,14 +155,8 @@ function ActionSearchInput({ actions = allActions }: { actions?: Action[] }) {
 
   return (
     <div className="mx-auto w-full max-w-xl">
-      <div className="relative flex min-h-[300px] flex-col items-center justify-start">
-        <div className="sticky top-0 z-10 w-full max-w-sm bg-background pt-4 pb-1">
-          <label
-            className="mb-1 block text-gray-500 text-xs dark:text-gray-400"
-            htmlFor="search"
-          >
-            Search commands
-          </label>
+      <div className="relative mx-5 flex min-h-[280px] flex-col items-center justify-start">
+        <div className="sticky top-0 z-10 w-full max-w-sm bg-background pb-1">
           <div className="relative">
             <Input
               type="text"
