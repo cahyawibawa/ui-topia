@@ -10,9 +10,6 @@
     "react",
     "usehooks-ts"
   ],
-  "registryDependencies": [
-    "https://uitopia.xyz/r/icons.json"
-  ],
   "files": [
     {
       "type": "registry:component",

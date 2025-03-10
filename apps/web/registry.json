@@ -8,192 +8,61 @@
       "type": "registry:component",
       "title": "Action Search Input",
       "description": "Search input that show command menu when focused.",
-      "dependencies": ["motion", "lucide-react"],
-      "registryDependencies": ["input"],
-      "files": [
-        {
-          "path": "registry/components/action-search-input.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "registry/ui/input.tsx",
-          "type": "registry:ui"
-        },
-        {
-          "path": "registry/hooks/use-debounce.ts",
-          "type": "registry:hook"
-        }
-      ],
       "categories": ["motion", "react"]
     },
     {
       "name": "button-demo",
       "type": "registry:component",
       "title": "Button Demo",
-      "description": "custom shadcn/ui button.",
-      "registryDependencies": [
-        "https://uitopia.xyz/r/button.json",
-        "https://uitopia.xyz/r/stack.json"
-      ],
-      "files": [
-        {
-          "path": "registry/components/button-demo.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "registry/ui/button.tsx",
-          "type": "registry:ui"
-        },
-        {
-          "path": "registry/ui/stack.tsx",
-          "type": "registry:ui"
-        }
-      ]
+      "description": "custom shadcn/ui button."
     },
     {
       "name": "button-primary",
       "type": "registry:component",
       "title": "Button Primary",
-      "description": "custom shadcn/ui button.",
-      "registryDependencies": [
-        "https://uitopia.xyz/r/button.json",
-        "https://uitopia.xyz/r/stack.json"
-      ],
-      "files": [
-        {
-          "path": "registry/components/button-primary.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "registry/ui/button.tsx",
-          "type": "registry:ui"
-        },
-        {
-          "path": "registry/ui/stack.tsx",
-          "type": "registry:ui"
-        }
-      ]
+      "description": "custom shadcn/ui button."
     },
     {
       "name": "button-outline",
       "type": "registry:component",
       "title": "Button Outline",
-      "description": "custom shadcn/ui button.",
-      "registryDependencies": [
-        "https://uitopia.xyz/r/button.json",
-        "https://uitopia.xyz/r/stack.json"
-      ],
-      "files": [
-        {
-          "path": "registry/components/button-outline.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "registry/ui/button.tsx",
-          "type": "registry:ui"
-        },
-        {
-          "path": "registry/ui/stack.tsx",
-          "type": "registry:ui"
-        }
-      ]
+      "description": "custom shadcn/ui button."
     },
     {
       "name": "button-destructive",
       "type": "registry:component",
       "title": "Button Destructive",
-      "description": "custom shadcn/ui button.",
-      "registryDependencies": [
-        "https://uitopia.xyz/r/button.json",
-        "https://uitopia.xyz/r/stack.json"
-      ],
-      "files": [
-        {
-          "path": "registry/components/button-destructive.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "registry/ui/button.tsx",
-          "type": "registry:ui"
-        },
-        {
-          "path": "registry/ui/stack.tsx",
-          "type": "registry:ui"
-        }
-      ]
+      "description": "custom shadcn/ui button."
     },
     {
       "name": "family-wallets-demo",
       "type": "registry:component",
       "title": "Family Wallets",
       "description": "An interactive interaction from Family wallets interface featuring smooth layout transitions and animations. Each wallet card can expand to show additional details and controls while collapsing others into a compact view.",
-      "dependencies": ["motion", "usehooks-ts"],
-      "registryDependencies": ["https://uitopia.xyz/r/icons.json"],
-      "files": [
-        {
-          "path": "registry/components/family-wallets-demo.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "registry/components/icons.tsx",
-          "type": "registry:component"
-        }
-      ],
       "categories": ["motion", "react"]
     },
     {
       "name": "icons",
       "type": "registry:component",
-      "dependencies": ["lucide-react"],
-      "files": [
-        {
-          "path": "registry/components/icons.tsx",
-          "type": "registry:component"
-        }
-      ]
+      "dependencies": ["lucide-react"]
     },
     {
       "name": "input",
-      "type": "registry:ui",
-      "files": [
-        {
-          "path": "registry/ui/input.tsx",
-          "type": "registry:ui"
-        }
-      ]
+      "type": "registry:ui"
     },
     {
       "name": "button",
-      "type": "registry:ui",
-      "files": [
-        {
-          "path": "registry/ui/button.tsx",
-          "type": "registry:ui"
-        }
-      ]
+      "type": "registry:ui"
     },
     {
       "name": "stack",
-      "type": "registry:ui",
-      "files": [
-        {
-          "path": "registry/ui/stack.tsx",
-          "type": "registry:ui"
-        }
-      ]
+      "type": "registry:ui"
     },
     {
       "name": "text-loop",
       "type": "registry:component",
       "title": "Text Loop",
       "description": "text loop base",
-      "dependencies": ["motion"],
-      "files": [
-        {
-          "path": "registry/ui/text-loop.tsx",
-          "type": "registry:component"
-        }
-      ],
       "categories": ["motion", "react"]
     },
     {
@@ -201,18 +70,6 @@
       "type": "registry:component",
       "title": "Text Loop",
       "description": "Text animation that transitions between multiple items, creating an engaging looping effect",
-      "dependencies": ["motion"],
-      "registryDependencies": ["https://uitopia.xyz/r/text-loop.json"],
-      "files": [
-        {
-          "path": "registry/components/text-loop-demo.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "registry/ui/text-loop.tsx",
-          "type": "registry:component"
-        }
-      ],
       "categories": ["motion", "react"]
     },
     {
@@ -220,13 +77,6 @@
       "type": "registry:component",
       "title": "Text Type",
       "description": "text type base",
-      "dependencies": ["motion"],
-      "files": [
-        {
-          "path": "registry/ui/text-type.tsx",
-          "type": "registry:component"
-        }
-      ],
       "categories": ["motion", "react"]
     },
     {
@@ -234,18 +84,6 @@
       "type": "registry:component",
       "title": "Typewriter",
       "description": "text type",
-      "dependencies": ["motion"],
-      "registryDependencies": ["https://uitopia.xyz/r/text-type.json"],
-      "files": [
-        {
-          "path": "registry/components/text-type-demo.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "registry/ui/text-type.tsx",
-          "type": "registry:component"
-        }
-      ],
       "categories": ["motion", "react"]
     }
   ]
