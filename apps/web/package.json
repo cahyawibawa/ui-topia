@@ -12,7 +12,7 @@
     "format": "biome format --write .",
     "check": "biome check --fix .",
     "shadcn": "bun x shadcn@latest add",
-    "registry:build": "shadcn build"
+    "registry:build": "bun x smart-registry@latest"
   },
   "dependencies": {
     "@ui/topia": "workspace:*",
