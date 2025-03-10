@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "paper-fold-demo",
+  "type": "registry:component",
+  "dependencies": [
+    "@remixicon/react",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "files": [
+    {
+      "type": "registry:component",
+      "target": "components/paper-fold-demo.tsx",
+      "content": "\"use client\";\n\nimport { RiMagicLine, RiTranslateAi } from \"@remixicon/react\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst StickerCard = ({\n  icon: Icon,\n  title,\n  children,\n}: {\n  icon: React.ElementType;\n  title: string;\n  children: React.ReactNode;\n}) => {\n  return (\n    <div>\n      {/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}\n      <a\n        className={cn(\n          \"relative z-10 mt-0 block size-full overflow-hidden\",\n          \"rounded-lg rounded-tr-[26px]\",\n          \"px-4 pt-5 pb-4\",\n          // Card\n          \"bg-white font-normal text-gray-900 leading-8 dark:bg-gray-900 dark:text-gray-50\",\n          \"ring-1 ring-gray-200 ring-inset dark:ring-gray-800\",\n\n          // Animation\n          \"transition-all duration-200 ease-in-out\",\n\n          // Before Element (Corner Fold)\n          'before:content-[\"\"]',\n          \"before:absolute before:top-0 before:right-0\",\n          \"before:z-[3]\",\n          \"before:h-[30px] before:w-[30px]\",\n          \"before:-translate-y-1/2 before:translate-x-1/2\",\n          \"before:rotate-45\",\n          \"before:bg-white dark:before:bg-gray-950\",\n          \"before:ring-1 before:ring-gray-200 dark:before:ring-gray-800\",\n          \"before:transition-all before:duration-200 before:ease-in-out\",\n\n          // After Element (Corner Shadow)\n          'after:content-[\"\"]',\n          \"after:absolute after:top-0 after:right-0\",\n          \"after:z-[2]\",\n          \"after:size-7\",\n          \"after:-translate-y-2 after:translate-x-2\",\n          \"after:rounded-bl-lg\",\n          \"after:border after:bg-gray-50 dark:after:border-gray-800 dark:after:bg-gray-900\",\n          \"after:shadow-sm\",\n          \"after:transition-all after:duration-200 after:ease-in-out\",\n\n          // Hover States\n          \"hover:cursor-pointer\",\n          \"hover:rounded-tr-[45px]\",\n          \"hover:before:h-[50px] hover:before:w-[50px]\",\n          \"hover:after:h-[42px] hover:after:w-[42px]\",\n          \"after:hover:shadow-black/5 after:hover:shadow-lg\",\n        )}\n      >\n        <div>\n          <div className=\"relative flex items-center gap-2\">\n            <div className=\"-left-4 absolute h-5 w-1 rounded-r-sm bg-blue-500\" />\n            <Icon className=\"h-5 w-5 shrink-0 text-blue-500\" />\n            <h3 className=\"font-medium text-gray-900 dark:text-gray-50\">\n              {title}\n            </h3>\n          </div>\n          <p className=\"mt-2 text-gray-600 sm:text-sm dark:text-gray-400\">\n            {children}\n          </p>\n        </div>\n      </a>\n    </div>\n  );\n};\n\nconst cardData = [\n  {\n    icon: RiTranslateAi,\n    title: \"Lost in translations\",\n    description: \"Lorem ipsum dolor sit amet, consectetur adipiscing elit.\",\n  },\n  {\n    icon: RiMagicLine,\n    title: \"Black Magic\",\n    description: \"Lorem ipsum dolor sit amet, consectetur adipiscing elit.\",\n  },\n];\n\nexport default function PaperFoldDemo() {\n  return (\n    <>\n      <div className=\"grid grid-cols-1 gap-4 sm:grid-cols-2\">\n        {cardData.map((card, index) => (\n          <StickerCard key={index} icon={card.icon} title={card.title}>\n            {card.description}\n          </StickerCard>\n        ))}\n      </div>\n    </>\n  );\n}\n",
+      "path": "registry/components/paper-fold-demo.tsx"
+    },
+    {
+      "type": "registry:lib",
+      "target": "lib/utils.ts",
+      "content": "import { type ClassValue, clsx } from \"clsx\";\nimport { twMerge } from \"tailwind-merge\";\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}\n\nexport function absoluteUrl(path: string) {\n  return `${process.env.NEXT_PUBLIC_APP_URL}${path}`;\n}\n",
+      "path": "lib/utils.ts"
+    }
+  ]
+}

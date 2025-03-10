@@ -4,8 +4,15 @@
   "type": "registry:component",
   "description": "Text animation that transitions between multiple items, creating an engaging looping effect",
   "title": "Text Loop",
-  "dependencies": ["clsx", "motion", "react", "tailwind-merge"],
-  "registryDependencies": ["https://uitopia.xyz/r/text-loop.json"],
+  "dependencies": [
+    "clsx",
+    "motion",
+    "react",
+    "tailwind-merge"
+  ],
+  "registryDependencies": [
+    "https://uitopia.xyz/r/text-loop.json"
+  ],
   "files": [
     {
       "type": "registry:component",
@@ -17,7 +24,7 @@
       "type": "registry:lib",
       "target": "lib/utils.ts",
       "content": "import { type ClassValue, clsx } from \"clsx\";\nimport { twMerge } from \"tailwind-merge\";\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}\n\nexport function absoluteUrl(path: string) {\n  return `${process.env.NEXT_PUBLIC_APP_URL}${path}`;\n}\n",
-      "path": "lib/utils.ts"
+      "path": "registry/lib/utils.ts"
     },
     {
       "type": "registry:ui",
@@ -26,5 +33,8 @@
       "path": "registry/ui/text-loop.tsx"
     }
   ],
-  "categories": ["motion", "react"]
+  "categories": [
+    "motion",
+    "react"
+  ]
 }

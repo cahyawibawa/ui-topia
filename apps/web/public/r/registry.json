@@ -16,14 +16,14 @@
       ],
       "files": [
         {
-          "type": "registry:lib",
-          "target": "lib/utils.ts",
-          "path": "lib/utils.ts"
-        },
-        {
           "type": "registry:ui",
           "target": "components/ui/button.tsx",
           "path": "registry/ui/button.tsx"
+        },
+        {
+          "type": "registry:lib",
+          "target": "lib/utils.ts",
+          "path": "registry/lib/utils.ts"
         }
       ]
     },
@@ -31,17 +31,22 @@
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "drawer",
       "type": "registry:ui",
-      "dependencies": ["clsx", "react", "tailwind-merge", "vaul"],
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge",
+        "vaul"
+      ],
       "files": [
-        {
-          "type": "registry:lib",
-          "target": "lib/utils.ts",
-          "path": "lib/utils.ts"
-        },
         {
           "type": "registry:ui",
           "target": "components/ui/drawer.tsx",
           "path": "registry/ui/drawer.tsx"
+        },
+        {
+          "type": "registry:lib",
+          "target": "lib/utils.ts",
+          "path": "registry/lib/utils.ts"
         }
       ]
     },
@@ -49,17 +54,21 @@
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "input",
       "type": "registry:ui",
-      "dependencies": ["clsx", "react", "tailwind-merge"],
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
       "files": [
-        {
-          "type": "registry:lib",
-          "target": "lib/utils.ts",
-          "path": "lib/utils.ts"
-        },
         {
           "type": "registry:ui",
           "target": "components/ui/input.tsx",
           "path": "registry/ui/input.tsx"
+        },
+        {
+          "type": "registry:lib",
+          "target": "lib/utils.ts",
+          "path": "registry/lib/utils.ts"
         }
       ]
     },
@@ -67,17 +76,20 @@
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "stack",
       "type": "registry:ui",
-      "dependencies": ["clsx", "tailwind-merge"],
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
       "files": [
-        {
-          "type": "registry:lib",
-          "target": "lib/utils.ts",
-          "path": "lib/utils.ts"
-        },
         {
           "type": "registry:ui",
           "target": "components/ui/stack.tsx",
           "path": "registry/ui/stack.tsx"
+        },
+        {
+          "type": "registry:lib",
+          "target": "lib/utils.ts",
+          "path": "registry/lib/utils.ts"
         }
       ]
     },
@@ -85,17 +97,22 @@
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "text-effect",
       "type": "registry:ui",
-      "dependencies": ["clsx", "motion", "react", "tailwind-merge"],
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
       "files": [
-        {
-          "type": "registry:lib",
-          "target": "lib/utils.ts",
-          "path": "lib/utils.ts"
-        },
         {
           "type": "registry:ui",
           "target": "components/ui/text-effect.tsx",
           "path": "registry/ui/text-effect.tsx"
+        },
+        {
+          "type": "registry:lib",
+          "target": "lib/utils.ts",
+          "path": "registry/lib/utils.ts"
         }
       ]
     },
@@ -105,36 +122,49 @@
       "type": "registry:ui",
       "description": "text loop base",
       "title": "Text Loop",
-      "dependencies": ["clsx", "motion", "react", "tailwind-merge"],
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
       "files": [
-        {
-          "type": "registry:lib",
-          "target": "lib/utils.ts",
-          "path": "lib/utils.ts"
-        },
         {
           "type": "registry:ui",
           "target": "components/ui/text-loop.tsx",
           "path": "registry/ui/text-loop.tsx"
+        },
+        {
+          "type": "registry:lib",
+          "target": "lib/utils.ts",
+          "path": "registry/lib/utils.ts"
         }
       ],
-      "categories": ["motion", "react"]
+      "categories": [
+        "motion",
+        "react"
+      ]
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "text-morph",
       "type": "registry:ui",
-      "dependencies": ["clsx", "motion", "react", "tailwind-merge"],
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
       "files": [
-        {
-          "type": "registry:lib",
-          "target": "lib/utils.ts",
-          "path": "lib/utils.ts"
-        },
         {
           "type": "registry:ui",
           "target": "components/ui/text-morph.tsx",
           "path": "registry/ui/text-morph.tsx"
+        },
+        {
+          "type": "registry:lib",
+          "target": "lib/utils.ts",
+          "path": "registry/lib/utils.ts"
         }
       ]
     },
@@ -144,31 +174,57 @@
       "type": "registry:ui",
       "description": "text type base",
       "title": "Text Type",
-      "dependencies": ["clsx", "motion", "react", "tailwind-merge"],
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
       "files": [
-        {
-          "type": "registry:lib",
-          "target": "lib/utils.ts",
-          "path": "lib/utils.ts"
-        },
         {
           "type": "registry:ui",
           "target": "components/ui/text-type.tsx",
           "path": "registry/ui/text-type.tsx"
+        },
+        {
+          "type": "registry:lib",
+          "target": "lib/utils.ts",
+          "path": "registry/lib/utils.ts"
         }
       ],
-      "categories": ["motion", "react"]
+      "categories": [
+        "motion",
+        "react"
+      ]
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "use-debounce",
       "type": "registry:hook",
-      "dependencies": ["react"],
+      "dependencies": [
+        "react"
+      ],
       "files": [
         {
           "type": "registry:hook",
           "target": "hooks/use-debounce.ts",
           "path": "registry/hooks/use-debounce.ts"
+        }
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "utils",
+      "type": "registry:lib",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "type": "registry:lib",
+          "target": "lib/utils.ts",
+          "path": "registry/lib/utils.ts"
         }
       ]
     },
@@ -192,7 +248,7 @@
         {
           "type": "registry:lib",
           "target": "lib/utils.ts",
-          "path": "lib/utils.ts"
+          "path": "registry/lib/utils.ts"
         },
         {
           "type": "registry:hook",
@@ -232,7 +288,7 @@
         {
           "type": "registry:lib",
           "target": "lib/utils.ts",
-          "path": "lib/utils.ts"
+          "path": "registry/lib/utils.ts"
         },
         {
           "type": "registry:ui",
@@ -272,7 +328,7 @@
         {
           "type": "registry:lib",
           "target": "lib/utils.ts",
-          "path": "lib/utils.ts"
+          "path": "registry/lib/utils.ts"
         },
         {
           "type": "registry:ui",
@@ -312,7 +368,7 @@
         {
           "type": "registry:lib",
           "target": "lib/utils.ts",
-          "path": "lib/utils.ts"
+          "path": "registry/lib/utils.ts"
         },
         {
           "type": "registry:ui",
@@ -352,7 +408,7 @@
         {
           "type": "registry:lib",
           "target": "lib/utils.ts",
-          "path": "lib/utils.ts"
+          "path": "registry/lib/utils.ts"
         },
         {
           "type": "registry:ui",
@@ -372,8 +428,15 @@
       "type": "registry:component",
       "description": "An interactive interaction from Family wallets interface featuring smooth layout transitions and animations. Each wallet card can expand to show additional details and controls while collapsing others into a compact view.",
       "title": "Family Wallets",
-      "dependencies": ["lucide-react", "motion", "react", "usehooks-ts"],
-      "registryDependencies": ["https://uitopia.xyz/r/icons.json"],
+      "dependencies": [
+        "lucide-react",
+        "motion",
+        "react",
+        "usehooks-ts"
+      ],
+      "registryDependencies": [
+        "https://uitopia.xyz/r/icons.json"
+      ],
       "files": [
         {
           "type": "registry:component",
@@ -386,13 +449,18 @@
           "path": "registry/components/icons.tsx"
         }
       ],
-      "categories": ["motion", "react"]
+      "categories": [
+        "motion",
+        "react"
+      ]
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "icons",
       "type": "registry:component",
-      "dependencies": ["lucide-react"],
+      "dependencies": [
+        "lucide-react"
+      ],
       "files": [
         {
           "type": "registry:component",
@@ -405,7 +473,11 @@
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "paper-fold-demo",
       "type": "registry:component",
-      "dependencies": ["@remixicon/react", "clsx", "tailwind-merge"],
+      "dependencies": [
+        "@remixicon/react",
+        "clsx",
+        "tailwind-merge"
+      ],
       "files": [
         {
           "type": "registry:component",
@@ -425,8 +497,15 @@
       "type": "registry:component",
       "description": "Text animation that transitions between multiple items, creating an engaging looping effect",
       "title": "Text Loop",
-      "dependencies": ["clsx", "motion", "react", "tailwind-merge"],
-      "registryDependencies": ["https://uitopia.xyz/r/text-loop.json"],
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://uitopia.xyz/r/text-loop.json"
+      ],
       "files": [
         {
           "type": "registry:component",
@@ -436,7 +515,7 @@
         {
           "type": "registry:lib",
           "target": "lib/utils.ts",
-          "path": "lib/utils.ts"
+          "path": "registry/lib/utils.ts"
         },
         {
           "type": "registry:ui",
@@ -444,7 +523,10 @@
           "path": "registry/ui/text-loop.tsx"
         }
       ],
-      "categories": ["motion", "react"]
+      "categories": [
+        "motion",
+        "react"
+      ]
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
@@ -452,8 +534,15 @@
       "type": "registry:component",
       "description": "text type",
       "title": "Typewriter",
-      "dependencies": ["clsx", "motion", "react", "tailwind-merge"],
-      "registryDependencies": ["https://uitopia.xyz/r/text-type.json"],
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "registryDependencies": [
+        "https://uitopia.xyz/r/text-type.json"
+      ],
       "files": [
         {
           "type": "registry:component",
@@ -463,7 +552,7 @@
         {
           "type": "registry:lib",
           "target": "lib/utils.ts",
-          "path": "lib/utils.ts"
+          "path": "registry/lib/utils.ts"
         },
         {
           "type": "registry:ui",
@@ -471,7 +560,10 @@
           "path": "registry/ui/text-type.tsx"
         }
       ],
-      "categories": ["motion", "react"]
+      "categories": [
+        "motion",
+        "react"
+      ]
     }
   ]
 }
