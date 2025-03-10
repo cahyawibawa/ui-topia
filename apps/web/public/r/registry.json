@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "acme",
-  "homepage": "https://acme.com",
+  "name": "originui",
+  "homepage": "https://originui.com",
   "items": [
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
@@ -275,10 +275,6 @@
         "react",
         "tailwind-merge"
       ],
-      "registryDependencies": [
-        "https://uitopia.xyz/r/button.json",
-        "https://uitopia.xyz/r/stack.json"
-      ],
       "files": [
         {
           "type": "registry:component",
@@ -314,10 +310,6 @@
         "clsx",
         "react",
         "tailwind-merge"
-      ],
-      "registryDependencies": [
-        "https://uitopia.xyz/r/button.json",
-        "https://uitopia.xyz/r/stack.json"
       ],
       "files": [
         {
@@ -355,10 +347,6 @@
         "react",
         "tailwind-merge"
       ],
-      "registryDependencies": [
-        "https://uitopia.xyz/r/button.json",
-        "https://uitopia.xyz/r/stack.json"
-      ],
       "files": [
         {
           "type": "registry:component",
@@ -395,10 +383,6 @@
         "react",
         "tailwind-merge"
       ],
-      "registryDependencies": [
-        "https://uitopia.xyz/r/button.json",
-        "https://uitopia.xyz/r/stack.json"
-      ],
       "files": [
         {
           "type": "registry:component",
@@ -433,9 +417,6 @@
         "motion",
         "react",
         "usehooks-ts"
-      ],
-      "registryDependencies": [
-        "https://uitopia.xyz/r/icons.json"
       ],
       "files": [
         {
@@ -503,9 +484,6 @@
         "react",
         "tailwind-merge"
       ],
-      "registryDependencies": [
-        "https://uitopia.xyz/r/text-loop.json"
-      ],
       "files": [
         {
           "type": "registry:component",
@@ -539,9 +517,6 @@
         "motion",
         "react",
         "tailwind-merge"
-      ],
-      "registryDependencies": [
-        "https://uitopia.xyz/r/text-type.json"
       ],
       "files": [
         {

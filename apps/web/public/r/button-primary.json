@@ -11,10 +11,6 @@
     "react",
     "tailwind-merge"
   ],
-  "registryDependencies": [
-    "https://uitopia.xyz/r/button.json",
-    "https://uitopia.xyz/r/stack.json"
-  ],
   "files": [
     {
       "type": "registry:component",
