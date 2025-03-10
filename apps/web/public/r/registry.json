@@ -232,6 +232,8 @@
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "action-search-input",
       "type": "registry:component",
+      "description": "Search input that show command menu when focused.",
+      "title": "Action Search Input",
       "dependencies": [
         "clsx",
         "lucide-react",
@@ -260,6 +262,10 @@
           "target": "components/ui/input.tsx",
           "path": "registry/ui/input.tsx"
         }
+      ],
+      "categories": [
+        "motion",
+        "react"
       ]
     },
     {

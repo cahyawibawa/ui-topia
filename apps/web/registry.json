@@ -4,7 +4,7 @@
   "homepage": "https://uitopia.xyz",
   "items": [
     {
-      "name": "action-search-input-demo",
+      "name": "action-search-input",
       "type": "registry:component",
       "title": "Action Search Input",
       "description": "Search input that show command menu when focused.",

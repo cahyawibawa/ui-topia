@@ -1,8 +1,8 @@
-import { Hero } from "@/components/hero"
-import { ShowcaseComponent } from "@/components/showcase-component"
-import ActionSearchInput from "@/registry/components/action-search-input"
-import FamilyWallets from "@/registry/components/family-wallets-demo"
-import TextLoopDemo from "@/registry/components/text-loop-demo"
+import { Hero } from "@/components/hero";
+import { ShowcaseComponent } from "@/components/showcase-component";
+import ActionSearchInput from "@/registry/components/action-search-input";
+import FamilyWallets from "@/registry/components/family-wallets-demo";
+import TextLoopDemo from "@/registry/components/text-loop-demo";
 
 export default function Home() {
   return (
@@ -17,5 +17,5 @@ export default function Home() {
         <ShowcaseComponent name="text-loop-demo" demo={TextLoopDemo} />
       </div>
     </div>
-  )
+  );
 }
