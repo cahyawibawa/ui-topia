@@ -17,9 +17,9 @@
       "description": "custom shadcn/ui button."
     },
     {
-      "name": "button-primary",
+      "name": "button-destructive",
       "type": "registry:component",
-      "title": "Button Primary",
+      "title": "Button Destructive",
       "description": "custom shadcn/ui button."
     },
     {
@@ -29,9 +29,9 @@
       "description": "custom shadcn/ui button."
     },
     {
-      "name": "button-destructive",
+      "name": "button-primary",
       "type": "registry:component",
-      "title": "Button Destructive",
+      "title": "Button Primary",
       "description": "custom shadcn/ui button."
     },
     {
@@ -40,22 +40,6 @@
       "title": "Family Wallets",
       "description": "An interactive interaction from Family wallets interface featuring smooth layout transitions and animations. Each wallet card can expand to show additional details and controls while collapsing others into a compact view.",
       "categories": ["motion", "react"]
-    },
-    {
-      "name": "icons",
-      "type": "registry:component"
-    },
-    {
-      "name": "input",
-      "type": "registry:ui"
-    },
-    {
-      "name": "button",
-      "type": "registry:ui"
-    },
-    {
-      "name": "stack",
-      "type": "registry:ui"
     },
     {
       "name": "text-loop",
@@ -84,14 +68,6 @@
       "title": "Typewriter",
       "description": "text type",
       "categories": ["motion", "react"]
-    },
-    {
-      "name": "utils",
-      "type": "registry:lib"
-    },
-    {
-      "name": "use-debounce",
-      "type": "registry:hook"
     }
   ]
 }
