@@ -42,23 +42,6 @@
       "categories": ["motion", "react"]
     },
     {
-      "name": "icons",
-      "type": "registry:component",
-      "dependencies": ["lucide-react"]
-    },
-    {
-      "name": "input",
-      "type": "registry:ui"
-    },
-    {
-      "name": "button",
-      "type": "registry:ui"
-    },
-    {
-      "name": "stack",
-      "type": "registry:ui"
-    },
-    {
       "name": "text-loop",
       "type": "registry:component",
       "title": "Text Loop",
