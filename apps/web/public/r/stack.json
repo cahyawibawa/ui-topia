@@ -2,11 +2,19 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "stack",
   "type": "registry:ui",
+  "dependencies": ["clsx", "tailwind-merge"],
   "files": [
     {
-      "path": "registry/ui/stack.tsx",
-      "content": "\"use client\";\r\n\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ntype Direction = \"row\" | \"column\";\r\ntype ResponsiveDirection = {\r\n  sm?: Direction;\r\n  md?: Direction;\r\n};\r\n\r\ntype StackProps = React.PropsWithChildren<{\r\n  direction?: ResponsiveDirection;\r\n  gap?: number;\r\n  align?: \"start\" | \"center\" | \"end\";\r\n  justify?: \"start\" | \"center\" | \"end\" | \"space-between\" | \"space-around\";\r\n  className?: string;\r\n}>;\r\n\r\nexport function Stack({\r\n  direction = { sm: \"column\", md: \"row\" },\r\n  gap = 4,\r\n  align = \"start\",\r\n  justify = \"start\",\r\n  children,\r\n  className,\r\n}: StackProps) {\r\n  // Map justify value to appropriate Tailwind class\r\n  const justifyClass = justify.includes(\"space-\")\r\n    ? `justify-${justify.replace(\"space-\", \"\")}`\r\n    : `justify-${justify}`;\r\n\r\n  return (\r\n    <div\r\n      className={cn(\r\n        \"flex\",\r\n        direction.sm === \"row\" ? \"flex-row\" : \"flex-col\",\r\n        direction.md === \"row\" ? \"md:flex-row\" : \"md:flex-col\",\r\n        \"gap-2 md:gap-5 lg:gap-10 xl:gap-[60px]\",\r\n        `items-${align}`,\r\n        justifyClass,\r\n        className,\r\n      )}\r\n    >\r\n      {children}\r\n    </div>\r\n  );\r\n}\r\n",
-      "type": "registry:ui"
+      "type": "registry:lib",
+      "target": "lib/utils.ts",
+      "content": "import { type ClassValue, clsx } from \"clsx\";\nimport { twMerge } from \"tailwind-merge\";\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}\n\nexport function absoluteUrl(path: string) {\n  return `${process.env.NEXT_PUBLIC_APP_URL}${path}`;\n}\n",
+      "path": "lib/utils.ts"
+    },
+    {
+      "type": "registry:ui",
+      "target": "components/ui/stack.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\n\ntype Direction = \"row\" | \"column\";\ntype ResponsiveDirection = {\n  sm?: Direction;\n  md?: Direction;\n};\n\ntype StackProps = React.PropsWithChildren<{\n  direction?: ResponsiveDirection;\n  gap?: number;\n  align?: \"start\" | \"center\" | \"end\";\n  justify?: \"start\" | \"center\" | \"end\" | \"space-between\" | \"space-around\";\n  className?: string;\n}>;\n\nexport function Stack({\n  direction = { sm: \"column\", md: \"row\" },\n  gap = 4,\n  align = \"start\",\n  justify = \"start\",\n  children,\n  className,\n}: StackProps) {\n  // Map justify value to appropriate Tailwind class\n  const justifyClass = justify.includes(\"space-\")\n    ? `justify-${justify.replace(\"space-\", \"\")}`\n    : `justify-${justify}`;\n\n  return (\n    <div\n      className={cn(\n        \"flex\",\n        direction.sm === \"row\" ? \"flex-row\" : \"flex-col\",\n        direction.md === \"row\" ? \"md:flex-row\" : \"md:flex-col\",\n        \"gap-2 md:gap-5 lg:gap-10 xl:gap-[60px]\",\n        `items-${align}`,\n        justifyClass,\n        className,\n      )}\n    >\n      {children}\n    </div>\n  );\n}\n",
+      "path": "registry/ui/stack.tsx"
     }
   ]
 }

@@ -31,7 +31,7 @@ function CopyButton({
   }
 
   return (
-    <div className={cn("absolute top-2 right-2.5", className)}>
+    <div className={cn("absolute top-1.5 right-2", className)}>
       <Button
         size="icon"
         className={cn(

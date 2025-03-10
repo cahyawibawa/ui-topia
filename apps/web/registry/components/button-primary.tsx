@@ -1,7 +1,7 @@
 "use client";
 
-import { Stack } from "@/registry/ui/stack";
 import { Button } from "@/registry/ui/button";
+import { Stack } from "@/registry/ui/stack";
 
 export default function ButtonPrimary() {
   return (
