@@ -4,12 +4,7 @@
   "type": "registry:ui",
   "description": "text loop base",
   "title": "Text Loop",
-  "dependencies": [
-    "clsx",
-    "motion",
-    "react",
-    "tailwind-merge"
-  ],
+  "dependencies": ["clsx", "motion", "react", "tailwind-merge"],
   "files": [
     {
       "type": "registry:ui",
@@ -24,8 +19,5 @@
       "path": "registry/lib/utils.ts"
     }
   ],
-  "categories": [
-    "motion",
-    "react"
-  ]
+  "categories": ["motion", "react"]
 }

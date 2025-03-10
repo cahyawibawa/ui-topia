@@ -2,11 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "paper-fold-demo",
   "type": "registry:component",
-  "dependencies": [
-    "@remixicon/react",
-    "clsx",
-    "tailwind-merge"
-  ],
+  "dependencies": ["@remixicon/react", "clsx", "tailwind-merge"],
   "files": [
     {
       "type": "registry:component",

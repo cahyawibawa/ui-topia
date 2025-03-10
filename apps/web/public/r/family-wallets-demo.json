@@ -4,12 +4,7 @@
   "type": "registry:component",
   "description": "An interactive interaction from Family wallets interface featuring smooth layout transitions and animations. Each wallet card can expand to show additional details and controls while collapsing others into a compact view.",
   "title": "Family Wallets",
-  "dependencies": [
-    "lucide-react",
-    "motion",
-    "react",
-    "usehooks-ts"
-  ],
+  "dependencies": ["lucide-react", "motion", "react", "usehooks-ts"],
   "files": [
     {
       "type": "registry:component",
@@ -24,8 +19,5 @@
       "path": "registry/components/icons.tsx"
     }
   ],
-  "categories": [
-    "motion",
-    "react"
-  ]
+  "categories": ["motion", "react"]
 }

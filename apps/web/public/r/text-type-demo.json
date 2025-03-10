@@ -4,12 +4,7 @@
   "type": "registry:component",
   "description": "text type",
   "title": "Typewriter",
-  "dependencies": [
-    "clsx",
-    "motion",
-    "react",
-    "tailwind-merge"
-  ],
+  "dependencies": ["clsx", "motion", "react", "tailwind-merge"],
   "files": [
     {
       "type": "registry:component",
@@ -30,8 +25,5 @@
       "path": "registry/ui/text-type.tsx"
     }
   ],
-  "categories": [
-    "motion",
-    "react"
-  ]
+  "categories": ["motion", "react"]
 }
