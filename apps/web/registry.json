@@ -247,6 +247,28 @@
         }
       ],
       "categories": ["motion", "react"]
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [
+        {
+          "path": "registry/lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "use-debounce",
+      "type": "registry:hook",
+      "dependencies": ["react"],
+      "files": [
+        {
+          "type": "registry:hook",
+          "path": "registry/hooks/use-debounce.ts"
+        }
+      ]
     }
   ]
 }

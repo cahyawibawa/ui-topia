@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/registry/lib/utils";
 
 type Direction = "row" | "column";
 type ResponsiveDirection = {
