@@ -86,7 +86,7 @@ const cardData = [
 
 export default function PaperFoldDemo() {
   return (
-    <div className="grid grid-cols-1">
+    <div className="mx-4 flex flex-col">
       {cardData.map((card, index) => (
         <StickerCard key={index} icon={card.icon} title={card.title}>
           {card.description}

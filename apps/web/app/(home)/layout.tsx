@@ -21,7 +21,7 @@ function Footer(): React.ReactElement {
   return (
     <footer className="border-grid border-t py-6 md:py-0">
       <div className="container-wrapper">
-        <div className="container py-4">
+        <div className="container">
           <div className="flex flex-col items-start justify-between gap-2 py-4">
             <div className="flex w-full flex-col items-start justify-between sm:flex-row sm:items-start">
               <div className="mb-2 flex flex-col sm:mb-0">

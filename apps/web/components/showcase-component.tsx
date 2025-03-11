@@ -17,7 +17,7 @@ interface ShowcaseComponentProps {
 export function ShowcaseComponent({
   name,
   demo: Demo,
-  height = "h-[600px]",
+  height = "h-[400px] md:h-[640px]",
 }: ShowcaseComponentProps) {
   const [code, setCode] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -88,7 +88,7 @@ export function ShowcaseComponent({
         </div>
         <div className="flex w-full flex-row gap-2 sm:justify-start md:items-center md:justify-center">
           {component.categories?.map((category) => (
-            <Badge key={category} variant="outline">
+            <Badge key={category} className="rounded-md" variant="secondary">
               {category}
             </Badge>
           ))}
