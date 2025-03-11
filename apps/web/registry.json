@@ -8,7 +8,7 @@
       "type": "registry:component",
       "title": "Action Search Input",
       "description": "Search input that show command menu when focused.",
-      "categories": ["motion", "react"]
+      "categories": ["motion", "react", "tailwindcss"]
     },
     {
       "name": "button-demo",
@@ -39,35 +39,40 @@
       "type": "registry:component",
       "title": "Family Wallets",
       "description": "An interactive interaction from Family wallets interface featuring smooth layout transitions and animations. Each wallet card can expand to show additional details and controls while collapsing others into a compact view.",
-      "categories": ["motion", "react"]
+      "categories": ["motion", "react", "tailwindcss"]
     },
     {
       "name": "text-loop",
       "type": "registry:component",
       "title": "Text Loop",
-      "description": "text loop base",
-      "categories": ["motion", "react"]
+      "description": "text loop base"
+    },
+    {
+      "name": "paper-fold-demo",
+      "type": "registry:component",
+      "title": "Paper Fold",
+      "description": "A paper folding animation.",
+      "categories": ["react", "tailwindcss"]
     },
     {
       "name": "text-loop-demo",
       "type": "registry:component",
       "title": "Text Loop",
       "description": "Text animation that transitions between multiple items, creating an engaging looping effect",
-      "categories": ["motion", "react"]
+      "categories": ["motion", "react", "tailwindcss"]
     },
     {
       "name": "text-type",
       "type": "registry:component",
       "title": "Text Type",
-      "description": "text type base",
-      "categories": ["motion", "react"]
+      "description": "text type base"
     },
     {
       "name": "text-type-demo",
       "type": "registry:component",
       "title": "Typewriter",
       "description": "text type",
-      "categories": ["motion", "react"]
+      "categories": ["motion", "react", "tailwindcss"]
     }
   ]
 }

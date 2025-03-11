@@ -139,10 +139,6 @@
           "target": "lib/utils.ts",
           "path": "registry/lib/utils.ts"
         }
-      ],
-      "categories": [
-        "motion",
-        "react"
       ]
     },
     {
@@ -191,10 +187,6 @@
           "target": "lib/utils.ts",
           "path": "registry/lib/utils.ts"
         }
-      ],
-      "categories": [
-        "motion",
-        "react"
       ]
     },
     {
@@ -232,6 +224,8 @@
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "action-search-input-demo",
       "type": "registry:component",
+      "description": "Search input that show command menu when focused.",
+      "title": "Action Search Input",
       "dependencies": [
         "clsx",
         "lucide-react",
@@ -260,6 +254,11 @@
           "target": "components/ui/input.tsx",
           "path": "registry/ui/input.tsx"
         }
+      ],
+      "categories": [
+        "motion",
+        "react",
+        "tailwindcss"
       ]
     },
     {
@@ -432,7 +431,8 @@
       ],
       "categories": [
         "motion",
-        "react"
+        "react",
+        "tailwindcss"
       ]
     },
     {
@@ -454,6 +454,8 @@
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "paper-fold-demo",
       "type": "registry:component",
+      "description": "A paper folding animation.",
+      "title": "Paper Fold",
       "dependencies": [
         "@remixicon/react",
         "clsx",
@@ -468,8 +470,12 @@
         {
           "type": "registry:lib",
           "target": "lib/utils.ts",
-          "path": "lib/utils.ts"
+          "path": "registry/lib/utils.ts"
         }
+      ],
+      "categories": [
+        "react",
+        "tailwindcss"
       ]
     },
     {
@@ -503,7 +509,8 @@
       ],
       "categories": [
         "motion",
-        "react"
+        "react",
+        "tailwindcss"
       ]
     },
     {
@@ -537,7 +544,8 @@
       ],
       "categories": [
         "motion",
-        "react"
+        "react",
+        "tailwindcss"
       ]
     }
   ]

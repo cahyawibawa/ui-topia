@@ -2,7 +2,7 @@
 
 import { RiMagicLine, RiTranslateAi } from "@remixicon/react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/registry/lib/utils";
 
 const StickerCard = ({
   icon: Icon,
@@ -81,23 +81,17 @@ const cardData = [
     title: "Lost in translations",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
-  {
-    icon: RiMagicLine,
-    title: "Black Magic",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  },
+  //more data here
 ];
 
 export default function PaperFoldDemo() {
   return (
-    <>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {cardData.map((card, index) => (
-          <StickerCard key={index} icon={card.icon} title={card.title}>
-            {card.description}
-          </StickerCard>
-        ))}
-      </div>
-    </>
+    <div className="grid grid-cols-1">
+      {cardData.map((card, index) => (
+        <StickerCard key={index} icon={card.icon} title={card.title}>
+          {card.description}
+        </StickerCard>
+      ))}
+    </div>
   );
 }

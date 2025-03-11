@@ -32,6 +32,7 @@
   ],
   "categories": [
     "motion",
-    "react"
+    "react",
+    "tailwindcss"
   ]
 }
