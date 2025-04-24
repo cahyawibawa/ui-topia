@@ -11,8 +11,9 @@ export function CodeBlock({ code, language = "tsx" }: CodeBlockProps) {
       lang={language}
       code={code}
       options={{
-        components: {
-          // add/override components
+        themes: {
+          light: "github-light",
+          dark: "vesper",
         },
       }}
     />

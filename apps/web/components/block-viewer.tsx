@@ -6,6 +6,7 @@ import {
   Clipboard,
   File,
   Folder,
+  FolderOpen,
   Monitor,
   Smartphone,
   Tablet,
@@ -484,7 +485,7 @@ function Tree({ item, index }: { item: FileTree; index: number }) {
             }
           >
             <ChevronRight className="h-4 w-4 transition-transform" />
-            <Folder className="h-4 w-4" />
+            <FolderOpen className="h-4 w-4" />
             {item.name}
           </SidebarMenuButton>
         </CollapsibleTrigger>
