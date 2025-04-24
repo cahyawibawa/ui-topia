@@ -10,6 +10,11 @@ export const linkItems: LinkItemType[] = [
     url: "/docs",
   },
   {
+    text: "Blocks",
+    icon: <Icons.blocks />,
+    url: "/blocks",
+  },
+  {
     type: "icon",
     url: siteConfig.links.github,
     text: "GitHub",
