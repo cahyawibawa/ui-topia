@@ -3,9 +3,10 @@ import { siteConfig } from "@/config/site";
 import { createMetadata } from "@/lib/metadata";
 import type { Page } from "@/lib/source";
 import { source } from "@/lib/source";
+import { getPageTreePeers } from "fumadocs-core/server";
+import { Card, Cards } from "fumadocs-ui/components/card";
 import {
   DocsBody,
-  DocsCategory,
   DocsDescription,
   DocsPage,
   DocsTitle,
@@ -44,10 +45,21 @@ export default async function Page(props: {
         {page.data.description}
       </DocsDescription>
       <DocsBody className="prose-h2:text-lg prose-h3:text-base opacity-[0.9]">
-        <MDX components={useMDXComponents({})} />
-        {page.data.index ? <DocsCategory page={page} from={source} /> : null}
+        {MDX && <MDX components={useMDXComponents({})} />}
       </DocsBody>
     </DocsPage>
+  );
+}
+
+function DocsCategory({ url }: { url: string }) {
+  return (
+    <Cards>
+      {getPageTreePeers(source.pageTree, url).map((peer) => (
+        <Card key={peer.url} title={peer.name} href={peer.url}>
+          {peer.description}
+        </Card>
+      ))}
+    </Cards>
   );
 }
 
@@ -66,7 +78,6 @@ export async function generateMetadata(props: {
   const description = page.data.description ?? siteConfig.description;
 
   const imageParams = new URLSearchParams();
-  imageParams.set("title", page.data.title);
   imageParams.set("description", description);
 
   const image = {

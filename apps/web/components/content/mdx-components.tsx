@@ -1,4 +1,3 @@
-// import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import ComponentCli from "@/components/cli-commands";
 import { ComponentPreview } from "@/components/content/component-preview";
 import { ComponentCollapse } from "@/components/content/component-preview-collapse";
@@ -6,7 +5,8 @@ import { ComponentSource } from "@/components/content/component-source";
 import { cn } from "@/lib/utils";
 import { Reference, References } from "@/uitopia/references";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/uitopia/tabs";
-import { createTypeTable } from "fumadocs-typescript/ui";
+import { createGenerator } from "fumadocs-typescript";
+import { AutoTypeTable } from "fumadocs-typescript/ui";
 import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
 import { Callout } from "fumadocs-ui/components/callout";
 import { Card, Cards } from "fumadocs-ui/components/card";
@@ -17,14 +17,12 @@ import { Step, Steps } from "fumadocs-ui/components/steps";
 import { TypeTable } from "fumadocs-ui/components/type-table";
 import defaultComponents from "fumadocs-ui/mdx";
 import type { MDXComponents } from "mdx/types";
-import type { ReactNode } from "react";
 
-const { AutoTypeTable } = createTypeTable();
+const generator = createGenerator();
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     ...defaultComponents,
-    AutoTypeTable,
     Accordion,
     Accordions,
     Callout,
@@ -40,7 +38,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ImageZoom,
     Steps,
     Step,
-
+    AutoTypeTable: (props) => (
+      <AutoTypeTable generator={generator} {...props} />
+    ),
     ComponentPreview: ({
       name,
       ...props
