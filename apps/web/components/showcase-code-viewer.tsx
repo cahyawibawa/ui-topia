@@ -1,7 +1,7 @@
 "use client";
 
 import ComponentCli from "@/components/cli-commands";
-import { OpenInV0Button } from "@/components/v0-button";
+import { V0Button } from "@/components/v0-button";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/registry/components/icons";
@@ -32,7 +32,7 @@ function Content({ children, component }: CodeViewerProps) {
       <div>
         <div className="mb-4 flex items-center justify-between">
           <h2 className="font-medium text-base">Code</h2>
-          <OpenInV0Button
+          <V0Button
             componentSource={`https://uitopia.xyz/r/${component.name}.json`}
           />
         </div>

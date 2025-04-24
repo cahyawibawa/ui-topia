@@ -1,4 +1,4 @@
-import { OpenInV0Button } from "@/components/v0-button";
+import { V0Button } from "@/components/v0-button";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/registry/components/icons";
 import type {
@@ -6,6 +6,12 @@ import type {
   ComponentLoaderProps,
 } from "@/types/component";
 import { Button } from "@/uitopia/button";
+import {
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/uitopia/tooltip";
+import { Tooltip } from "@/uitopia/tooltip";
 import React, { useEffect, useState } from "react";
 
 export function ComponentLoader({
@@ -78,22 +84,28 @@ function ComponentDisplay({
         className,
       )}
     >
-      <div className="absolute top-2 right-2 flex items-center gap-2">
-        <OpenInV0Button
+      <div className="absolute top-3 right-4 flex items-center gap-3">
+        <V0Button
+          variant="icon"
           componentSource={`https://uitopia.xyz/r/${name}.json`}
           className="hidden md:flex"
         />
-        {hasReTrigger && (
-          <Button
-            variant="ghost"
-            size="icon"
-            className="cursor-pointer text-muted-foreground/80 hover:bg-transparent hover:text-foreground"
-            onClick={reTrigger}
-            aria-label="Refresh component"
-          >
-            <Icons.refresh className="h-4 w-4" />
-          </Button>
-        )}
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              {hasReTrigger && (
+                <button
+                  className="cursor-pointer text-muted-foreground/80 hover:bg-transparent hover:text-foreground"
+                  onClick={reTrigger}
+                  aria-label="Refresh component"
+                >
+                  <Icons.refresh className="h-4 w-4 text-muted-foreground" />
+                </button>
+              )}
+            </TooltipTrigger>
+            <TooltipContent>Refresh component</TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </div>
       {renderComponent()}
     </div>
