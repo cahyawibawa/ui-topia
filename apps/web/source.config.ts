@@ -1,25 +1,16 @@
 import { rehypeCodeDefaultOptions } from "fumadocs-core/mdx-plugins";
 import { fileGenerator, remarkDocGen, remarkInstall } from "fumadocs-docgen";
 import {
-  defineCollections,
   defineConfig,
   defineDocs,
   frontmatterSchema,
-  metaSchema,
 } from "fumadocs-mdx/config";
 import { transformerTwoslash } from "fumadocs-twoslash";
-import { z } from "zod";
 
 export const { docs, meta } = defineDocs({
+  dir: "content/docs",
   docs: {
-    schema: frontmatterSchema.extend({
-      index: z.boolean().default(false),
-    }),
-  },
-  meta: {
-    schema: metaSchema.extend({
-      description: z.string().optional(),
-    }),
+    schema: frontmatterSchema,
   },
 });
 
@@ -30,7 +21,7 @@ export default defineConfig({
       inline: "tailing-curly-colon",
       themes: {
         light: "github-light",
-        dark: "github-dark",
+        dark: "vesper",
       },
       transformers: [
         ...(rehypeCodeDefaultOptions.transformers ?? []),
