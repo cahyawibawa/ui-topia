@@ -29,7 +29,8 @@
         "noSvgWithoutTitle": "off",
         "useKeyWithClickEvents": "off",
         "useButtonType": "off",
-        "useAltText": "off"
+        "useAltText": "off",
+        "useValidAnchor": "off"
       },
       "nursery": {
         "useSortedClasses": {
