@@ -73,6 +73,78 @@
       "title": "Typewriter",
       "description": "text type",
       "categories": ["motion", "react", "tailwindcss"]
+    },
+    {
+      "name": "login-03",
+      "type": "registry:block",
+      "title": "Login 03",
+      "description": "A simple login form.",
+      "registryDependencies": ["button", "card", "input", "label"],
+      "meta": {
+        "iframeHeight": "auto"
+      },
+      "files": [
+        {
+          "type": "registry:page",
+          "path": "registry/blocks/login-03/page.tsx",
+          "target": "blocks/login-03/page.tsx"
+        },
+        {
+          "path": "registry/blocks/login-03/components/login-form.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["authentication"]
+    },
+    {
+      "name": "login-04",
+      "type": "registry:block",
+      "title": "Login 04",
+      "description": "Simple Login with Social Buttons",
+      "registryDependencies": ["button", "input", "label", "separator"],
+      "meta": {
+        "iframeHeight": "auto"
+      },
+      "files": [
+        {
+          "type": "registry:page",
+          "path": "registry/blocks/login-04/page.tsx",
+          "target": "blocks/login-04/page.tsx"
+        },
+        {
+          "path": "registry/blocks/login-04/components/login-form.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["authentication"]
+    },
+    {
+      "name": "login-05",
+      "type": "registry:block",
+      "title": "Login 05",
+      "description": "Full Page Login with Icons",
+      "registryDependencies": [
+        "button",
+        "checkbox",
+        "input",
+        "label",
+        "separator"
+      ],
+      "meta": {
+        "iframeHeight": "auto"
+      },
+      "files": [
+        {
+          "type": "registry:page",
+          "path": "registry/blocks/login-05/page.tsx",
+          "target": "blocks/login-05/page.tsx"
+        },
+        {
+          "path": "registry/blocks/login-05/components/login-form.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "categories": ["authentication"]
     }
   ]
 }

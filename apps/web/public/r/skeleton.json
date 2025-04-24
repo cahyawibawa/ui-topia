@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton",
+  "type": "registry:ui",
+  "dependencies": [
+    "clsx",
+    "tailwind-merge"
+  ],
+  "files": [
+    {
+      "type": "registry:ui",
+      "target": "components/ui/skeleton.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\n\nfunction Skeleton({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  return (\n    <div\n      className={cn(\"animate-pulse rounded-md bg-primary/10\", className)}\n      {...props}\n    />\n  );\n}\n\nexport { Skeleton };\n",
+      "path": "registry/ui/skeleton.tsx"
+    },
+    {
+      "type": "registry:lib",
+      "target": "lib/utils.ts",
+      "content": "import { type ClassValue, clsx } from \"clsx\";\nimport { twMerge } from \"tailwind-merge\";\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}\n\nexport function absoluteUrl(path: string) {\n  return `${process.env.NEXT_PUBLIC_APP_URL}${path}`;\n}\n",
+      "path": "lib/utils.ts"
+    }
+  ]
+}

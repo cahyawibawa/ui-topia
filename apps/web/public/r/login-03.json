@@ -1,0 +1,77 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "login-03",
+  "type": "registry:page",
+  "description": "A simple login form.",
+  "title": "Login 03",
+  "dependencies": [
+    "@radix-ui/react-label",
+    "@radix-ui/react-slot",
+    "class-variance-authority",
+    "clsx",
+    "react",
+    "tailwind-merge"
+  ],
+  "registryDependencies": [
+    "button",
+    "card",
+    "input",
+    "label"
+  ],
+  "files": [
+    {
+      "type": "registry:page",
+      "target": "blocks/login-03/page.tsx",
+      "content": "import { Login03 } from \"@/blocks/login-03/components/login-form\";\n\nexport default function Page() {\n  return (\n    <div className=\"flex min-h-svh w-full items-center justify-center p-6 md:p-10\">\n      <div className=\"w-full max-w-sm\">\n        <Login03 />\n      </div>\n    </div>\n  );\n}\n",
+      "path": "registry/blocks/login-03/page.tsx"
+    },
+    {
+      "type": "registry:block",
+      "target": "blocks/login-03/components/login-form.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\nimport { Button } from \"@/components/ui/button\";\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from \"@/components/ui/card\";\nimport { Input } from \"@/components/ui/input\";\nimport { Label } from \"@/components/ui/label\";\n\nexport function Login03({\n  className,\n  ...props\n}: React.ComponentPropsWithoutRef<\"div\">) {\n  return (\n    <div className={cn(\"flex flex-col gap-6\", className)} {...props}>\n      <Card>\n        <CardHeader>\n          <CardTitle className=\"text-2xl\">Login</CardTitle>\n          <CardDescription>\n            Enter your email below to login to your account\n          </CardDescription>\n        </CardHeader>\n        <CardContent>\n          <form>\n            <div className=\"flex flex-col gap-6\">\n              <div className=\"grid gap-2\">\n                <Label htmlFor=\"email\">Email</Label>\n                <Input\n                  id=\"email\"\n                  type=\"email\"\n                  placeholder=\"m@example.com\"\n                  required\n                />\n              </div>\n              <div className=\"grid gap-2\">\n                <div className=\"flex items-center\">\n                  <Label htmlFor=\"password\">Password</Label>\n                  <a\n                    href=\"#\"\n                    className=\"ml-auto inline-block text-sm underline-offset-4 hover:underline\"\n                  >\n                    Forgot your password?\n                  </a>\n                </div>\n                <Input id=\"password\" type=\"password\" required />\n              </div>\n              <Button type=\"submit\" className=\"w-full\">\n                Login\n              </Button>\n              <Button variant=\"outline\" className=\"w-full\">\n                Login with Google\n              </Button>\n            </div>\n            <div className=\"mt-4 text-center text-sm\">\n              Don&apos;t have an account?{\" \"}\n              <a href=\"#\" className=\"underline underline-offset-4\">\n                Sign up\n              </a>\n            </div>\n          </form>\n        </CardContent>\n      </Card>\n    </div>\n  );\n}\n",
+      "path": "registry/blocks/login-03/components/login-form.tsx"
+    },
+    {
+      "type": "registry:lib",
+      "target": "lib/utils.ts",
+      "content": "import { type ClassValue, clsx } from \"clsx\";\nimport { twMerge } from \"tailwind-merge\";\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}\n\nexport function absoluteUrl(path: string) {\n  return `${process.env.NEXT_PUBLIC_APP_URL}${path}`;\n}\n",
+      "path": "lib/utils.ts"
+    },
+    {
+      "type": "registry:lib",
+      "target": "lib/utils.ts",
+      "content": "import { type ClassValue, clsx } from \"clsx\";\nimport { twMerge } from \"tailwind-merge\";\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}\n",
+      "path": "registry/lib/utils.ts"
+    },
+    {
+      "type": "registry:ui",
+      "target": "components/ui/button.tsx",
+      "content": "import { Slot } from \"@radix-ui/react-slot\";\nimport { type VariantProps, cva } from \"class-variance-authority\";\nimport * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst buttonVariants = cva(\n  \"inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0\",\n  {\n    variants: {\n      variant: {\n        default:\n          \"bg-primary text-primary-foreground shadow hover:bg-primary/90 ring-1 ring-inset ring-white/20 ring-offset-primary/90\",\n        destructive:\n          \"bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90\",\n        outline:\n          \"border border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground\",\n        secondary:\n          \"bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80\",\n        ghost: \"hover:bg-accent hover:text-accent-foreground\",\n        link: \"text-primary underline-offset-4 hover:underline\",\n      },\n      size: {\n        default: \"h-9 px-4 py-2\",\n        sm: \"h-8 rounded-md px-3 text-xs\",\n        lg: \"h-10 rounded-md px-8\",\n        icon: \"h-9 w-9\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n      size: \"default\",\n    },\n  },\n);\n\nexport interface ButtonProps\n  extends React.ButtonHTMLAttributes<HTMLButtonElement>,\n    VariantProps<typeof buttonVariants> {\n  asChild?: boolean;\n}\n\nconst Button = React.forwardRef<HTMLButtonElement, ButtonProps>(\n  ({ className, variant, size, asChild = false, ...props }, ref) => {\n    const Comp = asChild ? Slot : \"button\";\n    return (\n      <Comp\n        className={cn(buttonVariants({ variant, size, className }))}\n        ref={ref}\n        {...props}\n      />\n    );\n  },\n);\nButton.displayName = \"Button\";\n\nexport { Button, buttonVariants };\n",
+      "path": "registry/ui/button.tsx"
+    },
+    {
+      "type": "registry:ui",
+      "target": "components/ui/card.tsx",
+      "content": "import * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst Card = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => (\n  <div\n    ref={ref}\n    className={cn(\n      \"rounded-xl border bg-card text-card-foreground shadow\",\n      className,\n    )}\n    {...props}\n  />\n));\nCard.displayName = \"Card\";\n\nconst CardHeader = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => (\n  <div\n    ref={ref}\n    className={cn(\"flex flex-col space-y-1.5 p-6\", className)}\n    {...props}\n  />\n));\nCardHeader.displayName = \"CardHeader\";\n\nconst CardTitle = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => (\n  <div\n    ref={ref}\n    className={cn(\"font-semibold leading-none tracking-tight\", className)}\n    {...props}\n  />\n));\nCardTitle.displayName = \"CardTitle\";\n\nconst CardDescription = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => (\n  <div\n    ref={ref}\n    className={cn(\"text-muted-foreground text-sm\", className)}\n    {...props}\n  />\n));\nCardDescription.displayName = \"CardDescription\";\n\nconst CardContent = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => (\n  <div ref={ref} className={cn(\"p-6 pt-0\", className)} {...props} />\n));\nCardContent.displayName = \"CardContent\";\n\nconst CardFooter = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => (\n  <div\n    ref={ref}\n    className={cn(\"flex items-center p-6 pt-0\", className)}\n    {...props}\n  />\n));\nCardFooter.displayName = \"CardFooter\";\n\nexport {\n  Card,\n  CardHeader,\n  CardFooter,\n  CardTitle,\n  CardDescription,\n  CardContent,\n};\n",
+      "path": "registry/ui/card.tsx"
+    },
+    {
+      "type": "registry:ui",
+      "target": "components/ui/input.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\nimport * as React from \"react\";\n\nconst Input = React.forwardRef<HTMLInputElement, React.ComponentProps<\"input\">>(\n  ({ className, type, ...props }, ref) => {\n    return (\n      <input\n        type={type}\n        className={cn(\n          \"flex h-9 w-full rounded-lg border border-input bg-background px-3 py-2 text-foreground text-sm shadow-black/5 shadow-sm transition-shadow placeholder:text-muted-foreground/70 focus-visible:border-ring focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/20 disabled:cursor-not-allowed disabled:opacity-50\",\n          type === \"search\" &&\n            \"[&::-webkit-search-cancel-button]:appearance-none [&::-webkit-search-decoration]:appearance-none [&::-webkit-search-results-button]:appearance-none [&::-webkit-search-results-decoration]:appearance-none\",\n          type === \"file\" &&\n            \"p-0 pr-3 text-muted-foreground/70 italic file:me-3 file:h-full file:border-0 file:border-input file:border-r file:border-solid file:bg-transparent file:px-3 file:font-medium file:text-foreground file:text-sm file:not-italic\",\n          className,\n        )}\n        ref={ref}\n        {...props}\n      />\n    );\n  },\n);\nInput.displayName = \"Input\";\n\nexport { Input };\n",
+      "path": "registry/ui/input.tsx"
+    },
+    {
+      "type": "registry:ui",
+      "target": "components/ui/label.tsx",
+      "content": "\"use client\";\n\nimport * as LabelPrimitive from \"@radix-ui/react-label\";\nimport { type VariantProps, cva } from \"class-variance-authority\";\nimport * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst labelVariants = cva(\n  \"text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70\",\n);\n\nconst Label = React.forwardRef<\n  React.ElementRef<typeof LabelPrimitive.Root>,\n  React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> &\n    VariantProps<typeof labelVariants>\n>(({ className, ...props }, ref) => (\n  <LabelPrimitive.Root\n    ref={ref}\n    className={cn(labelVariants(), className)}\n    {...props}\n  />\n));\nLabel.displayName = LabelPrimitive.Root.displayName;\n\nexport { Label };\n",
+      "path": "registry/ui/label.tsx"
+    }
+  ],
+  "meta": {
+    "iframeHeight": "auto"
+  },
+  "categories": [
+    "authentication"
+  ]
+}
