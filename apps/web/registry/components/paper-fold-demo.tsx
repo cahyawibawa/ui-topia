@@ -15,7 +15,6 @@ const StickerCard = ({
 }) => {
   return (
     <div>
-      {/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
       <a
         className={cn(
           "relative z-10 mt-0 block size-full overflow-hidden",

@@ -11,5 +11,5 @@
     }
   },
   "exclude": ["dist", "node_modules"],
-  "include": ["."]
+  "include": [".", "../../apps/web/registry/ui/sidebar.tsx"]
 }
