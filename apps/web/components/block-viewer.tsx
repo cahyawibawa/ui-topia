@@ -23,6 +23,7 @@ import {
   type FileTree,
   convertRegistryPaths,
   createFileTreeForRegistryItemFiles,
+  getFileTarget,
 } from "@/lib/registry";
 import { Icons } from "@/registry/components/icons";
 import {
@@ -88,48 +89,77 @@ export function BlockViewer({ item, name, meta }: BlockViewerProps) {
   const resizablePanelRef = React.useRef<ImperativePanelHandle | null>(null);
   const iframeHeight = meta?.iframeHeight ?? "350px";
 
+  // Create a map for quick lookup of original path from transformed path
+  const filePathMap = React.useMemo(() => {
+    const map = new Map<string, string>();
+    if (item.files) {
+      for (const file of item.files) {
+        const targetPath = getFileTarget(file);
+        if (targetPath) {
+          map.set(targetPath, file.path);
+        }
+      }
+    }
+    return map;
+  }, [item.files]);
+
   React.useEffect(() => {
-    async function loadComponentCode() {
-      try {
-        const response = await fetch(`/r/${name}.json`);
-        const data = (await response.json()) as RegistryItem;
+    async function loadInitialFile() {
+      if (!item.files?.length) {
+        console.error("No files found for item:", name);
+        return;
+      }
 
-        if (!data.files?.length) {
-          throw new Error("No files found");
+      // Find the main component file (usually page.tsx or first component)
+      const mainFile =
+        item.files.find(
+          (f) => f.path.endsWith("page.tsx") || f.path.includes("/components/"),
+        ) || item.files[0]; // Fallback to the first file
+
+      if (!mainFile) {
+        console.error("No main file found for item:", name);
+        return;
+      }
+
+      const initialTransformedPath = getFileTarget(mainFile);
+      if (initialTransformedPath) {
+        setActiveFile(initialTransformedPath); // Set active file to the transformed path
+
+        // Fetch initial content using the original path
+        try {
+          const response = await fetch(`/r/${name}.json`);
+          const data = (await response.json()) as RegistryItem;
+          const fileData = data.files?.find((f) => f.path === mainFile.path);
+          if (fileData?.content) {
+            setCodeContent(convertRegistryPaths(fileData.content));
+          }
+        } catch (err) {
+          console.error("Error loading initial file content:", err);
+          setCodeContent(null);
         }
-
-        // Find the main component file (usually in components folder)
-        const mainFile = data.files.find(
-          (f) => f.path.includes("/components/") || f.path.endsWith("page.tsx"),
-        );
-
-        if (!mainFile) {
-          throw new Error("No main file found");
-        }
-
-        setActiveFile(mainFile.path);
-
-        if (mainFile.content) {
-          setCodeContent(convertRegistryPaths(mainFile.content));
-        }
-      } catch (err) {
-        console.error("Error loading component:", err);
-        setCodeContent(null);
       }
     }
 
-    loadComponentCode();
-  }, [name]);
+    loadInitialFile();
+  }, [item, name]); // Depend on item to re-run if item changes
 
   // Update code content when active file changes
   React.useEffect(() => {
     async function updateCodeContent() {
       if (!activeFile) return;
 
+      // Find the original path using the map
+      const originalPath = filePathMap.get(activeFile);
+      if (!originalPath) {
+        console.error("Original path not found for active file:", activeFile);
+        return;
+      }
+
       try {
         const response = await fetch(`/r/${name}.json`);
         const data = (await response.json()) as RegistryItem;
-        const file = data.files?.find((f) => f.path === activeFile);
+        // Find the file data using the original path
+        const file = data.files?.find((f) => f.path === originalPath);
 
         if (file?.content) {
           setCodeContent(convertRegistryPaths(file.content));
@@ -141,7 +171,7 @@ export function BlockViewer({ item, name, meta }: BlockViewerProps) {
     }
 
     updateCodeContent();
-  }, [activeFile, name]);
+  }, [activeFile, name, filePathMap]); // Add filePathMap dependency
 
   return (
     <BlockViewerContext.Provider
@@ -451,8 +481,8 @@ function Tree({ item, index }: { item: FileTree; index: number }) {
     return (
       <SidebarMenuItem>
         <SidebarMenuButton
-          isActive={item.path === activeFile}
-          onClick={() => item.path && setActiveFile(item.path)}
+          isActive={item.displayPath === activeFile}
+          onClick={() => item.displayPath && setActiveFile(item.displayPath)}
           className="whitespace-nowrap rounded-none pl-[--index] hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground active:bg-accent active:text-accent-foreground data-[active=true]:bg-accent data-[active=true]:text-accent-foreground dark:data-[active=true]:bg-zinc-700 dark:data-[active=true]:text-white dark:active:bg-zinc-700 dark:active:text-white dark:focus-visible:bg-zinc-700 dark:focus-visible:text-white dark:focus:bg-zinc-700 dark:focus:text-white dark:hover:bg-zinc-700 dark:hover:text-white"
           data-index={index}
           style={
@@ -485,7 +515,7 @@ function Tree({ item, index }: { item: FileTree; index: number }) {
             }
           >
             <ChevronRight className="h-4 w-4 transition-transform" />
-            <FolderOpen className="h-4 w-4" />
+            <Folder className="h-4 w-4" />
             {item.name}
           </SidebarMenuButton>
         </CollapsibleTrigger>

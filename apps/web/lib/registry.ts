@@ -6,14 +6,14 @@ const components = registry.items as RegistryItem[];
 const PATH_MAPPINGS = {
   "@/uitopia/": "@/components/ui/",
   "@/registry/ui": "@/components/ui",
-  "@/registry/components": "@/components/ui",
   "@/registry/hooks": "@/hooks",
   "@/registry/lib": "@/lib",
 } as const;
 
 export interface FileTree {
   name: string;
-  path?: string;
+  path: string; // Original path from registry.json
+  displayPath: string; // Transformed path for display (e.g., app/...)
   children?: FileTree[];
 }
 
@@ -26,13 +26,26 @@ export function getComponentsByName(name: string): RegistryItem | null {
 }
 
 export function convertRegistryPaths(content: string): string {
-  return Object.entries(PATH_MAPPINGS).reduce(
-    (acc, [from, to]) => acc.replace(new RegExp(from, "g"), to),
-    content,
+  let updatedContent = content;
+
+  // 1. Handle specific block component imports
+  const blockComponentRegex =
+    /@\/registry\/blocks\/([\w-]+)\/components\/([\w-]+)/g;
+  updatedContent = updatedContent.replace(
+    blockComponentRegex,
+    (_match, _blockName, componentName) => `@/components/${componentName}`,
   );
+
+  // 2. Handle general registry path mappings
+  updatedContent = Object.entries(PATH_MAPPINGS).reduce(
+    (acc, [from, to]) => acc.replace(new RegExp(from, "g"), to),
+    updatedContent, // Start with the already updated content
+  );
+
+  return updatedContent;
 }
 
-function getFileTarget(file: { path: string; type?: string }) {
+export function getFileTarget(file: { path: string; type?: string }) {
   if (!file.path) return "";
 
   const pathParts = file.path.split("/");
@@ -59,19 +72,18 @@ export function createFileTreeForRegistryItemFiles(
 ): FileTree[] {
   const root: FileTree[] = [];
 
-  // First pass: collect all unique paths
-  const uniquePaths = new Set<string>();
+  // First pass: collect all unique display paths and map them back to original paths
+  const uniquePaths = new Map<string, string>(); // Map<displayPath, originalPath>
   for (const file of files) {
-    const target = file.target ?? getFileTarget(file);
-    if (target) uniquePaths.add(target);
+    const displayPath = file.target ?? getFileTarget(file);
+    if (displayPath && !uniquePaths.has(displayPath)) {
+      uniquePaths.set(displayPath, file.path);
+    }
   }
 
-  // Second pass: create tree structure
-  for (const file of files) {
-    const target = file.target ?? getFileTarget(file);
-    if (!target || !uniquePaths.has(target)) continue;
-
-    const parts = target.split("/");
+  // Second pass: create tree structure using display paths
+  for (const [displayPath, originalPath] of uniquePaths.entries()) {
+    const parts = displayPath.split("/");
     let currentLevel = root;
 
     for (let i = 0; i < parts.length; i++) {
@@ -83,14 +95,20 @@ export function createFileTreeForRegistryItemFiles(
 
       if (existingNode) {
         if (isFile) {
-          existingNode.path = file.path;
+          // This shouldn't happen if display paths are unique, but handle defensively
+          existingNode.path = originalPath;
+          existingNode.displayPath = displayPath;
         } else {
-          currentLevel = existingNode.children!;
+          // Ensure children array exists
+          existingNode.children = existingNode.children || [];
+          currentLevel = existingNode.children;
         }
       } else {
         const newNode: FileTree = {
           name: part,
-          ...(isFile ? { path: file.path } : { children: [] }),
+          path: isFile ? originalPath : "", // Only files have a meaningful original path here
+          displayPath: isFile ? displayPath : "", // Folders don't have a direct path
+          children: isFile ? undefined : [],
         };
 
         currentLevel.push(newNode);
