@@ -5,10 +5,10 @@
   "title": "Login 03",
   "description": "A simple login form.",
   "registryDependencies": [
-    "button",
-    "card",
-    "input",
-    "label"
+    "https://uitopia.xyz/r/button.json",
+    "https://uitopia.xyz/r/card.json",
+    "https://uitopia.xyz/r/input.json",
+    "https://uitopia.xyz/r/label.json"
   ],
   "files": [
     {

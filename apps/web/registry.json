@@ -177,9 +177,9 @@
       ]
     },
     {
-      "name": "button-default",
+      "name": "button-color",
       "type": "registry:component",
-      "title": "Button Default",
+      "title": "Button color",
       "description": "custom shadcn/ui button.",
       "dependencies": [
         "@radix-ui/react-slot",
@@ -188,12 +188,15 @@
         "react",
         "tailwind-merge"
       ],
-      "registryDependencies": ["button", "https://uitopia.xyz/r/stack.json"],
+      "registryDependencies": [
+        "https://uitopia.xyz/r/button.json",
+        "https://uitopia.xyz/r/stack.json"
+      ],
       "files": [
         {
           "type": "registry:component",
-          "target": "components/button-default.tsx",
-          "path": "registry/components/button-default.tsx"
+          "target": "components/button-color.tsx",
+          "path": "registry/components/button-color.tsx"
         }
       ]
     },
@@ -209,7 +212,10 @@
         "react",
         "tailwind-merge"
       ],
-      "registryDependencies": ["button", "https://uitopia.xyz/r/stack.json"],
+      "registryDependencies": [
+        "https://uitopia.xyz/r/button.json",
+        "https://uitopia.xyz/r/stack.json"
+      ],
       "files": [
         {
           "type": "registry:component",
@@ -230,7 +236,10 @@
         "react",
         "tailwind-merge"
       ],
-      "registryDependencies": ["button", "https://uitopia.xyz/r/stack.json"],
+      "registryDependencies": [
+        "https://uitopia.xyz/r/button.json",
+        "https://uitopia.xyz/r/stack.json"
+      ],
       "files": [
         {
           "type": "registry:component",
@@ -251,7 +260,10 @@
         "react",
         "tailwind-merge"
       ],
-      "registryDependencies": ["button", "https://uitopia.xyz/r/stack.json"],
+      "registryDependencies": [
+        "https://uitopia.xyz/r/button.json",
+        "https://uitopia.xyz/r/stack.json"
+      ],
       "files": [
         {
           "type": "registry:component",
@@ -311,7 +323,7 @@
       "description": "Search input that show command menu when focused.",
       "dependencies": ["lucide-react", "motion", "react", "usehooks-ts"],
       "registryDependencies": [
-        "input",
+        "https://uitopia.xyz/r/input.json",
         "https://uitopia.xyz/r/icons.json",
         "https://uitopia.xyz/r/use-debounce.json"
       ],
@@ -424,7 +436,12 @@
       "type": "registry:block",
       "title": "Login 03",
       "description": "A simple login form.",
-      "registryDependencies": ["button", "card", "input", "label"],
+      "registryDependencies": [
+        "https://uitopia.xyz/r/button.json",
+        "https://uitopia.xyz/r/card.json",
+        "https://uitopia.xyz/r/input.json",
+        "https://uitopia.xyz/r/label.json"
+      ],
       "meta": {
         "iframeHeight": "auto"
       },
@@ -446,7 +463,12 @@
       "type": "registry:block",
       "title": "Login 04",
       "description": "Simple Login with Social Buttons.",
-      "registryDependencies": ["button", "input", "label", "separator"],
+      "registryDependencies": [
+        "https://uitopia.xyz/r/button.json",
+        "https://uitopia.xyz/r/input.json",
+        "https://uitopia.xyz/r/label.json",
+        "https://uitopia.xyz/r/separator.json"
+      ],
       "meta": {
         "iframeHeight": "auto"
       },
@@ -469,11 +491,11 @@
       "title": "Login 05",
       "description": "Full Page Login with Icons.",
       "registryDependencies": [
-        "button",
-        "checkbox",
-        "input",
-        "label",
-        "separator"
+        "https://uitopia.xyz/r/button.json",
+        "https://uitopia.xyz/r/checkbox.json",
+        "https://uitopia.xyz/r/input.json",
+        "https://uitopia.xyz/r/label.json",
+        "https://uitopia.xyz/r/separator.json"
       ],
       "meta": {
         "iframeHeight": "auto"

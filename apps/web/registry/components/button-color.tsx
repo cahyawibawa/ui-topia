@@ -3,7 +3,7 @@
 import { Button } from "@/registry/ui/button";
 import { Stack } from "@/registry/ui/stack";
 
-export default function ButtonDemo() {
+export default function ButtonColor() {
   return (
     <Stack
       align="start"

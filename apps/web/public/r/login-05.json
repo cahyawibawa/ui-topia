@@ -5,11 +5,11 @@
   "title": "Login 05",
   "description": "Full Page Login with Icons.",
   "registryDependencies": [
-    "button",
-    "checkbox",
-    "input",
-    "label",
-    "separator"
+    "https://uitopia.xyz/r/button.json",
+    "https://uitopia.xyz/r/checkbox.json",
+    "https://uitopia.xyz/r/input.json",
+    "https://uitopia.xyz/r/label.json",
+    "https://uitopia.xyz/r/separator.json"
   ],
   "files": [
     {

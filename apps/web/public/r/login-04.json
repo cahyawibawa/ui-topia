@@ -5,10 +5,10 @@
   "title": "Login 04",
   "description": "Simple Login with Social Buttons.",
   "registryDependencies": [
-    "button",
-    "input",
-    "label",
-    "separator"
+    "https://uitopia.xyz/r/button.json",
+    "https://uitopia.xyz/r/input.json",
+    "https://uitopia.xyz/r/label.json",
+    "https://uitopia.xyz/r/separator.json"
   ],
   "files": [
     {
