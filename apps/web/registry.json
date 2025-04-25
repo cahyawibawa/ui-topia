@@ -4,74 +4,419 @@
   "homepage": "https://uitopia.xyz",
   "items": [
     {
-      "name": "action-search-input-demo",
-      "type": "registry:component",
-      "title": "Action Search Input",
-      "description": "Search input that show command menu when focused.",
-      "categories": ["motion", "react", "tailwindcss"]
+      "name": "button",
+      "type": "registry:ui",
+      "dependencies": ["@radix-ui/react-slot"],
+      "files": [
+        {
+          "path": "registry/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
-      "name": "button-demo",
-      "type": "registry:component",
-      "title": "Button Demo",
-      "description": "custom shadcn/ui button."
+      "name": "card",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
-      "name": "button-destructive",
+      "name": "checkbox",
+      "type": "registry:ui",
+      "dependencies": ["@radix-ui/react-checkbox"],
+      "files": [
+        {
+          "path": "registry/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "dependencies": ["@radix-ui/react-label"],
+      "files": [
+        {
+          "path": "registry/ui/label.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "dependencies": ["@radix-ui/react-separator"],
+      "files": [
+        {
+          "path": "registry/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "dependencies": ["@radix-ui/react-dialog"],
+      "files": [
+        {
+          "path": "registry/ui/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "separator",
+        "sheet",
+        "tooltip",
+        "input",
+        "use-mobile",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/sidebar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "tailwind": {
+        "config": {
+          "theme": {
+            "extend": {
+              "colors": {
+                "sidebar": {
+                  "DEFAULT": "hsl(var(--sidebar-background))",
+                  "foreground": "hsl(var(--sidebar-foreground))",
+                  "primary": "hsl(var(--sidebar-primary))",
+                  "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
+                  "accent": "hsl(var(--sidebar-accent))",
+                  "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
+                  "border": "hsl(var(--sidebar-border))",
+                  "ring": "hsl(var(--sidebar-ring))"
+                }
+              }
+            }
+          }
+        }
+      },
+      "cssVars": {
+        "light": {
+          "sidebar-background": "0 0% 98%",
+          "sidebar-foreground": "240 5.3% 26.1%",
+          "sidebar-primary": "240 5.9% 10%",
+          "sidebar-primary-foreground": "0 0% 98%",
+          "sidebar-accent": "240 4.8% 95.9%",
+          "sidebar-accent-foreground": "240 5.9% 10%",
+          "sidebar-border": "220 13% 91%",
+          "sidebar-ring": "217.2 91.2% 59.8%"
+        },
+        "dark": {
+          "sidebar-background": "240 5.9% 10%",
+          "sidebar-foreground": "240 4.8% 95.9%",
+          "sidebar-primary": "224.3 76.3% 48%",
+          "sidebar-primary-foreground": "0 0% 100%",
+          "sidebar-accent": "240 3.7% 15.9%",
+          "sidebar-accent-foreground": "240 4.8% 95.9%",
+          "sidebar-border": "240 3.7% 15.9%",
+          "sidebar-ring": "217.2 91.2% 59.8%"
+        }
+      }
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/ui/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "dependencies": ["@radix-ui/react-tooltip"],
+      "files": [
+        {
+          "path": "registry/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [
+        {
+          "path": "registry/lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "button-default",
       "type": "registry:component",
-      "title": "Button Destructive",
-      "description": "custom shadcn/ui button."
+      "title": "Button Default",
+      "description": "custom shadcn/ui button.",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority",
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "registryDependencies": ["button", "https://uitopia.xyz/r/stack.json"],
+      "files": [
+        {
+          "type": "registry:component",
+          "target": "components/button-default.tsx",
+          "path": "registry/components/button-default.tsx"
+        }
+      ]
     },
     {
       "name": "button-outline",
       "type": "registry:component",
       "title": "Button Outline",
-      "description": "custom shadcn/ui button."
+      "description": "custom shadcn/ui button.",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority",
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "registryDependencies": ["button", "https://uitopia.xyz/r/stack.json"],
+      "files": [
+        {
+          "type": "registry:component",
+          "target": "components/button-outline.tsx",
+          "path": "registry/components/button-outline.tsx"
+        }
+      ]
     },
     {
       "name": "button-primary",
       "type": "registry:component",
       "title": "Button Primary",
-      "description": "custom shadcn/ui button."
+      "description": "custom shadcn/ui button.",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority",
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "registryDependencies": ["button", "https://uitopia.xyz/r/stack.json"],
+      "files": [
+        {
+          "type": "registry:component",
+          "target": "components/button-primary.tsx",
+          "path": "registry/components/button-primary.tsx"
+        }
+      ]
+    },
+    {
+      "name": "button-destructive",
+      "type": "registry:component",
+      "title": "Button Destructive",
+      "description": "custom shadcn/ui button.",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority",
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "registryDependencies": ["button", "https://uitopia.xyz/r/stack.json"],
+      "files": [
+        {
+          "type": "registry:component",
+          "target": "components/button-destructive.tsx",
+          "path": "registry/components/button-destructive.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stack",
+      "type": "registry:ui",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [
+        {
+          "type": "registry:ui",
+          "target": "components/ui/stack.tsx",
+          "path": "registry/ui/stack.tsx"
+        }
+      ]
+    },
+    {
+      "name": "icons",
+      "type": "registry:component",
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "type": "registry:component",
+          "target": "components/icons.tsx",
+          "path": "registry/components/icons.tsx"
+        }
+      ]
+    },
+    {
+      "name": "use-debounce",
+      "type": "registry:hook",
+      "files": [
+        {
+          "path": "registry/hooks/use-debounce.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-mobile",
+      "type": "registry:hook",
+      "files": [
+        {
+          "path": "registry/hooks/use-mobile.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "action-search-input-demo",
+      "type": "registry:component",
+      "title": "Action Search Input",
+      "description": "Search input that show command menu when focused.",
+      "dependencies": ["lucide-react", "motion", "react", "usehooks-ts"],
+      "registryDependencies": [
+        "input",
+        "https://uitopia.xyz/r/icons.json",
+        "https://uitopia.xyz/r/use-debounce.json"
+      ],
+      "files": [
+        {
+          "type": "registry:component",
+          "target": "components/action-search-input-demo.tsx",
+          "path": "registry/components/action-search-input-demo.tsx"
+        }
+      ],
+      "categories": ["motion", "react", "tailwindcss"]
     },
     {
       "name": "family-wallets-demo",
       "type": "registry:component",
       "title": "Family Wallets",
       "description": "An interactive interaction from Family wallets interface featuring smooth layout transitions and animations. Each wallet card can expand to show additional details and controls while collapsing others into a compact view.",
+      "dependencies": ["lucide-react", "motion", "react", "usehooks-ts"],
+      "registryDependencies": ["https://uitopia.xyz/r/icons.json"],
+      "files": [
+        {
+          "type": "registry:component",
+          "target": "components/family-wallets-demo.tsx",
+          "path": "registry/components/family-wallets-demo.tsx"
+        }
+      ],
       "categories": ["motion", "react", "tailwindcss"]
     },
-    {
-      "name": "text-loop",
-      "type": "registry:component",
-      "title": "Text Loop",
-      "description": "text loop base"
-    },
+
     {
       "name": "paper-fold-demo",
       "type": "registry:component",
       "title": "Paper Fold",
       "description": "A paper folding animation.",
+      "dependencies": ["@remixicon/react", "clsx", "tailwind-merge"],
+      "registryDependencies": ["https://uitopia.xyz/r/utils.json"],
+      "files": [
+        {
+          "type": "registry:component",
+          "target": "components/paper-fold-demo.tsx",
+          "path": "registry/components/paper-fold-demo.tsx"
+        }
+      ],
       "categories": ["react", "tailwindcss"]
+    },
+    {
+      "name": "text-loop",
+      "type": "registry:component",
+      "title": "Text Loop",
+      "description": "text loop base",
+      "dependencies": ["clsx", "motion", "react", "tailwind-merge"],
+      "files": [
+        {
+          "type": "registry:ui",
+          "target": "components/ui/text-loop.tsx",
+          "path": "registry/ui/text-loop.tsx"
+        }
+      ],
+      "categories": ["motion", "react", "tailwindcss"]
     },
     {
       "name": "text-loop-demo",
       "type": "registry:component",
       "title": "Text Loop",
       "description": "Text animation that transitions between multiple items, creating an engaging looping effect",
+      "dependencies": ["clsx", "motion", "react", "tailwind-merge"],
+      "registryDependencies": ["https://uitopia.xyz/r/text-loop.json"],
+      "files": [
+        {
+          "type": "registry:component",
+          "target": "components/text-loop-demo.tsx",
+          "path": "registry/components/text-loop-demo.tsx"
+        }
+      ],
       "categories": ["motion", "react", "tailwindcss"]
     },
     {
       "name": "text-type",
       "type": "registry:component",
       "title": "Text Type",
-      "description": "text type base"
+      "description": "text type base",
+      "dependencies": ["clsx", "motion", "react", "tailwind-merge"],
+      "files": [
+        {
+          "type": "registry:component",
+          "target": "components/ui/text-type.tsx",
+          "path": "registry/ui/text-type.tsx"
+        }
+      ],
+      "categories": ["motion", "react", "tailwindcss"]
     },
     {
       "name": "text-type-demo",
       "type": "registry:component",
       "title": "Typewriter",
       "description": "text type",
+      "dependencies": ["clsx", "motion", "react", "tailwind-merge"],
+      "registryDependencies": ["https://uitopia.xyz/r/text-type.json"],
+      "files": [
+        {
+          "type": "registry:component",
+          "target": "components/text-type-demo.tsx",
+          "path": "registry/components/text-type-demo.tsx"
+        }
+      ],
       "categories": ["motion", "react", "tailwindcss"]
     },
     {
@@ -87,7 +432,7 @@
         {
           "type": "registry:page",
           "path": "registry/blocks/login-03/page.tsx",
-          "target": "blocks/login-03/page.tsx"
+          "target": "app/login-03/page.tsx"
         },
         {
           "path": "registry/blocks/login-03/components/login-form.tsx",
@@ -100,7 +445,7 @@
       "name": "login-04",
       "type": "registry:block",
       "title": "Login 04",
-      "description": "Simple Login with Social Buttons",
+      "description": "Simple Login with Social Buttons.",
       "registryDependencies": ["button", "input", "label", "separator"],
       "meta": {
         "iframeHeight": "auto"
@@ -109,7 +454,7 @@
         {
           "type": "registry:page",
           "path": "registry/blocks/login-04/page.tsx",
-          "target": "blocks/login-04/page.tsx"
+          "target": "app/login-04/page.tsx"
         },
         {
           "path": "registry/blocks/login-04/components/login-form.tsx",
@@ -122,7 +467,7 @@
       "name": "login-05",
       "type": "registry:block",
       "title": "Login 05",
-      "description": "Full Page Login with Icons",
+      "description": "Full Page Login with Icons.",
       "registryDependencies": [
         "button",
         "checkbox",
@@ -137,7 +482,7 @@
         {
           "type": "registry:page",
           "path": "registry/blocks/login-05/page.tsx",
-          "target": "blocks/login-05/page.tsx"
+          "target": "app/login-05/page.tsx"
         },
         {
           "path": "registry/blocks/login-05/components/login-form.tsx",

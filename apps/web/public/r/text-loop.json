@@ -1,9 +1,9 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "text-loop",
-  "type": "registry:ui",
-  "description": "text loop base",
+  "type": "registry:component",
   "title": "Text Loop",
+  "description": "text loop base",
   "dependencies": [
     "clsx",
     "motion",
@@ -12,16 +12,15 @@
   ],
   "files": [
     {
+      "path": "registry/ui/text-loop.tsx",
+      "content": "\"use client\";\nimport { cn } from \"@/registry/lib/utils\";\nimport {\n  AnimatePresence,\n  type Transition,\n  type Variants,\n  motion,\n} from \"motion/react\";\nimport { Children, useEffect, useState } from \"react\";\n\nexport type TextLoopProps = {\n  children: React.ReactNode[];\n  className?: string;\n  interval?: number;\n  transition?: Transition;\n  variants?: Variants;\n  onIndexChange?: (index: number) => void;\n};\n\nexport default function TextLoop({\n  children,\n  className,\n  interval = 2,\n  transition = { duration: 0.3 },\n  variants,\n  onIndexChange,\n}: TextLoopProps) {\n  const [currentIndex, setCurrentIndex] = useState(0);\n  const items = Children.toArray(children);\n\n  useEffect(() => {\n    const intervalMs = interval * 1000;\n\n    const timer = setInterval(() => {\n      setCurrentIndex((current) => {\n        const next = (current + 1) % items.length;\n        onIndexChange?.(next);\n        return next;\n      });\n    }, intervalMs);\n    return () => clearInterval(timer);\n  }, [items.length, interval, onIndexChange]);\n\n  const motionVariants: Variants = {\n    initial: { y: 20, opacity: 0 },\n    animate: { y: 0, opacity: 1 },\n    exit: { y: -20, opacity: 0 },\n  };\n\n  return (\n    <div className={cn(\"relative inline-block whitespace-nowrap\", className)}>\n      <AnimatePresence mode=\"popLayout\" initial={false}>\n        <motion.div\n          key={currentIndex}\n          initial=\"initial\"\n          animate=\"animate\"\n          exit=\"exit\"\n          transition={transition}\n          variants={variants || motionVariants}\n        >\n          {items[currentIndex]}\n        </motion.div>\n      </AnimatePresence>\n    </div>\n  );\n}\n",
       "type": "registry:ui",
-      "target": "components/ui/text-loop.tsx",
-      "content": "\"use client\";\nimport { cn } from \"@/lib/utils\";\nimport {\n  AnimatePresence,\n  type Transition,\n  type Variants,\n  motion,\n} from \"motion/react\";\nimport { Children, useEffect, useState } from \"react\";\n\nexport type TextLoopProps = {\n  children: React.ReactNode[];\n  className?: string;\n  interval?: number;\n  transition?: Transition;\n  variants?: Variants;\n  onIndexChange?: (index: number) => void;\n};\n\nexport default function TextLoop({\n  children,\n  className,\n  interval = 2,\n  transition = { duration: 0.3 },\n  variants,\n  onIndexChange,\n}: TextLoopProps) {\n  const [currentIndex, setCurrentIndex] = useState(0);\n  const items = Children.toArray(children);\n\n  useEffect(() => {\n    const intervalMs = interval * 1000;\n\n    const timer = setInterval(() => {\n      setCurrentIndex((current) => {\n        const next = (current + 1) % items.length;\n        onIndexChange?.(next);\n        return next;\n      });\n    }, intervalMs);\n    return () => clearInterval(timer);\n  }, [items.length, interval, onIndexChange]);\n\n  const motionVariants: Variants = {\n    initial: { y: 20, opacity: 0 },\n    animate: { y: 0, opacity: 1 },\n    exit: { y: -20, opacity: 0 },\n  };\n\n  return (\n    <div className={cn(\"relative inline-block whitespace-nowrap\", className)}>\n      <AnimatePresence mode=\"popLayout\" initial={false}>\n        <motion.div\n          key={currentIndex}\n          initial=\"initial\"\n          animate=\"animate\"\n          exit=\"exit\"\n          transition={transition}\n          variants={variants || motionVariants}\n        >\n          {items[currentIndex]}\n        </motion.div>\n      </AnimatePresence>\n    </div>\n  );\n}\n",
-      "path": "registry/ui/text-loop.tsx"
-    },
-    {
-      "type": "registry:lib",
-      "target": "lib/utils.ts",
-      "content": "import { type ClassValue, clsx } from \"clsx\";\nimport { twMerge } from \"tailwind-merge\";\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}\n",
-      "path": "registry/lib/utils.ts"
+      "target": "components/ui/text-loop.tsx"
     }
+  ],
+  "categories": [
+    "motion",
+    "react",
+    "tailwindcss"
   ]
 }

@@ -2,32 +2,23 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "text-type-demo",
   "type": "registry:component",
-  "description": "text type",
   "title": "Typewriter",
+  "description": "text type",
   "dependencies": [
     "clsx",
     "motion",
     "react",
     "tailwind-merge"
   ],
+  "registryDependencies": [
+    "https://uitopia.xyz/r/text-type.json"
+  ],
   "files": [
     {
+      "path": "registry/components/text-type-demo.tsx",
+      "content": "\"use client\";\n\nimport TextType from \"@/registry/ui/text-type\";\n\nexport default function TextLoopDemo() {\n  return (\n    <h3 className=\"inline-flex whitespace-pre-wrap text-base\">\n      <span>{\"Don't forget how \"}</span>\n      <TextType\n        text={[\n          \"loved\",\n          \"talented\",\n          \"capable\",\n          \"special\",\n          \"worthy\",\n          \"powerful\",\n          \"inspiring\",\n          \"unstoppable\",\n          \"resilient\",\n          \"boundless\",\n          \"needed\",\n          \"extraordinary\",\n        ]}\n        speed={60}\n        className=\"text-yellow-600\"\n        waitTime={1500}\n        deleteSpeed={40}\n        cursorChar={\"|\"}\n      />\n      <span>{\" you are.\"}</span>\n    </h3>\n  );\n}\n",
       "type": "registry:component",
-      "target": "components/text-type-demo.tsx",
-      "content": "\"use client\";\n\nimport TextType from \"@/components/ui/text-type\";\n\nexport default function TextLoopDemo() {\n  return (\n    <h3 className=\"inline-flex whitespace-pre-wrap text-base\">\n      <span>{\"Don't forget how \"}</span>\n      <TextType\n        text={[\n          \"loved\",\n          \"talented\",\n          \"capable\",\n          \"special\",\n          \"worthy\",\n          \"powerful\",\n          \"inspiring\",\n          \"unstoppable\",\n          \"resilient\",\n          \"boundless\",\n          \"needed\",\n          \"extraordinary\",\n        ]}\n        speed={60}\n        className=\"text-yellow-600\"\n        waitTime={1500}\n        deleteSpeed={40}\n        cursorChar={\"|\"}\n      />\n      <span>{\" you are.\"}</span>\n    </h3>\n  );\n}\n",
-      "path": "registry/components/text-type-demo.tsx"
-    },
-    {
-      "type": "registry:lib",
-      "target": "lib/utils.ts",
-      "content": "import { type ClassValue, clsx } from \"clsx\";\nimport { twMerge } from \"tailwind-merge\";\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}\n",
-      "path": "registry/lib/utils.ts"
-    },
-    {
-      "type": "registry:ui",
-      "target": "components/ui/text-type.tsx",
-      "content": "\"use client\";\n\nimport { cn } from \"@/lib/utils\";\nimport { type Variants, motion } from \"motion/react\";\nimport { useEffect, useState } from \"react\";\n\nexport type TextTypeProps = {\n  text: string | string[];\n  speed?: number;\n  initialDelay?: number;\n  waitTime?: number;\n  deleteSpeed?: number;\n  loop?: boolean;\n  className?: string;\n  showCursor?: boolean;\n  hideCursorOnType?: boolean;\n  cursorChar?: string | React.ReactNode;\n  cursorAnimationVariants?: {\n    initial: Variants[\"initial\"];\n    animate: Variants[\"animate\"];\n  };\n  cursorClassName?: string;\n};\n\nexport default function Typewriter({\n  text,\n  speed = 50,\n  initialDelay = 0,\n  waitTime = 2000,\n  deleteSpeed = 30,\n  loop = true,\n  className,\n  showCursor = true,\n  hideCursorOnType = false,\n  cursorChar = \"|\",\n  cursorClassName = \"ml-0.5\",\n  cursorAnimationVariants = {\n    initial: { opacity: 0 },\n    animate: {\n      opacity: 1,\n      transition: {\n        duration: 0.01,\n        repeat: Number.POSITIVE_INFINITY,\n        repeatDelay: 0.4,\n        repeatType: \"reverse\",\n      },\n    },\n  },\n}: TextTypeProps) {\n  const [displayText, setDisplayText] = useState(\"\");\n  const [currentIndex, setCurrentIndex] = useState(0);\n  const [isDeleting, setIsDeleting] = useState(false);\n  const [currentTextIndex, setCurrentTextIndex] = useState(0);\n\n  const texts = Array.isArray(text) ? text : [text];\n\n  useEffect(() => {\n    let timeout: NodeJS.Timeout;\n\n    const currentText = texts[currentTextIndex];\n\n    const startTyping = () => {\n      if (isDeleting) {\n        if (displayText === \"\") {\n          setIsDeleting(false);\n          if (currentTextIndex === texts.length - 1 && !loop) {\n            return;\n          }\n          setCurrentTextIndex((prev) => (prev + 1) % texts.length);\n          setCurrentIndex(0);\n          timeout = setTimeout(() => {}, waitTime);\n        } else {\n          timeout = setTimeout(() => {\n            setDisplayText((prev) => prev.slice(0, -1));\n          }, deleteSpeed);\n        }\n      } else {\n        if (currentText && currentIndex < currentText.length) {\n          timeout = setTimeout(() => {\n            setDisplayText((prev) => prev + currentText[currentIndex]);\n            setCurrentIndex((prev) => prev + 1);\n          }, speed);\n        } else if (texts.length > 1) {\n          timeout = setTimeout(() => {\n            setIsDeleting(true);\n          }, waitTime);\n        }\n      }\n    };\n\n    // Apply initial delay only at the start\n    if (currentIndex === 0 && !isDeleting && displayText === \"\") {\n      timeout = setTimeout(startTyping, initialDelay);\n    } else {\n      startTyping();\n    }\n\n    return () => clearTimeout(timeout);\n  }, [\n    currentIndex,\n    displayText,\n    isDeleting,\n    speed,\n    deleteSpeed,\n    waitTime,\n    texts,\n    currentTextIndex,\n    loop,\n    initialDelay,\n  ]);\n\n  return (\n    <div className={`inline whitespace-pre-wrap tracking-tight ${className}`}>\n      <span>{displayText}</span>\n      {showCursor && (\n        <motion.span\n          variants={cursorAnimationVariants}\n          className={cn(\n            cursorClassName,\n            hideCursorOnType &&\n              (currentIndex < (texts[currentTextIndex]?.length ?? 0) ||\n                isDeleting)\n              ? \"hidden\"\n              : \"\",\n          )}\n          initial=\"initial\"\n          animate=\"animate\"\n        >\n          {cursorChar}\n        </motion.span>\n      )}\n    </div>\n  );\n}\n",
-      "path": "registry/ui/text-type.tsx"
+      "target": "components/text-type-demo.tsx"
     }
   ],
   "categories": [

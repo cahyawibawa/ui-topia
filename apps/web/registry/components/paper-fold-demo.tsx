@@ -1,6 +1,6 @@
 "use client";
 
-import { RiMagicLine, RiTranslateAi } from "@remixicon/react";
+import { RiTranslateAi } from "@remixicon/react";
 
 import { cn } from "@/registry/lib/utils";
 
