@@ -21,7 +21,7 @@ export default defineConfig({
       inline: "tailing-curly-colon",
       themes: {
         light: "github-light",
-        dark: "vesper",
+        dark: "github-dark",
       },
       transformers: [
         ...(rehypeCodeDefaultOptions.transformers ?? []),

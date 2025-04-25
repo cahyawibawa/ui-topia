@@ -13,7 +13,7 @@ export function CodeBlock({ code, language = "tsx" }: CodeBlockProps) {
       options={{
         themes: {
           light: "github-light",
-          dark: "vesper",
+          dark: "github-dark",
         },
       }}
     />
