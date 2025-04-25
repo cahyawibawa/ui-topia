@@ -10,11 +10,11 @@ export default function Home() {
     <div className="container-wrapper">
       <div className="container py-4">
         <Hero />
+        <ShowcaseComponent name="family-wallets-demo" demo={FamilyWallets} />
         <ShowcaseComponent
           name="action-search-input-demo"
           demo={ActionSearchInput}
         />
-        <ShowcaseComponent name="family-wallets-demo" demo={FamilyWallets} />
         <ShowcaseComponent name="paper-fold-demo" demo={PaperFoldDemo} />
         <ShowcaseComponent name="text-loop-demo" demo={TextLoopDemo} />
       </div>

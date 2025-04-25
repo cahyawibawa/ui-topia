@@ -1,6 +1,6 @@
 import { BlockDisplay } from "@/components/block-display";
 
-const FEATURED_BLOCKS = ["login-03", "login-04", "login-05"];
+const FEATURED_BLOCKS = ["login-03", "login-05"];
 
 export default async function BlocksPage() {
   return (
