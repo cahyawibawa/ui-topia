@@ -6,9 +6,9 @@ function PageHeader({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <section className={cn("border-grid border-b", className)} {...props}>
+    <section className={cn("border-grid", className)} {...props}>
       <div className="container-wrapper">
-        <div className="container flex flex-col items-start gap-1 py-8 md:py-10 lg:py-12">
+        <div className="flex flex-col items-start gap-1 py-8 md:py-10 lg:py-12">
           {children}
         </div>
       </div>
@@ -23,7 +23,7 @@ function PageHeaderHeading({
   return (
     <h1
       className={cn(
-        "font-redaction text-3xl leading-tight tracking-tighter md:text-5xl lg:leading-[1.1]",
+        "font-medium font-mono text-3xl leading-px tracking-tighter md:text-4xl lg:leading-[1.1]",
         className,
       )}
       {...props}
@@ -38,7 +38,7 @@ function PageHeaderDescription({
   return (
     <p
       className={cn(
-        "max-w-2xl text-balance font-light text-base text-foreground",
+        "max-w-2xl text-balance font-light text-base text-foreground sm:text-lg",
         className,
       )}
       {...props}
