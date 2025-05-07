@@ -53,7 +53,7 @@ export default function BlocksLayout({ children }: BlocksLayoutProps) {
             href="/blocks#blocks"
             className={cn(
               buttonVariants({ variant: "default", size: "sm" }),
-              "border border-zinc-950/25 bg-gradient-to-t from-indigo-700 to-indigo-500/85 text-white shadow-md shadow-zinc-950/20 ring-1 ring-white/20 ring-inset transition-all duration-200 hover:brightness-110 active:brightness-90 dark:border-white/20 dark:ring-transparent",
+              "border border-primary bg-linear-to-b from-primary/80 to-primary text-primary-foreground text-xs shadow-md shadow-zinc-950/30 ring ring-white/20 ring-inset transition-[filter] duration-200 hover:brightness-125 active:brightness-95 dark:border-primary dark:from-primary dark:to-primary/80 **:[text-shadow:0_1px_0_var(--color-primary)]",
             )}
           >
             Browse blocks
