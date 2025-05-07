@@ -7,10 +7,10 @@
     "turbo": "^2.5.0"
   },
   "engines": {
-    "node": ">=22.10.0"
+    "node": ">=20.14.0"
   },
   "license": "MIT",
-  "packageManager": "bun@1.1.42",
+  "packageManager": "bun@1.2.12",
   "private": true,
   "scripts": {
     "dev": "turbo run dev",
