@@ -1,6 +1,5 @@
-"use client";
-
-import { cn } from "@/registry/lib/utils";
+import { cn } from "@/lib/utils";
+import type { ComponentProps } from "react";
 
 type Direction = "row" | "column";
 type ResponsiveDirection = {
@@ -8,38 +7,79 @@ type ResponsiveDirection = {
   md?: Direction;
 };
 
-type StackProps = React.PropsWithChildren<{
+type FlexAlignItems = "stretch" | "start" | "end" | "center";
+type FlexJustifyContent =
+  | "stretch"
+  | "start"
+  | "end"
+  | "space-between"
+  | "space-around"
+  | "space-evenly"
+  | "center";
+
+interface StackProps extends ComponentProps<"div"> {
+  children: React.ReactNode;
   direction?: ResponsiveDirection;
   gap?: number;
-  align?: "start" | "center" | "end";
-  justify?: "start" | "center" | "end" | "space-between" | "space-around";
+  padding?: number;
+  grow?: boolean;
+  shrink?: boolean;
+  wrap?: boolean;
+  align?: FlexAlignItems;
+  justify?: FlexJustifyContent;
   className?: string;
-}>;
+}
 
 export function Stack({
   direction = { sm: "column", md: "row" },
-  gap = 4,
   align = "start",
   justify = "start",
+  wrap = false,
+  shrink = false,
+  grow = false,
+  padding = 0,
+  gap = 0,
   children,
   className,
+  ...etc
 }: StackProps) {
-  // Map justify value to appropriate Tailwind class
-  const justifyClass = justify.includes("space-")
-    ? `justify-${justify.replace("space-", "")}`
-    : `justify-${justify}`;
+  const directionClasses = [
+    direction.sm === "row" ? "flex-row" : "flex-col",
+    direction.md === "row" ? "md:flex-row" : "md:flex-col",
+  ];
+
+  const alignClasses = {
+    stretch: "items-stretch",
+    start: "items-start",
+    end: "items-end",
+    center: "items-center",
+  }[align];
+
+  const justifyClasses = {
+    stretch: "justify-stretch",
+    start: "justify-start",
+    end: "justify-end",
+    "space-between": "justify-between",
+    "space-around": "justify-around",
+    "space-evenly": "justify-evenly",
+    center: "justify-center",
+  }[justify];
 
   return (
     <div
       className={cn(
         "flex",
-        direction.sm === "row" ? "flex-row" : "flex-col",
-        direction.md === "row" ? "md:flex-row" : "md:flex-col",
-        "gap-2 md:gap-5 lg:gap-10 xl:gap-[60px]",
-        `items-${align}`,
-        justifyClass,
+        wrap && "flex-wrap",
+        grow && "flex-grow",
+        shrink && "flex-shrink",
+        directionClasses,
+        alignClasses,
+        justifyClasses,
+        gap && `gap-${gap}`,
+        padding && `p-${padding}`,
         className,
       )}
+      {...etc}
     >
       {children}
     </div>

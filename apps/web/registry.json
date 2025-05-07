@@ -335,7 +335,6 @@
       "dependencies": ["lucide-react", "motion", "react", "usehooks-ts"],
       "registryDependencies": [
         "https://uitopia.xyz/r/input.json",
-        "https://uitopia.xyz/r/icons.json",
         "https://uitopia.xyz/r/use-debounce.json"
       ],
       "files": [

@@ -2,16 +2,12 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "stack",
   "type": "registry:ui",
-  "dependencies": [
-    "clsx",
-    "tailwind-merge"
-  ],
   "files": [
     {
-      "path": "registry/ui/stack.tsx",
-      "content": "\"use client\";\n\nimport { cn } from \"@/registry/lib/utils\";\n\ntype Direction = \"row\" | \"column\";\ntype ResponsiveDirection = {\n  sm?: Direction;\n  md?: Direction;\n};\n\ntype StackProps = React.PropsWithChildren<{\n  direction?: ResponsiveDirection;\n  gap?: number;\n  align?: \"start\" | \"center\" | \"end\";\n  justify?: \"start\" | \"center\" | \"end\" | \"space-between\" | \"space-around\";\n  className?: string;\n}>;\n\nexport function Stack({\n  direction = { sm: \"column\", md: \"row\" },\n  gap = 4,\n  align = \"start\",\n  justify = \"start\",\n  children,\n  className,\n}: StackProps) {\n  // Map justify value to appropriate Tailwind class\n  const justifyClass = justify.includes(\"space-\")\n    ? `justify-${justify.replace(\"space-\", \"\")}`\n    : `justify-${justify}`;\n\n  return (\n    <div\n      className={cn(\n        \"flex\",\n        direction.sm === \"row\" ? \"flex-row\" : \"flex-col\",\n        direction.md === \"row\" ? \"md:flex-row\" : \"md:flex-col\",\n        \"gap-2 md:gap-5 lg:gap-10 xl:gap-[60px]\",\n        `items-${align}`,\n        justifyClass,\n        className,\n      )}\n    >\n      {children}\n    </div>\n  );\n}\n",
       "type": "registry:ui",
-      "target": "components/ui/stack.tsx"
+      "target": "components/ui/stack.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\nimport type { ComponentProps } from \"react\";\n\ntype Direction = \"row\" | \"column\";\ntype ResponsiveDirection = {\n  sm?: Direction;\n  md?: Direction;\n};\n\ntype FlexAlignItems = \"stretch\" | \"start\" | \"end\" | \"center\";\ntype FlexJustifyContent =\n  | \"stretch\"\n  | \"start\"\n  | \"end\"\n  | \"space-between\"\n  | \"space-around\"\n  | \"space-evenly\"\n  | \"center\";\n\ninterface StackProps extends ComponentProps<\"div\"> {\n  children: React.ReactNode;\n  direction?: ResponsiveDirection;\n  gap?: number;\n  padding?: number;\n  grow?: boolean;\n  shrink?: boolean;\n  wrap?: boolean;\n  align?: FlexAlignItems;\n  justify?: FlexJustifyContent;\n  className?: string;\n}\n\nexport function Stack({\n  direction = { sm: \"column\", md: \"row\" },\n  align = \"start\",\n  justify = \"start\",\n  wrap = false,\n  shrink = false,\n  grow = false,\n  padding = 0,\n  gap = 0,\n  children,\n  className,\n  ...etc\n}: StackProps) {\n  const directionClasses = [\n    direction.sm === \"row\" ? \"flex-row\" : \"flex-col\",\n    direction.md === \"row\" ? \"md:flex-row\" : \"md:flex-col\",\n  ];\n\n  const alignClasses = {\n    stretch: \"items-stretch\",\n    start: \"items-start\",\n    end: \"items-end\",\n    center: \"items-center\",\n  }[align];\n\n  const justifyClasses = {\n    stretch: \"justify-stretch\",\n    start: \"justify-start\",\n    end: \"justify-end\",\n    \"space-between\": \"justify-between\",\n    \"space-around\": \"justify-around\",\n    \"space-evenly\": \"justify-evenly\",\n    center: \"justify-center\",\n  }[justify];\n\n  return (\n    <div\n      className={cn(\n        \"flex\",\n        wrap && \"flex-wrap\",\n        grow && \"flex-grow\",\n        shrink && \"flex-shrink\",\n        directionClasses,\n        alignClasses,\n        justifyClasses,\n        gap && `gap-${gap}`,\n        padding && `p-${padding}`,\n        className,\n      )}\n      {...etc}\n    >\n      {children}\n    </div>\n  );\n}\n",
+      "path": "registry/ui/stack.tsx"
     }
   ]
 }

@@ -1,28 +1,14 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "login-04",
+  "name": "login-04-login-form",
   "type": "registry:block",
-  "title": "Login 04",
-  "description": "Simple Login with Social Buttons.",
   "dependencies": [
     "@radix-ui/react-label",
     "@radix-ui/react-separator",
     "@radix-ui/react-slot",
     "class-variance-authority"
   ],
-  "registryDependencies": [
-    "https://uitopia.xyz/r/button.json",
-    "https://uitopia.xyz/r/input.json",
-    "https://uitopia.xyz/r/label.json",
-    "https://uitopia.xyz/r/separator.json"
-  ],
   "files": [
-    {
-      "type": "registry:page",
-      "target": "app/login-04/page.tsx",
-      "content": "import { Login04 } from \"@/blocks/login-04/components/login-form\";\n\nexport default function Page() {\n  return (\n    <div className=\"flex min-h-svh w-full items-center justify-center p-6 md:p-10\">\n      <div className=\"w-full max-w-sm\">\n        <Login04 />\n      </div>\n    </div>\n  );\n}\n",
-      "path": "registry/blocks/login-04/page.tsx"
-    },
     {
       "type": "registry:block",
       "target": "blocks/login-04/components/login-form.tsx",
@@ -53,11 +39,5 @@
       "content": "\"use client\";\n\nimport * as SeparatorPrimitive from \"@radix-ui/react-separator\";\nimport * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst Separator = React.forwardRef<\n  React.ElementRef<typeof SeparatorPrimitive.Root>,\n  React.ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root>\n>(\n  (\n    { className, orientation = \"horizontal\", decorative = true, ...props },\n    ref,\n  ) => (\n    <SeparatorPrimitive.Root\n      ref={ref}\n      decorative={decorative}\n      orientation={orientation}\n      className={cn(\n        \"shrink-0 bg-border\",\n        orientation === \"horizontal\" ? \"h-[1px] w-full\" : \"h-full w-[1px]\",\n        className,\n      )}\n      {...props}\n    />\n  ),\n);\nSeparator.displayName = SeparatorPrimitive.Root.displayName;\n\nexport { Separator };\n",
       "path": "registry/ui/separator.tsx"
     }
-  ],
-  "meta": {
-    "iframeHeight": "auto"
-  },
-  "categories": [
-    "authentication"
   ]
 }
