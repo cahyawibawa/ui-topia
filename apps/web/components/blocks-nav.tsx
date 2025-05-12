@@ -1,8 +1,8 @@
 "use client";
 
-import { ScrollArea, ScrollBar } from "@/uitopia/scroll-area";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ScrollArea, ScrollBar } from "@/uitopia/scroll-area";
 
 interface Category {
   name: string;

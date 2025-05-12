@@ -1,8 +1,3 @@
-import { useMDXComponents } from "@/components/content/mdx-components";
-import { siteConfig } from "@/config/site";
-import { createMetadata } from "@/lib/metadata";
-import type { Page } from "@/lib/source";
-import { source } from "@/lib/source";
 import { getPageTreePeers } from "fumadocs-core/server";
 import { Card, Cards } from "fumadocs-ui/components/card";
 import {
@@ -13,6 +8,10 @@ import {
 } from "fumadocs-ui/page";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { useMDXComponents } from "@/components/content/mdx-components";
+import { siteConfig } from "@/config/site";
+import { createMetadata } from "@/lib/metadata";
+import { source } from "@/lib/source";
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -45,13 +44,13 @@ export default async function Page(props: {
         {page.data.description}
       </DocsDescription>
       <DocsBody className="prose-h2:text-lg prose-h3:text-base opacity-[0.9]">
-        {MDX && <MDX components={useMDXComponents({})} />}
+        <MDX components={useMDXComponents({})} />
       </DocsBody>
     </DocsPage>
   );
 }
 
-function DocsCategory({ url }: { url: string }) {
+function _DocsCategory({ url }: { url: string }) {
   return (
     <Cards>
       {getPageTreePeers(source.pageTree, url).map((peer) => (

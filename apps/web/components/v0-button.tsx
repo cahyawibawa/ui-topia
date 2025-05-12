@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/uitopia/button";
 import {
@@ -6,7 +7,6 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/uitopia/tooltip";
-import Link from "next/link";
 
 interface V0ButtonProps {
   componentSource: string;

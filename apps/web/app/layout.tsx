@@ -1,8 +1,8 @@
-import { Redaction, geistMono, geistSans } from "@/lib/fonts";
-import { createMetadata } from "@/lib/metadata";
 import { Analytics } from "@vercel/analytics/react";
 import { RootProvider } from "fumadocs-ui/provider";
 import type { Viewport } from "next";
+import { geistMono, geistSans, Redaction } from "@/lib/fonts";
+import { createMetadata } from "@/lib/metadata";
 import "styles/globals.css";
 
 export const metadata = createMetadata({});

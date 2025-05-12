@@ -1,8 +1,8 @@
+import type { JSX, SVGProps } from "react";
 import { Button } from "@/registry/ui/button";
 import { Input } from "@/registry/ui/input";
 import { Label } from "@/registry/ui/label";
 import { Separator } from "@/registry/ui/separator";
-import type { JSX, SVGProps } from "react";
 
 const GitHubIcon = (
   props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>,

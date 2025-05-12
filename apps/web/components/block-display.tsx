@@ -1,6 +1,6 @@
+import * as React from "react";
 import { BlockViewer } from "@/components/block-viewer";
 import { getComponentsByName } from "@/lib/registry";
-import * as React from "react";
 
 const LoadingFallback = () => (
   <div className="flex min-h-[350px] w-full items-center justify-center rounded-xl border bg-background">

@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import type { RegistryItem } from "shadcn/registry";
 import { CodeBlock } from "@/components/code-block";
 import { convertRegistryPaths, getComponentsByName } from "@/lib/registry";
 import { cn } from "@/lib/utils";
@@ -10,8 +12,6 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/uitopia/collapsible";
-import { useEffect, useState } from "react";
-import type { RegistryItem } from "shadcn/registry";
 
 export function ComponentSource({
   name,
@@ -22,7 +22,7 @@ export function ComponentSource({
   ...props
 }: ComponentSourceProps) {
   const [isOpened, setIsOpened] = useState(defaultExpanded);
-  const [component, setComponent] = useState<RegistryItem | null>(null);
+  const [_component, setComponent] = useState<RegistryItem | null>(null);
   const [code, setCode] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 

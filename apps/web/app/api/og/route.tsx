@@ -1,8 +1,8 @@
 import { readFileSync } from "fs";
-import { join } from "path";
-import { Icons } from "@/registry/components/icons";
 import { ImageResponse } from "next/og";
 import type { NextRequest } from "next/server";
+import { join } from "path";
+import { Icons } from "@/registry/components/icons";
 
 export async function GET(req: NextRequest) {
   try {

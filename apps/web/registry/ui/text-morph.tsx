@@ -1,7 +1,7 @@
 "use client";
-import { cn } from "@/registry/lib/utils";
 import { AnimatePresence, motion } from "motion/react";
 import { useId, useMemo } from "react";
+import { cn } from "@/registry/lib/utils";
 
 type TextMorphProps = {
   children: string;

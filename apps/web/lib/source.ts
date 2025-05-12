@@ -1,9 +1,9 @@
-import { docs, meta } from "@/.source";
-import { create } from "@/registry/components/icons";
 import type { InferMetaType, InferPageType } from "fumadocs-core/source";
 import { loader } from "fumadocs-core/source";
 import { createMDXSource } from "fumadocs-mdx";
 import { icons } from "lucide-react";
+import { docs, meta } from "@/.source";
+import { create } from "@/registry/components/icons";
 
 export const source = loader({
   baseUrl: "/docs",

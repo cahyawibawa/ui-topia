@@ -35,7 +35,7 @@ export const Icons = {
   loader: Loader,
   share: Share,
 
-  logo: (props: IconProps) => (
+  logo: (_props: IconProps) => (
     <svg
       width="25"
       height="25"
@@ -49,7 +49,7 @@ export const Icons = {
       />
     </svg>
   ),
-  react: (props: IconProps) => (
+  react: (_props: IconProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="16"

@@ -1,23 +1,24 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import type { RegistryItem } from "shadcn/registry";
 import { CodeBlock } from "@/components/code-block";
+import { ComponentLoader } from "@/components/content/component-loader";
 import { convertRegistryPaths, getComponentsByName } from "@/lib/registry";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/uitopia/badge";
-import { useEffect, useState } from "react";
-import type { RegistryItem } from "shadcn/registry";
 import { CodeViewer } from "./showcase-code-viewer";
 
 interface ShowcaseComponentProps {
   name: string;
-  demo: React.ComponentType;
   height?: string;
+  showV0Button?: boolean;
 }
 
 export function ShowcaseComponent({
   name,
-  demo: Demo,
-  height = "h-[400px] md:h-[640px]",
+  height = "h-[400px] md:h-[540px]",
+  showV0Button = true,
 }: ShowcaseComponentProps) {
   const [code, setCode] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -75,7 +76,7 @@ export function ShowcaseComponent({
             )}
           </CodeViewer>
         </div>
-        <Demo />
+        <ComponentLoader name={name} showV0Button={showV0Button} />
       </div>
 
       {/* Component Preview */}

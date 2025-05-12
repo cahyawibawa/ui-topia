@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.0.0-beta.3/schema.json",
   "vcs": {
     "enabled": false,
     "clientKind": "git",
@@ -7,7 +7,14 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": [".next", ".source", "dist", "node_modules", "public"]
+    "includes": [
+      "**",
+      "!**/.next",
+      "!**/.source",
+      "!**/dist",
+      "!**/node_modules",
+      "!**/public"
+    ]
   },
   "formatter": {
     "enabled": true,
@@ -18,11 +25,12 @@
     "lineWidth": 80,
     "attributePosition": "auto"
   },
-  "organizeImports": {
-    "enabled": true
-  },
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "linter": {
     "enabled": true,
+    "domains": {
+      "next": "recommended"
+    },
     "rules": {
       "recommended": true,
       "a11y": {
@@ -43,7 +51,16 @@
         "noNonNullAssertion": "off",
         "useSelfClosingElements": "off",
         "useNodejsImportProtocol": "off",
-        "useNumberNamespace": "off"
+        "useNumberNamespace": "off",
+        "noParameterAssign": "error",
+        "useAsConstAssertion": "error",
+        "useDefaultParameterLast": "error",
+        "useEnumInitializers": "error",
+        "useConst": "error",
+        "useSingleVarDeclarator": "error",
+        "noUnusedTemplateLiteral": "error",
+        "noInferrableTypes": "error",
+        "noUselessElse": "error"
       },
       "correctness": {
         "useExhaustiveDependencies": "off"

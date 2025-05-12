@@ -1,7 +1,5 @@
 "use client";
 
-import useDebounce from "@/registry/hooks/use-debounce";
-import { Input } from "@/registry/ui/input";
 import {
   AudioLines,
   BarChart2,
@@ -13,6 +11,8 @@ import {
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
+import useDebounce from "@/registry/hooks/use-debounce";
+import { Input } from "@/registry/ui/input";
 
 interface Action {
   id: string;
@@ -74,7 +74,7 @@ function ActionSearchInput({ actions = allActions }: { actions?: Action[] }) {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState<SearchResult | null>(null);
   const [isFocused, setIsFocused] = useState(false);
-  const [isTyping, setIsTyping] = useState(false);
+  const [_isTyping, setIsTyping] = useState(false);
   const [selectedAction, setSelectedAction] = useState<Action | null>(null);
   const debouncedQuery = useDebounce(query, 200);
 

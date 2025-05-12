@@ -214,3 +214,68 @@
     user-select: none;
   }
 }
+
+@layer theme {
+  /* Background gradients */
+  @property --bg-gradient-button {
+    syntax: "<gradient>";
+    inherits: false;
+    initial-value: linear-gradient(-90deg, #007cf0, #00dfd8, #ff0080, #007cf0);
+  }
+
+  @property --bg-trial {
+    syntax: "<gradient>";
+    inherits: false;
+    initial-value: linear-gradient(135deg, #0070f3, #f81ce5);
+  }
+
+  @property --bg-book-bind {
+    syntax: "<gradient>";
+    inherits: false;
+    initial-value: linear-gradient(
+        90deg,
+        hsla(0, 0%, 100%, 0),
+        hsla(0, 0%, 100%, 0) 12%,
+        hsla(0, 0%, 100%, 0.25) 29.25%,
+        hsla(0, 0%, 100%, 0) 50.5%,
+        hsla(0, 0%, 100%, 0) 75.25%,
+        hsla(0, 0%, 100%, 0.25) 91%,
+        hsla(0, 0%, 100%, 0)
+      ),
+      linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.03),
+        rgba(0, 0, 0, 0.1) 12%,
+        transparent 30%,
+        rgba(0, 0, 0, 0.02) 50%,
+        rgba(0, 0, 0, 0.2) 73.5%,
+        rgba(0, 0, 0, 0.5) 75.25%,
+        rgba(0, 0, 0, 0.15) 85.25%,
+        transparent
+      );
+  }
+
+  @property --bg-book-pages {
+    syntax: "<gradient>";
+    inherits: false;
+    initial-value: repeating-linear-gradient(
+      90deg,
+      #fff,
+      #efefef 1px,
+      #fff 3px,
+      #9a9a9a 0
+    );
+  }
+
+  /* Box shadows */
+  @property --shadow-book {
+    syntax: "<shadow>";
+    inherits: false;
+    initial-value:
+      0 1.8px 3.6px rgba(0, 0, 0, 0.05),
+      0 10.8px 21.6px rgba(0, 0, 0, 0.08),
+      inset 0 -0.9px 0 rgba(0, 0, 0, 0.1),
+      inset 0 1.8px 1.8px hsla(0, 0%, 100%, 0.1),
+      inset 3.6px 0 3.6px rgba(0, 0, 0, 0.1);
+  }
+}

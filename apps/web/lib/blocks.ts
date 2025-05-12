@@ -1,6 +1,6 @@
 "use server";
 
-import type { Registry, RegistryItem } from "shadcn/registry";
+import type { RegistryItem } from "shadcn/registry";
 import { getComponents, getComponentsByName } from "./registry";
 
 export async function getAllBlockIds(

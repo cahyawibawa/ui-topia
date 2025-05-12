@@ -1,12 +1,12 @@
 "use client";
 
+import { ArrowRight, Eye, EyeOff, Lock, Mail } from "lucide-react";
+import { type JSX, type SVGProps, useState } from "react";
 import { Button } from "@/registry/ui/button";
 import { Checkbox } from "@/registry/ui/checkbox";
 import { Input } from "@/registry/ui/input";
 import { Label } from "@/registry/ui/label";
 import { Separator } from "@/registry/ui/separator";
-import { ArrowRight, Eye, EyeOff, Lock, Mail } from "lucide-react";
-import { type JSX, type SVGProps, useState } from "react";
 
 const GoogleIcon = (
   props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>,

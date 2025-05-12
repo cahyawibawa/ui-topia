@@ -1,7 +1,7 @@
 "use client";
 
-import { Icons } from "@/registry/components/icons";
 import { AnimatePresence, MotionConfig, motion } from "motion/react";
+import type { RefObject } from "react";
 import {
   type FC,
   type JSX,
@@ -10,8 +10,8 @@ import {
   useRef,
   useState,
 } from "react";
-import type { RefObject } from "react";
 import { useOnClickOutside } from "usehooks-ts";
+import { Icons } from "@/registry/components/icons";
 
 // Types
 interface WalletCardProps {

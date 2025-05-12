@@ -1,12 +1,12 @@
 "use client";
-import { cn } from "@/registry/lib/utils";
 import {
   AnimatePresence,
+  motion,
   type Transition,
   type Variants,
-  motion,
 } from "motion/react";
 import { Children, useEffect, useState } from "react";
+import { cn } from "@/registry/lib/utils";
 
 export type TextLoopProps = {
   children: React.ReactNode[];

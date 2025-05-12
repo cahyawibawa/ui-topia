@@ -2,5 +2,9 @@
   "name": "@uitopia/tsconfig",
   "version": "1.0.0",
   "private": true,
-  "files": ["base.json", "nextjs.json", "react-library.json"]
+  "files": [
+    "base.json",
+    "nextjs.json",
+    "react-library.json"
+  ]
 }

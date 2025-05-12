@@ -1,15 +1,15 @@
 "use client";
 
-import { cn } from "@/registry/lib/utils";
 import {
   AnimatePresence,
+  motion,
   type TargetAndTransition,
   type Transition,
   type Variant,
   type Variants,
-  motion,
 } from "motion/react";
 import { type FC, type JSX, memo } from "react";
+import { cn } from "@/registry/lib/utils";
 
 export type TextEffectProps = {
   children: string;

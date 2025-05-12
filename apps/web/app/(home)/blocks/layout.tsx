@@ -1,9 +1,9 @@
+import Link from "next/link";
 import { BlocksNav } from "@/components/blocks-nav";
 import { createMetadata } from "@/lib/metadata";
 import { cn } from "@/lib/utils";
-import registry from "@/registry.json";
 import { buttonVariants } from "@/registry/ui/button";
-import Link from "next/link";
+import registry from "@/registry.json";
 
 import {
   PageActions,

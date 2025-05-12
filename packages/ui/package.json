@@ -1,12 +1,14 @@
 {
   "name": "@ui/topia",
   "version": "1.0.0",
-  "description": "UI components for uitopia.xyz",
+  "description": "UI components for uitopia.vercel.app",
   "sideEffects": false,
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",

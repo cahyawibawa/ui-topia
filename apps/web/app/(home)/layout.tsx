@@ -1,22 +1,17 @@
-import { baseOptions } from "@/app/layout.config";
-import { siteConfig } from "@/config/site";
 import { HomeLayout } from "fumadocs-ui/layouts/home";
 import type { ReactNode } from "react";
+import { baseOptions } from "@/app/layout.config";
+import { siteConfig } from "@/config/site";
 
 export default function Layout({
   children,
 }: {
   children: ReactNode;
 }): React.ReactElement {
-  return (
-    <HomeLayout {...baseOptions}>
-      {children}
-      <Footer />
-    </HomeLayout>
-  );
+  return <HomeLayout {...baseOptions}>{children}</HomeLayout>;
 }
 
-function Footer(): React.ReactElement {
+function _Footer(): React.ReactElement {
   const currentYear = new Date().getFullYear();
   return (
     <footer className="border-grid border-t py-6 md:py-0">
@@ -32,7 +27,6 @@ function Footer(): React.ReactElement {
               <span className="mt-2 flex items-center space-x-1 font-redaction text-muted-foreground text-sm sm:mt-0">
                 <a
                   href={siteConfig.links.portfolio}
-                  // biome-ignore lint/a11y/noBlankTarget: <explanation>
                   target="_blank"
                   className="font-medium no-underline hover:underline"
                 >

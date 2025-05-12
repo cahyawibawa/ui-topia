@@ -1,7 +1,7 @@
-import { siteConfig } from "@/config/site";
-import { Icons } from "@/registry/components/icons";
 import type { LinkItemType } from "fumadocs-ui/layouts/docs";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
+import { siteConfig } from "@/config/site";
+import { Icons } from "@/registry/components/icons";
 
 export const linkItems: LinkItemType[] = [
   {

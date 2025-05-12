@@ -1,12 +1,12 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import type { RegistryItem } from "shadcn/registry";
 import { CodeBlock } from "@/components/code-block";
 import { ComponentLoader } from "@/components/content/component-loader";
 import { convertRegistryPaths, getComponentsByName } from "@/lib/registry";
 import type { ComponentPreviewProps } from "@/types/component";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/uitopia/tabs";
-import { useEffect, useState } from "react";
-import type { RegistryItem } from "shadcn/registry";
 
 export function ComponentPreview({
   name,
@@ -14,7 +14,7 @@ export function ComponentPreview({
   classNameComponentContainer,
 }: ComponentPreviewProps) {
   const [activeTab, setActiveTab] = useState("preview");
-  const [component, setComponent] = useState<RegistryItem | null>(null);
+  const [_component, setComponent] = useState<RegistryItem | null>(null);
   const [code, setCode] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 

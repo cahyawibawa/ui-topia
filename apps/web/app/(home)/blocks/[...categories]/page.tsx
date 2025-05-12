@@ -18,7 +18,7 @@ export default async function Page(props: {
   searchParams: SearchParams;
 }) {
   const params = await props.params;
-  const searchParams = await props.searchParams;
+  const _searchParams = await props.searchParams;
 
   const blocks = await getAllBlockIds(
     ["registry:block"],

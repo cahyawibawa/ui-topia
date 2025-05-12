@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/uitopia/button";
@@ -7,7 +8,6 @@ import {
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/uitopia/page-header";
-import Link from "next/link";
 import { Announcement } from "./announcement";
 
 export function Hero() {

@@ -1,5 +1,8 @@
 "use client";
 
+import type React from "react";
+import { Suspense } from "react";
+import type { RegistryItem } from "shadcn/registry";
 import ComponentCli from "@/components/cli-commands";
 import { V0Button } from "@/components/v0-button";
 import { useMediaQuery } from "@/hooks/use-media-query";
@@ -13,9 +16,6 @@ import {
 } from "@/registry/ui/drawer";
 import { Button } from "@/uitopia/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/uitopia/sheet";
-import type React from "react";
-import { Suspense } from "react";
-import type { RegistryItem } from "shadcn/registry";
 
 interface CodeViewerProps {
   children: React.ReactNode;
@@ -33,7 +33,7 @@ function Content({ children, component }: CodeViewerProps) {
         <div className="mb-4 flex items-center justify-between">
           <h2 className="font-medium text-base">Code</h2>
           <V0Button
-            componentSource={`https://uitopia.xyz/r/${component.name}.json`}
+            componentSource={`https://uitopia.vercel.app/r/${component.name}.json`}
           />
         </div>
         {children}

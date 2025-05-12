@@ -1,10 +1,3 @@
-import ComponentCli from "@/components/cli-commands";
-import { ComponentPreview } from "@/components/content/component-preview";
-import { ComponentCollapse } from "@/components/content/component-preview-collapse";
-import { ComponentSource } from "@/components/content/component-source";
-import { cn } from "@/lib/utils";
-import { Reference, References } from "@/uitopia/references";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/uitopia/tabs";
 import { createGenerator } from "fumadocs-typescript";
 import { AutoTypeTable } from "fumadocs-typescript/ui";
 import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
@@ -17,6 +10,13 @@ import { Step, Steps } from "fumadocs-ui/components/steps";
 import { TypeTable } from "fumadocs-ui/components/type-table";
 import defaultComponents from "fumadocs-ui/mdx";
 import type { MDXComponents } from "mdx/types";
+import ComponentCli from "@/components/cli-commands";
+import { ComponentPreview } from "@/components/content/component-preview";
+import { ComponentCollapse } from "@/components/content/component-preview-collapse";
+import { ComponentSource } from "@/components/content/component-source";
+import { cn } from "@/lib/utils";
+import { Reference, References } from "@/uitopia/references";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/uitopia/tabs";
 
 const generator = createGenerator();
 
