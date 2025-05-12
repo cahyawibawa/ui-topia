@@ -12,8 +12,8 @@
     "tailwind-merge"
   ],
   "registryDependencies": [
-    "https://uitopia.xyz/r/button.json",
-    "https://uitopia.xyz/r/stack.json"
+    "https://uitopia.vercel.app/r/button.json",
+    "https://uitopia.vercel.app/r/stack.json"
   ],
   "files": [
     {

@@ -11,7 +11,7 @@
     "tailwind-merge"
   ],
   "registryDependencies": [
-    "https://uitopia.xyz/r/text-loop.json"
+    "https://uitopia.vercel.app/r/text-loop.json"
   ],
   "files": [
     {

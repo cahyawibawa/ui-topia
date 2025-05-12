@@ -10,7 +10,7 @@
     "tailwind-merge"
   ],
   "registryDependencies": [
-    "https://uitopia.xyz/r/utils.json"
+    "https://uitopia.vercel.app/r/utils.json"
   ],
   "files": [
     {

@@ -5,7 +5,6 @@ import {
   ChevronRight,
   Clipboard,
   File,
-  Folder,
   FolderOpen,
   Monitor,
   Smartphone,
@@ -20,9 +19,9 @@ import { CodeBlock } from "@/components/code-block";
 import { V0Button } from "@/components/v0-button";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
 import {
-  type FileTree,
   convertRegistryPaths,
   createFileTreeForRegistryItemFiles,
+  type FileTree,
   getFileTarget,
 } from "@/lib/registry";
 import { Icons } from "@/registry/components/icons";
@@ -295,13 +294,13 @@ function BlockViewerToolbar() {
             size="sm"
             onClick={() => {
               copyToClipboard(
-                `npx shadcn@latest add https://uitopia.xyz/r/${item.name}.json`,
+                `npx shadcn@latest add https://uitopia.vercel.app/r/${item.name}.json`,
               );
             }}
           >
             {isCopied ? <Check /> : <Terminal />}
             <span className="hidden lg:inline">
-              npx shadcn@latest add https://uitopia.xyz/r/{item.name}
+              npx shadcn@latest add https://uitopia.vercel.app/r/{item.name}
               .json
             </span>
           </Button>
@@ -309,7 +308,7 @@ function BlockViewerToolbar() {
         <Separator orientation="vertical" className="mx-1 hidden h-4 xl:flex" />
         <V0Button
           className="hidden shadow-none sm:flex"
-          componentSource={`https://uitopia.xyz/r/${componentName}.json`}
+          componentSource={`https://uitopia.vercel.app/r/${componentName}.json`}
         />
       </div>
     </div>
@@ -355,9 +354,9 @@ function BlockViewerView() {
               <div className="w-full max-w-md">
                 <React.Suspense
                   fallback={
-                    <div className="flex min-h-[200px] w-full items-center justify-center text-muted-foreground text-sm">
+                    <div className="flex min-h-[450px] w-full items-center justify-center text-muted-foreground text-sm">
                       <Icons.loader className="mr-2 h-4 w-4 animate-spin" />
-                      Loading component...
+                      Loading ...
                     </div>
                   }
                 >
@@ -421,7 +420,7 @@ function BlockViewerCode() {
 }
 
 function BlockViewerFileTree() {
-  const { item, activeFile, setActiveFile } = useBlockViewer();
+  const { item } = useBlockViewer();
   const [tree, setTree] = React.useState<FileTree[]>([]);
 
   React.useEffect(() => {
@@ -511,8 +510,8 @@ function Tree({ item, index }: { item: FileTree; index: number }) {
   );
 }
 
-function BlockCopyCodeButton() {
-  const { codeContent, item } = useBlockViewer();
+function _BlockCopyCodeButton() {
+  const { codeContent } = useBlockViewer();
   const { copyToClipboard, isCopied } = useCopyToClipboard();
 
   if (!codeContent) {

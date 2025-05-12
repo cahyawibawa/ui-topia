@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import { V0Button } from "@/components/v0-button";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/registry/components/icons";
@@ -5,20 +6,19 @@ import type {
   ComponentDisplayProps,
   ComponentLoaderProps,
 } from "@/types/component";
-import { Button } from "@/uitopia/button";
 import {
+  Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/uitopia/tooltip";
-import { Tooltip } from "@/uitopia/tooltip";
-import React, { useEffect, useState } from "react";
 
 export function ComponentLoader({
   name,
   hasReTrigger = false,
   classNameComponentContainer,
-}: ComponentLoaderProps) {
+  showV0Button = true,
+}: ComponentLoaderProps & { showV0Button?: boolean }) {
   const [Component, setComponent] = useState<React.ComponentType | null>(null);
   const [reTriggerKey, setReTriggerKey] = useState(() => Date.now());
 
@@ -55,6 +55,7 @@ export function ComponentLoader({
       reTriggerKey={reTriggerKey}
       reTrigger={handleReTrigger}
       name={name}
+      showV0Button={showV0Button}
     />
   );
 }
@@ -66,7 +67,8 @@ function ComponentDisplay({
   reTriggerKey,
   reTrigger,
   name,
-}: ComponentDisplayProps) {
+  showV0Button = true,
+}: ComponentDisplayProps & { showV0Button?: boolean }) {
   const renderComponent = () => {
     if (!React.isValidElement(component)) {
       return null;
@@ -85,16 +87,19 @@ function ComponentDisplay({
       )}
     >
       <div className="absolute top-3 right-4 flex items-center gap-3">
-        <V0Button
-          variant="icon"
-          componentSource={`https://uitopia.xyz/r/${name}.json`}
-          className="hidden md:flex"
-        />
+        {showV0Button && (
+          <V0Button
+            variant="icon"
+            componentSource={`https://uitopia.vercel.app/r/${name}.json`}
+            className="hidden md:flex"
+          />
+        )}
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
               {hasReTrigger && (
                 <button
+                  type="button"
                   className="cursor-pointer text-muted-foreground/80 hover:bg-transparent hover:text-foreground"
                   onClick={reTrigger}
                   aria-label="Refresh component"

@@ -9,10 +9,10 @@ export default function CliCommands({ name }: { name: string }) {
   const packageManager = config.packageManager || "pnpm";
 
   const commands = {
-    pnpm: `pnpm dlx shadcn@latest add https://uitopia.xyz/r/${name}.json`,
-    npm: `npx shadcn@latest add https://uitopia.xyz/r/${name}.json`,
-    yarn: `npx shadcn@latest add https://uitopia.xyz/r/${name}.json`,
-    bun: `bunx --bun shadcn@latest add https://uitopia.xyz/r/${name}.json`,
+    pnpm: `pnpm dlx shadcn@latest add https://uitopia.vercel.app/r/${name}.json`,
+    npm: `npx shadcn@latest add https://uitopia.vercel.app/r/${name}.json`,
+    yarn: `npx shadcn@latest add https://uitopia.vercel.app/r/${name}.json`,
+    bun: `bunx --bun shadcn@latest add https://uitopia.vercel.app/r/${name}.json`,
   };
 
   return (
