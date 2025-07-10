@@ -2,7 +2,7 @@
   "name": "uitopia",
   "version": "1.0.0",
   "devDependencies": {
-    "@biomejs/biome": "^2.0.0-beta.3",
+    "@biomejs/biome": "^2.1.1",
     "@uitopia/tsconfig": "workspace:*",
     "turbo": "^2.5.0"
   },
