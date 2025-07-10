@@ -54,7 +54,7 @@ export function Login05() {
       </div>
 
       <div className="space-y-5">
-        <Button variant="outline" className="w-full justify-center gap-2">
+        <Button className="w-full justify-center gap-2" variant="outline">
           <GoogleIcon className="h-4 w-4" />
           Sign in with Google
         </Button>
@@ -72,13 +72,13 @@ export function Login05() {
             <Label htmlFor="email">Email</Label>
             <div className="relative mt-2.5">
               <Input
-                id="email"
                 className="peer ps-9"
+                id="email"
                 placeholder="m@example.com"
                 type="email"
               />
               <div className="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-muted-foreground/80 peer-disabled:opacity-50">
-                <Mail size={16} aria-hidden="true" />
+                <Mail aria-hidden="true" size={16} />
               </div>
             </div>
           </div>
@@ -86,32 +86,32 @@ export function Login05() {
           <div>
             <div className="flex items-center justify-between">
               <Label htmlFor="password">Password</Label>
-              <a href="#" className="text-primary text-sm hover:underline">
+              <a className="text-primary text-sm hover:underline" href="#">
                 Forgot Password?
               </a>
             </div>
             <div className="relative mt-2.5">
               <Input
-                id="password"
                 className="ps-9 pe-9"
+                id="password"
                 placeholder="Enter your password"
                 type={isVisible ? "text" : "password"}
               />
               <div className="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-muted-foreground/80 peer-disabled:opacity-50">
-                <Lock size={16} aria-hidden="true" />
+                <Lock aria-hidden="true" size={16} />
               </div>
               <button
-                className="absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md text-muted-foreground/80 outline-none transition-[color,box-shadow] hover:text-foreground focus:z-10 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
-                type="button"
-                onClick={toggleVisibility}
+                aria-controls="password"
                 aria-label={isVisible ? "Hide password" : "Show password"}
                 aria-pressed={isVisible}
-                aria-controls="password"
+                className="absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md text-muted-foreground/80 outline-none transition-[color,box-shadow] hover:text-foreground focus:z-10 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+                onClick={toggleVisibility}
+                type="button"
               >
                 {isVisible ? (
-                  <EyeOff size={16} aria-hidden="true" />
+                  <EyeOff aria-hidden="true" size={16} />
                 ) : (
-                  <Eye size={16} aria-hidden="true" />
+                  <Eye aria-hidden="true" size={16} />
                 )}
               </button>
             </div>
@@ -130,7 +130,7 @@ export function Login05() {
 
         <div className="text-center text-sm">
           No account?{" "}
-          <a href="#" className="font-medium text-primary hover:underline">
+          <a className="font-medium text-primary hover:underline" href="#">
             Create an account
           </a>
         </div>

@@ -14,21 +14,19 @@ const StickerCard = ({
   children: React.ReactNode;
 }) => {
   return (
-    <div>
+    <div className="h-full w-full">
       <a
         className={cn(
-          "relative z-10 mt-0 block size-full overflow-hidden",
+          "relative z-10 mt-0 block h-full w-full overflow-hidden",
           "rounded-lg rounded-tr-[26px]",
-          "px-4 pt-5 pb-4",
+          "p-2",
           // Card
           "bg-white font-normal text-gray-900 leading-8 dark:bg-gray-900 dark:text-gray-50",
           "ring-1 ring-gray-200 ring-inset dark:ring-gray-800",
-
           // Animation
           "transition-all duration-200 ease-in-out",
-
           // Before Element (Corner Fold)
-          'before:content-[""]',
+          'before:content-[\"\"]',
           "before:absolute before:top-0 before:right-0",
           "before:z-[3]",
           "before:h-[30px] before:w-[30px]",
@@ -37,9 +35,8 @@ const StickerCard = ({
           "before:bg-white dark:before:bg-gray-950",
           "before:ring-1 before:ring-gray-200 dark:before:ring-gray-800",
           "before:transition-all before:duration-200 before:ease-in-out",
-
           // After Element (Corner Shadow)
-          'after:content-[""]',
+          'after:content-[\"\"]',
           "after:absolute after:top-0 after:right-0",
           "after:z-[2]",
           "after:size-7",
@@ -48,7 +45,6 @@ const StickerCard = ({
           "after:border after:bg-gray-50 dark:after:border-gray-800 dark:after:bg-gray-900",
           "after:shadow-sm",
           "after:transition-all after:duration-200 after:ease-in-out",
-
           // Hover States
           "hover:cursor-pointer",
           "hover:rounded-tr-[45px]",
@@ -57,15 +53,15 @@ const StickerCard = ({
           "after:hover:shadow-black/5 after:hover:shadow-lg",
         )}
       >
-        <div>
-          <div className="relative flex items-center gap-2">
+        <div className="flex h-full w-full flex-col justify-center">
+          <div className="relative flex w-full items-center gap-2">
             <div className="-left-4 absolute h-5 w-1 rounded-r-sm bg-blue-500" />
             <Icon className="h-5 w-5 shrink-0 text-blue-500" />
             <h3 className="font-medium text-gray-900 dark:text-gray-50">
               {title}
             </h3>
           </div>
-          <p className="mt-2 text-gray-600 sm:text-sm dark:text-gray-400">
+          <p className="mt-2 w-full text-gray-600 sm:text-sm dark:text-gray-400">
             {children}
           </p>
         </div>
@@ -76,18 +72,18 @@ const StickerCard = ({
 
 const cardData = [
   {
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     icon: RiTranslateAi,
     title: "Lost in translations",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   //more data here
 ];
 
 export default function PaperFoldDemo() {
   return (
-    <div className="mx-4 flex flex-col">
+    <div className="h-full w-full">
       {cardData.map((card, index) => (
-        <StickerCard key={index} icon={card.icon} title={card.title}>
+        <StickerCard icon={card.icon} key={index} title={card.title}>
           {card.description}
         </StickerCard>
       ))}

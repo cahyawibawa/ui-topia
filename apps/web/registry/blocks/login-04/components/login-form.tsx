@@ -49,8 +49,8 @@ export function Login04() {
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <div className="flex items-center space-x-1.5">
             <Logo
-              className="h-7 w-7 text-foreground dark:text-foreground"
               aria-hidden={true}
+              className="h-7 w-7 text-foreground dark:text-foreground"
             />
             <p className="font-medium text-foreground text-lg dark:text-foreground">
               Acme
@@ -62,30 +62,30 @@ export function Login04() {
           <p className="mt-2 text-muted-foreground text-sm dark:text-muted-foreground">
             Don&apos;t have an account?{" "}
             <a
-              href="#"
               className="font-medium text-primary hover:text-primary/90 dark:text-primary hover:dark:text-primary/90"
+              href="#"
             >
               Sign up
             </a>
           </p>
           <div className="mt-8 flex flex-col items-center space-y-2 sm:flex-row sm:space-x-4 sm:space-y-0">
             <Button
-              variant="outline"
-              className="flex-1 items-center justify-center space-x-2 py-2"
               asChild
+              className="flex-1 items-center justify-center space-x-2 py-2"
+              variant="outline"
             >
               <a href="#">
-                <GitHubIcon className="size-5" aria-hidden={true} />
+                <GitHubIcon aria-hidden={true} className="size-5" />
                 <span className="font-medium text-sm">Login with GitHub</span>
               </a>
             </Button>
             <Button
-              variant="outline"
-              className="mt-2 flex-1 items-center justify-center space-x-2 py-2 sm:mt-0"
               asChild
+              className="mt-2 flex-1 items-center justify-center space-x-2 py-2 sm:mt-0"
+              variant="outline"
             >
               <a href="#">
-                <GoogleIcon className="size-4" aria-hidden={true} />
+                <GoogleIcon aria-hidden={true} className="size-4" />
                 <span className="font-medium text-sm">Login with Google</span>
               </a>
             </Button>
@@ -102,48 +102,48 @@ export function Login04() {
             </div>
           </div>
 
-          <form action="#" method="post" className="mt-6 space-y-4">
+          <form action="#" className="mt-6 space-y-4" method="post">
             <div>
               <Label
-                htmlFor="email-login-04"
                 className="font-medium text-foreground text-sm dark:text-foreground"
+                htmlFor="email-login-04"
               >
                 Email
               </Label>
               <Input
-                type="email"
+                autoComplete="email"
+                className="mt-2"
                 id="email-login-04"
                 name="email-login-04"
-                autoComplete="email"
                 placeholder="m@example.com"
-                className="mt-2"
+                type="email"
               />
             </div>
             <div>
               <Label
-                htmlFor="password-login-04"
                 className="font-medium text-foreground text-sm dark:text-foreground"
+                htmlFor="password-login-04"
               >
                 Password
               </Label>
               <Input
-                type="password"
+                autoComplete="password"
+                className="mt-2"
                 id="password-login-04"
                 name="password-login-04"
-                autoComplete="password"
                 placeholder="********"
-                className="mt-2"
+                type="password"
               />
             </div>
-            <Button type="submit" className="mt-4 w-full py-2 font-medium">
+            <Button className="mt-4 w-full py-2 font-medium" type="submit">
               Sign in
             </Button>
           </form>
           <p className="mt-6 text-muted-foreground text-sm dark:text-muted-foreground">
             Forgot your password?{" "}
             <a
-              href="#"
               className="font-medium text-primary hover:text-primary/90 dark:text-primary hover:dark:text-primary/90"
+              href="#"
             >
               Reset password
             </a>

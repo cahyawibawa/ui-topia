@@ -25,15 +25,15 @@ interface WalletCardProps {
 
 // Shared animation variants
 const iconAnimation = {
-  initial: { opacity: 0, scale: 0.5, filter: "blur(4px)" },
-  animate: { opacity: 1, scale: 1, filter: "blur(0px)" },
-  exit: { opacity: 0, scale: 0.5, filter: "blur(4px)" },
+  animate: { filter: "blur(0px)", opacity: 1, scale: 1 },
+  exit: { filter: "blur(4px)", opacity: 0, scale: 0.5 },
+  initial: { filter: "blur(4px)", opacity: 0, scale: 0.5 },
 };
 
 const buttonAnimation = {
-  initial: { opacity: 0, scale: 0.25, filter: "blur(4px)" },
-  animate: { opacity: 1, scale: 1, filter: "blur(0px)" },
-  exit: { opacity: 0, scale: 0.25, filter: "blur(4px)" },
+  animate: { filter: "blur(0px)", opacity: 1, scale: 1 },
+  exit: { filter: "blur(4px)", opacity: 0, scale: 0.25 },
+  initial: { filter: "blur(4px)", opacity: 0, scale: 0.25 },
 };
 
 // Shared styled components
@@ -51,19 +51,19 @@ export const WalletCardDefault: FC<WalletCardProps> = ({
   uniqueId,
 }) => (
   <BaseWalletCard
-    layoutId={`wallet-${uniqueId}`}
     className="flex flex-col items-start justify-between p-3"
+    layoutId={`wallet-${uniqueId}`}
     style={{
+      backgroundColor: bgColor,
+      borderRadius: 24,
       height: "120px",
       width: "160px",
-      borderRadius: 24,
-      backgroundColor: bgColor,
     }}
   >
     <div className="flex w-full items-start justify-between">
       <IconWrapper
-        layoutId={`icon-${uniqueId}`}
         className="flex items-center justify-center"
+        layoutId={`icon-${uniqueId}`}
       >
         <IconComponent className="h-10 w-10 translate-x-0 translate-y-0 fill-white" />
       </IconWrapper>
@@ -77,14 +77,14 @@ export const WalletCardDefault: FC<WalletCardProps> = ({
     </div>
     <div className="flex flex-col items-start justify-center">
       <TextWrapper
-        layoutId={`walletName-${uniqueId}`}
         className="select-none font-semibold text-base text-white"
+        layoutId={`walletName-${uniqueId}`}
       >
         {walletName}
       </TextWrapper>
       <TextWrapper
-        layoutId={`ethValue-${uniqueId}`}
         className="select-none font-semibold text-sm text-white/50"
+        layoutId={`ethValue-${uniqueId}`}
       >
         {ethValue}
       </TextWrapper>
@@ -101,19 +101,19 @@ export const WalletCardExpanded: FC<WalletCardProps> = ({
   uniqueId,
 }) => (
   <BaseWalletCard
-    layoutId={`wallet-${uniqueId}`}
     className="flex cursor-pointer flex-col items-start justify-between p-5"
+    layoutId={`wallet-${uniqueId}`}
     style={{
+      backgroundColor: bgColor,
+      borderRadius: 24,
       height: "200px",
       width: "320px",
-      borderRadius: 24,
-      backgroundColor: bgColor,
     }}
   >
     <motion.div className="flex w-full items-start justify-between">
       <IconWrapper
-        layoutId={`icon-${uniqueId}`}
         className="flex items-center justify-center"
+        layoutId={`icon-${uniqueId}`}
         onClick={onClick}
       >
         <IconComponent className="h-14 w-14 translate-x-0 translate-y-0 fill-white" />
@@ -132,14 +132,14 @@ export const WalletCardExpanded: FC<WalletCardProps> = ({
     <div className="flex w-full items-end justify-between">
       <div className="flex flex-col items-start justify-center">
         <TextWrapper
-          layoutId={`walletName-${uniqueId}`}
           className="select-none font-semibold text-white text-xl"
+          layoutId={`walletName-${uniqueId}`}
         >
           {walletName}
         </TextWrapper>
         <TextWrapper
-          layoutId={`ethValue-${uniqueId}`}
           className="select-none font-semibold text-lg text-white/50"
+          layoutId={`ethValue-${uniqueId}`}
         >
           {ethValue}
         </TextWrapper>
@@ -163,34 +163,34 @@ export const WalletCardCollapsed: FC<WalletCardProps> = ({
   uniqueId,
 }) => (
   <BaseWalletCard
+    className="flex cursor-pointer flex-col items-start justify-between p-3"
     layoutId={`wallet-${uniqueId}`}
     onClick={onClick}
-    className="flex cursor-pointer flex-col items-start justify-between p-3"
     style={{
+      backgroundColor: bgColor,
+      borderRadius: 20,
       height: "96px",
       width: "96px",
-      borderRadius: 20,
-      backgroundColor: bgColor,
     }}
   >
     <div className="flex w-full items-center justify-start">
       <IconWrapper
-        layoutId={`icon-${uniqueId}`}
         className="flex items-center justify-center"
+        layoutId={`icon-${uniqueId}`}
       >
         <IconComponent className="h-8 w-8 translate-x-0 translate-y-0 fill-white" />
       </IconWrapper>
     </div>
     <div className="flex flex-col items-start justify-center">
       <TextWrapper
-        layoutId={`walletName-${uniqueId}`}
         className="select-none font-semibold text-sm text-white"
+        layoutId={`walletName-${uniqueId}`}
       >
         {walletName}
       </TextWrapper>
       <TextWrapper
-        layoutId={`ethValue-${uniqueId}`}
         className="select-none font-semibold text-white/50 text-xs"
+        layoutId={`ethValue-${uniqueId}`}
       >
         {ethValue}
       </TextWrapper>
@@ -201,32 +201,32 @@ export const WalletCardCollapsed: FC<WalletCardProps> = ({
 // Wallet data
 const walletData = [
   {
-    id: "1",
     bgColor: "#9E4EFD",
-    IconComponent: Icons.sparklesIcon,
-    walletName: "Family",
     ethValue: "1.03 ETH",
+    IconComponent: Icons.sparklesIcon,
+    id: "1",
+    walletName: "Family",
   },
   {
-    id: "2",
     bgColor: "#191A1A",
-    IconComponent: Icons.percentIcon,
-    walletName: "Savings",
     ethValue: "25.08 ETH",
+    IconComponent: Icons.percentIcon,
+    id: "2",
+    walletName: "Savings",
   },
   {
-    id: "3",
     bgColor: "#06BDC8",
-    IconComponent: Icons.cloudIcon,
-    walletName: "Rainy Day",
     ethValue: "0.04 ETH",
+    IconComponent: Icons.cloudIcon,
+    id: "3",
+    walletName: "Rainy Day",
   },
   {
-    id: "4",
     bgColor: "#00B2FB",
-    IconComponent: Icons.receiptIcon,
-    walletName: "Spending",
     ethValue: "0 ETH",
+    IconComponent: Icons.receiptIcon,
+    id: "4",
+    walletName: "Spending",
   },
 ];
 
@@ -259,14 +259,14 @@ const FamilyWallets = () => {
 
     return (
       <>
-        <div style={{ height: 200 }} className="flex gap-4">
+        <div className="flex gap-4" style={{ height: 200 }}>
           <WalletCardExpanded
             {...wallet}
             onClick={() => handleToggle(id)}
             uniqueId={id}
           />
         </div>
-        <div className="flex gap-4" style={{ width: 320, height: 96 }}>
+        <div className="flex gap-4" style={{ height: 96, width: 320 }}>
           {walletData
             .filter((w) => w.id !== id)
             .map((wallet) => (
@@ -283,24 +283,24 @@ const FamilyWallets = () => {
   };
 
   return (
-    <MotionConfig transition={{ type: "spring", duration: 0.4, bounce: 0.1 }}>
+    <MotionConfig transition={{ bounce: 0.1, duration: 0.4, type: "spring" }}>
       <div className="flex items-center justify-center">
         <div ref={ref}>
-          <AnimatePresence mode="popLayout" initial={false}>
+          <AnimatePresence initial={false} mode="popLayout">
             {expandedCardId ? (
               <motion.div
-                key="expanded"
                 className="flex flex-col items-center justify-center gap-4"
+                key="expanded"
               >
                 {renderExpandedWallet(expandedCardId)}
               </motion.div>
             ) : (
               <motion.div
-                key="collapsed"
                 className="flex flex-col items-center justify-center gap-4"
+                key="collapsed"
               >
                 {[0, 1].map((row) => (
-                  <div key={row} className="flex gap-4">
+                  <div className="flex gap-4" key={row}>
                     {walletData.slice(row * 2, (row + 1) * 2).map((wallet) => (
                       <WalletCardDefault
                         key={wallet.id}
