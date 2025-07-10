@@ -52,16 +52,16 @@ export function ComponentCollapse({
 
   return (
     <Collapsible
-      open={isOpen}
-      onOpenChange={setIsOpen}
       className="not-prose relative w-full rounded-lg border"
+      onOpenChange={setIsOpen}
+      open={isOpen}
     >
       <div className="flex flex-col">
         <div className="flex min-h-[100px] flex-1 items-center justify-center">
           <ComponentLoader
-            name={name}
-            hasReTrigger={hasReTrigger}
             classNameComponentContainer={classNameComponentContainer}
+            hasReTrigger={hasReTrigger}
+            name={name}
           />
         </div>
         <CollapsibleTrigger asChild>

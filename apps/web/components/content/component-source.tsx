@@ -54,9 +54,9 @@ export function ComponentSource({
 
   return (
     <Collapsible
-      open={isOpened}
-      onOpenChange={setIsOpened}
       className="not-prose"
+      onOpenChange={setIsOpened}
+      open={isOpened}
     >
       <div
         className={cn(
@@ -66,13 +66,13 @@ export function ComponentSource({
         {...props}
       >
         <CollapsibleContent
-          forceMount
           className={cn("overflow-hidden", !isOpened && "max-h-32")}
+          forceMount
         >
           <div
             className={cn(
               "no-scrollbar [&_pre]:my-0 [&_pre]:max-h-[650px] [&_pre]:pb-[100px]",
-              !isOpened ? "[&_pre]:overflow-hidden" : "[&_pre]:overflow-auto]",
+              isOpened ? "[&_pre]:overflow-auto]" : "[&_pre]:overflow-hidden",
             )}
             style={{
               maxHeight: isOpened ? maxHeight : "none",
@@ -98,7 +98,7 @@ export function ComponentSource({
           )}
         >
           <CollapsibleTrigger asChild>
-            <Button variant="secondary" size="sm" className="h-8 text-xs">
+            <Button className="h-8 text-xs" size="sm" variant="secondary">
               {isOpened ? "Collapse" : expandButtonTitle}
             </Button>
           </CollapsibleTrigger>

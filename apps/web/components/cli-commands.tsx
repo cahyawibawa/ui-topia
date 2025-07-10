@@ -9,23 +9,23 @@ export default function CliCommands({ name }: { name: string }) {
   const packageManager = config.packageManager || "pnpm";
 
   const commands = {
-    pnpm: `pnpm dlx shadcn@latest add https://uitopia.vercel.app/r/${name}.json`,
-    npm: `npx shadcn@latest add https://uitopia.vercel.app/r/${name}.json`,
-    yarn: `npx shadcn@latest add https://uitopia.vercel.app/r/${name}.json`,
     bun: `bunx --bun shadcn@latest add https://uitopia.vercel.app/r/${name}.json`,
+    npm: `npx shadcn@latest add https://uitopia.vercel.app/r/${name}.json`,
+    pnpm: `pnpm dlx shadcn@latest add https://uitopia.vercel.app/r/${name}.json`,
+    yarn: `npx shadcn@latest add https://uitopia.vercel.app/r/${name}.json`,
   };
 
   return (
     <div className="relative my-3 max-h-[650px] overflow-x-auto rounded-xl">
       <Tabs
-        value={packageManager}
+        className="rounded-lg bg-zinc-950 dark:bg-zinc-900"
         onValueChange={(value) => {
           setConfig({
             ...config,
             packageManager: value as "pnpm" | "npm" | "yarn" | "bun",
           });
         }}
-        className="rounded-lg bg-zinc-950 dark:bg-zinc-900"
+        value={packageManager}
       >
         <div className="flex items-center justify-between border-zinc-800 border-b px-3 pt-2.5">
           <TabsList className="h-7 translate-y-[2px] gap-3 bg-transparent p-0 pl-1">

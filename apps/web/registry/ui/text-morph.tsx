@@ -33,22 +33,22 @@ export function TextMorph({
   }, [children, uniqueId]);
 
   return (
-    <Component className={cn(className)} aria-label={children} style={style}>
-      <AnimatePresence mode="popLayout" initial={false}>
+    <Component aria-label={children} className={cn(className)} style={style}>
+      <AnimatePresence initial={false} mode="popLayout">
         {characters.map((character) => (
           <motion.span
+            animate={{ opacity: 1 }}
+            aria-hidden="true"
+            className="inline-block"
+            exit={{ opacity: 0 }}
+            initial={{ opacity: 0 }}
             key={character.id}
             layoutId={character.id}
-            className="inline-block"
-            aria-hidden="true"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
             transition={{
-              type: "spring",
-              stiffness: 280,
               damping: 18,
               mass: 0.3,
+              stiffness: 280,
+              type: "spring",
             }}
           >
             {character.label}

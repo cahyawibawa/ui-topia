@@ -7,7 +7,7 @@ export default function ButtonColor() {
   return (
     <Stack
       align="start"
-      direction={{ sm: "column", md: "row" }}
+      direction={{ md: "row", sm: "column" }}
       gap={4}
       justify="space-between"
     >

@@ -50,9 +50,9 @@ export function CodeViewer({ component, children }: CodeViewerProps) {
       <Drawer>
         <DrawerTrigger asChild>
           <Button
-            variant="outline"
-            size="sm"
             className="h-6 rounded-[6px] border bg-transparent px-2 text-foreground text-xs shadow-none hover:bg-muted dark:text-foreground"
+            size="sm"
+            variant="outline"
           >
             View Code
           </Button>
@@ -71,8 +71,6 @@ export function CodeViewer({ component, children }: CodeViewerProps) {
     <Sheet>
       <SheetTrigger asChild>
         <Button
-          variant="outline"
-          size="sm"
           className={cn(
             "h-6 rounded-[6px] px-2 text-xs",
             "text-foreground hover:bg-primary-foreground",
@@ -82,13 +80,15 @@ export function CodeViewer({ component, children }: CodeViewerProps) {
             "dark:text-foreground",
             "cursor-pointer",
           )}
+          size="sm"
+          variant="outline"
         >
           View Code
         </Button>
       </SheetTrigger>
       <SheetContent
-        side="right"
         className="mb-2 sm:max-w-sm md:w-[600px] md:max-w-[600px]"
+        side="right"
       >
         <SheetTitle className="sr-only">Code</SheetTitle>
         <Suspense

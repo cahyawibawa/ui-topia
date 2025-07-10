@@ -49,12 +49,12 @@ export function ComponentLoader({
 
   return (
     <ComponentDisplay
+      className={classNameComponentContainer}
       component={<Component />}
       hasReTrigger={hasReTrigger}
-      className={classNameComponentContainer}
-      reTriggerKey={reTriggerKey}
-      reTrigger={handleReTrigger}
       name={name}
+      reTrigger={handleReTrigger}
+      reTriggerKey={reTriggerKey}
       showV0Button={showV0Button}
     />
   );
@@ -82,16 +82,16 @@ function ComponentDisplay({
   return (
     <div
       className={cn(
-        "relative flex min-h-[350px] w-full items-center justify-center rounded-md",
+        "relative flex w-full items-center justify-center rounded-md",
         className,
       )}
     >
       <div className="absolute top-3 right-4 flex items-center gap-3">
         {showV0Button && (
           <V0Button
-            variant="icon"
-            componentSource={`https://uitopia.vercel.app/r/${name}.json`}
             className="hidden md:flex"
+            componentSource={`https://uitopia.vercel.app/r/${name}.json`}
+            variant="icon"
           />
         )}
         <TooltipProvider>
@@ -99,10 +99,10 @@ function ComponentDisplay({
             <TooltipTrigger asChild>
               {hasReTrigger && (
                 <button
-                  type="button"
+                  aria-label="Refresh component"
                   className="cursor-pointer text-muted-foreground/80 hover:bg-transparent hover:text-foreground"
                   onClick={reTrigger}
-                  aria-label="Refresh component"
+                  type="button"
                 >
                   <Icons.refresh className="h-4 w-4 text-muted-foreground" />
                 </button>

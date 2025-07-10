@@ -3,7 +3,7 @@ import { BlocksNav } from "@/components/blocks-nav";
 import { createMetadata } from "@/lib/metadata";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/registry/ui/button";
-import registry from "@/registry.json";
+import registry from "@/registry.json" with { type: "json" };
 
 import {
   PageActions,
@@ -13,9 +13,9 @@ import {
 } from "@/uitopia/page-header";
 
 export const metadata = createMetadata({
-  title: "Building Blocks for the Web",
   description:
     "Clean, modern building blocks. Copy and paste into your apps. Works with all React frameworks. Open Source. Free forever.",
+  title: "Building Blocks for the Web",
 });
 
 // Extract unique categories from registry blocks only
@@ -27,9 +27,9 @@ const categories = Array.from(
       .filter(Boolean),
   ),
 ).map((category) => ({
+  hidden: false,
   name: category.charAt(0).toUpperCase() + category.slice(1),
   slug: category.toLowerCase(),
-  hidden: false,
 }));
 
 interface BlocksLayoutProps {
@@ -50,16 +50,16 @@ export default function BlocksLayout({ children }: BlocksLayoutProps) {
 
         <PageActions>
           <Link
-            href="/blocks#blocks"
             className={cn(
-              buttonVariants({ variant: "default", size: "sm" }),
+              buttonVariants({ size: "sm", variant: "default" }),
               "border border-primary bg-linear-to-b from-primary/80 to-primary text-primary-foreground text-xs shadow-md shadow-zinc-950/30 ring ring-white/20 ring-inset transition-[filter] duration-200 hover:brightness-125 active:brightness-95 dark:border-primary dark:from-primary dark:to-primary/80 **:[text-shadow:0_1px_0_var(--color-primary)]",
             )}
+            href="/blocks#blocks"
           >
             Browse blocks
           </Link>
         </PageActions>
-        <div id="blocks" className="mt-8 scroll-mt-24">
+        <div className="mt-8 scroll-mt-24" id="blocks">
           <div className="flex items-center py-4">
             <BlocksNav categories={categories} />
           </div>

@@ -7,6 +7,10 @@ export default function TextLoopDemo() {
     <h3 className="inline-flex whitespace-pre-wrap text-base">
       <span>{"Don't forget how "}</span>
       <TextType
+        className="text-yellow-600"
+        cursorChar={"|"}
+        deleteSpeed={40}
+        speed={60}
         text={[
           "loved",
           "talented",
@@ -21,11 +25,7 @@ export default function TextLoopDemo() {
           "needed",
           "extraordinary",
         ]}
-        speed={60}
-        className="text-yellow-600"
         waitTime={1500}
-        deleteSpeed={40}
-        cursorChar={"|"}
       />
       <span>{" you are."}</span>
     </h3>

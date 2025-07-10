@@ -42,19 +42,19 @@ export default function TextLoop({
   }, [items.length, interval, onIndexChange]);
 
   const motionVariants: Variants = {
-    initial: { y: 20, opacity: 0 },
-    animate: { y: 0, opacity: 1 },
-    exit: { y: -20, opacity: 0 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -20 },
+    initial: { opacity: 0, y: 20 },
   };
 
   return (
     <div className={cn("relative inline-block whitespace-nowrap", className)}>
-      <AnimatePresence mode="popLayout" initial={false}>
+      <AnimatePresence initial={false} mode="popLayout">
         <motion.div
-          key={currentIndex}
-          initial="initial"
           animate="animate"
           exit="exit"
+          initial="initial"
+          key={currentIndex}
           transition={transition}
           variants={variants || motionVariants}
         >

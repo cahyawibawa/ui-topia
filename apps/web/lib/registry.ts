@@ -1,13 +1,13 @@
 import type { RegistryItem } from "shadcn/registry";
-import registry from "@/registry.json";
+import registry from "@/registry.json" with { type: "json" };
 
 const components = registry.items as RegistryItem[];
 
 const PATH_MAPPINGS = {
-  "@/uitopia/": "@/components/ui/",
-  "@/registry/ui": "@/components/ui",
   "@/registry/hooks": "@/hooks",
   "@/registry/lib": "@/lib",
+  "@/registry/ui": "@/components/ui",
+  "@/uitopia/": "@/components/ui/",
 } as const;
 
 export interface FileTree {
@@ -105,10 +105,10 @@ export function createFileTreeForRegistryItemFiles(
         }
       } else {
         const newNode: FileTree = {
-          name: part,
-          path: isFile ? originalPath : "", // Only files have a meaningful original path here
-          displayPath: isFile ? displayPath : "", // Folders don't have a direct path
           children: isFile ? undefined : [],
+          displayPath: isFile ? displayPath : "", // Only files have a meaningful original path here
+          name: part, // Folders don't have a direct path
+          path: isFile ? originalPath : "",
         };
 
         currentLevel.push(newNode);

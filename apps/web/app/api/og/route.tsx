@@ -16,31 +16,31 @@ export async function GET(req: NextRequest) {
     return new ImageResponse(
       <div
         style={{
-          display: "flex",
-          height: "100%",
-          width: "100%",
-          flexDirection: "column",
           alignItems: "flex-start",
+          background: "white",
+          display: "flex",
+          flexDirection: "column",
+          fontWeight: 500,
+          height: "100%",
           justifyContent: "center",
           letterSpacing: "-.02em",
-          fontWeight: 500,
-          background: "white",
+          width: "100%",
         }}
       >
         <div
           style={{
-            left: 42,
-            top: 42,
-            position: "absolute",
-            display: "flex",
             alignItems: "center",
+            display: "flex",
+            left: 42,
+            position: "absolute",
+            top: 42,
           }}
         >
           <Icons.logo />
           <span
             style={{
-              marginLeft: 8,
               fontSize: 24,
+              marginLeft: 8,
             }}
           >
             ui/topia
@@ -48,32 +48,32 @@ export async function GET(req: NextRequest) {
         </div>
         <div
           style={{
-            marginLeft: 42,
-            marginRight: 42,
+            color: "black",
             display: "flex",
             flexDirection: "column",
-            letterSpacing: "-0.05em",
             fontStyle: "normal",
-            color: "black",
-            whiteSpace: "pre-wrap",
+            letterSpacing: "-0.05em",
             lineHeight: 1.5,
+            marginLeft: 42,
+            marginRight: 42,
+            whiteSpace: "pre-wrap",
           }}
         >
-          <div style={{ fontSize: 48, color: "black" }}>{title}</div>
+          <div style={{ color: "black", fontSize: 48 }}>{title}</div>
           <br />
-          <div style={{ fontSize: 36, color: "gray" }}>{description}</div>
+          <div style={{ color: "gray", fontSize: 36 }}>{description}</div>
         </div>
       </div>,
       {
-        width: 1200,
-        height: 630,
         fonts: [
           {
-            name: "Geist",
             data: fontData,
+            name: "Geist",
             style: "normal",
           },
         ],
+        height: 630,
+        width: 1200,
       },
     );
   } catch (error) {

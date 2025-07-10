@@ -175,22 +175,22 @@ export function BlockViewer({ item, name, meta }: BlockViewerProps) {
   return (
     <BlockViewerContext.Provider
       value={{
-        item,
-        view,
-        setView,
-        resizablePanelRef,
         activeFile,
-        setActiveFile,
-        componentName: name,
         codeContent,
-        setCodeContent,
+        componentName: name,
         iframeHeight,
+        item,
+        resizablePanelRef,
+        setActiveFile,
+        setCodeContent,
+        setView,
+        view,
       }}
     >
       <div
-        id={item.name}
-        data-view={view}
         className="group/block-view-wrapper flex min-w-0 flex-col items-stretch gap-4"
+        data-view={view}
+        id={item.name}
         style={{ "--height": iframeHeight } as React.CSSProperties}
       >
         <BlockViewerToolbar />
@@ -230,73 +230,73 @@ function BlockViewerToolbar() {
   return (
     <div className="flex w-full items-center gap-2 md:pr-[14px]">
       <Tabs
+        className="hidden lg:flex"
         defaultValue="preview"
         onValueChange={(value) => setView(value as "preview" | "code")}
-        className="hidden lg:flex"
       >
         <TabsList className="h-7 items-center rounded-md p-0 px-[calc(theme(spacing.1)_-_2px)] py-[theme(spacing.1)]">
           <TabsTrigger
-            value="preview"
             className="h-[1.45rem] rounded-sm px-2 text-xs"
+            value="preview"
           >
             Preview
           </TabsTrigger>
           <TabsTrigger
-            value="code"
             className="h-[1.45rem] rounded-sm px-2 text-xs"
+            value="code"
           >
             Code
           </TabsTrigger>
         </TabsList>
       </Tabs>
-      <Separator orientation="vertical" className="mx-2 hidden h-4 lg:flex" />
+      <Separator className="mx-2 hidden h-4 lg:flex" orientation="vertical" />
       <a
-        href={`#${item.name}`}
         className="font-medium text-sm underline-offset-2 hover:underline"
+        href={`#${item.name}`}
       >
         {item.description}
       </a>
       <div className="ml-auto hidden items-center gap-2 md:flex">
         <div className="hidden h-7 items-center gap-1.5 rounded-md border p-[2px] shadow-none lg:flex">
           <Button
-            variant="ghost"
-            size="icon"
             className="h-[22px] w-[22px] min-w-0 rounded-sm p-0"
-            title="Desktop"
             onClick={() => handleDeviceChange("desktop")}
+            size="icon"
+            title="Desktop"
+            variant="ghost"
           >
             <Monitor className="h-3.5 w-3.5" />
           </Button>
           <Button
-            variant="ghost"
-            size="icon"
             className="h-[22px] w-[22px] min-w-0 rounded-sm p-0"
-            title="Tablet"
             onClick={() => handleDeviceChange("tablet")}
+            size="icon"
+            title="Tablet"
+            variant="ghost"
           >
             <Tablet className="h-3.5 w-3.5" />
           </Button>
           <Button
-            variant="ghost"
-            size="icon"
             className="h-[22px] w-[22px] min-w-0 rounded-sm p-0"
-            title="Mobile"
             onClick={() => handleDeviceChange("mobile")}
+            size="icon"
+            title="Mobile"
+            variant="ghost"
           >
             <Smartphone className="h-3.5 w-3.5" />
           </Button>
         </div>
-        <Separator orientation="vertical" className="mx-1 hidden h-4 md:flex" />
+        <Separator className="mx-1 hidden h-4 md:flex" orientation="vertical" />
         <div className="flex h-7 items-center gap-1 rounded-md border p-[2px]">
           <Button
-            variant="ghost"
             className="hidden h-[22px] w-auto gap-1 rounded-sm px-2 md:flex lg:w-auto"
-            size="sm"
             onClick={() => {
               copyToClipboard(
                 `npx shadcn@latest add https://uitopia.vercel.app/r/${item.name}.json`,
               );
             }}
+            size="sm"
+            variant="ghost"
           >
             {isCopied ? <Check /> : <Terminal />}
             <span className="hidden lg:inline">
@@ -305,7 +305,7 @@ function BlockViewerToolbar() {
             </span>
           </Button>
         </div>
-        <Separator orientation="vertical" className="mx-1 hidden h-4 xl:flex" />
+        <Separator className="mx-1 hidden h-4 xl:flex" orientation="vertical" />
         <V0Button
           className="hidden shadow-none sm:flex"
           componentSource={`https://uitopia.vercel.app/r/${componentName}.json`}
@@ -343,12 +343,12 @@ function BlockViewerView() {
       }}
     >
       <div className="grid w-full gap-4">
-        <ResizablePanelGroup direction="horizontal" className="relative z-10">
+        <ResizablePanelGroup className="relative z-10" direction="horizontal">
           <ResizablePanel
-            ref={resizablePanelRef}
             className="relative rounded-xl border bg-background"
             defaultSize={100}
             minSize={30}
+            ref={resizablePanelRef}
           >
             <div className="flex w-full items-center justify-center p-4">
               <div className="w-full max-w-md">
@@ -433,8 +433,8 @@ function BlockViewerFileTree() {
   return (
     <SidebarProvider className="!min-h-full flex flex-col">
       <Sidebar
-        collapsible="none"
         className="w-full flex-1 bg-muted text-foreground dark:border-zinc-700 dark:bg-zinc-900 dark:text-white"
+        collapsible="none"
       >
         <SidebarGroupLabel className="h-12 rounded-none border-b px-4 text-foreground text-sm dark:border-zinc-700 dark:text-white">
           Files
@@ -443,7 +443,7 @@ function BlockViewerFileTree() {
           <SidebarGroupContent>
             <SidebarMenu className="gap-1.5">
               {tree.map((file, index) => (
-                <Tree key={index} item={file} index={1} />
+                <Tree index={1} item={file} key={index} />
               ))}
             </SidebarMenu>
           </SidebarGroupContent>
@@ -460,10 +460,10 @@ function Tree({ item, index }: { item: FileTree; index: number }) {
     return (
       <SidebarMenuItem>
         <SidebarMenuButton
-          isActive={item.displayPath === activeFile}
-          onClick={() => item.displayPath && setActiveFile(item.displayPath)}
           className="whitespace-nowrap rounded-none pl-[--index] hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground active:bg-accent active:text-accent-foreground data-[active=true]:bg-accent data-[active=true]:text-accent-foreground dark:data-[active=true]:bg-zinc-700 dark:data-[active=true]:text-white dark:active:bg-zinc-700 dark:active:text-white dark:focus-visible:bg-zinc-700 dark:focus-visible:text-white dark:focus:bg-zinc-700 dark:focus:text-white dark:hover:bg-zinc-700 dark:hover:text-white"
           data-index={index}
+          isActive={item.displayPath === activeFile}
+          onClick={() => item.displayPath && setActiveFile(item.displayPath)}
           style={
             {
               "--index": `${index * 1.25}rem`,
@@ -501,7 +501,7 @@ function Tree({ item, index }: { item: FileTree; index: number }) {
         <CollapsibleContent>
           <SidebarMenuSub className="m-0 w-full border-none p-0">
             {item.children.map((subItem, key) => (
-              <Tree key={key} item={subItem} index={index + 1} />
+              <Tree index={index + 1} item={subItem} key={key} />
             ))}
           </SidebarMenuSub>
         </CollapsibleContent>
@@ -520,10 +520,10 @@ function _BlockCopyCodeButton() {
 
   return (
     <Button
+      className="h-7 w-7 shrink-0 rounded-lg p-0 hover:bg-zinc-700 hover:text-white focus:bg-zinc-700 focus:text-white focus-visible:bg-zinc-700 focus-visible:text-white active:bg-zinc-700 active:text-white data-[active=true]:bg-zinc-700 data-[active=true]:text-white [&>svg]:size-3"
       onClick={() => {
         copyToClipboard(codeContent);
       }}
-      className="h-7 w-7 shrink-0 rounded-lg p-0 hover:bg-zinc-700 hover:text-white focus:bg-zinc-700 focus:text-white focus-visible:bg-zinc-700 focus-visible:text-white active:bg-zinc-700 active:text-white data-[active=true]:bg-zinc-700 data-[active=true]:text-white [&>svg]:size-3"
       variant="ghost"
     >
       {isCopied ? <Check /> : <Clipboard />}

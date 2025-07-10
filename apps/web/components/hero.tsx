@@ -25,22 +25,22 @@ export function Hero() {
 
       <PageActions>
         <Link
-          href="/docs"
           className={cn(
-            buttonVariants({ variant: "default", size: "sm" }),
+            buttonVariants({ size: "sm", variant: "default" }),
             "border border-primary bg-linear-to-b from-primary/80 to-primary text-primary-foreground text-xs shadow-md shadow-zinc-950/30 ring ring-white/20 ring-inset transition-[filter] duration-200 hover:brightness-125 active:brightness-95 dark:border-primary dark:from-primary dark:to-primary/80 **:[text-shadow:0_1px_0_var(--color-primary)]",
           )}
+          href="/docs"
         >
           Explore Now
         </Link>
         <Link
-          href={siteConfig.links.github}
-          target="_blank"
-          rel="noopener noreferrer"
           className={cn(
-            buttonVariants({ variant: "ghost", size: "sm" }),
+            buttonVariants({ size: "sm", variant: "ghost" }),
             "rounded-lg text-xs",
           )}
+          href={siteConfig.links.github}
+          rel="noopener noreferrer"
+          target="_blank"
         >
           GitHub
         </Link>

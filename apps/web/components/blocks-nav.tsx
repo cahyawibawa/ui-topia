@@ -22,18 +22,18 @@ export function BlocksNav({ categories }: BlocksNavProps) {
       <ScrollArea className="max-w-none">
         <div className="flex items-center">
           <BlocksNavLink
-            category={{ name: "Featured", slug: "", hidden: false }}
+            category={{ hidden: false, name: "Featured", slug: "" }}
             isActive={pathname === "/blocks"}
           />
           {categories.map((category) => (
             <BlocksNavLink
-              key={category.slug}
               category={category}
               isActive={pathname === `/blocks/${category.slug}`}
+              key={category.slug}
             />
           ))}
         </div>
-        <ScrollBar orientation="horizontal" className="invisible" />
+        <ScrollBar className="invisible" orientation="horizontal" />
       </ScrollArea>
     </div>
   );
@@ -52,9 +52,9 @@ function BlocksNavLink({
 
   return (
     <Link
-      href={`/blocks/${category.slug}`}
       className="flex h-7 shrink-0 items-center justify-center whitespace-nowrap rounded-full px-4 text-center font-medium text-muted-foreground text-sm transition-colors hover:text-foreground data-[active=true]:bg-accent data-[active=true]:text-foreground"
       data-active={isActive}
+      href={`/blocks/${category.slug}`}
     >
       {category.name}
     </Link>

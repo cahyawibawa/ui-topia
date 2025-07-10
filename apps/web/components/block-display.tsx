@@ -29,7 +29,7 @@ export async function BlockDisplay({ name }: { name: string }) {
   return (
     <div className="relative">
       <React.Suspense fallback={<LoadingFallback />}>
-        <BlockViewer item={item} name={name} meta={meta} />
+        <BlockViewer item={item} meta={meta} name={name} />
       </React.Suspense>
     </div>
   );

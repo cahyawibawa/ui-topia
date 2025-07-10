@@ -35,7 +35,6 @@ export default function Typewriter({
   cursorChar = "|",
   cursorClassName = "ml-0.5",
   cursorAnimationVariants = {
-    initial: { opacity: 0 },
     animate: {
       opacity: 1,
       transition: {
@@ -45,6 +44,7 @@ export default function Typewriter({
         repeatType: "reverse",
       },
     },
+    initial: { opacity: 0 },
   },
 }: TextTypeProps) {
   const [displayText, setDisplayText] = useState("");
@@ -74,17 +74,15 @@ export default function Typewriter({
             setDisplayText((prev) => prev.slice(0, -1));
           }, deleteSpeed);
         }
-      } else {
-        if (currentText && currentIndex < currentText.length) {
-          timeout = setTimeout(() => {
-            setDisplayText((prev) => prev + currentText[currentIndex]);
-            setCurrentIndex((prev) => prev + 1);
-          }, speed);
-        } else if (texts.length > 1) {
-          timeout = setTimeout(() => {
-            setIsDeleting(true);
-          }, waitTime);
-        }
+      } else if (currentText && currentIndex < currentText.length) {
+        timeout = setTimeout(() => {
+          setDisplayText((prev) => prev + currentText[currentIndex]);
+          setCurrentIndex((prev) => prev + 1);
+        }, speed);
+      } else if (texts.length > 1) {
+        timeout = setTimeout(() => {
+          setIsDeleting(true);
+        }, waitTime);
       }
     };
 
@@ -114,7 +112,7 @@ export default function Typewriter({
       <span>{displayText}</span>
       {showCursor && (
         <motion.span
-          variants={cursorAnimationVariants}
+          animate="animate"
           className={cn(
             cursorClassName,
             hideCursorOnType &&
@@ -124,7 +122,7 @@ export default function Typewriter({
               : "",
           )}
           initial="initial"
-          animate="animate"
+          variants={cursorAnimationVariants}
         >
           {cursorChar}
         </motion.span>

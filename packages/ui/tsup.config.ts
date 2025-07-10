@@ -1,23 +1,23 @@
 import { defineConfig } from "tsup";
 
 export default defineConfig({
-  entry: ["src/index.tsx"],
-  format: ["cjs", "esm"],
-  dts: true,
-  splitting: false,
-  sourcemap: true,
   clean: true,
-  external: ["react", "react-dom"],
+  dts: true,
+  entry: ["src/index.tsx"],
   esbuildOptions(options) {
     options.resolveExtensions = [".tsx", ".ts", ".jsx", ".js"];
     options.alias = {
       "@": "./src",
       "@/components": "./src/components",
-      "@/lib": "./src/lib",
       "@/hooks": "./src/hooks",
+      "@/lib": "./src/lib",
     };
     options.banner = {
       js: '"use client"',
     };
   },
+  external: ["react", "react-dom"],
+  format: ["cjs", "esm"],
+  sourcemap: true,
+  splitting: false,
 });

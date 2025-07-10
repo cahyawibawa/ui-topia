@@ -47,20 +47,20 @@ export function ComponentPreview({
   return (
     <div className="not-prose relative z-0 flex items-center justify-between pb-4">
       <Tabs
-        value={activeTab}
-        onValueChange={setActiveTab}
         className="relative mr-auto w-full"
+        onValueChange={setActiveTab}
+        value={activeTab}
       >
         <TabsList className="w-full justify-start rounded-none border-b bg-transparent p-0">
           <TabsTrigger
-            value="preview"
             className="relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pt-2 pb-3 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
+            value="preview"
           >
             Preview
           </TabsTrigger>
           <TabsTrigger
-            value="code"
             className="relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pt-2 pb-3 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
+            value="code"
           >
             Code
           </TabsTrigger>
@@ -68,9 +68,9 @@ export function ComponentPreview({
         <TabsContent value="preview">
           <div className="preview flex min-h-[450px] w-full justify-center rounded-md border p-4">
             <ComponentLoader
-              name={name}
-              hasReTrigger={hasReTrigger}
               classNameComponentContainer={classNameComponentContainer}
+              hasReTrigger={hasReTrigger}
+              name={name}
             />
           </div>
         </TabsContent>

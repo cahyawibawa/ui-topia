@@ -35,11 +35,14 @@ export type TextEffectProps = {
 
 const defaultStaggerTimes = {
   char: 0.03,
-  word: 0.05,
   line: 0.1,
+  word: 0.05,
 } as const;
 
 const defaultContainerVariants: Variants = {
+  exit: {
+    transition: { staggerChildren: 0.05, staggerDirection: -1 },
+  },
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -47,52 +50,49 @@ const defaultContainerVariants: Variants = {
       staggerChildren: 0.05,
     },
   },
-  exit: {
-    transition: { staggerChildren: 0.05, staggerDirection: -1 },
-  },
 };
 
 const defaultItemVariants: Variants = {
+  exit: { opacity: 0 },
   hidden: { opacity: 0 },
   visible: { opacity: 1 },
-  exit: { opacity: 0 },
 };
 
 const presetVariants = {
   blur: {
     container: defaultContainerVariants,
     item: {
-      hidden: { opacity: 0, filter: "blur(12px)" },
-      visible: { opacity: 1, filter: "blur(0px)" },
-      exit: { opacity: 0, filter: "blur(12px)" },
-    },
-  },
-  "fade-in-blur": {
-    container: defaultContainerVariants,
-    item: {
-      hidden: { opacity: 0, y: 20, filter: "blur(12px)" },
-      visible: { opacity: 1, y: 0, filter: "blur(0px)" },
-      exit: { opacity: 0, y: 20, filter: "blur(12px)" },
-    },
-  },
-  scale: {
-    container: defaultContainerVariants,
-    item: {
-      hidden: { opacity: 0, scale: 0 },
-      visible: { opacity: 1, scale: 1 },
-      exit: { opacity: 0, scale: 0 },
+      exit: { filter: "blur(12px)", opacity: 0 },
+      hidden: { filter: "blur(12px)", opacity: 0 },
+      visible: { filter: "blur(0px)", opacity: 1 },
     },
   },
   fade: {
     container: defaultContainerVariants,
     item: defaultItemVariants,
   },
+  "fade-in-blur": {
+    container: defaultContainerVariants,
+    item: {
+      exit: { filter: "blur(12px)", opacity: 0, y: 20 },
+      hidden: { filter: "blur(12px)", opacity: 0, y: 20 },
+      visible: { filter: "blur(0px)", opacity: 1, y: 0 },
+    },
+  },
+  scale: {
+    container: defaultContainerVariants,
+    item: {
+      exit: { opacity: 0, scale: 0 },
+      hidden: { opacity: 0, scale: 0 },
+      visible: { opacity: 1, scale: 1 },
+    },
+  },
   slide: {
     container: defaultContainerVariants,
     item: {
+      exit: { opacity: 0, y: 20 },
       hidden: { opacity: 0, y: 20 },
       visible: { opacity: 1, y: 0 },
-      exit: { opacity: 0, y: 20 },
     },
   },
 } as const;
@@ -109,7 +109,7 @@ const AnimationComponent: FC<AnimationComponentProps> = memo(
     const renderContent = () => {
       if (per === "line") {
         return (
-          <motion.span variants={variants} className="block">
+          <motion.span className="block" variants={variants}>
             {segment}
           </motion.span>
         );
@@ -119,8 +119,8 @@ const AnimationComponent: FC<AnimationComponentProps> = memo(
         return (
           <motion.span
             aria-hidden="true"
-            variants={variants}
             className="inline-block whitespace-pre"
+            variants={variants}
           >
             {segment}
           </motion.span>
@@ -131,10 +131,10 @@ const AnimationComponent: FC<AnimationComponentProps> = memo(
         <motion.span className="inline-block whitespace-pre">
           {segment.split("").map((char, index) => (
             <motion.span
-              key={`char-${index}`}
               aria-hidden="true"
-              variants={variants}
               className="inline-block whitespace-pre"
+              key={`char-${index}`}
+              variants={variants}
             >
               {char}
             </motion.span>
@@ -189,13 +189,6 @@ function createVariantsWithTransition(
 
   return {
     ...baseVariants,
-    visible: {
-      ...baseVariants.visible,
-      transition: {
-        ...visibleTransition,
-        ...mainTransition,
-      },
-    },
     exit: {
       ...baseVariants.exit,
       transition: {
@@ -203,6 +196,13 @@ function createVariantsWithTransition(
         ...mainTransition,
         ...(exitTransition || {}),
         staggerDirection: -1,
+      },
+    },
+    visible: {
+      ...baseVariants.visible,
+      transition: {
+        ...visibleTransition,
+        ...mainTransition,
       },
     },
   };
@@ -253,8 +253,8 @@ export default function TextEffect({
     container: createVariantsWithTransition(
       variants?.container || baseVariants.container,
       {
-        staggerChildren: customStagger ?? stagger,
         delayChildren: customDelay ?? delay,
+        staggerChildren: customStagger ?? stagger,
         ...containerTransition,
         exit: {
           staggerChildren: customStagger ?? stagger,
@@ -272,23 +272,23 @@ export default function TextEffect({
     <AnimatePresence mode="popLayout">
       {trigger && (
         <MotionTag
-          initial="hidden"
           animate="visible"
-          exit="exit"
-          variants={computedVariants.container}
           className={className}
+          exit="exit"
+          initial="hidden"
           onAnimationComplete={onAnimationComplete}
           onAnimationStart={onAnimationStart}
           style={style}
+          variants={computedVariants.container}
         >
           {per !== "line" && <span className="sr-only">{children}</span>}
           {segments.map((segment, index) => (
             <AnimationComponent
               key={`${per}-${index}-${segment}`}
-              segment={segment}
-              variants={computedVariants.item}
               per={per}
+              segment={segment}
               segmentWrapperClassName={segmentWrapperClassName}
+              variants={computedVariants.item}
             />
           ))}
         </MotionTag>

@@ -31,7 +31,7 @@ interface StackProps extends ComponentProps<"div"> {
 }
 
 export function Stack({
-  direction = { sm: "column", md: "row" },
+  direction = { md: "row", sm: "column" },
   align = "start",
   justify = "start",
   wrap = false,
@@ -49,20 +49,20 @@ export function Stack({
   ];
 
   const alignClasses = {
-    stretch: "items-stretch",
-    start: "items-start",
-    end: "items-end",
     center: "items-center",
+    end: "items-end",
+    start: "items-start",
+    stretch: "items-stretch",
   }[align];
 
   const justifyClasses = {
-    stretch: "justify-stretch",
-    start: "justify-start",
-    end: "justify-end",
-    "space-between": "justify-between",
-    "space-around": "justify-around",
-    "space-evenly": "justify-evenly",
     center: "justify-center",
+    end: "justify-end",
+    "space-around": "justify-around",
+    "space-between": "justify-between",
+    "space-evenly": "justify-evenly",
+    start: "justify-start",
+    stretch: "justify-stretch",
   }[justify];
 
   return (

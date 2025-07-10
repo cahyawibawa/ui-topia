@@ -28,7 +28,7 @@ export default async function Page(props: {
   return (
     <div className="space-y-8">
       {blocks.map((name) => (
-        <div key={name} className="py-8 first:pt-6 last:border-b-0 md:py-12">
+        <div className="py-8 first:pt-6 last:border-b-0 md:py-12" key={name}>
           <BlockDisplay name={name} />
         </div>
       ))}

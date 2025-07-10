@@ -2,32 +2,32 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 
 export const defaultMetadata: Metadata = {
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  metadataBase: process.env.NEXT_PUBLIC_APP_URL
+    ? new URL(process.env.NEXT_PUBLIC_APP_URL)
+    : undefined,
   title: {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`,
   },
-  description: siteConfig.description,
-  metadataBase: process.env.NEXT_PUBLIC_APP_URL
-    ? new URL(process.env.NEXT_PUBLIC_APP_URL)
-    : undefined,
-  keywords: siteConfig.keywords,
 };
 
 export const defaultSocialMetadata = {
   openGraph: {
-    title: siteConfig.name,
     description: siteConfig.description,
-    type: "website",
     images: ["/api/og"],
-    url: siteConfig.url,
     siteName: siteConfig.name,
+    title: siteConfig.name,
+    type: "website",
+    url: siteConfig.url,
   },
   twitter: {
     card: "summary_large_image",
     creator: siteConfig.creator,
-    title: siteConfig.name,
     description: siteConfig.description,
     images: ["/api/og"],
+    title: siteConfig.name,
   },
 } satisfies Pick<Metadata, "openGraph" | "twitter">;
 
@@ -37,16 +37,16 @@ export function createMetadata(override: Metadata): Metadata {
     ...override,
     openGraph: {
       ...defaultSocialMetadata.openGraph,
-      title: override.title ?? defaultSocialMetadata.openGraph.title,
       description:
         override.description ?? defaultSocialMetadata.openGraph.description,
+      title: override.title ?? defaultSocialMetadata.openGraph.title,
       ...override.openGraph,
     },
     twitter: {
       ...defaultSocialMetadata.twitter,
-      title: override.title ?? defaultSocialMetadata.twitter.title,
       description:
         override.description ?? defaultSocialMetadata.twitter.description,
+      title: override.title ?? defaultSocialMetadata.twitter.title,
       ...override.twitter,
     },
   };

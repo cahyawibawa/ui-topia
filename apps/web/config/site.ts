@@ -1,8 +1,5 @@
 export const siteConfig = {
-  name: "ui/topia",
   creator: "@kyuotaka",
-  url: process.env.NEXT_PUBLIC_APP_URL ?? "https://uitopia.vercel.app",
-  ogImage: `${process.env.NEXT_PUBLIC_APP_URL}/opengraph-image.png`,
   description:
     "ui/topia is, a growing collection of experimental components built with shadcn/ui, Motion and Tailwind CSS.",
   keywords: [
@@ -17,9 +14,12 @@ export const siteConfig = {
     "shadcn/ui",
   ],
   links: {
-    portfolio: "https://cahyawibawa.com/",
     github: "https://git.new/ui/topia",
+    portfolio: "https://cahyawibawa.com/",
   },
+  name: "ui/topia",
+  ogImage: `${process.env.NEXT_PUBLIC_APP_URL}/opengraph-image.png`,
+  url: process.env.NEXT_PUBLIC_APP_URL ?? "https://uitopia.vercel.app",
 };
 
 export type SiteConfig = typeof siteConfig;

@@ -89,7 +89,7 @@ export function ShowcaseComponent({
         </div>
         <div className="flex w-full flex-row gap-2 sm:justify-start md:items-center md:justify-center">
           {component.categories?.map((category) => (
-            <Badge key={category} className="rounded-md" variant="secondary">
+            <Badge className="rounded-md" key={category} variant="secondary">
               {category}
             </Badge>
           ))}

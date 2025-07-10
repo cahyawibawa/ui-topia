@@ -8,12 +8,12 @@ interface CodeBlockProps {
 export function CodeBlock({ code, language = "tsx" }: CodeBlockProps) {
   return (
     <DynamicCodeBlock
-      lang={language}
       code={code}
+      lang={language}
       options={{
         themes: {
-          light: "github-light",
           dark: "github-dark",
+          light: "github-light",
         },
       }}
     />
