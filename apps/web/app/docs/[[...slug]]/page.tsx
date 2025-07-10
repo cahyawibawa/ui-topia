@@ -26,24 +26,22 @@ export default async function Page(props: {
 
   return (
     <DocsPage
-      toc={page.data.toc}
-      lastUpdate={page.data.lastModified}
-      full={page.data.full}
-      tableOfContent={{
-        style: "clerk",
-        single: false,
-      }}
       editOnGithub={{
-        repo: "ui-topia",
         owner: "cahyawibawa",
         path,
+        repo: "ui-topia",
       }}
+      full={page.data.full}
+      lastUpdate={page.data.lastModified}
+      tableOfContent={{
+        single: false,
+        style: "clerk",
+      }}
+      toc={page.data.toc}
     >
-      <DocsTitle className="font-semibold text-xl">{page.data.title}</DocsTitle>
-      <DocsDescription className="text-base">
-        {page.data.description}
-      </DocsDescription>
-      <DocsBody className="prose-h2:text-lg prose-h3:text-base opacity-[0.9]">
+      <DocsTitle>{page.data.title}</DocsTitle>
+      <DocsDescription>{page.data.description}</DocsDescription>
+      <DocsBody>
         <MDX components={useMDXComponents({})} />
       </DocsBody>
     </DocsPage>
@@ -54,7 +52,7 @@ function _DocsCategory({ url }: { url: string }) {
   return (
     <Cards>
       {getPageTreePeers(source.pageTree, url).map((peer) => (
-        <Card key={peer.url} title={peer.name} href={peer.url}>
+        <Card href={peer.url} key={peer.url} title={peer.name}>
           {peer.description}
         </Card>
       ))}
@@ -81,18 +79,18 @@ export async function generateMetadata(props: {
 
   const image = {
     alt: "Banner",
+    height: 630,
     url: `/api/og?${imageParams.toString()}`,
     width: 1200,
-    height: 630,
   };
 
   return createMetadata({
-    title: page.data.title,
     description,
     openGraph: {
-      url: `/docs/${page.slugs.join("/")}`,
       images: image,
+      url: `/docs/${page.slugs.join("/")}`,
     },
+    title: page.data.title,
     twitter: {
       images: image,
     },

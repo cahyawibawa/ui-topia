@@ -1,39 +1,46 @@
 import { GithubInfo } from "fumadocs-ui/components/github-info";
-import { DocsLayout, type DocsLayoutProps } from "fumadocs-ui/layouts/docs";
+import { DocsLayout, type DocsLayoutProps } from "fumadocs-ui/layouts/notebook";
 import type { ReactNode } from "react";
 import { baseOptions } from "@/app/layout.config";
 import { source } from "@/lib/source";
 
 const docsOptions: DocsLayoutProps = {
   ...baseOptions,
+  // links: [
+  //   {
+  //     children: <GithubInfo owner="cahyawibawa" repo="ui-topia" />,
+  //     type: "custom",
+  //   },
+  // ],
   tree: source.pageTree,
-  links: [
-    {
-      type: "custom",
-      children: <GithubInfo owner="cahyawibawa" repo="ui-topia" />,
-    },
-  ],
 };
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <DocsLayout
+      tabMode="navbar"
+      nav={{ ...baseOptions.nav, mode: "top" }}
       sidebar={{
-        defaultOpenLevel: 1,
+        hidden: false,
+        collapsible: false,
         tabs: {
           transform(option, node) {
             const meta = source.getNodeMeta(node);
             if (!meta) return option;
 
+            const color = `var(--${meta.path.split("/")[0]}-color, var(--color-fd-foreground))`;
+
             return {
               ...option,
               icon: (
                 <div
-                  className="rounded-md border bg-gradient-to-t from-fd-background/80 p-1 shadow-md [&_svg]:size-5"
-                  style={{
-                    color: `hsl(var(--${meta.file.dirname}-color))`,
-                    backgroundColor: `hsl(var(--${meta.file.dirname}-color)/.3)`,
-                  }}
+                  className="size-full rounded-lg max-md:border max-md:bg-(--tab-color)/10 max-md:p-1.5 [&_svg]:size-full"
+                  style={
+                    {
+                      "--tab-color": color,
+                      color,
+                    } as object
+                  }
                 >
                   {node.icon}
                 </div>

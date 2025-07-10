@@ -1,17 +1,17 @@
 import type { InferMetaType, InferPageType } from "fumadocs-core/source";
 import { loader } from "fumadocs-core/source";
 import { createMDXSource } from "fumadocs-mdx";
-import { icons } from "lucide-react";
+import { createElement } from "react";
 import { docs, meta } from "@/.source";
-import { create } from "@/registry/components/icons";
+import { Icons } from "@/registry/components/icons";
 
 export const source = loader({
   baseUrl: "/docs",
-  source: createMDXSource(docs, meta),
   icon(icon) {
-    if (icon && icon in icons)
-      return create({ icon: icons[icon as keyof typeof icons] });
+    if (icon && icon in Icons)
+      return createElement(Icons[icon as keyof typeof Icons]);
   },
+  source: createMDXSource(docs, meta),
 });
 
 export type Page = InferPageType<typeof source>;

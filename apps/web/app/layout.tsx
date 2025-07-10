@@ -10,8 +10,8 @@ export const metadata = createMetadata({});
 export const viewport: Viewport = {
   colorScheme: "dark light",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
+    { color: "white", media: "(prefers-color-scheme: light)" },
+    { color: "black", media: "(prefers-color-scheme: dark)" },
   ],
 };
 
@@ -21,12 +21,21 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
+      className={`${geistSans.variable} ${geistMono.variable} ${Redaction.variable}`}
       lang="en"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} ${Redaction.variable}`}
     >
       <body className="min-h-svh bg-background font-sans antialiased">
-        <RootProvider>
+        <RootProvider
+          search={{
+            hotKey: [
+              {
+                display: "/",
+                key: "/",
+              },
+            ],
+          }}
+        >
           <div className="relative flex min-h-svh flex-col bg-background">
             {children}
           </div>
