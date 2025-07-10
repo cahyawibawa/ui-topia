@@ -1,0 +1,7 @@
+{
+  "title": "GSAP",
+  "description": "A collection of GSAP animations.",
+  "root": true,
+  "icon": "gsap",
+  "pages": ["---Guide---", "index"]
+}
