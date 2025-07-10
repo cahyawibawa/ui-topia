@@ -6,7 +6,7 @@ This project extend showcases experimental designs from [cahyawibawa.com](https:
 
 ## Documentation
 
-Explore the full documentation at [uitopia.xyz/docs](http://uitopia.xyz/docs) to get started.
+Explore the full documentation at [uitopia.vercel.app/docs](http://uitopia.vercel.app/docs) to get started.
 
 
 ## Contributing
