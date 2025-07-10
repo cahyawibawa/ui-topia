@@ -5,10 +5,8 @@
   "title": "Text Loop",
   "description": "text loop base",
   "dependencies": [
-    "clsx",
     "motion",
-    "react",
-    "tailwind-merge"
+    "react"
   ],
   "files": [
     {

@@ -5,10 +5,8 @@
   "title": "Text Type",
   "description": "text type base",
   "dependencies": [
-    "clsx",
     "motion",
-    "react",
-    "tailwind-merge"
+    "react"
   ],
   "files": [
     {

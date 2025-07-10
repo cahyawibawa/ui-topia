@@ -156,6 +156,7 @@ const CSSBox = forwardRef<CSSBoxRef, CSSBoxProps>(
         if (!draggable) return;
         isDragging.current = true;
         const point = "touches" in e ? e.touches[0] : e;
+        if (!point) return;
         startPosition.current = { x: point.clientX, y: point.clientY };
         startRotation.current = {
           x: baseRotateX.get(),
@@ -168,6 +169,7 @@ const CSSBox = forwardRef<CSSBoxRef, CSSBoxProps>(
     const handleMove = useCallback((e: MouseEvent | TouchEvent) => {
       if (!isDragging.current) return;
       const point = "touches" in e ? e.touches[0] : e;
+      if (!point) return;
       const deltaX = point.clientX - startPosition.current.x;
       const deltaY = point.clientY - startPosition.current.y;
       baseRotateX.set(startRotation.current.x - deltaY / 2);

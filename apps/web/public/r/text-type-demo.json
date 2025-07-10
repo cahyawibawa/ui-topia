@@ -5,10 +5,8 @@
   "title": "Typewriter",
   "description": "text type",
   "dependencies": [
-    "clsx",
     "motion",
-    "react",
-    "tailwind-merge"
+    "react"
   ],
   "registryDependencies": [
     "https://uitopia.vercel.app/r/text-type.json"

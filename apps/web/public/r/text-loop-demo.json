@@ -5,10 +5,8 @@
   "title": "Text Loop",
   "description": "Text animation that transitions between multiple items, creating an engaging looping effect",
   "dependencies": [
-    "clsx",
     "motion",
-    "react",
-    "tailwind-merge"
+    "react"
   ],
   "registryDependencies": [
     "https://uitopia.vercel.app/r/text-loop.json"
