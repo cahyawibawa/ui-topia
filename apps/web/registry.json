@@ -362,7 +362,76 @@
       ],
       "categories": ["motion", "react", "tailwindcss"]
     },
-
+    {
+      "name": "cd-demo",
+      "type": "registry:component",
+      "title": "Disc",
+      "description": "CD demo component.",
+      "dependencies": ["@number-flow/react", "motion", "react"],
+      "files": [
+        {
+          "type": "registry:component",
+          "target": "components/cd-demo.tsx",
+          "path": "registry/components/cd-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "clip-path-demo",
+      "type": "registry:component",
+      "title": "Clip Path",
+      "description": "Clip path component.",
+      "dependencies": ["motion", "react"],
+      "files": [
+        {
+          "type": "registry:component",
+          "target": "components/clip-path-demo.tsx",
+          "path": "registry/components/clip-path-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "expandable-tabs-demo",
+      "type": "registry:component",
+      "title": "Expandable Tabs",
+      "description": "Expandable tabs component.",
+      "dependencies": ["motion", "react", "usehooks-ts"],
+      "files": [
+        {
+          "type": "registry:component",
+          "target": "components/expandable-tabs-demo.tsx",
+          "path": "registry/components/expandable-tabs-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "inline-dropdown-demo",
+      "type": "registry:component",
+      "title": "Inline Dropdown",
+      "description": "Inline dropdown component.",
+      "dependencies": ["motion", "react", "react-icons"],
+      "files": [
+        {
+          "type": "registry:component",
+          "target": "components/inline-dropdown-demo.tsx",
+          "path": "registry/components/inline-dropdown-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "transaction-btn-demo",
+      "type": "registry:component",
+      "title": "Transaction",
+      "description": "Transaction button component.",
+      "dependencies": ["motion", "react", "usehooks-ts"],
+      "files": [
+        {
+          "type": "registry:component",
+          "target": "components/transaction-btn-demo.tsx",
+          "path": "registry/components/transaction-btn-demo.tsx"
+        }
+      ]
+    },
     {
       "name": "paper-fold-demo",
       "type": "registry:component",
@@ -384,7 +453,7 @@
       "type": "registry:component",
       "title": "Text Loop",
       "description": "text loop base",
-      "dependencies": ["clsx", "motion", "react", "tailwind-merge"],
+      "dependencies": ["motion", "react"],
       "files": [
         {
           "type": "registry:ui",
@@ -399,7 +468,7 @@
       "type": "registry:component",
       "title": "Text Loop",
       "description": "Text animation that transitions between multiple items, creating an engaging looping effect",
-      "dependencies": ["clsx", "motion", "react", "tailwind-merge"],
+      "dependencies": ["motion", "react"],
       "registryDependencies": ["https://uitopia.vercel.app/r/text-loop.json"],
       "files": [
         {
@@ -411,11 +480,26 @@
       "categories": ["motion", "react", "tailwindcss"]
     },
     {
+      "name": "css-box-demo",
+      "type": "registry:component",
+      "title": "CSS Box",
+      "description": "CSS box component.",
+      "dependencies": ["motion", "react"],
+      "files": [
+        {
+          "type": "registry:component",
+          "target": "components/css-box-demo.tsx",
+          "path": "registry/components/css-box-demo.tsx"
+        }
+      ],
+      "categories": ["motion", "react", "tailwindcss"]
+    },
+    {
       "name": "text-type",
       "type": "registry:component",
       "title": "Text Type",
       "description": "text type base",
-      "dependencies": ["clsx", "motion", "react", "tailwind-merge"],
+      "dependencies": ["motion", "react"],
       "files": [
         {
           "type": "registry:component",
@@ -430,7 +514,7 @@
       "type": "registry:component",
       "title": "Typewriter",
       "description": "text type",
-      "dependencies": ["clsx", "motion", "react", "tailwind-merge"],
+      "dependencies": ["motion", "react"],
       "registryDependencies": ["https://uitopia.vercel.app/r/text-type.json"],
       "files": [
         {

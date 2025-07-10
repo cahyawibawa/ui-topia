@@ -8,7 +8,7 @@ export default function Layout({
 }: {
   children: ReactNode;
 }): React.ReactElement {
-  return <HomeLayout {...baseOptions}>{children}</HomeLayout>;
+  return <div>{children}</div>;
 }
 
 function _Footer(): React.ReactElement {
@@ -26,9 +26,9 @@ function _Footer(): React.ReactElement {
               </div>
               <span className="mt-2 flex items-center space-x-1 font-redaction text-muted-foreground text-sm sm:mt-0">
                 <a
+                  className="font-medium no-underline hover:underline"
                   href={siteConfig.links.portfolio}
                   target="_blank"
-                  className="font-medium no-underline hover:underline"
                 >
                   Cahya Wibawa
                 </a>

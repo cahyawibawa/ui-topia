@@ -28,10 +28,11 @@ export default function Cards() {
     setZIndices(initialZIndices);
   }, []);
 
-  const handleImageClick = (index: number) => {
+  const handleCardClick = (index: number) => {
     const newZIndices = { ...zIndices };
-    newZIndices[-1] = (newZIndices[-1] ?? 120) + 1;
-    newZIndices[index] = newZIndices[-1];
+    const maxZIndex = (newZIndices[-1] ?? 120) + 1;
+    newZIndices[-1] = maxZIndex;
+    newZIndices[index] = maxZIndex;
     setZIndices(newZIndices);
   };
 
@@ -51,16 +52,15 @@ export default function Cards() {
     return positionsRef.current?.[index];
   };
 
-  // List the featured component names here (order matters)
   const FEATURED_COMPONENT_NAMES = [
     "action-search-input-demo",
-    "family-wallets-demo",
     "css-box-demo",
     "cd-demo",
     "clip-path-demo",
-    "paper-fold-demo",
     "expandable-tabs-demo",
+    "family-wallets-demo",
     "inline-dropdown-demo",
+    "paper-fold-demo",
     "text-type-demo",
     "transaction-btn-demo",
   ];
@@ -71,41 +71,40 @@ export default function Cards() {
 
   return !loading
     ? featuredComponents.map((item, index) => {
-      if (!item || screen === undefined) return null;
-      const pos = getRandomPosition(index);
-      const x = pos?.x ?? "0vw";
-      const y = pos?.y ?? "0vh";
-      const zIndex =
-        typeof zIndices[index] === "number" ? zIndices[index] : 100;
-      const cardInFocus = focusedCard === null || focusedCard === item.name;
+        if (!item || screen === undefined) return null;
+        const pos = getRandomPosition(index);
+        const x = pos?.x ?? "0vw";
+        const y = pos?.y ?? "0vh";
+        const zIndex =
+          typeof zIndices[index] === "number" ? zIndices[index] : 100;
+        const cardInFocus = focusedCard === null || focusedCard === item.name;
 
-      return (
-        <motion.div
-          key={item.name}
-          className="canvas-container"
-          drag
-          dragMomentum={false}
-          style={{
-            zIndex: zIndex,
-            position: "absolute",
-            left: x,
-            top: y,
-          }}
-          onMouseDown={() => handleImageClick(index)}
-          onTouchStart={() => handleImageClick(index)}
-          whileHover={{ translateY: -4 }}
-        >
-          <div
-            // className={`card-${index} card`}
+        return (
+          <motion.div
+            key={item.name}
+            className="canvas-container"
+            drag
+            dragMomentum={false}
             style={{
-              filter: cardInFocus ? "unset" : "blur(12px)",
-              opacity: cardInFocus ? 1 : 0,
+              zIndex: zIndex,
+              position: "absolute",
+              left: x,
+              top: y,
             }}
+            onMouseDown={() => handleCardClick(index)}
+            onTouchStart={() => handleCardClick(index)}
+            whileHover={{ translateY: -4 }}
           >
-            <RegistryCardPreview item={item} />
-          </div>
-        </motion.div>
-      );
-    })
+            <div
+              style={{
+                filter: cardInFocus ? "unset" : "blur(12px)",
+                opacity: cardInFocus ? 1 : 0,
+              }}
+            >
+              <RegistryCardPreview item={item} />
+            </div>
+          </motion.div>
+        );
+      })
     : null;
 }
