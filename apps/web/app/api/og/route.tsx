@@ -10,7 +10,7 @@ export async function GET(req: NextRequest) {
     const title = searchParams.get("title");
     const description = searchParams.get("description");
 
-    const fontPath = join(process.cwd(), "public", "fonts", "Geist-Medium.otf");
+    const fontPath = join(process.cwd(), "assets", "fonts", "Geist-Medium.otf");
     const fontData = readFileSync(fontPath);
 
     return new ImageResponse(

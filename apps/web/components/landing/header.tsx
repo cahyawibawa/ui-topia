@@ -88,11 +88,8 @@ export const Header = () => {
               uitopia
             </a>
           </div>
-          <p className="mt-2 font-redaction text-sm leading-snug tracking-wide">
-            Small laboratory for experimental blocks and distinctive components
-            <span className="ml-1 select-none align-middle text-blue-500 text-lg">
-              .
-            </span>
+          <p className="mt-2 font-open-runde text-sm leading-snug tracking-tight">
+            Small laboratory for experimental blocks and distinctive components.
           </p>
           <div className="mt-4 flex flex-row gap-2">
             <a

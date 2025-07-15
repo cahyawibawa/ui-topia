@@ -64,7 +64,7 @@ export default function CSSBoxDemo() {
         ),
         bottom: (
           <TextFace
-            texts={["BREAK", "THINGS", "MOVE", "FAST"]}
+            texts={["MORE", "CHAOS", "MORE", "CHAOS"]}
             className="h-full w-full select-none items-end p-2"
           />
         ),

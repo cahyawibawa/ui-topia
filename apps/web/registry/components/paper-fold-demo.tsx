@@ -72,7 +72,7 @@ const StickerCard = ({
 
 const cardData = [
   {
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    description: "I just wanna live in my own world & create dope sh*t.",
     icon: RiTranslateAi,
     title: "Lost in translations",
   },

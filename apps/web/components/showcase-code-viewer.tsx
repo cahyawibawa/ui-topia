@@ -73,11 +73,8 @@ export function CodeViewer({ component, children }: CodeViewerProps) {
         <Button
           className={cn(
             "h-6 rounded-[6px] px-2 text-xs",
-            "text-foreground hover:bg-primary-foreground",
-            "transform-gpu",
-            "will-change-transform",
+            "text-foreground",
             "select-none",
-            "dark:text-foreground",
             "cursor-pointer",
           )}
           size="sm"

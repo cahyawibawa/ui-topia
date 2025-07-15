@@ -1,7 +1,7 @@
 import { Analytics } from "@vercel/analytics/react";
 import { RootProvider } from "fumadocs-ui/provider";
 import type { Viewport } from "next";
-import { geistMono, geistSans, Redaction } from "@/lib/fonts";
+import { fontVariables } from "@/lib/fonts";
 import { createMetadata } from "@/lib/metadata";
 import "styles/globals.css";
 
@@ -20,11 +20,7 @@ interface RootLayoutProps {
 }
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html
-      className={`${geistSans.variable} ${geistMono.variable} ${Redaction.variable}`}
-      lang="en"
-      suppressHydrationWarning
-    >
+    <html className={fontVariables} lang="en" suppressHydrationWarning>
       <body className="min-h-svh bg-background font-sans antialiased">
         <RootProvider
           search={{

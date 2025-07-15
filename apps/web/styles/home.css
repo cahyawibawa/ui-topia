@@ -122,6 +122,8 @@
   width: fit-content;
   font-size: 14px;
   text-decoration: none;
+  font-family: var(--font-open-runde);
+  font-weight: 500;
 }
 
 @keyframes rotate {

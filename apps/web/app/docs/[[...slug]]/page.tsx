@@ -39,9 +39,11 @@ export default async function Page(props: {
       }}
       toc={page.data.toc}
     >
-      <DocsTitle>{page.data.title}</DocsTitle>
-      <DocsDescription>{page.data.description}</DocsDescription>
-      <DocsBody>
+      <DocsTitle className="font-open-runde">{page.data.title}</DocsTitle>
+      <DocsDescription className="text-base text-fd-muted-foreground/85">
+        {page.data.description}
+      </DocsDescription>
+      <DocsBody className="prose-h2:font-mono prose-headings:font-open-runde prose-h2:text-fd-muted-foreground/80 prose-h2:text-sm prose-h2:leading-5">
         <MDX components={useMDXComponents({})} />
       </DocsBody>
     </DocsPage>
