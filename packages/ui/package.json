@@ -23,8 +23,10 @@
     }
   },
   "peerDependencies": {
-    "next": "^16.0.0",
-    "react": "^19.2.0"
+    "@types/react": "*",
+    "next": "^16.x.x",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
   },
   "dependencies": {
     "@base-ui-components/react": "1.0.0-beta.4",
@@ -63,9 +65,9 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.0.3",
-    "@types/react": "^19.0.4",
-    "@types/react-dom": "^19.0.4",
     "@uitopia/tsconfig": "workspace:*",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
     "postcss": "^8.5.1",
     "tailwindcss": "^4.0.3",
     "tsup": "^8.3.6",
