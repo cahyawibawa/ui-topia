@@ -1,6 +1,3 @@
-![uitopia.vercel.app](https://github.com/user-attachments/assets/56dfe7f7-85b7-44ee-b89a-1c30c5c4a156)
-<h3 align="center">ui/topia</h3>
-
 # UI/TOPIA
 
 Welcome to **UI/TOPIA**—a curated collection of fine UI components built with **[Motion](https://motion.dev/)** and a collection of beautifully designed, accessible, and composable components React apps. Built on top of [Base UI](https://base-ui.com/).  
