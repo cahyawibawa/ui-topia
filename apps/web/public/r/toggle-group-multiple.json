@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle-group-multiple",
+  "type": "registry:example",
+  "description": "Toggle group with multiple selection",
+  "registryDependencies": [
+    "@/toggle-group"
+  ],
+  "files": [
+    {
+      "path": "registry/components/toggle-group-multiple.tsx",
+      "content": "import { BoldIcon, ItalicIcon, UnderlineIcon } from \"lucide-react\"\n\nimport { Toggle, ToggleGroup } from \"@/registry/ui/toggle-group\"\n\nexport default function ToggleGroupMultiple() {\n  return (\n    <ToggleGroup defaultValue={[\"bold\"]} multiple>\n      <Toggle value=\"bold\" aria-label=\"Toggle bold\">\n        <BoldIcon />\n      </Toggle>\n      <Toggle value=\"italic\" aria-label=\"Toggle italic\">\n        <ItalicIcon />\n      </Toggle>\n      <Toggle value=\"underline\" aria-label=\"Toggle underline\">\n        <UnderlineIcon />\n      </Toggle>\n    </ToggleGroup>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "toggle group",
+    "toggle"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field-error",
+  "type": "registry:example",
+  "description": "Field showing validation error",
+  "registryDependencies": [
+    "@uitopia/field"
+  ],
+  "files": [
+    {
+      "path": "registry/components/field-error.tsx",
+      "content": "import {\n  Field,\n  FieldControl,\n  FieldError,\n  FieldLabel,\n} from \"@/registry/ui/field\"\n\nexport default function FieldWithErrorDemo() {\n  return (\n    <Field>\n      <FieldLabel>Email</FieldLabel>\n      <FieldControl type=\"email\" placeholder=\"Enter your email\" />\n      <FieldError>Please enter a valid email address.</FieldError>\n    </Field>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "field",
+    "label",
+    "error"
+  ]
+}

@@ -60,9 +60,7 @@ export default function Cards() {
     "expandable-tabs-demo",
     "family-wallets-demo",
     "inline-dropdown-demo",
-    "paper-fold-demo",
     "text-type-demo",
-    "transaction-btn-demo",
   ];
 
   // Map names to registry items, filter out nulls

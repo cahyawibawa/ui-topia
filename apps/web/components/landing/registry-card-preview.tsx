@@ -1,9 +1,9 @@
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
-import type { RegistryItem } from "shadcn/registry";
 import { CodeBlock } from "@/components/code-block";
-import { ComponentLoader } from "@/components/content/component-loader";
+import { ComponentLoader } from "@/components/component-loader";
 import { CodeViewer } from "@/components/showcase-code-viewer";
+import type { RegistryItem } from "@/lib/registry";
 
 interface RegistryCardPreviewProps {
   item: RegistryItem & { width?: number; height?: number };

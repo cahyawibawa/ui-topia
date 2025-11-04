@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox-form",
+  "type": "registry:example",
+  "description": "Checkbox in a form",
+  "registryDependencies": [
+    "@uitopia/checkbox",
+    "@uitopia/field",
+    "@uitopia/form",
+    "@uitopia/button"
+  ],
+  "files": [
+    {
+      "path": "registry/components/checkbox-form.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Button } from \"@/registry/ui/button\"\nimport { Checkbox } from \"@/registry/ui/checkbox\"\nimport { Field, FieldLabel } from \"@/registry/ui/field\"\nimport { Form } from \"@/registry/ui/form\"\n\nexport default function CheckboxFormDemo() {\n  const [loading, setLoading] = React.useState(false)\n  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {\n    e.preventDefault()\n    const formData = new FormData(e.currentTarget)\n    setLoading(true)\n    await new Promise((r) => setTimeout(r, 800))\n    setLoading(false)\n    const accepted = formData.get(\"terms\")\n    alert(`Terms: ${accepted}`)\n  }\n  return (\n    <Form onSubmit={onSubmit} className=\"w-auto\">\n      <Field name=\"terms\">\n        <FieldLabel>\n          <Checkbox\n            name=\"terms\"\n            value=\"yes\"\n            defaultChecked\n            disabled={loading}\n          />\n          Accept terms and conditions\n        </FieldLabel>\n      </Field>\n      <Button type=\"submit\" disabled={loading}>\n        Submit\n      </Button>\n    </Form>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "checkbox",
+    "form",
+    "button",
+    "label"
+  ]
+}

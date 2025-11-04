@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "breadcrumb-demo",
+  "type": "registry:example",
+  "description": "Breadcrumb with menu example",
+  "registryDependencies": [
+    "@uitopia/breadcrumb",
+    "@uitopia/menu"
+  ],
+  "files": [
+    {
+      "path": "registry/components/breadcrumb-demo.tsx",
+      "content": "import Link from \"next/link\"\n\nimport {\n  Breadcrumb,\n  BreadcrumbEllipsis,\n  BreadcrumbItem,\n  BreadcrumbLink,\n  BreadcrumbList,\n  BreadcrumbPage,\n  BreadcrumbSeparator,\n} from \"@/registry/ui/breadcrumb\"\nimport { Button } from \"@/registry/ui/button\"\nimport {\n  Menu,\n  MenuItem,\n  MenuPopup,\n  MenuTrigger,\n} from \"@/registry/ui/menu\"\n\nexport default function BreadcrumbDemo() {\n  return (\n    <Breadcrumb>\n      <BreadcrumbList>\n        <BreadcrumbItem>\n          <BreadcrumbLink render={<Link href=\"/\" />}>Home</BreadcrumbLink>\n        </BreadcrumbItem>\n        <BreadcrumbSeparator />\n        <BreadcrumbItem>\n          <Menu>\n            <MenuTrigger\n              render={\n                <Button size=\"icon-sm\" variant=\"ghost\" className=\"-m-1.5\" />\n              }\n            >\n              <BreadcrumbEllipsis />\n            </MenuTrigger>\n            <MenuPopup align=\"start\">\n              <MenuItem render={<Link href=\"/docs\" />}>Docs</MenuItem>\n              <MenuItem render={<Link href=\"/particles\" />}>Particles</MenuItem>\n            </MenuPopup>\n          </Menu>\n        </BreadcrumbItem>\n        <BreadcrumbSeparator />\n        <BreadcrumbItem>\n          <BreadcrumbLink render={<Link href=\"/docs/components\" />}>\n            Components\n          </BreadcrumbLink>\n        </BreadcrumbItem>\n        <BreadcrumbSeparator />\n        <BreadcrumbItem>\n          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>\n        </BreadcrumbItem>\n      </BreadcrumbList>\n    </Breadcrumb>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "breadcrumb",
+    "menu"
+  ]
+}

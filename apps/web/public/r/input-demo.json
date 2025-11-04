@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-demo",
+  "type": "registry:example",
+  "description": "Basic input component without label",
+  "registryDependencies": [
+    "@uitopia/input"
+  ],
+  "files": [
+    {
+      "path": "registry/components/input-demo.tsx",
+      "content": "import { Input } from \"@/registry/ui/input\"\n\nexport default function InputDemo() {\n  return <Input placeholder=\"Enter text\" aria-label=\"Enter text\" />\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "input"
+  ]
+}

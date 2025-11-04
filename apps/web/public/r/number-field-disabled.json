@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "number-field-disabled",
+  "type": "registry:example",
+  "description": "A disabled number field",
+  "registryDependencies": [
+    "@uitopia/number-field"
+  ],
+  "files": [
+    {
+      "path": "registry/components/number-field-disabled.tsx",
+      "content": "import {\n  NumberField,\n  NumberFieldDecrement,\n  NumberFieldGroup,\n  NumberFieldIncrement,\n  NumberFieldInput,\n} from \"@/registry/ui/number-field\"\n\nexport default function NumberFieldDisabled() {\n  return (\n    <NumberField defaultValue={42} disabled>\n      <NumberFieldGroup>\n        <NumberFieldDecrement />\n        <NumberFieldInput />\n        <NumberFieldIncrement />\n      </NumberFieldGroup>\n    </NumberField>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "number field",
+    "disabled",
+    "label"
+  ]
+}

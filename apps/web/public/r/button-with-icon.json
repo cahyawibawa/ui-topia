@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-with-icon",
+  "type": "registry:example",
+  "description": "Button with icon",
+  "registryDependencies": [
+    "@uitopia/button"
+  ],
+  "files": [
+    {
+      "path": "registry/components/button-with-icon.tsx",
+      "content": "import { DownloadIcon } from \"lucide-react\"\n\nimport { Button } from \"@/registry/ui/button\"\n\nexport default function ButtonWithIcon() {\n  return (\n    <Button>\n      <DownloadIcon />\n      Download\n    </Button>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "button"
+  ]
+}

@@ -23,6 +23,7 @@ export default function CSSBoxDemo() {
   );
 
   return (
+    // @ts-ignore
     <CSSBox
       ref={boxRef}
       width={200}

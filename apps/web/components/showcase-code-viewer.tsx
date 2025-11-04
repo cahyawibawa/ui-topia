@@ -2,20 +2,25 @@
 
 import type React from "react";
 import { Suspense } from "react";
-import type { RegistryItem } from "shadcn/registry";
 import ComponentCli from "@/components/cli-commands";
 import { V0Button } from "@/components/v0-button";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import type { RegistryItem } from "@/lib/registry";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/registry/components/icons";
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "@/registry/ui/sheet";
+import { Button } from "@/uitopia/button";
 import {
   Drawer,
   DrawerContent,
   DrawerTitle,
   DrawerTrigger,
-} from "@/registry/ui/drawer";
-import { Button } from "@/uitopia/button";
-import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/uitopia/sheet";
+} from "@/uitopia/drawer";
 
 interface CodeViewerProps {
   children: React.ReactNode;
@@ -24,7 +29,7 @@ interface CodeViewerProps {
 
 function Content({ children, component }: CodeViewerProps) {
   return (
-    <div className="min-w-0 space-y-6">
+    <div className="min-w-0 space-y-6 p-5">
       <div>
         <h2 className="mb-4 font-medium text-base">Installation</h2>
         <ComponentCli name={component.name} />
@@ -69,35 +74,34 @@ export function CodeViewer({ component, children }: CodeViewerProps) {
 
   return (
     <Sheet>
-      <SheetTrigger asChild>
-        <Button
-          className={cn(
-            "h-6 rounded-[6px] px-2 text-xs",
-            "text-foreground",
-            "select-none",
-            "cursor-pointer",
-          )}
-          size="sm"
-          variant="outline"
-        >
-          View Code
-        </Button>
+      <SheetTrigger
+        className={cn(
+          "h-6 rounded-[6px] px-2 text-xs",
+          "text-foreground",
+          "select-none",
+          "cursor-pointer",
+          "inline-flex items-center justify-center rounded-md border border-input bg-background font-medium text-sm shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+        )}
+      >
+        View Code
       </SheetTrigger>
       <SheetContent
-        className="mb-2 sm:max-w-sm md:w-[600px] md:max-w-[600px]"
+        className="mb-2 overflow-hidden sm:max-w-sm md:w-[600px] md:max-w-[600px]"
         side="right"
       >
         <SheetTitle className="sr-only">Code</SheetTitle>
-        <Suspense
-          fallback={
-            <div className="flex items-center justify-center text-muted-foreground text-sm">
-              <Icons.loader className="mr-2 h-4 w-4 animate-spin" />
-              Loading...
-            </div>
-          }
-        >
-          <Content component={component}>{children}</Content>
-        </Suspense>
+        <div className="min-h-0 flex-1 overflow-y-auto">
+          <Suspense
+            fallback={
+              <div className="flex items-center justify-center p-5 text-muted-foreground text-sm">
+                <Icons.loader className="mr-2 h-4 w-4 animate-spin" />
+                Loading...
+              </div>
+            }
+          >
+            <Content component={component}>{children}</Content>
+          </Suspense>
+        </div>
       </SheetContent>
     </Sheet>
   );

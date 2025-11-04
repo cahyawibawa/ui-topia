@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-icon-lg",
+  "type": "registry:example",
+  "description": "Large icon button",
+  "registryDependencies": [
+    "@uitopia/button"
+  ],
+  "files": [
+    {
+      "path": "registry/components/button-icon-lg.tsx",
+      "content": "import { PlusIcon } from \"lucide-react\"\n\nimport { Button } from \"@/registry/ui/button\"\n\nexport default function ButtonIconLg() {\n  return (\n    <Button size=\"icon-lg\">\n      <PlusIcon />\n    </Button>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "button"
+  ]
+}

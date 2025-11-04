@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slider-form",
+  "type": "registry:example",
+  "description": "Slider in a form",
+  "registryDependencies": [
+    "@uitopia/slider",
+    "@uitopia/form",
+    "@uitopia/field",
+    "@uitopia/button"
+  ],
+  "files": [
+    {
+      "path": "registry/components/slider-form.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Button } from \"@/registry/ui/button\"\nimport {\n  Field,\n  FieldDescription,\n  FieldLabel,\n} from \"@/registry/ui/field\"\nimport { Form } from \"@/registry/ui/form\"\nimport { Slider, SliderValue } from \"@/registry/ui/slider\"\n\nexport default function SliderForm() {\n  const [loading, setLoading] = React.useState<boolean>(false)\n  const [value, setValue] = React.useState<number | readonly number[]>([25, 75])\n\n  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {\n    e.preventDefault()\n    const formData = new FormData(e.currentTarget)\n    setLoading(true)\n    await new Promise((r) => setTimeout(r, 800))\n    setLoading(false)\n    const volumes = formData.getAll(\"volume\")\n    alert(`Volume: ${volumes.join(\", \")}`)\n  }\n\n  return (\n    <Form onSubmit={onSubmit}>\n      <Field name=\"volume\" className=\"items-stretch gap-3\">\n        <Slider value={value} onValueChange={setValue} disabled={loading}>\n          <div className=\"mb-2 flex items-center justify-between gap-1\">\n            <FieldLabel>Volume</FieldLabel>\n            <SliderValue />\n          </div>\n        </Slider>\n        <FieldDescription>Choose a value between 0 and 100</FieldDescription>\n      </Field>\n      <Button type=\"submit\" disabled={loading}>\n        Submit\n      </Button>\n    </Form>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "slider",
+    "form",
+    "field",
+    "button",
+    "helper",
+    "hint"
+  ]
+}

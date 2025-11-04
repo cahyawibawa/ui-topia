@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "number-field-form",
+  "type": "registry:example",
+  "description": "A number in a form",
+  "registryDependencies": [
+    "@uitopia/number-field",
+    "@uitopia/field",
+    "@uitopia/form",
+    "@uitopia/button"
+  ],
+  "files": [
+    {
+      "path": "registry/components/number-field-form.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { z } from \"zod\"\n\nimport { Button } from \"@/registry/ui/button\"\nimport { Field } from \"@/registry/ui/field\"\nimport { Form } from \"@/registry/ui/form\"\nimport {\n  NumberField,\n  NumberFieldDecrement,\n  NumberFieldGroup,\n  NumberFieldIncrement,\n  NumberFieldInput,\n  NumberFieldScrubArea,\n} from \"@/registry/ui/number-field\"\n\nconst schema = z.object({\n  quantity: z.coerce\n    .number({ message: \"Please enter a quantity.\" })\n    .min(1, { message: \"Quantity must be at least 1.\" })\n    .max(100, { message: \"Maximum quantity is 100.\" }),\n})\n\ntype Errors = Record<string, string | string[]>\n\nasync function submitForm(event: React.FormEvent<HTMLFormElement>) {\n  event.preventDefault()\n\n  const formData = new FormData(event.currentTarget)\n  const result = schema.safeParse(Object.fromEntries(formData as any))\n\n  if (!result.success) {\n    const { fieldErrors } = z.flattenError(result.error)\n    return { errors: fieldErrors as Errors }\n  }\n\n  return {\n    errors: {} as Errors,\n    data: result.data,\n  }\n}\n\nexport default function NumberFieldFormDemo() {\n  const [loading, setLoading] = React.useState(false)\n\n  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {\n    setLoading(true)\n    const response = await submitForm(event)\n    await new Promise((r) => setTimeout(r, 800))\n    setLoading(false)\n    if (Object.keys(response.errors).length === 0) {\n      alert(`Quantity: ${response.data?.quantity}`)\n    }\n  }\n\n  return (\n    <Form onSubmit={onSubmit} className=\"max-w-64\">\n      <Field name=\"quantity\">\n        <NumberField defaultValue={1} min={1} max={100} disabled={loading}>\n          <NumberFieldScrubArea label=\"Quantity\" />\n          <NumberFieldGroup>\n            <NumberFieldDecrement />\n            <NumberFieldInput />\n            <NumberFieldIncrement />\n          </NumberFieldGroup>\n        </NumberField>\n      </Field>\n\n      <Button type=\"submit\" disabled={loading}>\n        Submit\n      </Button>\n    </Form>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "number field",
+    "field",
+    "form",
+    "button"
+  ]
+}

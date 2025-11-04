@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "combobox-form",
+  "type": "registry:example",
+  "description": "Combobox form",
+  "registryDependencies": [
+    "@uitopia/combobox",
+    "@uitopia/button",
+    "@uitopia/form",
+    "@uitopia/field"
+  ],
+  "files": [
+    {
+      "path": "registry/components/combobox-form.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Button } from \"@/registry/ui/button\"\nimport {\n  Combobox,\n  ComboboxEmpty,\n  ComboboxInput,\n  ComboboxItem,\n  ComboboxList,\n  ComboboxPopup,\n} from \"@/registry/ui/combobox\"\nimport { Field, FieldError, FieldLabel } from \"@/registry/ui/field\"\nimport { Form } from \"@/registry/ui/form\"\n\nconst items = [\n  { value: \"apple\", label: \"Apple\" },\n  { value: \"banana\", label: \"Banana\" },\n  { value: \"orange\", label: \"Orange\" },\n  { value: \"grape\", label: \"Grape\" },\n  { value: \"strawberry\", label: \"Strawberry\" },\n  { value: \"mango\", label: \"Mango\" },\n  { value: \"pineapple\", label: \"Pineapple\" },\n  { value: \"kiwi\", label: \"Kiwi\" },\n  { value: \"peach\", label: \"Peach\" },\n  { value: \"pear\", label: \"Pear\" },\n]\n\nexport default function ComboboxForm() {\n  const [loading, setLoading] = React.useState(false)\n  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {\n    e.preventDefault()\n    const formData = new FormData(e.currentTarget)\n    const selectedItem = formData.get(\"item\")\n    const itemValue =\n      items.find((item) => item.label === selectedItem)?.value || selectedItem\n    setLoading(true)\n    await new Promise((r) => setTimeout(r, 800))\n    setLoading(false)\n    alert(`Favorite item: ${itemValue || \"\"}`)\n  }\n\n  return (\n    <Form onSubmit={onSubmit} className=\"max-w-64\">\n      <Field>\n        <FieldLabel>Favorite item</FieldLabel>\n        <Combobox items={items} name=\"item\" disabled={loading} required>\n          <ComboboxInput placeholder=\"Select an item...\" />\n          <ComboboxPopup>\n            <ComboboxEmpty>No results found.</ComboboxEmpty>\n            <ComboboxList>\n              {(item) => (\n                <ComboboxItem key={item.value} value={item}>\n                  {item.label}\n                </ComboboxItem>\n              )}\n            </ComboboxList>\n          </ComboboxPopup>\n        </Combobox>\n        <FieldError>Please select a item.</FieldError>\n      </Field>\n      <Button type=\"submit\" disabled={loading}>\n        Submit\n      </Button>\n    </Form>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "combobox",
+    "input",
+    "form"
+  ]
+}

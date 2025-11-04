@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toast-loading",
+  "type": "registry:example",
+  "description": "Loading toast",
+  "registryDependencies": [
+    "@/toast"
+  ],
+  "files": [
+    {
+      "path": "registry/components/toast-loading.tsx",
+      "content": "\"use client\"\n\nimport { Button } from \"@/registry/ui/button\"\nimport { toastManager } from \"@/registry/ui/toast\"\n\nexport default function ToastLoading() {\n  return (\n    <Button\n      variant=\"outline\"\n      onClick={() => {\n        toastManager.add({\n          title: \"Loading…\",\n          description: \"Please wait while we process your request.\",\n          type: \"loading\",\n        })\n      }}\n    >\n      Loading Toast\n    </Button>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "toast",
+    "button",
+    "loading"
+  ]
+}

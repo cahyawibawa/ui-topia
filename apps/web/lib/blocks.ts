@@ -1,6 +1,6 @@
 "use server";
 
-import type { RegistryItem } from "shadcn/registry";
+import type { RegistryItem } from "@/lib/registry";
 import { getComponents, getComponentsByName } from "./registry";
 
 export async function getAllBlockIds(
@@ -26,7 +26,7 @@ export async function getAllBlockIds(
       const blockData = getComponentsByName(name);
 
       if (
-        blockData?.categories?.some((category) =>
+        blockData?.categories?.some((category: string) =>
           categories.includes(category.toLowerCase()),
         )
       ) {

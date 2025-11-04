@@ -1,0 +1,198 @@
+---
+title: Field
+description: A component that provides labelling and validation for form controls.
+
+links:
+  doc: https://base-ui.com/react/components/field#api-reference
+---
+
+<ComponentPreview
+  name="field-demo"
+  className="[&_.preview>*]:w-full [&_.preview>*]:max-w-64"
+  showV0Button={false}
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add @coss/field
+```
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @base-ui-components/react
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  name="field"
+  className="[&_.preview>*]:w-full [&_.preview>*]:max-w-64"
+  title="components/ui/field.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  Field,
+  FieldControl,
+  FieldDescription,
+  FieldError,
+  FieldLabel,
+  FieldValidity,
+} from "@/components/ui/field"
+```
+
+```tsx
+<Field>
+  <FieldLabel>Name</FieldLabel>
+  <FieldControl type="text" placeholder="Enter your name" />
+  <FieldDescription>Visible on your profile</FieldDescription>
+  <FieldError>Please enter a valid name</FieldError>
+  <FieldValidity>
+    {(validity) => (
+      {validity.error && <p>{validity.error}</p>}
+    )}
+  </FieldValidity>
+</Field>
+```
+
+## Examples
+
+### Required Field
+
+<ComponentPreview
+  name="field-required"
+  className="[&_.preview>*]:w-full [&_.preview>*]:max-w-64"
+  showV0Button={false}
+/>
+
+### Disabled Field
+
+<ComponentPreview
+  name="field-disabled"
+  className="[&_.preview>*]:w-full [&_.preview>*]:max-w-64"
+  showV0Button={false}
+/>
+
+### With Error
+
+Enter an invalid email address and press enter to see the error.
+
+<ComponentPreview
+  name="field-error"
+  className="[&_.preview>*]:w-full [&_.preview>*]:max-w-64"
+  showV0Button={false}
+/>
+
+### With Validity
+
+<ComponentPreview
+  name="field-validity"
+  className="[&_.preview>*]:w-full [&_.preview>*]:max-w-80"
+  showV0Button={false}
+/>
+
+### Autocomplete Field
+
+<ComponentPreview
+  name="field-autocomplete"
+  className="[&_.preview>*]:w-full [&_.preview>*]:max-w-64"
+  showV0Button={false}
+/>
+
+### Combobox Field
+
+<ComponentPreview
+  name="field-combobox"
+  className="[&_.preview>*]:w-full [&_.preview>*]:max-w-64"
+  showV0Button={false}
+/>
+
+### Combobox Multiple Field
+
+<ComponentPreview
+  name="field-combobox-multiple"
+  className="[&_.preview>*]:w-full [&_.preview>*]:max-w-64"
+  showV0Button={false}
+/>
+
+### Textarea Field
+
+<ComponentPreview
+  name="field-textarea"
+  className="[&_.preview>*]:w-full [&_.preview>*]:max-w-64"
+  showV0Button={false}
+/>
+
+### Select Field
+
+<ComponentPreview
+  name="field-select"
+  className="[&_.preview>*]:w-full [&_.preview>*]:max-w-64"
+  showV0Button={false}
+/>
+
+### Checkbox Field
+
+<ComponentPreview name="field-checkbox" showV0Button={false}/>
+
+### Checkbox Group Field
+
+<ComponentPreview name="field-checkbox-group" showV0Button={false}/>
+
+### Radio Group Field
+
+<ComponentPreview name="field-radio" showV0Button={false}/>
+
+### Switch Field
+
+<ComponentPreview name="field-switch" showV0Button={false} />
+
+### Slider Field
+
+<ComponentPreview
+  name="field-slider"
+  className="[&_.preview>*]:w-full [&_.preview>*]:max-w-64"
+  showV0Button={false}
+/>
+
+### Number Field
+
+<ComponentPreview
+  name="field-number-field"
+  className="[&_.preview>*]:w-full [&_.preview>*]:max-w-64"
+  showV0Button={false}
+/>
+
+### Complete Form Example
+
+<ComponentPreview
+  name="field-complete-form"
+  className="[&_.preview>*]:w-full [&_.preview>*]:max-w-64"
+  showV0Button={false}
+/>

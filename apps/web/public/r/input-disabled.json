@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-disabled",
+  "type": "registry:example",
+  "description": "Input with disabled state",
+  "registryDependencies": [
+    "@uitopia/input"
+  ],
+  "files": [
+    {
+      "path": "registry/components/input-disabled.tsx",
+      "content": "import { Input } from \"@/registry/ui/input\"\n\nexport default function InputDisabled() {\n  return <Input placeholder=\"Disabled\" disabled aria-label=\"Disabled\" />\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "input",
+    "disabled"
+  ]
+}

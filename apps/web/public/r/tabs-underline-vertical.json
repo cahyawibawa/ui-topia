@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs-underline-vertical",
+  "type": "registry:example",
+  "description": "Underline tabs with vertical layout",
+  "registryDependencies": [
+    "@uitopia/tabs"
+  ],
+  "files": [
+    {
+      "path": "registry/components/tabs-underline-vertical.tsx",
+      "content": "import { Tabs, TabsList, TabsPanel, TabsTab } from \"@/registry/ui/tabs\"\n\nexport default function TabsUnderlineVertical() {\n  return (\n    <Tabs\n      defaultValue=\"tab-1\"\n      orientation=\"vertical\"\n      className=\"w-full flex-row\"\n    >\n      <div className=\"border-s\">\n        <TabsList variant=\"underline\">\n          <TabsTab value=\"tab-1\">Tab 1</TabsTab>\n          <TabsTab value=\"tab-2\">Tab 2</TabsTab>\n          <TabsTab value=\"tab-3\">Tab 3</TabsTab>\n        </TabsList>\n      </div>\n      <TabsPanel value=\"tab-1\">\n        <p className=\"p-4 text-center text-xs text-muted-foreground\">\n          Tab 1 content\n        </p>\n      </TabsPanel>\n      <TabsPanel value=\"tab-2\">\n        <p className=\"p-4 text-center text-xs text-muted-foreground\">\n          Tab 2 content\n        </p>\n      </TabsPanel>\n      <TabsPanel value=\"tab-3\">\n        <p className=\"p-4 text-center text-xs text-muted-foreground\">\n          Tab 3 content\n        </p>\n      </TabsPanel>\n    </Tabs>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "tabs",
+    "vertical tabs"
+  ]
+}

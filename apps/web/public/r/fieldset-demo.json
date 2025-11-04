@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "fieldset-demo",
+  "type": "registry:example",
+  "description": "Fieldset with legend and labeled fields",
+  "registryDependencies": [
+    "@uitopia/fieldset",
+    "@uitopia/field"
+  ],
+  "files": [
+    {
+      "path": "registry/components/fieldset-demo.tsx",
+      "content": "import {\n  Field,\n  FieldControl,\n  FieldDescription,\n  FieldLabel,\n} from \"@/registry/ui/field\"\nimport { Fieldset, FieldsetLegend } from \"@/registry/ui/fieldset\"\n\nexport default function FieldsetDemo() {\n  return (\n    <Fieldset>\n      <FieldsetLegend>Billing Details</FieldsetLegend>\n      <Field>\n        <FieldLabel>Company</FieldLabel>\n        <FieldControl type=\"text\" placeholder=\"Enter company name\" />\n        <FieldDescription>\n          The name that will appear on invoices.\n        </FieldDescription>\n      </Field>\n\n      <Field>\n        <FieldLabel>Tax ID</FieldLabel>\n        <FieldControl\n          type=\"text\"\n          placeholder=\"Enter tax identification number\"\n        />\n        <FieldDescription>\n          Your business tax identification number.\n        </FieldDescription>\n      </Field>\n    </Fieldset>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "fieldset",
+    "field",
+    "label",
+    "input",
+    "helper"
+  ]
+}

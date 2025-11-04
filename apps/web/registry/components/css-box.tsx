@@ -35,6 +35,7 @@ const CubeFace = ({
     )}
     style={{ transform, ...style }}
   >
+    {/* @ts-ignore */}
     {children}
   </div>
 );

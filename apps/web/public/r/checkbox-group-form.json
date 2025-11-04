@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox-group-form",
+  "type": "registry:example",
+  "description": "Checkbox group in a form",
+  "registryDependencies": [
+    "@uitopia/checkbox-group",
+    "@uitopia/checkbox",
+    "@uitopia/button",
+    "@uitopia/field",
+    "@uitopia/fieldset",
+    "@uitopia/form"
+  ],
+  "files": [
+    {
+      "path": "registry/components/checkbox-group-form.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Button } from \"@/registry/ui/button\"\nimport { Checkbox } from \"@/registry/ui/checkbox\"\nimport { CheckboxGroup } from \"@/registry/ui/checkbox-group\"\nimport { Field, FieldLabel } from \"@/registry/ui/field\"\nimport { Fieldset, FieldsetLegend } from \"@/registry/ui/fieldset\"\nimport { Form } from \"@/registry/ui/form\"\n\nexport default function CheckboxGroupFormDemo() {\n  const [loading, setLoading] = React.useState(false)\n  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {\n    e.preventDefault()\n    const formData = new FormData(e.currentTarget)\n    setLoading(true)\n    await new Promise((r) => setTimeout(r, 800))\n    setLoading(false)\n    const frameworks = formData.getAll(\"frameworks\") as string[]\n    alert(`Selected: ${frameworks.join(\", \") || \"none\"}`)\n  }\n\n  return (\n    <Form onSubmit={onSubmit} className=\"max-w-[160px]\">\n      <Field\n        name=\"frameworks\"\n        className=\"gap-4\"\n        render={(props) => <Fieldset {...props} />}\n      >\n        <FieldsetLegend className=\"text-sm font-medium\">\n          Frameworks\n        </FieldsetLegend>\n        <CheckboxGroup defaultValue={[\"next\"]} disabled={loading}>\n          <FieldLabel>\n            <Checkbox value=\"next\" />\n            Next.js\n          </FieldLabel>\n          <FieldLabel>\n            <Checkbox value=\"vite\" />\n            Vite\n          </FieldLabel>\n          <FieldLabel>\n            <Checkbox value=\"astro\" />\n            Astro\n          </FieldLabel>\n        </CheckboxGroup>\n      </Field>\n      <Button type=\"submit\" disabled={loading}>\n        Submit\n      </Button>\n    </Form>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "checkbox group",
+    "checkbox",
+    "form",
+    "button",
+    "field",
+    "fieldset"
+  ]
+}

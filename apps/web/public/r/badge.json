@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge",
+  "type": "registry:ui",
+  "dependencies": [
+    "@base-ui-components/react"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/badge.tsx",
+      "content": "import { mergeProps } from \"@base-ui-components/react/merge-props\"\nimport { useRender } from \"@base-ui-components/react/use-render\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst badgeVariants = cva(\n  \"relative inline-flex shrink-0 items-center justify-center gap-1 rounded-sm border border-transparent font-medium whitespace-nowrap transition-shadow outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-64 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3 [button,a&]:cursor-pointer [button,a&]:pointer-coarse:after:absolute [button,a&]:pointer-coarse:after:size-full [button,a&]:pointer-coarse:after:min-h-11 [button,a&]:pointer-coarse:after:min-w-11\",\n  {\n    variants: {\n      variant: {\n        default:\n          \"bg-primary text-primary-foreground [button,a&]:hover:bg-primary/90\",\n        destructive:\n          \"bg-destructive text-white [button,a&]:hover:bg-destructive/90\",\n        outline:\n          \"border-border bg-transparent dark:bg-input/32 [button,a&]:hover:bg-accent/50 dark:[button,a&]:hover:bg-input/48\",\n        secondary:\n          \"bg-secondary text-secondary-foreground [button,a&]:hover:bg-secondary/90\",\n        info: \"bg-info/8 text-info-foreground dark:bg-info/16\",\n        success: \"bg-success/8 text-success-foreground dark:bg-success/16\",\n        warning: \"bg-warning/8 text-warning-foreground dark:bg-warning/16\",\n        error:\n          \"bg-destructive/8 text-destructive-foreground dark:bg-destructive/16\",\n      },\n      size: {\n        default: \"px-[calc(--spacing(1)-1px)] text-xs\",\n        sm: \"rounded-[calc(var(--radius-sm)-2px)] px-[calc(--spacing(1)-1px)] text-[.625rem]\",\n        lg: \"px-[calc(--spacing(1.5)-1px)] text-sm\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n      size: \"default\",\n    },\n  }\n)\n\ninterface BadgeProps extends useRender.ComponentProps<\"span\"> {\n  variant?: VariantProps<typeof badgeVariants>[\"variant\"]\n  size?: VariantProps<typeof badgeVariants>[\"size\"]\n}\n\nfunction Badge({ className, variant, size, render, ...props }: BadgeProps) {\n  const defaultProps = {\n    \"data-slot\": \"badge\",\n    className: cn(badgeVariants({ variant, size, className })),\n  }\n\n  return useRender({\n    defaultTagName: \"span\",\n    render,\n    props: mergeProps<\"span\">(defaultProps, props),\n  })\n}\n\nexport { Badge, badgeVariants }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "cssVars": {
+    "light": {
+      "destructive-foreground": "oklch(0.505 0.213 27.518)",
+      "info": "oklch(0.623 0.214 259.815)",
+      "info-foreground": "oklch(0.488 0.243 264.376)",
+      "success": "oklch(0.696 0.17 162.48)",
+      "success-foreground": "oklch(0.508 0.118 165.612)",
+      "warning": "oklch(0.769 0.188 70.08)",
+      "warning-foreground": "oklch(0.555 0.163 48.998)"
+    },
+    "dark": {
+      "destructive-foreground": "oklch(0.704 0.191 22.216)",
+      "info": "oklch(0.623 0.214 259.815)",
+      "info-foreground": "oklch(0.707 0.165 254.624)",
+      "success": "oklch(0.696 0.17 162.48)",
+      "success-foreground": "oklch(0.765 0.177 163.223)",
+      "warning": "oklch(0.769 0.188 70.08)",
+      "warning-foreground": "oklch(0.828 0.189 84.429)"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field-checkbox",
+  "type": "registry:example",
+  "description": "Field with checkbox",
+  "registryDependencies": [
+    "@uitopia/field",
+    "@uitopia/checkbox"
+  ],
+  "files": [
+    {
+      "path": "registry/components/field-checkbox.tsx",
+      "content": "import { Checkbox } from \"@/registry/ui/checkbox\"\nimport { Field, FieldLabel } from \"@/registry/ui/field\"\n\nexport default function FieldCheckboxDemo() {\n  return (\n    <Field>\n      <FieldLabel>\n        <Checkbox />\n        Accept terms and conditions\n      </FieldLabel>\n    </Field>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "field",
+    "label",
+    "checkbox"
+  ]
+}

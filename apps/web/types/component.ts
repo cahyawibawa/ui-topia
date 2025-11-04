@@ -4,6 +4,7 @@ export interface ComponentLoaderProps {
   name: string;
   hasReTrigger?: boolean;
   classNameComponentContainer?: string;
+  showV0Button?: boolean;
 }
 
 export interface ComponentDisplayProps {
@@ -19,6 +20,7 @@ export interface ComponentPreviewProps {
   name: string;
   hasReTrigger?: boolean;
   classNameComponentContainer?: string;
+  showV0Button?: boolean;
 }
 
 export interface ComponentSourceProps {

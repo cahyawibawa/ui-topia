@@ -17,7 +17,7 @@ export const linkItems: LinkItemType[] = [
 ];
 
 export const baseOptions: BaseLayoutProps = {
-  githubUrl: siteConfig.links.github,
+  // githubUrl: siteConfig.links.github,
   // links: [...linkItems],
   nav: {
     title: (

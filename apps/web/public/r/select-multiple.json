@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-multiple",
+  "type": "registry:example",
+  "description": "Multiple selection with formatted value",
+  "registryDependencies": [
+    "@uitopia/select"
+  ],
+  "files": [
+    {
+      "path": "registry/components/select-multiple.tsx",
+      "content": "\"use client\"\n\nimport {\n  Select,\n  SelectItem,\n  SelectPopup,\n  SelectTrigger,\n  SelectValue,\n} from \"@/registry/ui/select\"\n\nconst languages = {\n  javascript: \"JavaScript\",\n  typescript: \"TypeScript\",\n  python: \"Python\",\n  java: \"Java\",\n  csharp: \"C#\",\n  php: \"PHP\",\n  cpp: \"C++\",\n  rust: \"Rust\",\n  go: \"Go\",\n  swift: \"Swift\",\n}\n\ntype Language = keyof typeof languages\n\nconst values = Object.keys(languages) as Language[]\n\nfunction renderValue(value: Language[]) {\n  if (value.length === 0) {\n    return \"Select languages…\"\n  }\n\n  const firstLanguage = value[0] ? languages[value[0]] : \"\"\n  const additionalLanguages =\n    value.length > 1 ? ` (+${value.length - 1} more)` : \"\"\n  return firstLanguage + additionalLanguages\n}\n\nexport default function SelectMultiple() {\n  return (\n    <Select multiple defaultValue={[\"javascript\", \"typescript\"]}>\n      <SelectTrigger>\n        <SelectValue>{renderValue}</SelectValue>\n      </SelectTrigger>\n      <SelectPopup alignItemWithTrigger={false}>\n        {values.map((value) => (\n          <SelectItem key={value} value={value}>\n            {languages[value]}\n          </SelectItem>\n        ))}\n      </SelectPopup>\n    </Select>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "select"
+  ]
+}

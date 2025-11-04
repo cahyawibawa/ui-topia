@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-xl",
+  "type": "registry:example",
+  "description": "Extra-large button",
+  "registryDependencies": [
+    "@uitopia/button"
+  ],
+  "files": [
+    {
+      "path": "registry/components/button-xl.tsx",
+      "content": "import { Button } from \"@/registry/ui/button\"\n\nexport default function ButtonXl() {\n  return <Button size=\"xl\">Button</Button>\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "button"
+  ]
+}

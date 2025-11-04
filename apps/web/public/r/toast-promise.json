@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toast-promise",
+  "type": "registry:example",
+  "description": "Drive toasts from promise states",
+  "registryDependencies": [
+    "@/toast"
+  ],
+  "files": [
+    {
+      "path": "registry/components/toast-promise.tsx",
+      "content": "\"use client\"\n\nimport { Button } from \"@/registry/ui/button\"\nimport { toastManager } from \"@/registry/ui/toast\"\n\nexport default function ToastPromise() {\n  return (\n    <Button\n      variant=\"outline\"\n      onClick={() => {\n        toastManager.promise(\n          new Promise<string>((resolve, reject) => {\n            const shouldSucceed = Math.random() > 0.3\n            setTimeout(() => {\n              if (shouldSucceed) {\n                resolve(\"Data loaded successfully\")\n              } else {\n                reject(new Error(\"Failed to load data\"))\n              }\n            }, 2000)\n          }),\n          {\n            loading: {\n              title: \"Loading…\",\n              description: \"The promise is loading.\",\n            },\n            success: (data: string) => ({\n              title: \"This is a success toast!\",\n              description: `Success: ${data}`,\n            }),\n            error: () => ({\n              title: \"Something went wrong\",\n              description: \"Please try again.\",\n            }),\n          }\n        )\n      }}\n    >\n      Run Promise\n    </Button>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "toast",
+    "button"
+  ]
+}

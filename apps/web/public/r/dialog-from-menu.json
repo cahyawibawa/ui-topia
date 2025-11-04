@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dialog-from-menu",
+  "type": "registry:example",
+  "description": "Open dialog from a menu item",
+  "registryDependencies": [
+    "@uitopia/dialog",
+    "@uitopia/menu",
+    "@uitopia/button"
+  ],
+  "files": [
+    {
+      "path": "registry/components/dialog-from-menu.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Button } from \"@/registry/ui/button\"\nimport {\n  Dialog,\n  DialogClose,\n  DialogDescription,\n  DialogFooter,\n  DialogHeader,\n  DialogPopup,\n  DialogTitle,\n} from \"@/registry/ui/dialog\"\nimport {\n  Menu,\n  MenuItem,\n  MenuPopup,\n  MenuTrigger,\n} from \"@/registry/ui/menu\"\n\nexport default function DialogFromMenuDemo() {\n  const [dialogOpen, setDialogOpen] = React.useState(false)\n  return (\n    <>\n      <Menu>\n        <MenuTrigger render={<Button variant=\"outline\" />}>\n          Open menu\n        </MenuTrigger>\n        <MenuPopup align=\"start\">\n          <MenuItem onClick={() => setDialogOpen(true)}>Open dialog</MenuItem>\n        </MenuPopup>\n      </Menu>\n      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>\n        <DialogPopup>\n          <DialogHeader>\n            <DialogTitle>Settings</DialogTitle>\n            <DialogDescription>Change your preferences</DialogDescription>\n          </DialogHeader>\n          <DialogFooter>\n            <DialogClose render={<Button variant=\"ghost\" />}>Close</DialogClose>\n          </DialogFooter>\n        </DialogPopup>\n      </Dialog>\n    </>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "dialog",
+    "menu",
+    "button"
+  ]
+}

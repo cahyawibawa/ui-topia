@@ -13,11 +13,10 @@ import {
 } from "lucide-react";
 import * as React from "react";
 import type { ImperativePanelHandle } from "react-resizable-panels";
-import type { RegistryItem } from "shadcn/registry";
-
 import { CodeBlock } from "@/components/code-block";
 import { V0Button } from "@/components/v0-button";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
+import type { RegistryItem } from "@/lib/registry";
 import {
   convertRegistryPaths,
   createFileTreeForRegistryItemFiles,
@@ -36,6 +35,7 @@ import {
   SidebarMenuSub,
   SidebarProvider,
 } from "@/registry/ui/sidebar";
+import { Tabs, TabsList, TabsTrigger } from "@/registry/ui/tabs";
 import { Button } from "@/uitopia/button";
 import {
   Collapsible,
@@ -48,7 +48,6 @@ import {
   ResizablePanelGroup,
 } from "@/uitopia/resizable";
 import { Separator } from "@/uitopia/separator";
-import { Tabs, TabsList, TabsTrigger } from "@/uitopia/tabs";
 
 type BlockViewerContext = {
   item: RegistryItem;
@@ -112,7 +111,8 @@ export function BlockViewer({ item, name, meta }: BlockViewerProps) {
       // Find the main component file (usually page.tsx or first component)
       const mainFile =
         item.files.find(
-          (f) => f.path.endsWith("page.tsx") || f.path.includes("/components/"),
+          (f: { path: string }) =>
+            f.path.endsWith("page.tsx") || f.path.includes("/components/"),
         ) || item.files[0]; // Fallback to the first file
 
       if (!mainFile) {
@@ -128,7 +128,9 @@ export function BlockViewer({ item, name, meta }: BlockViewerProps) {
         try {
           const response = await fetch(`/r/${name}.json`);
           const data = (await response.json()) as RegistryItem;
-          const fileData = data.files?.find((f) => f.path === mainFile.path);
+          const fileData = data.files?.find(
+            (f: { path: string; content?: string }) => f.path === mainFile.path,
+          );
           if (fileData?.content) {
             setCodeContent(convertRegistryPaths(fileData.content));
           }
@@ -158,7 +160,9 @@ export function BlockViewer({ item, name, meta }: BlockViewerProps) {
         const response = await fetch(`/r/${name}.json`);
         const data = (await response.json()) as RegistryItem;
         // Find the file data using the original path
-        const file = data.files?.find((f) => f.path === originalPath);
+        const file = data.files?.find(
+          (f: { path: string; content?: string }) => f.path === originalPath,
+        );
 
         if (file?.content) {
           setCodeContent(convertRegistryPaths(file.content));
@@ -202,7 +206,8 @@ export function BlockViewer({ item, name, meta }: BlockViewerProps) {
 }
 
 function BlockViewerToolbar() {
-  const { setView, item, resizablePanelRef, componentName } = useBlockViewer();
+  const { componentName, item, resizablePanelRef, setView, view } =
+    useBlockViewer();
   const { copyToClipboard, isCopied } = useCopyToClipboard();
 
   const handleDeviceChange = React.useCallback(
@@ -230,9 +235,9 @@ function BlockViewerToolbar() {
   return (
     <div className="flex w-full items-center gap-2 md:pr-[14px]">
       <Tabs
-        className="hidden lg:flex"
-        defaultValue="preview"
+        className="hidden gap-0 lg:flex"
         onValueChange={(value) => setView(value as "preview" | "code")}
+        value={view}
       >
         <TabsList className="h-7 items-center rounded-md p-0 px-[calc(theme(spacing.1)_-_2px)] py-[theme(spacing.1)]">
           <TabsTrigger
@@ -412,7 +417,7 @@ function BlockViewerCode() {
         </div>
 
         <div className="relative flex-1 overflow-hidden">
-          <CodeBlock code={codeContent} language="tsx" />
+          <CodeBlock code={codeContent} language="tsx" showLineNumbers />
         </div>
       </div>
     </div>

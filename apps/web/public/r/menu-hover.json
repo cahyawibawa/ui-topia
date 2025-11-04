@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "menu-hover",
+  "type": "registry:example",
+  "description": "Open the menu on hover",
+  "registryDependencies": [
+    "@uitopia/menu",
+    "@uitopia/button"
+  ],
+  "files": [
+    {
+      "path": "registry/components/menu-hover.tsx",
+      "content": "import { Button } from \"@/registry/ui/button\"\nimport {\n  Menu,\n  MenuItem,\n  MenuPopup,\n  MenuTrigger,\n} from \"@/registry/ui/menu\"\n\nexport default function MenuHoverDemo() {\n  return (\n    <Menu openOnHover>\n      <MenuTrigger render={<Button variant=\"outline\" />}>Hover me</MenuTrigger>\n      <MenuPopup>\n        <MenuItem>Item one</MenuItem>\n        <MenuItem>Item two</MenuItem>\n      </MenuPopup>\n    </Menu>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "menu"
+  ]
+}

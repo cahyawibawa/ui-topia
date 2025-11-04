@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea-with-label",
+  "type": "registry:example",
+  "description": "Textarea labelled with Field",
+  "registryDependencies": [
+    "@uitopia/textarea",
+    "@uitopia/label"
+  ],
+  "files": [
+    {
+      "path": "registry/components/textarea-with-label.tsx",
+      "content": "import { useId } from \"react\"\n\nimport { Label } from \"@/registry/ui/label\"\nimport { Textarea } from \"@/registry/ui/textarea\"\n\nexport default function TextareaWithLabel() {\n  const id = useId()\n  return (\n    <div className=\"flex flex-col items-start gap-2\">\n      <Label htmlFor={id}>Message</Label>\n      <Textarea id={id} placeholder=\"Type your message here\" />\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "textarea",
+    "field",
+    "label"
+  ]
+}

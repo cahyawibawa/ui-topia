@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "autocomplete-inline",
+  "type": "registry:example",
+  "description": "Autocomplete autofilling the input with the highlighted item",
+  "registryDependencies": [
+    "@uitopia/autocomplete"
+  ],
+  "files": [
+    {
+      "path": "registry/components/autocomplete-inline.tsx",
+      "content": "\"use client\";\n\nimport {\n  Autocomplete,\n  AutocompleteEmpty,\n  AutocompleteInput,\n  AutocompleteItem,\n  AutocompleteList,\n  AutocompletePopup,\n} from \"@/registry/ui/autocomplete\";\n\nconst items = [\n  { label: \"Apple\", value: \"apple\" },\n  { label: \"Banana\", value: \"banana\" },\n  { label: \"Orange\", value: \"orange\" },\n  { label: \"Grape\", value: \"grape\" },\n  { label: \"Strawberry\", value: \"strawberry\" },\n  { label: \"Mango\", value: \"mango\" },\n  { label: \"Pineapple\", value: \"pineapple\" },\n  { label: \"Kiwi\", value: \"kiwi\" },\n  { label: \"Peach\", value: \"peach\" },\n  { label: \"Pear\", value: \"pear\" },\n];\n\nexport default function AutocompleteInline() {\n  return (\n    <Autocomplete items={items} mode=\"both\">\n      <AutocompleteInput\n        placeholder=\"Search items…\"\n        aria-label=\"Search items\"\n      />\n      <AutocompletePopup>\n        <AutocompleteEmpty>No items found.</AutocompleteEmpty>\n        <AutocompleteList>\n          {(item) => (\n            <AutocompleteItem key={item.value} value={item}>\n              {item.label}\n            </AutocompleteItem>\n          )}\n        </AutocompleteList>\n      </AutocompletePopup>\n    </Autocomplete>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "autocomplete",
+    "input"
+  ]
+}

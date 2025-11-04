@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle-disabled",
+  "type": "registry:example",
+  "description": "Disabled toggle",
+  "registryDependencies": [
+    "@/toggle"
+  ],
+  "files": [
+    {
+      "path": "registry/components/toggle-disabled.tsx",
+      "content": "import { Toggle } from \"@/registry/ui/toggle\"\n\nexport default function ToggleDisabled() {\n  return (\n    <Toggle variant=\"outline\" disabled>\n      Disabled\n    </Toggle>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "toggle",
+    "disabled"
+  ]
+}

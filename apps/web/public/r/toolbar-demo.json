@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toolbar-demo",
+  "type": "registry:example",
+  "description": "Toolbar",
+  "registryDependencies": [
+    "@/button",
+    "@/select",
+    "@/toggle-group",
+    "@/toolbar",
+    "@/tooltip"
+  ],
+  "files": [
+    {
+      "path": "registry/components/toolbar-demo.tsx",
+      "content": "import {\n  AlignCenterIcon,\n  AlignLeftIcon,\n  AlignRightIcon,\n  DollarSignIcon,\n  PercentIcon,\n} from \"lucide-react\"\n\nimport { Button } from \"@/registry/ui/button\"\nimport {\n  Select,\n  SelectItem,\n  SelectPopup,\n  SelectTrigger,\n  SelectValue,\n} from \"@/registry/ui/select\"\nimport { Toggle, ToggleGroup } from \"@/registry/ui/toggle-group\"\nimport {\n  Toolbar,\n  ToolbarButton,\n  ToolbarGroup,\n  ToolbarSeparator,\n} from \"@/registry/ui/toolbar\"\nimport {\n  Tooltip,\n  TooltipPopup,\n  TooltipProvider,\n  TooltipTrigger,\n} from \"@/registry/ui/tooltip\"\n\nconst items = [\n  { label: \"Helvetica\", value: \"helvetica\" },\n  { label: \"Arial\", value: \"arial\" },\n  { label: \"Times New Roman\", value: \"times-new-roman\" },\n]\n\nexport default function ToolbarDemo() {\n  return (\n    <TooltipProvider>\n      <Toolbar>\n        <ToggleGroup className=\"border-none p-0\" defaultValue={[\"left\"]}>\n          <Tooltip>\n            <TooltipTrigger\n              render={\n                <ToolbarButton\n                  render={<Toggle value=\"left\" />}\n                  aria-label=\"Align left\"\n                >\n                  <AlignLeftIcon />\n                </ToolbarButton>\n              }\n            />\n            <TooltipPopup sideOffset={8}>Align left</TooltipPopup>\n          </Tooltip>\n          <Tooltip>\n            <TooltipTrigger\n              render={\n                <ToolbarButton\n                  render={<Toggle value=\"center\" aria-label=\"Toggle center\" />}\n                  aria-label=\"Align center\"\n                >\n                  <AlignCenterIcon />\n                </ToolbarButton>\n              }\n            />\n            <TooltipPopup sideOffset={8}>Align center</TooltipPopup>\n          </Tooltip>\n          <Tooltip>\n            <TooltipTrigger\n              render={\n                <ToolbarButton\n                  render={<Toggle value=\"right\" aria-label=\"Toggle right\" />}\n                  aria-label=\"Align right\"\n                >\n                  <AlignRightIcon />\n                </ToolbarButton>\n              }\n            />\n            <TooltipPopup sideOffset={8}>Align right</TooltipPopup>\n          </Tooltip>\n        </ToggleGroup>\n        <ToolbarSeparator />\n        <ToolbarGroup>\n          <Tooltip>\n            <TooltipTrigger\n              render={\n                <ToolbarButton\n                  render={<Button variant=\"ghost\" size=\"icon\" />}\n                  aria-label=\"Format as currency\"\n                >\n                  <DollarSignIcon />\n                </ToolbarButton>\n              }\n            />\n            <TooltipPopup sideOffset={8}>Format as currency</TooltipPopup>\n          </Tooltip>\n          <Tooltip>\n            <TooltipTrigger\n              render={\n                <ToolbarButton\n                  render={<Button variant=\"ghost\" size=\"icon\" />}\n                  aria-label=\"Format as percent\"\n                >\n                  <PercentIcon />\n                </ToolbarButton>\n              }\n            />\n            <TooltipPopup sideOffset={8}>Format as percent</TooltipPopup>\n          </Tooltip>\n        </ToolbarGroup>\n        <ToolbarSeparator />\n        <ToolbarGroup>\n          <Select items={items} defaultValue=\"helvetica\">\n            <Tooltip>\n              <TooltipTrigger\n                render={\n                  <ToolbarButton\n                    nativeButton={false}\n                    render={\n                      <SelectTrigger>\n                        <SelectValue />\n                      </SelectTrigger>\n                    }\n                  />\n                }\n              />\n              <TooltipPopup sideOffset={8}>\n                Select a different font\n              </TooltipPopup>\n            </Tooltip>\n            <SelectPopup>\n              {items.map(({ label, value }) => (\n                <SelectItem key={value} value={value}>\n                  {label}\n                </SelectItem>\n              ))}\n            </SelectPopup>\n          </Select>\n        </ToolbarGroup>\n        <ToolbarSeparator />\n        <ToolbarGroup>\n          <ToolbarButton render={<Button />}>Save</ToolbarButton>\n        </ToolbarGroup>\n      </Toolbar>\n    </TooltipProvider>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "toolbar",
+    "button",
+    "select",
+    "toggle",
+    "tooltip"
+  ]
+}

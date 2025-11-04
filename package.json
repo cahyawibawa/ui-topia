@@ -14,7 +14,7 @@
   "private": true,
   "scripts": {
     "dev": "turbo run dev",
-    "clean": "turbo run clean",
+    "clean": "turbo run clean && rm -rf .turbo && rm -rf node_modules",
     "lint": "turbo run lint",
     "build": "turbo run build",
     "format": "biome format --write .",

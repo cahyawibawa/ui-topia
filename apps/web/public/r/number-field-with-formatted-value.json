@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "number-field-with-formatted-value",
+  "type": "registry:example",
+  "description": "A number field with formatted value",
+  "registryDependencies": [
+    "@uitopia/number-field"
+  ],
+  "files": [
+    {
+      "path": "registry/components/number-field-with-formatted-value.tsx",
+      "content": "import {\n  NumberField,\n  NumberFieldDecrement,\n  NumberFieldGroup,\n  NumberFieldIncrement,\n  NumberFieldInput,\n} from \"@/registry/ui/number-field\"\n\nexport default function NumberFieldWithFormattedValue() {\n  return (\n    <NumberField\n      defaultValue={0}\n      format={{ style: \"currency\", currency: \"USD\" }}\n    >\n      <NumberFieldGroup>\n        <NumberFieldDecrement />\n        <NumberFieldInput />\n        <NumberFieldIncrement />\n      </NumberFieldGroup>\n    </NumberField>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "number field"
+  ]
+}

@@ -44,8 +44,8 @@ packages
 | --------------------- | ---------------------------------------- |
 | `apps/web/app`        | The Next.js application for the website. |
 | `apps/web/content/docs`    | The content for the website.             |
-| `packages/ui/components` | The React components for the website.    |
-| `packages/ui/registry`   | The registry for the components.         |
+| `apps/web/registry` |  ui component distribution via shadcn registry.json    |
+| `packages/ui`   | Shared UI components package.         |
 
 ## Development
 
@@ -89,7 +89,7 @@ To add a new component to ui/topia, you will need to modify several files. Follo
 
 ### 1. Create the Component
 
-Create your components in `packages/src/components/showcases/your-component.tsx`
+Create your components in `apps/web/registry`
 
 ```typescript
 import { Button, Stack } from '@/components/shadcn-ui';
@@ -113,18 +113,26 @@ export default function Component(): JSX.Element { //make sure set to default
 
 ### 2. Update Registry
 
-Export your component in the registry in `packages/src/ui/registry`
+Export your component in the registry in `apps/web/registry.json`
 
-```typescript
-
-const example: Registry = {
-  'example-component-demo': {
-    name: 'example-component',
-    type: 'components:example',
-   files: ["./components/examples/example-component.tsx"],
-    component: React.lazy(() => import("./components/examples/example-component"))-
-  },
-}
+```json
+    {
+      "name": "accordion-demo",
+      "description": "Basic accordion",
+      "type": "registry:example",
+      "registryDependencies": [
+        "@uitopia/accordion"
+      ],
+      "files": [
+        {
+          "path": "registry/components/accordion-demo.tsx",
+          "type": "registry:example"
+        }
+      ],
+      "categories": [
+        "accordion"
+      ]
+    },
 ```
 
 ### 3. Create docs

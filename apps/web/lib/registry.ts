@@ -1,5 +1,22 @@
-import type { RegistryItem } from "shadcn/registry";
 import registry from "@/registry.json" with { type: "json" };
+
+export interface RegistryItem {
+  name: string;
+  type: string;
+  title?: string;
+  description?: string;
+  categories?: string[];
+  files?: Array<{
+    path: string;
+    content?: string;
+    type?: string;
+  }>;
+  dependencies?: string[];
+  registryDependencies?: string[];
+  meta?: {
+    iframeHeight?: string;
+  };
+}
 
 const components = registry.items as RegistryItem[];
 

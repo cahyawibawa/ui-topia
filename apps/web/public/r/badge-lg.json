@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge-lg",
+  "type": "registry:example",
+  "description": "Large badge",
+  "registryDependencies": [
+    "@uitopia/badge"
+  ],
+  "files": [
+    {
+      "path": "registry/components/badge-lg.tsx",
+      "content": "import { Badge } from \"@/registry/ui/badge\"\n\nexport default function BadgeLg() {\n  return <Badge size=\"lg\">Badge</Badge>\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "badge"
+  ]
+}

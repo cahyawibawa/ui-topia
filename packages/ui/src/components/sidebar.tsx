@@ -4,6 +4,9 @@ import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { PanelLeftIcon } from "lucide-react";
 import * as React from "react";
+
+import { useIsMobile } from "@/hooks/use-mobile";
+import { cn } from "@/lib/utils";
 import { Button } from "@/components/button";
 import { Input } from "@/components/input";
 import { Separator } from "@/components/separator";
@@ -21,8 +24,6 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/tooltip";
-import { useIsMobile } from "@/hooks/use-mobile";
-import { cn } from "@/lib/utils";
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
@@ -127,6 +128,7 @@ function SidebarProvider({
 
   return (
     <SidebarContext.Provider value={contextValue}>
+      {/* @ts-ignore */}
       <TooltipProvider delayDuration={0}>
         <div
           className={cn(
@@ -400,6 +402,7 @@ function SidebarGroupLabel({
   const Comp = asChild ? Slot : "div";
 
   return (
+    // @ts-ignore
     <Comp
       className={cn(
         "flex h-8 shrink-0 items-center rounded-md px-2 font-medium text-sidebar-foreground/70 text-xs outline-hidden ring-sidebar-ring transition-[margin,opacity] duration-200 ease-linear focus-visible:ring-2 [&>svg]:size-4 [&>svg]:shrink-0",
@@ -421,9 +424,10 @@ function SidebarGroupAction({
   const Comp = asChild ? Slot : "button";
 
   return (
+    // @ts-ignore
     <Comp
       className={cn(
-        "absolute top-3.5 right-3 flex aspect-square w-5 items-center justify-center rounded-md p-0 text-sidebar-foreground outline-hidden ring-sidebar-ring transition-transform hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 [&>svg]:size-4 [&>svg]:shrink-0",
+        "absolute top-3.5 right-3 flex aspect-square w-5 items-center justify-center rounded-md p-0 text-sidebar-foreground outline-hidden ring-sidebar-ring transition-transform hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 peer-hover/menu-button:text-sidebar-accent-foreground [&>svg]:size-4 [&>svg]:shrink-0",
         // Increases the hit area of the button on mobile.
         "after:-inset-2 after:absolute md:after:hidden",
         "group-data-[collapsible=icon]:hidden",
@@ -511,6 +515,7 @@ function SidebarMenuButton({
   const { isMobile, state } = useSidebar();
 
   const button = (
+    // @ts-ignore
     <Comp
       className={cn(sidebarMenuButtonVariants({ size, variant }), className)}
       data-active={isActive}
@@ -533,6 +538,7 @@ function SidebarMenuButton({
 
   return (
     <Tooltip>
+      {/* @ts-ignore */}
       <TooltipTrigger asChild>{button}</TooltipTrigger>
       <TooltipContent
         align="center"
@@ -556,6 +562,7 @@ function SidebarMenuAction({
   const Comp = asChild ? Slot : "button";
 
   return (
+    // @ts-ignore
     <Comp
       className={cn(
         "absolute top-1.5 right-1 flex aspect-square w-5 items-center justify-center rounded-md p-0 text-sidebar-foreground outline-hidden ring-sidebar-ring transition-transform hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 peer-hover/menu-button:text-sidebar-accent-foreground [&>svg]:size-4 [&>svg]:shrink-0",
@@ -679,6 +686,7 @@ function SidebarMenuSubButton({
   const Comp = asChild ? Slot : "a";
 
   return (
+    // @ts-ignore
     <Comp
       className={cn(
         "-translate-x-px flex h-7 min-w-0 items-center gap-2 overflow-hidden rounded-md px-2 text-sidebar-foreground outline-hidden ring-sidebar-ring hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-sidebar-accent-foreground",

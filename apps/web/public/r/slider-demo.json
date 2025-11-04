@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slider-demo",
+  "type": "registry:example",
+  "description": "Basic slider",
+  "registryDependencies": [
+    "@uitopia/slider"
+  ],
+  "files": [
+    {
+      "path": "registry/components/slider-demo.tsx",
+      "content": "import { Slider } from \"@/registry/ui/slider\"\n\nexport default function SliderDemo() {\n  return <Slider defaultValue={50} />\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "slider"
+  ]
+}

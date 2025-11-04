@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field-select",
+  "type": "registry:example",
+  "description": "Field with select",
+  "registryDependencies": [
+    "@uitopia/field",
+    "@uitopia/select"
+  ],
+  "files": [
+    {
+      "path": "registry/components/field-select.tsx",
+      "content": "import {\n  Field,\n  FieldDescription,\n  FieldLabel,\n} from \"@/registry/ui/field\"\nimport {\n  Select,\n  SelectItem,\n  SelectPopup,\n  SelectTrigger,\n  SelectValue,\n} from \"@/registry/ui/select\"\n\nconst items = [\n  { label: \"Select a country\", value: null },\n  { label: \"United States\", value: \"us\" },\n  { label: \"United Kingdom\", value: \"uk\" },\n  { label: \"Canada\", value: \"ca\" },\n  { label: \"Australia\", value: \"au\" },\n]\n\nexport default function FieldSelectDemo() {\n  return (\n    <Field>\n      <FieldLabel>Country</FieldLabel>\n      <Select items={items}>\n        <SelectTrigger>\n          <SelectValue />\n        </SelectTrigger>\n        <SelectPopup>\n          {items.map(({ label, value }) => (\n            <SelectItem key={value} value={value}>\n              {label}\n            </SelectItem>\n          ))}\n        </SelectPopup>\n      </Select>\n      <FieldDescription>This is an optional field</FieldDescription>\n    </Field>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "field",
+    "select",
+    "label",
+    "helper",
+    "hint"
+  ]
+}

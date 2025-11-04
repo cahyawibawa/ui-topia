@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slider-vertical",
+  "type": "registry:example",
+  "description": "Vertical slider",
+  "registryDependencies": [
+    "@uitopia/slider"
+  ],
+  "files": [
+    {
+      "path": "registry/components/slider-vertical.tsx",
+      "content": "import { Slider } from \"@/registry/ui/slider\"\n\nexport default function SliderVertical() {\n  return <Slider orientation=\"vertical\" defaultValue={50} />\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "slider",
+    "vertical slider"
+  ]
+}

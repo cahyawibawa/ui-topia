@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-with-button",
+  "type": "registry:example",
+  "description": "Input with button",
+  "registryDependencies": [
+    "@uitopia/input",
+    "@uitopia/button"
+  ],
+  "files": [
+    {
+      "path": "registry/components/input-with-button.tsx",
+      "content": "import { Button } from \"@/registry/ui/button\"\nimport { Input } from \"@/registry/ui/input\"\n\nexport default function InputWithButton() {\n  return (\n    <div className=\"flex gap-2\">\n      <Input type=\"email\" placeholder=\"you@example.com\" aria-label=\"Email\" />\n      <Button variant=\"outline\">Send</Button>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "input",
+    "button"
+  ]
+}

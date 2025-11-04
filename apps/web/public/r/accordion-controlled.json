@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion-controlled",
+  "type": "registry:example",
+  "description": "Controlled accordion",
+  "registryDependencies": [
+    "@uitopia/accordion",
+    "@uitopia/button"
+  ],
+  "files": [
+    {
+      "path": "registry/components/accordion-controlled.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nimport {\n  Accordion,\n  AccordionItem,\n  AccordionPanel,\n  AccordionTrigger,\n} from \"@/registry/ui/accordion\";\nimport { Button } from \"@/registry/ui/button\";\n\nexport default function AccordionControlledDemo() {\n  const [value, setValue] = React.useState<string[]>([]);\n\n  return (\n    <div className=\"flex w-full flex-col gap-4\">\n      <Accordion className=\"w-full\" value={value} onValueChange={setValue}>\n        <AccordionItem value=\"item-1\">\n          <AccordionTrigger>What is Base UI?</AccordionTrigger>\n          <AccordionPanel>\n            Base UI is a library of high-quality unstyled React components for\n            design systems and web apps.\n          </AccordionPanel>\n        </AccordionItem>\n        <AccordionItem value=\"item-2\">\n          <AccordionTrigger>How do I get started?</AccordionTrigger>\n          <AccordionPanel>\n            Head to the \"Quick start\" guide in the docs. If you've used unstyled\n            libraries before, you'll feel at home.\n          </AccordionPanel>\n        </AccordionItem>\n        <AccordionItem value=\"item-3\">\n          <AccordionTrigger>Can I use it for my project?</AccordionTrigger>\n          <AccordionPanel>\n            Of course! Base UI is free and open source.\n          </AccordionPanel>\n        </AccordionItem>\n      </Accordion>\n\n      <div className=\"flex flex-col items-start gap-4\">\n        <Button\n          variant=\"outline\"\n          onClick={() => setValue([\"item-1\", \"item-2\"])}\n        >\n          Open First Two\n        </Button>\n        <p className=\"text-muted-foreground text-sm\">\n          Open items: {value.length > 0 ? value.join(\", \") : \"None\"}\n        </p>\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "accordion"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox-group-disabled",
+  "type": "registry:example",
+  "description": "Checkbox group with disabled item",
+  "registryDependencies": [
+    "@uitopia/checkbox-group",
+    "@uitopia/checkbox",
+    "@uitopia/label"
+  ],
+  "files": [
+    {
+      "path": "registry/components/checkbox-group-disabled.tsx",
+      "content": "import { Checkbox } from \"@/registry/ui/checkbox\"\nimport { CheckboxGroup } from \"@/registry/ui/checkbox-group\"\nimport { Label } from \"@/registry/ui/label\"\n\nexport default function CheckboxGroupDemo() {\n  return (\n    <CheckboxGroup aria-label=\"Select frameworks\" defaultValue={[\"next\"]}>\n      <Label>\n        <Checkbox value=\"next\" />\n        Next.js\n      </Label>\n      <Label>\n        <Checkbox value=\"vite\" disabled />\n        Vite\n      </Label>\n      <Label>\n        <Checkbox value=\"astro\" />\n        Astro\n      </Label>\n    </CheckboxGroup>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "checkbox group",
+    "checkbox",
+    "disabled"
+  ]
+}

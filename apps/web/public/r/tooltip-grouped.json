@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip-grouped",
+  "type": "registry:example",
+  "description": "Toggle group with grouped tooltips",
+  "registryDependencies": [
+    "@/tooltip",
+    "@/toggle-group"
+  ],
+  "files": [
+    {
+      "path": "registry/components/tooltip-grouped.tsx",
+      "content": "import { BoldIcon, ItalicIcon, UnderlineIcon } from \"lucide-react\"\n\nimport { Toggle, ToggleGroup } from \"@/registry/ui/toggle-group\"\nimport {\n  Tooltip,\n  TooltipPopup,\n  TooltipProvider,\n  TooltipTrigger,\n} from \"@/registry/ui/tooltip\"\n\nexport default function TooltipDemo() {\n  return (\n    <TooltipProvider>\n      <ToggleGroup defaultValue={[\"bold\"]} multiple>\n        <Tooltip>\n          <TooltipTrigger\n            render={<Toggle value=\"bold\" aria-label=\"Toggle bold\" />}\n          >\n            <BoldIcon />\n          </TooltipTrigger>\n          <TooltipPopup>Bold</TooltipPopup>\n        </Tooltip>\n        <Tooltip>\n          <TooltipTrigger\n            render={<Toggle value=\"italic\" aria-label=\"Toggle italic\" />}\n          >\n            <ItalicIcon />\n          </TooltipTrigger>\n          <TooltipPopup>Italic</TooltipPopup>\n        </Tooltip>\n        <Tooltip>\n          <TooltipTrigger\n            render={<Toggle value=\"underline\" aria-label=\"Toggle underline\" />}\n          >\n            <UnderlineIcon />\n          </TooltipTrigger>\n          <TooltipPopup>Underline</TooltipPopup>\n        </Tooltip>\n      </ToggleGroup>\n    </TooltipProvider>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "tooltip",
+    "toggle group",
+    "toggle"
+  ]
+}

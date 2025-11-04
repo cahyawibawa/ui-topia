@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field-complete-form",
+  "type": "registry:example",
+  "description": "Complete form built with field",
+  "registryDependencies": [
+    "@uitopia/field",
+    "@uitopia/select",
+    "@uitopia/checkbox",
+    "@uitopia/form",
+    "@uitopia/button"
+  ],
+  "files": [
+    {
+      "path": "registry/components/field-complete-form.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Button } from \"@/registry/ui/button\"\nimport { Checkbox } from \"@/registry/ui/checkbox\"\nimport {\n  Field,\n  FieldControl,\n  FieldDescription,\n  FieldError,\n  FieldLabel,\n} from \"@/registry/ui/field\"\nimport { Form } from \"@/registry/ui/form\"\nimport {\n  Select,\n  SelectItem,\n  SelectPopup,\n  SelectTrigger,\n  SelectValue,\n} from \"@/registry/ui/select\"\n\nexport default function FieldCompleteFormDemo() {\n  const [loading, setLoading] = React.useState(false)\n  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {\n    e.preventDefault()\n    const formData = new FormData(e.currentTarget)\n    setLoading(true)\n    await new Promise((r) => setTimeout(r, 800))\n    setLoading(false)\n    const data = {\n      fullName: formData.get(\"fullName\"),\n      email: formData.get(\"email\"),\n      role: formData.get(\"role\"),\n      newsletter: formData.get(\"newsletter\"),\n    }\n    alert(\n      `Full name: ${data.fullName || \"\"}\\nEmail: ${data.email || \"\"}\\nRole: ${data.role || \"\"\n      }\\nNewsletter: ${data.newsletter}`\n    )\n  }\n  return (\n    <Form onSubmit={onSubmit}>\n      <Field>\n        <FieldLabel>\n          Full Name <span className=\"text-destructive\">*</span>\n        </FieldLabel>\n        <FieldControl\n          name=\"fullName\"\n          type=\"text\"\n          placeholder=\"John Doe\"\n          disabled={loading}\n          required\n        />\n        <FieldError>Please enter a valid name.</FieldError>\n      </Field>\n\n      <Field>\n        <FieldLabel>\n          Email <span className=\"text-destructive\">*</span>\n        </FieldLabel>\n        <FieldControl\n          name=\"email\"\n          type=\"email\"\n          placeholder=\"john@example.com\"\n          disabled={loading}\n          required\n        />\n        <FieldError>Please enter a valid email.</FieldError>\n      </Field>\n\n      <Field>\n        <FieldLabel>Role</FieldLabel>\n        <Select\n          name=\"role\"\n          items={[\n            { label: \"Select your role\", value: null },\n            { label: \"Developer\", value: \"developer\" },\n            { label: \"Designer\", value: \"designer\" },\n            { label: \"Product Manager\", value: \"manager\" },\n            { label: \"Other\", value: \"other\" },\n          ]}\n          disabled={loading}\n        >\n          <SelectTrigger>\n            <SelectValue />\n          </SelectTrigger>\n          <SelectPopup>\n            <SelectItem value=\"developer\">Developer</SelectItem>\n            <SelectItem value=\"designer\">Designer</SelectItem>\n            <SelectItem value=\"manager\">Product Manager</SelectItem>\n            <SelectItem value=\"other\">Other</SelectItem>\n          </SelectPopup>\n        </Select>\n        <FieldDescription>This is an optional field</FieldDescription>\n      </Field>\n\n      <Field>\n        <div className=\"flex items-center gap-2\">\n          <Checkbox name=\"newsletter\" disabled={loading} />\n          <FieldLabel className=\"cursor-pointer\">\n            Subscribe to newsletter\n          </FieldLabel>\n        </div>\n      </Field>\n\n      <Button type=\"submit\" disabled={loading}>\n        Submit\n      </Button>\n    </Form>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "field",
+    "label",
+    "form",
+    "select",
+    "checkbox",
+    "button",
+    "helper",
+    "hint"
+  ]
+}

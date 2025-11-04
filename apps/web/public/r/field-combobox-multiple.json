@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field-combobox-multiple",
+  "type": "registry:example",
+  "description": "Field with multiple selection combobox",
+  "registryDependencies": [
+    "@uitopia/field",
+    "@uitopia/combobox"
+  ],
+  "files": [
+    {
+      "path": "registry/components/field-combobox-multiple.tsx",
+      "content": "\"use client\"\n\nimport {\n  Combobox,\n  ComboboxChip,\n  ComboboxChips,\n  ComboboxEmpty,\n  ComboboxInput,\n  ComboboxItem,\n  ComboboxList,\n  ComboboxPopup,\n  ComboboxValue,\n} from \"@/registry/ui/combobox\"\nimport {\n  Field,\n  FieldDescription,\n  FieldLabel,\n} from \"@/registry/ui/field\"\n\nconst items = [\n  { label: \"Apple\", value: \"apple\" },\n  { label: \"Banana\", value: \"banana\" },\n  { label: \"Orange\", value: \"orange\" },\n  { label: \"Grape\", value: \"grape\" },\n  { label: \"Strawberry\", value: \"strawberry\" },\n  { label: \"Mango\", value: \"mango\" },\n  { label: \"Pineapple\", value: \"pineapple\" },\n  { label: \"Kiwi\", value: \"kiwi\" },\n  { label: \"Peach\", value: \"peach\" },\n  { label: \"Pear\", value: \"pear\" },\n]\n\nexport default function FieldComboboxMultiple() {\n  return (\n    <Field>\n      <FieldLabel>Fruits</FieldLabel>\n      <Combobox items={items} multiple defaultValue={[items[0], items[4]]}>\n        <ComboboxChips>\n          <ComboboxValue>\n            {(value: { value: string; label: string }[]) => (\n              <>\n                {value?.map((item) => (\n                  <ComboboxChip key={item.value} aria-label={item.label}>\n                    {item.label}\n                  </ComboboxChip>\n                ))}\n                <ComboboxInput\n                  placeholder={value.length > 0 ? undefined : \"Select items…\"}\n                  aria-label=\"Select items\"\n                />\n              </>\n            )}\n          </ComboboxValue>\n        </ComboboxChips>\n        <ComboboxPopup>\n          <ComboboxEmpty>No items found.</ComboboxEmpty>\n          <ComboboxList>\n            {(item) => (\n              <ComboboxItem key={item.value} value={item}>\n                {item.label}\n              </ComboboxItem>\n            )}\n          </ComboboxList>\n        </ComboboxPopup>\n      </Combobox>\n      <FieldDescription>Select multiple items.</FieldDescription>\n    </Field>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "field",
+    "input",
+    "combobox",
+    "label",
+    "multiple"
+  ]
+}

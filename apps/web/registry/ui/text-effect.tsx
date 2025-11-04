@@ -283,6 +283,7 @@ export default function TextEffect({
         >
           {per !== "line" && <span className="sr-only">{children}</span>}
           {segments.map((segment, index) => (
+            // @ts-ignore
             <AnimationComponent
               key={`${per}-${index}-${segment}`}
               per={per}

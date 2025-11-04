@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ScrollArea, ScrollBar } from "@/uitopia/scroll-area";
+import { ScrollArea, ScrollBar } from "@/registry/ui/scroll-area";
 
 interface Category {
   name: string;

@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import type { RegistryItem } from "shadcn/registry";
 import { CodeBlock } from "@/components/code-block";
-import { ComponentLoader } from "@/components/content/component-loader";
+import { ComponentLoader } from "@/components/component-loader";
+import type { RegistryItem } from "@/lib/registry";
 import { convertRegistryPaths, getComponentsByName } from "@/lib/registry";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/uitopia/badge";
@@ -88,7 +88,7 @@ export function ShowcaseComponent({
           </p>
         </div>
         <div className="flex w-full flex-row gap-2 sm:justify-start md:items-center md:justify-center">
-          {component.categories?.map((category) => (
+          {component.categories?.map((category: string) => (
             <Badge className="rounded-md" key={category} variant="secondary">
               {category}
             </Badge>

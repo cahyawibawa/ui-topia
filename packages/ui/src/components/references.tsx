@@ -1,7 +1,6 @@
-import Link from "next/link";
 import type React from "react";
+import { ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { ExternalLinkIcon } from "../../../../apps/web/registry/components/icons";
 import { badgeVariants } from "./badge";
 
 interface LinkItem {
@@ -15,7 +14,7 @@ export function References({ children }: React.PropsWithChildren) {
 
 export function Reference({ label, link }: LinkItem) {
   return (
-    <Link
+    <a
       href={link}
       target="_blank"
       rel="noreferrer"
@@ -25,7 +24,7 @@ export function Reference({ label, link }: LinkItem) {
       )}
     >
       {label}
-      <ExternalLinkIcon className="ml-0.5" />
-    </Link>
+      <ExternalLink className="ml-0.5" />
+    </a>
   );
 }

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sheet-position",
+  "type": "registry:example",
+  "description": "Sheet position",
+  "registryDependencies": [
+    "@uitopia/sheet",
+    "@uitopia/button"
+  ],
+  "files": [
+    {
+      "path": "registry/components/sheet-position.tsx",
+      "content": "import { Button } from \"@/registry/ui/button\"\nimport {\n  Sheet,\n  SheetDescription,\n  SheetHeader,\n  SheetPopup,\n  SheetTitle,\n  SheetTrigger,\n} from \"@/registry/ui/sheet\"\n\nexport default function DialogDemo() {\n  return (\n    <div className=\"flex flex-wrap gap-2\">\n      <Sheet>\n        <SheetTrigger render={<Button variant=\"outline\" />}>\n          Open Right\n        </SheetTrigger>\n        <SheetPopup showCloseButton={false}>\n          <SheetHeader>\n            <SheetTitle>Right</SheetTitle>\n            <SheetDescription>Right side of the screen.</SheetDescription>\n          </SheetHeader>\n        </SheetPopup>\n      </Sheet>\n      <Sheet>\n        <SheetTrigger render={<Button variant=\"outline\" />}>\n          Open Left\n        </SheetTrigger>\n        <SheetPopup side=\"left\" showCloseButton={false}>\n          <SheetHeader>\n            <SheetTitle>Left</SheetTitle>\n            <SheetDescription>Left side of the screen.</SheetDescription>\n          </SheetHeader>\n        </SheetPopup>\n      </Sheet>\n      <Sheet>\n        <SheetTrigger render={<Button variant=\"outline\" />}>\n          Open Top\n        </SheetTrigger>\n        <SheetPopup side=\"top\" showCloseButton={false}>\n          <SheetHeader>\n            <SheetTitle>Top</SheetTitle>\n            <SheetDescription>Top of the screen.</SheetDescription>\n          </SheetHeader>\n        </SheetPopup>\n      </Sheet>\n      <Sheet>\n        <SheetTrigger render={<Button variant=\"outline\" />}>\n          Open Bottom\n        </SheetTrigger>\n        <SheetPopup side=\"bottom\" showCloseButton={false}>\n          <SheetHeader>\n            <SheetTitle>Bottom</SheetTitle>\n            <SheetDescription>Bottom of the screen.</SheetDescription>\n          </SheetHeader>\n        </SheetPopup>\n      </Sheet>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "sheet"
+  ]
+}

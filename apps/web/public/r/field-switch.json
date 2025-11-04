@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field-switch",
+  "type": "registry:example",
+  "description": "Field with toggle switch",
+  "registryDependencies": [
+    "@uitopia/field",
+    "@uitopia/switch"
+  ],
+  "files": [
+    {
+      "path": "registry/components/field-switch.tsx",
+      "content": "import { Field, FieldLabel } from \"@/registry/ui/field\"\nimport { Switch } from \"@/registry/ui/switch\"\n\nexport default function FieldSwitchDemo() {\n  return (\n    <Field>\n      <FieldLabel>\n        <Switch />\n        Email notifications\n      </FieldLabel>\n    </Field>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "field",
+    "switch",
+    "label"
+  ]
+}

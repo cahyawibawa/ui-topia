@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch-disabled",
+  "type": "registry:example",
+  "description": "Disabled switch",
+  "registryDependencies": [
+    "@uitopia/switch",
+    "@uitopia/label"
+  ],
+  "files": [
+    {
+      "path": "registry/components/switch-disabled.tsx",
+      "content": "import { Label } from \"@/registry/ui/label\"\nimport { Switch } from \"@/registry/ui/switch\"\n\nexport default function SwitchWithLabel() {\n  return (\n    <Label>\n      <Switch disabled />\n      Marketing emails\n    </Label>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "switch",
+    "label",
+    "disabled"
+  ]
+}

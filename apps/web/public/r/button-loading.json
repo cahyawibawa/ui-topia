@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-loading",
+  "type": "registry:example",
+  "description": "Loading button",
+  "registryDependencies": [
+    "@uitopia/button"
+  ],
+  "files": [
+    {
+      "path": "registry/components/button-loading.tsx",
+      "content": "import { LoaderCircleIcon } from \"lucide-react\"\n\nimport { Button } from \"@/registry/ui/button\"\n\nexport default function ButtonLoading() {\n  return (\n    <Button disabled>\n      <LoaderCircleIcon className=\"animate-spin\" />\n      Loading...\n    </Button>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "button",
+    "loading"
+  ]
+}

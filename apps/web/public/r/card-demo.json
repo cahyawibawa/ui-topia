@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-demo",
+  "type": "registry:example",
+  "description": "Card example with form",
+  "registryDependencies": [
+    "@uitopia/card",
+    "@uitopia/button",
+    "@uitopia/select",
+    "@uitopia/form",
+    "@uitopia/field"
+  ],
+  "files": [
+    {
+      "path": "registry/components/card-demo.tsx",
+      "content": "import { Button } from \"@/registry/ui/button\"\nimport {\n  Card,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardPanel,\n  CardTitle,\n} from \"@/registry/ui/card\"\nimport { Field, FieldControl, FieldLabel } from \"@/registry/ui/field\"\nimport { Form } from \"@/registry/ui/form\"\nimport {\n  Select,\n  SelectItem,\n  SelectPopup,\n  SelectTrigger,\n  SelectValue,\n} from \"@/registry/ui/select\"\n\nconst frameworkOptions = [\n  { label: \"Next.js\", value: \"next\" },\n  { label: \"Vite\", value: \"vite\" },\n  { label: \"Remix\", value: \"remix\" },\n  { label: \"Astro\", value: \"astro\" },\n]\n\nexport default function CardDemo() {\n  return (\n    <Card className=\"w-full max-w-xs\">\n      <CardHeader>\n        <CardTitle>Create project</CardTitle>\n        <CardDescription>Deploy your new project in one-click.</CardDescription>\n      </CardHeader>\n      <Form>\n        <CardPanel>\n          <div className=\"flex flex-col gap-4\">\n            <Field>\n              <FieldLabel>Name</FieldLabel>\n              <FieldControl type=\"text\" placeholder=\"Name of your project\" />\n            </Field>\n            <Field>\n              <FieldLabel>Framework</FieldLabel>\n              <Select items={frameworkOptions} defaultValue=\"next\">\n                <SelectTrigger>\n                  <SelectValue />\n                </SelectTrigger>\n                <SelectPopup>\n                  {frameworkOptions.map(({ label, value }) => (\n                    <SelectItem key={value} value={value}>\n                      {label}\n                    </SelectItem>\n                  ))}\n                </SelectPopup>\n              </Select>\n            </Field>\n          </div>\n        </CardPanel>\n        <CardFooter>\n          <Button className=\"w-full\" type=\"submit\">\n            Deploy\n          </Button>\n        </CardFooter>\n      </Form>\n    </Card>\n  )\n}\n\n\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "card",
+    "button",
+    "input",
+    "select",
+    "form",
+    "field"
+  ]
+}

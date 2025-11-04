@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "menu-link",
+  "type": "registry:example",
+  "description": "Menu items as links",
+  "registryDependencies": [
+    "@uitopia/menu",
+    "@uitopia/button"
+  ],
+  "files": [
+    {
+      "path": "registry/components/menu-link.tsx",
+      "content": "import Link from \"next/link\"\n\nimport { Button } from \"@/registry/ui/button\"\nimport {\n  Menu,\n  MenuItem,\n  MenuPopup,\n  MenuTrigger,\n} from \"@/registry/ui/menu\"\n\nexport default function MenuLinkDemo() {\n  return (\n    <Menu>\n      <MenuTrigger render={<Button variant=\"outline\" />}>Open menu</MenuTrigger>\n      <MenuPopup>\n        <MenuItem render={<Link href=\"/docs\" />}>Docs</MenuItem>\n        <MenuItem render={<Link href=\"/particles\" />}>Particles</MenuItem>\n      </MenuPopup>\n    </Menu>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "menu",
+    "link"
+  ]
+}

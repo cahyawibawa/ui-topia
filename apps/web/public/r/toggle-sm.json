@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle-sm",
+  "type": "registry:example",
+  "description": "Small toggle",
+  "registryDependencies": [
+    "@/toggle"
+  ],
+  "files": [
+    {
+      "path": "registry/components/toggle-sm.tsx",
+      "content": "import { Toggle } from \"@/registry/ui/toggle\"\n\nexport default function ToggleSm() {\n  return (\n    <Toggle variant=\"outline\" size=\"sm\">\n      Small\n    </Toggle>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "toggle"
+  ]
+}

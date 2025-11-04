@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-disabled",
+  "type": "registry:example",
+  "description": "Disabled button",
+  "registryDependencies": [
+    "@uitopia/button"
+  ],
+  "files": [
+    {
+      "path": "registry/components/button-disabled.tsx",
+      "content": "import { Button } from \"@/registry/ui/button\"\n\nexport default function ButtonDisabled() {\n  return <Button disabled>Button</Button>\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "button",
+    "disabled"
+  ]
+}

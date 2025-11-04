@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch-with-description",
+  "type": "registry:example",
+  "description": "Switch with description",
+  "registryDependencies": [
+    "@uitopia/switch",
+    "@uitopia/label"
+  ],
+  "files": [
+    {
+      "path": "registry/components/switch-with-description.tsx",
+      "content": "import * as React from \"react\"\n\nimport { Label } from \"@/registry/ui/label\"\nimport { Switch } from \"@/registry/ui/switch\"\n\nexport default function SwitchWithDescriptionDemo() {\n  const id = React.useId()\n\n  return (\n    <div className=\"flex items-start gap-2\">\n      <Switch id={id} defaultChecked />\n      <div className=\"flex flex-col gap-1\">\n        <Label htmlFor={id}>Marketing emails</Label>\n        <p className=\"text-xs text-muted-foreground\">\n          By enabling marketing emails, you agree to receive emails.\n        </p>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "switch",
+    "label",
+    "helper",
+    "hint"
+  ]
+}

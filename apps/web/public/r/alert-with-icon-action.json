@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "alert-with-icon-action",
+  "type": "registry:example",
+  "description": "Alert with icon and action buttons",
+  "registryDependencies": [
+    "@uitopia/alert",
+    "@uitopia/button"
+  ],
+  "files": [
+    {
+      "path": "registry/components/alert-with-icon-action.tsx",
+      "content": "import { InfoIcon } from \"lucide-react\";\n\nimport {\n  Alert,\n  AlertAction,\n  AlertDescription,\n  AlertTitle,\n} from \"@/registry/ui/alert\";\nimport { Button } from \"@/registry/ui/button\";\n\nexport default function AlertWithIconAction() {\n  return (\n    <Alert>\n      <InfoIcon />\n      <AlertTitle>Heads up!</AlertTitle>\n      <AlertDescription>\n        Describe what can be done about it here.\n      </AlertDescription>\n      <AlertAction>\n        <Button variant=\"ghost\" size=\"xs\">\n          Dismiss\n        </Button>\n        <Button size=\"xs\">Ok</Button>\n      </AlertAction>\n    </Alert>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "alert"
+  ]
+}

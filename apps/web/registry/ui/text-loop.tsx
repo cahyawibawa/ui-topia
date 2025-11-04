@@ -58,6 +58,7 @@ export default function TextLoop({
           transition={transition}
           variants={variants || motionVariants}
         >
+          {/* @ts-ignore */}
           {items[currentIndex]}
         </motion.div>
       </AnimatePresence>

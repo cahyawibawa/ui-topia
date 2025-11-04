@@ -1,5 +1,10 @@
-import { getPageTreePeers } from "fumadocs-core/server";
-import { Card, Cards } from "fumadocs-ui/components/card";
+import {
+  ArrowLeft02Icon,
+  ArrowRight02Icon,
+  LinkSquare02Icon,
+} from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { findNeighbour } from "fumadocs-core/page-tree";
 import {
   DocsBody,
   DocsDescription,
@@ -7,58 +12,99 @@ import {
   DocsTitle,
 } from "fumadocs-ui/page";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
-import { useMDXComponents } from "@/components/content/mdx-components";
+import { DocsCopyPage } from "@/components/docs-copy-page";
+import { getMDXComponents } from "@/components/mdx-components";
+import { SiteFooter } from "@/components/site-footer";
 import { siteConfig } from "@/config/site";
 import { createMetadata } from "@/lib/metadata";
 import { source } from "@/lib/source";
+import { Button } from "@/registry/ui/button";
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
 }) {
   const params = await props.params;
   const page = source.getPage(params.slug);
-
   if (!page) notFound();
 
-  const path = `apps/web/content/docs/${page.file.path}`;
   const MDX = page.data.body;
+  const rawContent = await page.data.getText("raw");
+  const neighbours = await findNeighbour(source.pageTree, page.url);
+  const links = page.data.links;
 
   return (
     <DocsPage
-      editOnGithub={{
-        owner: "cahyawibawa",
-        path,
-        repo: "ui-topia",
-      }}
+      toc={page.data.toc}
       full={page.data.full}
-      lastUpdate={page.data.lastModified}
+      // lastUpdate={page.data.lastModified ? new Date(page.data.lastModified) : undefined}
       tableOfContent={{
-        single: false,
         style: "clerk",
       }}
-      toc={page.data.toc}
+      footer={{ enabled: false }}
+      // editOnGithub={{
+      //   owner: "cahyawibawa",
+      //   path: `apps/web/content/docs/${page.slugs.join("/")}.mdx`,
+      //   repo: "ui-topia",
+      // }}
     >
-      <DocsTitle className="font-open-runde">{page.data.title}</DocsTitle>
-      <DocsDescription className="text-base text-fd-muted-foreground/85">
-        {page.data.description}
-      </DocsDescription>
-      <DocsBody className="prose-h2:font-mono prose-headings:font-open-runde prose-h2:text-fd-muted-foreground/80 prose-h2:text-sm prose-h2:leading-5">
-        <MDX components={useMDXComponents({})} />
+      <div className="space-y-3">
+        <DocsTitle>{page.data.title}</DocsTitle>
+        <DocsDescription>{page.data.description}</DocsDescription>
+        {(links?.doc || rawContent) && (
+          <div className="flex items-center gap-2">
+            {links?.doc && (
+              <Button
+                variant="outline"
+                size="xs"
+                render={
+                  <Link href={links.doc} rel="noreferrer" target="_blank">
+                    <HugeiconsIcon icon={LinkSquare02Icon} strokeWidth={2.5} />
+                    API Reference
+                  </Link>
+                }
+              />
+            )}
+            {rawContent ? <DocsCopyPage page={rawContent} /> : null}
+          </div>
+        )}
+      </div>
+      <DocsBody>
+        <MDX components={getMDXComponents()} />
       </DocsBody>
+      {(neighbours?.previous || neighbours?.next) && (
+        <div className="hidden items-center gap-2 pt-8 sm:flex">
+          {neighbours?.previous && (
+            <Button
+              className="shadow-none"
+              variant="outline"
+              render={
+                <Link href={neighbours.previous.url}>
+                  <HugeiconsIcon icon={ArrowLeft02Icon} strokeWidth={2} />{" "}
+                  {neighbours.previous.name}
+                </Link>
+              }
+            />
+          )}
+          {neighbours?.next && (
+            <Button
+              className="ms-auto shadow-none"
+              variant="outline"
+              render={
+                <Link href={neighbours.next.url}>
+                  {neighbours.next.name}{" "}
+                  <HugeiconsIcon icon={ArrowRight02Icon} strokeWidth={2} />
+                </Link>
+              }
+            />
+          )}
+        </div>
+      )}
+      <div className="mt-10 pb-16 sm:pb-24">
+        <SiteFooter />
+      </div>
     </DocsPage>
-  );
-}
-
-function _DocsCategory({ url }: { url: string }) {
-  return (
-    <Cards>
-      {getPageTreePeers(source.pageTree, url).map((peer) => (
-        <Card href={peer.url} key={peer.url} title={peer.name}>
-          {peer.description}
-        </Card>
-      ))}
-    </Cards>
   );
 }
 

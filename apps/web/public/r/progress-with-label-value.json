@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "progress-with-label-value",
+  "type": "registry:example",
+  "description": "Progress with label and value",
+  "registryDependencies": [
+    "@uitopia/progress"
+  ],
+  "files": [
+    {
+      "path": "registry/components/progress-with-label-value.tsx",
+      "content": "import {\n  Progress,\n  ProgressIndicator,\n  ProgressLabel,\n  ProgressTrack,\n  ProgressValue,\n} from \"@/registry/ui/progress\"\n\nexport default function ProgressWithLabelValueDemo() {\n  return (\n    <Progress value={60}>\n      <div className=\"flex items-center justify-between gap-2\">\n        <ProgressLabel>Export data</ProgressLabel>\n        <ProgressValue />\n      </div>\n      <ProgressTrack>\n        <ProgressIndicator />\n      </ProgressTrack>\n    </Progress>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "progress",
+    "label"
+  ]
+}

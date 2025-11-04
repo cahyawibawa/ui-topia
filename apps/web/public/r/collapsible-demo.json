@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "collapsible-demo",
+  "type": "registry:example",
+  "description": "Basic collapsible",
+  "registryDependencies": [
+    "@uitopia/collapsible"
+  ],
+  "files": [
+    {
+      "path": "registry/components/collapsible-demo.tsx",
+      "content": "import { ChevronDownIcon } from \"lucide-react\"\n\nimport {\n  Collapsible,\n  CollapsiblePanel,\n  CollapsibleTrigger,\n} from \"@/registry/ui/collapsible\"\n\nexport default function CollapsibleDemo() {\n  return (\n    <Collapsible>\n      <CollapsibleTrigger className=\"inline-flex items-center gap-2 text-sm font-medium data-panel-open:[&_svg]:rotate-180\">\n        Show recovery keys\n        <ChevronDownIcon className=\"size-4\" />\n      </CollapsibleTrigger>\n      <CollapsiblePanel>\n        <ul className=\"flex flex-col gap-1 py-2 text-sm text-muted-foreground\">\n          <li className=\"rounded-sm bg-muted px-2 py-1 font-mono\">\n            4829-1735-6621\n          </li>\n          <li className=\"rounded-sm bg-muted px-2 py-1 font-mono\">\n            9182-6407-5532\n          </li>\n          <li className=\"rounded-sm bg-muted px-2 py-1 font-mono\">\n            3051-7924-9018\n          </li>\n        </ul>\n      </CollapsiblePanel>\n    </Collapsible>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "collapsible"
+  ]
+}

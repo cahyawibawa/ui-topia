@@ -1,6 +1,4 @@
-import { GithubInfo } from "fumadocs-ui/components/github-info";
 import { DocsLayout, type DocsLayoutProps } from "fumadocs-ui/layouts/notebook";
-import type { ReactNode } from "react";
 import { baseOptions } from "@/app/layout.config";
 import { source } from "@/lib/source";
 
@@ -15,9 +13,10 @@ const docsOptions: DocsLayoutProps = {
   tree: source.pageTree,
 };
 
-export default function Layout({ children }: { children: ReactNode }) {
+export default function Layout({ children }: LayoutProps<"/docs">) {
   return (
     <DocsLayout
+      themeSwitch={{ enabled: false }}
       tabMode="navbar"
       nav={{ ...baseOptions.nav, mode: "top" }}
       sidebar={{
@@ -26,7 +25,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         tabs: {
           transform(option, node) {
             const meta = source.getNodeMeta(node);
-            if (!meta) return option;
+            if (!meta || !node.icon) return option;
 
             const color = `var(--${meta.path.split("/")[0]}-color, var(--color-fd-foreground))`;
 
@@ -34,11 +33,10 @@ export default function Layout({ children }: { children: ReactNode }) {
               ...option,
               icon: (
                 <div
-                  className="size-full rounded-lg max-md:border max-md:bg-(--tab-color)/10 max-md:p-1.5 [&_svg]:size-full"
+                  className="size-full rounded-lg text-(--tab-color) max-md:border max-md:bg-(--tab-color)/10 max-md:p-1.5 [&_svg]:size-full"
                   style={
                     {
                       "--tab-color": color,
-                      color,
                     } as object
                   }
                 >

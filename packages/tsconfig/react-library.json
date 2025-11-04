@@ -5,7 +5,7 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "target": "ES6",
-    "moduleResolution": "Node",
+    "moduleResolution": "bundler",
     "allowJs": true
   }
 }

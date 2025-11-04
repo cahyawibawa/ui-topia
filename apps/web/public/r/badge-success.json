@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge-success",
+  "type": "registry:example",
+  "description": "Success badge",
+  "registryDependencies": [
+    "@uitopia/badge"
+  ],
+  "files": [
+    {
+      "path": "registry/components/badge-success.tsx",
+      "content": "import { Badge } from \"@/registry/ui/badge\"\n\nexport default function BadgeSuccess() {\n  return <Badge variant=\"success\">Badge</Badge>\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "badge",
+    "success"
+  ]
+}

@@ -1,15 +1,13 @@
 {
-  "title": "Motion",
-  "description": "A collection of Motion animations.",
-  "icon": "motion",
+  "title": "Base",
+  "description": "A collection of Base UI Components.",
+  "icon": "SquareAsterisk",
   "root": true,
   "pages": [
     "---Getting Started---",
     "index",
     "installation",
     "---Components---",
-    "...components",
-    "---Texts---",
-    "...texts"
+    "...components"
   ]
 }

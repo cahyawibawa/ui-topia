@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar-radius",
+  "type": "registry:example",
+  "description": "Avatars with different radii",
+  "registryDependencies": [
+    "@uitopia/avatar"
+  ],
+  "files": [
+    {
+      "path": "registry/components/avatar-radius.tsx",
+      "content": "import {\n  Avatar,\n  AvatarFallback,\n  AvatarImage,\n} from \"@/registry/ui/avatar\"\n\nexport default function AvatarRadiusDemo() {\n  return (\n    <div className=\"flex items-center gap-4\">\n      <Avatar className=\"rounded-md\">\n        <AvatarImage\n          src=\"https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=128&h=128&dpr=2&q=80\"\n          alt=\"User\"\n        />\n        <AvatarFallback>AV</AvatarFallback>\n      </Avatar>\n      <Avatar className=\"rounded-xl\">\n        <AvatarImage\n          src=\"https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=128&h=128&dpr=2&q=80\"\n          alt=\"User\"\n        />\n        <AvatarFallback>AV</AvatarFallback>\n      </Avatar>\n      <Avatar className=\"rounded-full\">\n        <AvatarImage\n          src=\"https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=128&h=128&dpr=2&q=80\"\n          alt=\"User\"\n        />\n        <AvatarFallback>AV</AvatarFallback>\n      </Avatar>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "avatar"
+  ]
+}

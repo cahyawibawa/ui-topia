@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge-with-link",
+  "type": "registry:example",
+  "description": "Badge with link",
+  "registryDependencies": [
+    "@uitopia/badge"
+  ],
+  "files": [
+    {
+      "path": "registry/components/badge-with-link.tsx",
+      "content": "import Link from \"next/link\"\n\nimport { Badge } from \"@/registry/ui/badge\"\n\nexport default function BadgeWithLink() {\n  return <Badge render={<Link href=\"/\" />}>Badge</Badge>\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "badge"
+  ]
+}

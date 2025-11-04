@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field-demo",
+  "type": "registry:example",
+  "description": "Field with description",
+  "registryDependencies": [
+    "@uitopia/field"
+  ],
+  "files": [
+    {
+      "path": "registry/components/field-demo.tsx",
+      "content": "import {\n  Field,\n  FieldControl,\n  FieldDescription,\n  FieldLabel,\n} from \"@/registry/ui/field\"\n\nexport default function FieldDemo() {\n  return (\n    <Field>\n      <FieldLabel>Name</FieldLabel>\n      <FieldControl type=\"text\" placeholder=\"Enter your name\" />\n      <FieldDescription>Visible on your profile</FieldDescription>\n    </Field>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "field",
+    "label",
+    "helper",
+    "hint"
+  ]
+}

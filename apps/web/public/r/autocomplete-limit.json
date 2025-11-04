@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "autocomplete-limit",
+  "type": "registry:example",
+  "description": "Autocomplete with limited number of results",
+  "registryDependencies": [
+    "@uitopia/autocomplete"
+  ],
+  "files": [
+    {
+      "path": "registry/components/autocomplete-limit.tsx",
+      "content": "\"use client\";\n\nimport { Autocomplete as AutocompletePrimitive } from \"@base-ui-components/react/autocomplete\";\nimport * as React from \"react\";\n\nimport {\n  Autocomplete,\n  AutocompleteEmpty,\n  AutocompleteInput,\n  AutocompleteItem,\n  AutocompleteList,\n  AutocompletePopup,\n  AutocompleteStatus,\n} from \"@/registry/ui/autocomplete\";\n\n// Limit results demo\nconst limit = 7;\ntype SimpleTag = { id: string; value: string };\nconst manyTags: SimpleTag[] = [\n  { id: \"lang-js\", value: \"JavaScript\" },\n  { id: \"lang-ts\", value: \"TypeScript\" },\n  { id: \"lang-py\", value: \"Python\" },\n  { id: \"lang-java\", value: \"Java\" },\n  { id: \"lang-csharp\", value: \"C#\" },\n  { id: \"lang-cpp\", value: \"C++\" },\n  { id: \"lang-c\", value: \"C\" },\n  { id: \"lang-go\", value: \"Go\" },\n  { id: \"lang-rust\", value: \"Rust\" },\n  { id: \"lang-rb\", value: \"Ruby\" },\n  { id: \"lang-php\", value: \"PHP\" },\n  { id: \"lang-swift\", value: \"Swift\" },\n  { id: \"lang-kotlin\", value: \"Kotlin\" },\n  { id: \"lang-scala\", value: \"Scala\" },\n  { id: \"lang-elixir\", value: \"Elixir\" },\n  { id: \"lang-hs\", value: \"Haskell\" },\n  { id: \"lang-dart\", value: \"Dart\" },\n  { id: \"lang-objc\", value: \"Objective-C\" },\n  { id: \"lang-julia\", value: \"Julia\" },\n  { id: \"lang-r\", value: \"R\" },\n  { id: \"lang-perl\", value: \"Perl\" },\n  { id: \"lang-lua\", value: \"Lua\" },\n  { id: \"lang-ocaml\", value: \"OCaml\" },\n  { id: \"lang-fsharp\", value: \"F#\" },\n];\n\nexport default function AutocompleteLimit() {\n  const [value, setValue] = React.useState(\"\");\n  const { contains } = AutocompletePrimitive.useFilter({ sensitivity: \"base\" });\n\n  const totalMatches = React.useMemo(() => {\n    const trimmed = value.trim();\n    if (!trimmed) return manyTags.length;\n    return manyTags.filter((t) => contains(t.value, trimmed)).length;\n  }, [value, contains]);\n\n  const moreCount = Math.max(0, totalMatches - limit);\n\n  return (\n    <Autocomplete\n      items={manyTags}\n      value={value}\n      onValueChange={setValue}\n      limit={limit}\n    >\n      <AutocompleteInput placeholder=\"e.g. feature\" />\n      <AutocompletePopup>\n        <AutocompleteEmpty>No tags found.</AutocompleteEmpty>\n        <AutocompleteList>\n          {(tag: SimpleTag) => (\n            <AutocompleteItem key={tag.id} value={tag}>\n              {tag.value}\n            </AutocompleteItem>\n          )}\n        </AutocompleteList>\n        {moreCount > 0 && (\n          <AutocompleteStatus>\n            +{moreCount} more (keep typing to narrow down)\n          </AutocompleteStatus>\n        )}\n      </AutocompletePopup>\n    </Autocomplete>\n  );\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "autocomplete",
+    "input"
+  ]
+}

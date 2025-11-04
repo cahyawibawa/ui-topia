@@ -42,8 +42,8 @@ export function V0Button({
   if (variant === "icon") {
     return (
       <TooltipProvider>
-        <Tooltip delayDuration={0}>
-          <TooltipTrigger asChild>
+        <Tooltip>
+          <TooltipTrigger>
             <Link
               aria-label="Open in v0"
               className="text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"

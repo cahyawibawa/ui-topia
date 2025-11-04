@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch-card",
+  "type": "registry:example",
+  "description": "Card-style switch",
+  "registryDependencies": [
+    "@uitopia/switch",
+    "@uitopia/label"
+  ],
+  "files": [
+    {
+      "path": "registry/components/switch-card.tsx",
+      "content": "import * as React from \"react\"\n\nimport { Label } from \"@/registry/ui/label\"\nimport { Switch } from \"@/registry/ui/switch\"\n\nexport default function SwitchCardDemo() {\n  const id = React.useId()\n\n  return (\n    <Label\n      htmlFor={id}\n      className=\"flex items-center gap-6 rounded-lg border p-3 hover:bg-accent/50 has-data-checked:border-primary/48 has-data-checked:bg-accent/50\"\n    >\n      <div className=\"flex flex-col gap-1\">\n        <p className=\"text-sm leading-4\">Enable notifications</p>\n        <p className=\"text-xs text-muted-foreground\">\n          You can enable or disable notifications at any time.\n        </p>\n      </div>\n      <Switch id={id} defaultChecked />\n    </Label>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "switch",
+    "label",
+    "card"
+  ]
+}

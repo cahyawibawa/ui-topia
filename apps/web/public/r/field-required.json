@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field-required",
+  "type": "registry:example",
+  "description": "Field with required indicator",
+  "registryDependencies": [
+    "@uitopia/field"
+  ],
+  "files": [
+    {
+      "path": "registry/components/field-required.tsx",
+      "content": "import {\n  Field,\n  FieldControl,\n  FieldError,\n  FieldLabel,\n} from \"@/registry/ui/field\"\n\nexport default function FieldRequiredDemo() {\n  return (\n    <Field>\n      <FieldLabel>\n        Password <span className=\"text-destructive-foreground\">*</span>\n      </FieldLabel>\n      <FieldControl type=\"password\" placeholder=\"Enter password\" required />\n      <FieldError>Please fill out this field.</FieldError>\n    </Field>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "field",
+    "label",
+    "required"
+  ]
+}

@@ -1,55 +1,54 @@
 "use client";
 
-import { useState } from "react";
+import { Check, Clipboard } from "lucide-react";
+import type * as React from "react";
+import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
 import { cn } from "@/lib/utils";
-import { Icons } from "@/registry/components/icons";
-import { Button } from "@/uitopia/button";
+import { Button } from "@/registry/ui/button";
+import { Tooltip, TooltipPopup, TooltipTrigger } from "@/registry/ui/tooltip";
 
-interface CopyButtonProps {
-  componentSource: string;
-  className?: string;
-  duration?: number;
+export function copyToClipboard(value: string) {
+  navigator.clipboard.writeText(value);
 }
 
-function CopyButton({
-  componentSource,
+export function CopyButton({
+  value,
   className,
-  duration = 2000,
-}: CopyButtonProps) {
-  const [copied, setCopied] = useState(false);
-
-  async function copy(text: string) {
-    try {
-      await navigator.clipboard.writeText(text);
-      setCopied(true);
-      setTimeout(() => setCopied(false), duration);
-      return true;
-    } catch (err) {
-      console.error("Failed to copy text: ", err);
-      return false;
-    }
-  }
+  variant = "ghost",
+  ...props
+}: React.ComponentProps<typeof Button> & {
+  value: string;
+  src?: string;
+}) {
+  const { isCopied, copyToClipboard } = useCopyToClipboard();
 
   return (
-    <div className={cn("absolute top-1.5 right-2", className)}>
-      <Button
-        aria-label={copied ? "Copied" : "Copy code"}
-        className={cn(
-          "size-7 bg-transparent text-zinc-50 hover:bg-zinc-800 hover:text-zinc-50 ",
-          "[&_svg]:h-3.5 [&_svg]:w-3.5",
-          className,
-        )}
-        onClick={() => copy(componentSource)}
-        size="icon"
-      >
-        {copied ? (
-          <Icons.check className="size-3.5" />
-        ) : (
-          <Icons.copy className="size-3.5" />
-        )}
-      </Button>
-    </div>
+    <Tooltip open={isCopied ? true : undefined}>
+      <TooltipTrigger
+        render={
+          <Button
+            data-slot="copy-button"
+            size="icon"
+            variant={variant}
+            className={cn(
+              "absolute top-1.5 right-1.5 z-10 size-8 opacity-70 hover:opacity-100 focus-visible:opacity-100",
+              className,
+            )}
+            onClick={() => copyToClipboard(value)}
+            {...props}
+          >
+            <span className="sr-only">Copy</span>
+            {isCopied ? (
+              <Check className="size-4" />
+            ) : (
+              <Clipboard className="size-4" />
+            )}
+          </Button>
+        }
+      />
+      <TooltipPopup sideOffset={4}>
+        {isCopied ? "Copied" : "Copy to Clipboard"}
+      </TooltipPopup>
+    </Tooltip>
   );
 }
-
-export default CopyButton;

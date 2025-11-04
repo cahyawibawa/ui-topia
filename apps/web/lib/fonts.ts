@@ -7,6 +7,23 @@ export const geistSans = Geist({
   subsets: ["latin"],
 });
 
+export const inter = localFont({
+  src: [
+    {
+      path: "../assets/fonts/InterVariableFont.woff2",
+      weight: "100 900",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/InterVariableItalic.woff2",
+      weight: "100 900",
+      style: "italic",
+    },
+  ],
+  variable: "--font-inter",
+  display: "swap",
+});
+
 export const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
@@ -17,25 +34,9 @@ export const Redaction = localFont({
   variable: "--font-redaction",
 });
 
-export const openRunde = localFont({
-  src: [
-    {
-      path: "../assets/fonts/OpenRunde-Regular.otf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../assets/fonts/OpenRunde-Medium.otf",
-      weight: "500",
-      style: "normal",
-    },
-  ],
-  variable: "--font-open-runde",
-});
-
 export const fontVariables = cn(
   geistSans.variable,
+  inter.variable,
   geistMono.variable,
   Redaction.variable,
-  openRunde.variable,
 );

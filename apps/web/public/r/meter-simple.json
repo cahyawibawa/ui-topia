@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "meter-simple",
+  "type": "registry:example",
+  "description": "Meter without label and value",
+  "registryDependencies": [
+    "@uitopia/meter"
+  ],
+  "files": [
+    {
+      "path": "registry/components/meter-simple.tsx",
+      "content": "import { Meter } from \"@/registry/ui/meter\"\n\nexport default function MeterSimpleDemo() {\n  return <Meter value={50} />\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "meter"
+  ]
+}

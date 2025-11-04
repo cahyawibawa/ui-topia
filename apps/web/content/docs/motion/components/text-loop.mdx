@@ -1,0 +1,90 @@
+---
+title: Text Loop
+description: Text animation that transitions between multiple items, creating an engaging looping effect.
+---
+
+<ComponentCollapse
+  name="text-loop-demo"
+  hasReTrigger
+  className="min-h-[100px]"
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+<ComponentCli name="text-loop"/>
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+<ComponentCli name="text-loop"/>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="text-loop" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</Tabs>
+
+## Props
+
+<AutoTypeTable path="./content/docs/ui/props.ts" name="TextLoop" />
+
+{/* <TypeTable
+  type={{
+    children: {
+      description:
+        'The text content to be animated.',
+      type: 'React.ReactNode[]',
+      default: '-',
+    },
+    className: {
+      description:
+        'Additional CSS classes for styling.',
+      type: 'string',
+      default: '-',
+    },
+    interval: {
+      description:
+        'Time interval between text changes in milliseconds.',
+      type: 'number',
+      default: 2000,
+    },
+        transition: {
+      description:
+        `Animation transition settings. Can't be more than inerval.`,
+      type: 'Transition',
+      default: '-',
+    },
+    variant: {
+      description:
+        'Custom animation variants.',
+      type: 'Variants',
+      default: '-',
+    },
+    onIndexChange: {
+      description:
+        'Callback function that triggers when the index changes.',
+      type: '(index: number) => void',
+      default: '-',
+    },
+  }}
+/> */}
+

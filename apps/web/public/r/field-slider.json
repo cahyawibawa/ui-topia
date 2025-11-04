@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field-slider",
+  "type": "registry:example",
+  "description": "Field with slider",
+  "registryDependencies": [
+    "@uitopia/field",
+    "@uitopia/slider"
+  ],
+  "files": [
+    {
+      "path": "registry/components/field-slider.tsx",
+      "content": "import {\n  Field,\n  FieldDescription,\n  FieldLabel,\n} from \"@/registry/ui/field\"\nimport { Slider } from \"@/registry/ui/slider\"\n\nexport default function FieldSelectDemo() {\n  return (\n    <Field className=\"items-stretch gap-3\">\n      <FieldLabel>Country</FieldLabel>\n      <Slider defaultValue={50} />\n      <FieldDescription>This is an optional field</FieldDescription>\n    </Field>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "field",
+    "slider",
+    "label",
+    "helper",
+    "hint"
+  ]
+}

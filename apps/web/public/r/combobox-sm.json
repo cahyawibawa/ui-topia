@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "combobox-sm",
+  "type": "registry:example",
+  "description": "Small combobox",
+  "registryDependencies": [
+    "@uitopia/combobox"
+  ],
+  "files": [
+    {
+      "path": "registry/components/combobox-sm.tsx",
+      "content": "\"use client\"\n\nimport {\n  Combobox,\n  ComboboxEmpty,\n  ComboboxInput,\n  ComboboxItem,\n  ComboboxList,\n  ComboboxPopup,\n} from \"@/registry/ui/combobox\"\n\nconst items = [\n  { value: \"apple\", label: \"Apple\" },\n  { value: \"banana\", label: \"Banana\" },\n  { value: \"orange\", label: \"Orange\" },\n  { value: \"grape\", label: \"Grape\" },\n  { value: \"strawberry\", label: \"Strawberry\" },\n  { value: \"mango\", label: \"Mango\" },\n  { value: \"pineapple\", label: \"Pineapple\" },\n  { value: \"kiwi\", label: \"Kiwi\" },\n  { value: \"peach\", label: \"Peach\" },\n  { value: \"pear\", label: \"Pear\" },\n]\n\nexport default function ComboboxSm() {\n  return (\n    <Combobox items={items}>\n      <ComboboxInput\n        size=\"sm\"\n        placeholder=\"Select an item...\"\n        aria-label=\"Select an item\"\n      />\n      <ComboboxPopup>\n        <ComboboxEmpty>No results found.</ComboboxEmpty>\n        <ComboboxList>\n          {(item) => (\n            <ComboboxItem key={item.value} value={item}>\n              {item.label}\n            </ComboboxItem>\n          )}\n        </ComboboxList>\n      </ComboboxPopup>\n    </Combobox>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "combobox",
+    "input"
+  ]
+}

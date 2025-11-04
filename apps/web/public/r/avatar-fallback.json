@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar-fallback",
+  "type": "registry:example",
+  "description": "Fallback-only avatar",
+  "registryDependencies": [
+    "@uitopia/avatar"
+  ],
+  "files": [
+    {
+      "path": "registry/components/avatar-fallback.tsx",
+      "content": "import { Avatar, AvatarFallback } from \"@/registry/ui/avatar\"\n\nexport default function AvatarFallbackDemo() {\n  return (\n    <Avatar>\n      <AvatarFallback>LT</AvatarFallback>\n    </Avatar>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "avatar"
+  ]
+}

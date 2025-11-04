@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toast-demo",
+  "type": "registry:example",
+  "description": "Status toast",
+  "registryDependencies": [
+    "@/toast"
+  ],
+  "files": [
+    {
+      "path": "registry/components/toast-demo.tsx",
+      "content": "\"use client\"\n\nimport { Button } from \"@/registry/ui/button\"\nimport { toastManager } from \"@/registry/ui/toast\"\n\nexport default function ToastDemo() {\n  return (\n    <Button\n      variant=\"outline\"\n      onClick={() => {\n        toastManager.add({\n          title: \"Event has been created\",\n          description: \"Monday, January 3rd at 6:00pm\",\n        })\n      }}\n    >\n      Default Toast\n    </Button>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "toast",
+    "button"
+  ]
+}

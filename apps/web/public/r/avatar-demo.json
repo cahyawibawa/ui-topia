@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar-demo",
+  "type": "registry:example",
+  "description": "Avatar with image and fallback",
+  "registryDependencies": [
+    "@uitopia/avatar"
+  ],
+  "files": [
+    {
+      "path": "registry/components/avatar-demo.tsx",
+      "content": "import {\n  Avatar,\n  AvatarFallback,\n  AvatarImage,\n} from \"@/registry/ui/avatar\"\n\nexport default function AvatarDemo() {\n  return (\n    <Avatar>\n      <AvatarImage\n        src=\"https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=128&h=128&dpr=2&q=80\"\n        alt=\"Luke Tracy\"\n      />\n      <AvatarFallback>LT</AvatarFallback>\n    </Avatar>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "avatar"
+  ]
+}

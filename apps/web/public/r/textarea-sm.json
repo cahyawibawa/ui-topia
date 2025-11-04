@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea-sm",
+  "type": "registry:example",
+  "description": "Small textarea",
+  "registryDependencies": [
+    "@uitopia/textarea"
+  ],
+  "files": [
+    {
+      "path": "registry/components/textarea-sm.tsx",
+      "content": "import { Textarea } from \"@/registry/ui/textarea\"\n\nexport default function TextareaSm() {\n  return <Textarea size=\"sm\" placeholder=\"Type your message here\" />\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "textarea"
+  ]
+}

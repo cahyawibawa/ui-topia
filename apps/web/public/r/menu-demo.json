@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "menu-demo",
+  "type": "registry:example",
+  "description": "Basic menu",
+  "registryDependencies": [
+    "@uitopia/menu",
+    "@uitopia/button"
+  ],
+  "files": [
+    {
+      "path": "registry/components/menu-demo.tsx",
+      "content": "import {\n  PauseIcon,\n  PlayIcon,\n  SkipBackIcon,\n  SkipForwardIcon,\n  TrashIcon,\n} from \"lucide-react\"\n\nimport { Button } from \"@/registry/ui/button\"\nimport {\n  Menu,\n  MenuCheckboxItem,\n  MenuGroup,\n  MenuGroupLabel,\n  MenuItem,\n  MenuPopup,\n  MenuRadioGroup,\n  MenuRadioItem,\n  MenuSeparator,\n  MenuShortcut,\n  MenuSub,\n  MenuSubPopup,\n  MenuSubTrigger,\n  MenuTrigger,\n} from \"@/registry/ui/menu\"\n\nexport default function MenuDemo() {\n  return (\n    <Menu>\n      <MenuTrigger render={<Button variant=\"outline\" />}>Open menu</MenuTrigger>\n      <MenuPopup>\n        <MenuGroup>\n          <MenuGroupLabel>Playback</MenuGroupLabel>\n          <MenuItem>\n            <PlayIcon className=\"opacity-72\" />\n            Play\n            <MenuShortcut>⌘P</MenuShortcut>\n          </MenuItem>\n          <MenuItem disabled>\n            <PauseIcon className=\"opacity-72\" />\n            Pause\n            <MenuShortcut>⇧⌘P</MenuShortcut>\n          </MenuItem>\n          <MenuItem>\n            <SkipBackIcon className=\"opacity-72\" />\n            Previous\n            <MenuShortcut>⌘[</MenuShortcut>\n          </MenuItem>\n          <MenuItem>\n            <SkipForwardIcon className=\"opacity-72\" />\n            Next\n            <MenuShortcut>⌘]</MenuShortcut>\n          </MenuItem>\n        </MenuGroup>\n        <MenuSeparator />\n        <MenuCheckboxItem>Shuffle</MenuCheckboxItem>\n        <MenuCheckboxItem>Repeat</MenuCheckboxItem>\n        <MenuCheckboxItem disabled>Enhanced Audio</MenuCheckboxItem>\n        <MenuSeparator />\n        <MenuGroup>\n          <MenuGroupLabel>Sort by</MenuGroupLabel>\n          <MenuRadioGroup>\n            <MenuRadioItem value=\"artist\">Artist</MenuRadioItem>\n            <MenuRadioItem value=\"album\">Album</MenuRadioItem>\n            <MenuRadioItem value=\"title\">Title</MenuRadioItem>\n          </MenuRadioGroup>\n        </MenuGroup>\n        <MenuSeparator />\n        <MenuSub>\n          <MenuSubTrigger>Add to Playlist</MenuSubTrigger>\n          <MenuSubPopup>\n            <MenuItem>Jazz</MenuItem>\n            <MenuSub>\n              <MenuSubTrigger>Rock</MenuSubTrigger>\n              <MenuSubPopup>\n                <MenuItem>Hard Rock</MenuItem>\n                <MenuItem>Soft Rock</MenuItem>\n                <MenuItem>Classic Rock</MenuItem>\n                <MenuSeparator />\n                <MenuItem>Metal</MenuItem>\n                <MenuItem>Punk</MenuItem>\n                <MenuItem>Grunge</MenuItem>\n                <MenuItem>Alternative</MenuItem>\n                <MenuItem>Indie</MenuItem>\n                <MenuItem>Electronic</MenuItem>\n              </MenuSubPopup>\n            </MenuSub>\n            <MenuItem>Pop</MenuItem>\n          </MenuSubPopup>\n        </MenuSub>\n        <MenuSeparator />\n        <MenuItem variant=\"destructive\">\n          <TrashIcon />\n          Delete\n          <MenuShortcut>⌘⌫</MenuShortcut>\n        </MenuItem>\n      </MenuPopup>\n    </Menu>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "menu"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "title": "Motion",
+  "description": "A collection of Motion animations.",
+  "root": true,
+  "icon": "SquareM",
+  "pages": ["---Guide---", "index", "---Components---", "...components"]
+}

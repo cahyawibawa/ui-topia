@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle-demo",
+  "type": "registry:example",
+  "description": "Basic toggle",
+  "registryDependencies": [
+    "@/toggle"
+  ],
+  "files": [
+    {
+      "path": "registry/components/toggle-demo.tsx",
+      "content": "import { Toggle } from \"@/registry/ui/toggle\"\n\nexport default function ToggleDemo() {\n  return <Toggle>Toggle</Toggle>\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "toggle"
+  ]
+}

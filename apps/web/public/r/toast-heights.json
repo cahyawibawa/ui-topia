@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toast-heights",
+  "type": "registry:example",
+  "description": "Toast with varying heights",
+  "registryDependencies": [
+    "@/toast"
+  ],
+  "files": [
+    {
+      "path": "registry/components/toast-heights.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Button } from \"@/registry/ui/button\"\nimport { toastManager } from \"@/registry/ui/toast\"\n\nconst TEXTS = [\n  \"Short message.\",\n  \"A bit longer message that spans two lines.\",\n  \"This is a longer description that intentionally takes more vertical space to demonstrate stacking with varying heights.\",\n  \"An even longer description that should span multiple lines so we can verify the clamped collapsed height and smooth expansion animation when hovering or focusing the viewport.\",\n]\n\nexport default function ToastHeights() {\n  const [count, setCount] = React.useState(0)\n\n  function createToast() {\n    setCount((prev) => prev + 1)\n    const description = TEXTS[Math.floor(Math.random() * TEXTS.length)]\n    toastManager.add({\n      title: `Toast ${count + 1} created`,\n      description,\n    })\n  }\n\n  return (\n    <Button variant=\"outline\" onClick={createToast}>\n      With Varying Heights\n    </Button>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "toast"
+  ]
+}

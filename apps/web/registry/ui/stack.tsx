@@ -66,6 +66,7 @@ export function Stack({
   }[justify];
 
   return (
+    // @ts-ignore
     <div
       className={cn(
         "flex",

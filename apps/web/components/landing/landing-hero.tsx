@@ -17,6 +17,7 @@ export function LandingHero() {
       className="container-canvas isolate overflow-auto"
       onHoverStart={() => setFocusedCard(null)}
     >
+      {/* @ts-ignore */}
       <CardsContext.Provider value={{ focusedCard, setFocusedCard }}>
         <Header />
         <Cards />

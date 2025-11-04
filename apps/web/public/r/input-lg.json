@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-lg",
+  "type": "registry:example",
+  "description": "Large input",
+  "registryDependencies": [
+    "@uitopia/input"
+  ],
+  "files": [
+    {
+      "path": "registry/components/input-lg.tsx",
+      "content": "import { Input } from \"@/registry/ui/input\"\n\nexport default function InputLg() {\n  return <Input size=\"lg\" placeholder=\"Enter text\" aria-label=\"Enter text\" />\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "input"
+  ]
+}

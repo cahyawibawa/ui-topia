@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field-disabled",
+  "type": "registry:example",
+  "description": "Field in disabled state",
+  "registryDependencies": [
+    "@uitopia/field"
+  ],
+  "files": [
+    {
+      "path": "registry/components/field-disabled.tsx",
+      "content": "import {\n  Field,\n  FieldControl,\n  FieldDescription,\n  FieldLabel,\n} from \"@/registry/ui/field\"\n\nexport default function FieldDisabledDemo() {\n  return (\n    <Field disabled>\n      <FieldLabel>Email</FieldLabel>\n      <FieldControl type=\"email\" placeholder=\"Enter your email\" disabled />\n      <FieldDescription>This field is currently disabled.</FieldDescription>\n    </Field>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "field",
+    "label",
+    "disabled",
+    "helper",
+    "hint"
+  ]
+}

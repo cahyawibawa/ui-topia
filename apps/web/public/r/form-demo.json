@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "form-demo",
+  "type": "registry:example",
+  "description": "Input in a form",
+  "registryDependencies": [
+    "@uitopia/form",
+    "@uitopia/field",
+    "@uitopia/button"
+  ],
+  "files": [
+    {
+      "path": "registry/components/form-demo.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Button } from \"@/registry/ui/button\"\nimport {\n  Field,\n  FieldControl,\n  FieldError,\n  FieldLabel,\n} from \"@/registry/ui/field\"\nimport { Form } from \"@/registry/ui/form\"\n\nexport default function FormDemo() {\n  const [loading, setLoading] = React.useState(false)\n  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {\n    e.preventDefault()\n    const formData = new FormData(e.currentTarget)\n    setLoading(true)\n    await new Promise((r) => setTimeout(r, 800))\n    setLoading(false)\n    alert(`Email: ${formData.get(\"email\") || \"\"}`)\n  }\n\n  return (\n    <Form onSubmit={onSubmit} className=\"max-w-64\">\n      <Field>\n        <FieldLabel>Email</FieldLabel>\n        <FieldControl\n          name=\"email\"\n          type=\"email\"\n          placeholder=\"you@example.com\"\n          disabled={loading}\n          required\n        />\n        <FieldError>Please enter a valid email.</FieldError>\n      </Field>\n      <Button type=\"submit\" disabled={loading}>\n        Submit\n      </Button>\n    </Form>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "form",
+    "field",
+    "button",
+    "input"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-destructive-outline",
+  "type": "registry:example",
+  "description": "Destructive outline button",
+  "registryDependencies": [
+    "@uitopia/button"
+  ],
+  "files": [
+    {
+      "path": "registry/components/button-destructive-outline.tsx",
+      "content": "import { Button } from \"@/registry/ui/button\"\n\nexport default function ButtonDestructiveOutline() {\n  return <Button variant=\"destructive-outline\">Delete</Button>\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "button",
+    "delete"
+  ]
+}

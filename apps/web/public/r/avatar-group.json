@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar-group",
+  "type": "registry:example",
+  "description": "Overlapping avatar group",
+  "registryDependencies": [
+    "@uitopia/avatar"
+  ],
+  "files": [
+    {
+      "path": "registry/components/avatar-group.tsx",
+      "content": "import {\n  Avatar,\n  AvatarFallback,\n  AvatarImage,\n} from \"@/registry/ui/avatar\"\n\nexport default function AvatarGroupDemo() {\n  return (\n    <div className=\"flex -space-x-[0.6rem]\">\n      <Avatar className=\"ring-2 ring-background\">\n        <AvatarImage\n          src=\"https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=96&h=96&dpr=2&q=80\"\n          alt=\"U1\"\n        />\n        <AvatarFallback>U1</AvatarFallback>\n      </Avatar>\n      <Avatar className=\"ring-2 ring-background\">\n        <AvatarImage\n          src=\"https://images.unsplash.com/photo-1628157588553-5eeea00af15c?w=96&h=96&dpr=2&q=80\"\n          alt=\"U2\"\n        />\n        <AvatarFallback>U2</AvatarFallback>\n      </Avatar>\n      <Avatar className=\"ring-2 ring-background\">\n        <AvatarImage\n          src=\"https://images.unsplash.com/photo-1655874819398-c6dfbec68ac7?w=96&h=96&dpr=2&q=80\"\n          alt=\"U3\"\n        />\n        <AvatarFallback>U3</AvatarFallback>\n      </Avatar>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ],
+  "categories": [
+    "avatar",
+    "avatar group"
+  ]
+}
