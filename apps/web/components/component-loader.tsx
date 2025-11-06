@@ -69,6 +69,8 @@ function ComponentDisplay({
   name,
   showV0Button = true,
 }: ComponentDisplayProps & { showV0Button?: boolean }) {
+  const [refreshSpinCount, setRefreshSpinCount] = React.useState(0);
+
   const renderComponent = () => {
     if (!React.isValidElement(component)) {
       return null;
@@ -78,6 +80,11 @@ function ComponentDisplay({
       ? React.cloneElement(component, { key: reTriggerKey })
       : component;
   };
+
+  const handleRefreshClick = React.useCallback(() => {
+    setRefreshSpinCount((count) => count + 1);
+    reTrigger();
+  }, [reTrigger]);
 
   return (
     <>
@@ -92,11 +99,17 @@ function ComponentDisplay({
         {hasReTrigger && (
           <button
             aria-label="Refresh component"
-            className="cursor-pointer bg-background text-foreground hover:bg-transparent hover:text-foreground"
-            onClick={reTrigger}
+            className="opacity-70 hover:opacity-100 focus-visible:opacity-100"
+            onClick={handleRefreshClick}
             type="button"
           >
-            <Icons.refresh className="h-4 w-4" />
+            <Icons.refresh
+              key={refreshSpinCount}
+              className={cn(
+                "h-4 w-4 will-change-transform motion-reduce:animate-none",
+                refreshSpinCount > 0 && "animate-[refresh-spin_0.3s_ease-out]",
+              )}
+            />
           </button>
         )}
       </div>

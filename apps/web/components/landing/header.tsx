@@ -88,7 +88,7 @@ export const Header = () => {
               uitopia
             </a>
           </div>
-          <p className="mt-2 font-sans text-sm leading-snug tracking-tight">
+          <p className="mt-2 font-sans text-sm">
             Small laboratory for experimental blocks and distinctive components.
           </p>
           <div className="mt-4 flex flex-row gap-2">

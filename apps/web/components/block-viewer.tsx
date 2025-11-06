@@ -209,6 +209,10 @@ function BlockViewerToolbar() {
   const { componentName, item, resizablePanelRef, setView, view } =
     useBlockViewer();
   const { copyToClipboard, isCopied } = useCopyToClipboard();
+  const installTarget = item.name.startsWith("@")
+    ? item.name
+    : `@uitopia/${item.name}`;
+  const installCommand = `npx shadcn@latest add ${installTarget}`;
 
   const handleDeviceChange = React.useCallback(
     (value: string) => {
@@ -296,18 +300,13 @@ function BlockViewerToolbar() {
           <Button
             className="hidden h-[22px] w-auto gap-1 rounded-sm px-2 md:flex lg:w-auto"
             onClick={() => {
-              copyToClipboard(
-                `npx shadcn@latest add https://uitopia.vercel.app/r/${item.name}.json`,
-              );
+              copyToClipboard(installCommand);
             }}
             size="sm"
             variant="ghost"
           >
             {isCopied ? <Check /> : <Terminal />}
-            <span className="hidden lg:inline">
-              npx shadcn@latest add https://uitopia.vercel.app/r/{item.name}
-              .json
-            </span>
+            <span className="hidden lg:inline">{installCommand}</span>
           </Button>
         </div>
         <Separator className="mx-1 hidden h-4 xl:flex" orientation="vertical" />
@@ -416,8 +415,13 @@ function BlockViewerCode() {
           </div> */}
         </div>
 
-        <div className="relative flex-1 overflow-hidden">
-          <CodeBlock code={codeContent} language="tsx" showLineNumbers />
+        <div className="relative flex-1 overflow-hidden border-none">
+          <CodeBlock
+            borderless
+            code={codeContent}
+            language="tsx"
+            showLineNumbers
+          />
         </div>
       </div>
     </div>
