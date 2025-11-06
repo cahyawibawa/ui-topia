@@ -49,14 +49,16 @@ export default async function Page(props: {
       //   repo: "ui-topia",
       // }}
     >
-      <div className="space-y-3">
-        <DocsTitle>{page.data.title}</DocsTitle>
-        <DocsDescription>{page.data.description}</DocsDescription>
+      <div className="flex flex-col gap-4">
+        <div className="space-y-1.5">
+          <DocsTitle>{page.data.title}</DocsTitle>
+          <DocsDescription>{page.data.description}</DocsDescription>
+        </div>
         {(links?.doc || rawContent) && (
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2.5 pb-3 sm:gap-3 sm:pb-4">
             {links?.doc && (
               <Button
-                variant="outline"
+                variant="secondary"
                 size="xs"
                 render={
                   <Link href={links.doc} rel="noreferrer" target="_blank">
@@ -66,7 +68,9 @@ export default async function Page(props: {
                 }
               />
             )}
-            {rawContent ? <DocsCopyPage page={rawContent} /> : null}
+            {rawContent ? (
+              <DocsCopyPage page={rawContent} url={page.url} />
+            ) : null}
           </div>
         )}
       </div>
