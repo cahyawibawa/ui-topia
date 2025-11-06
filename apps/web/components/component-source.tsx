@@ -48,22 +48,29 @@ export function ComponentSource({
     loadComponentCode();
   }, [name]);
 
-  const codeBlock = (
-    <>
-      {error ? (
-        <div className="p-4 text-destructive text-sm">{error}</div>
-      ) : code ? (
-        <CodeBlock
-          code={code}
-          language="tsx"
-          title={title}
-          showLineNumbers={true}
-        />
-      ) : (
-        <div className="p-4 text-muted-foreground text-sm">Loading code...</div>
-      )}
-    </>
-  );
+  const codeBlock = (() => {
+    if (error) {
+      return <div className="p-4 text-destructive text-sm">{error}</div>;
+    }
+
+    if (code) {
+      return (
+        <div className="rounded-xl bg-code-surface">
+          <CodeBlock
+            borderless
+            code={code}
+            language="tsx"
+            title={title}
+            showLineNumbers={true}
+          />
+        </div>
+      );
+    }
+
+    return (
+      <div className="p-4 text-muted-foreground text-sm">Loading code...</div>
+    );
+  })();
 
   if (!collapsible) {
     return <div className={cn("relative", className)}>{codeBlock}</div>;

@@ -81,14 +81,9 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
         <Pre>{props.children}</Pre>
       </CodeBlock>
     ),
-    figure: ({ className, ...props }: React.ComponentProps<"figure">) => {
-      return (
-        <figure
-          className={cn("!bg-transparent !border-none !shadow-none", className)}
-          {...props}
-        />
-      );
-    },
+    figure: ({ className, ...props }: React.ComponentProps<"figure">) => (
+      <figure className={className} {...props} />
+    ),
     figcaption: ({
       className,
       children,

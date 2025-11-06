@@ -21,7 +21,7 @@ export function InstallCommand({ packages }: { packages: string }) {
   }, [packages]);
 
   return (
-    <div className="not-prose relative overflow-hidden rounded-lg border border-border bg-background">
+    <div className="not-prose relative overflow-hidden rounded-lg border border-border bg-code-surface">
       <Tabs
         value={packageManager}
         onValueChange={(value) => {
@@ -48,17 +48,17 @@ export function InstallCommand({ packages }: { packages: string }) {
             })}
           </TabsList>
         </div>
-        <div className="no-scrollbar overflow-x-auto bg-background">
+        <div className="no-scrollbar overflow-x-auto bg-code-surface">
           {Object.entries(tabs).map(([key, value]) => {
             return (
               <TabsPanel
                 key={key}
                 value={key}
-                className="mt-0 bg-background px-4 py-3.5"
+                className="mt-0 bg-code-surface px-4 py-3.5"
               >
-                <pre className="m-0 bg-background p-0">
+                <pre className="m-0 bg-code-surface p-0">
                   <code
-                    className="relative bg-background font-mono text-[.8125rem] text-foreground leading-none"
+                    className="relative bg-code-surface font-mono text-[.8125rem] text-foreground leading-none"
                     data-language="bash"
                   >
                     {value}

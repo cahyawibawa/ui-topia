@@ -68,7 +68,12 @@ export function ShowcaseComponent({
             {error ? (
               <div className="p-4 text-destructive text-sm">{error}</div>
             ) : code ? (
-              <CodeBlock code={code} language="tsx" />
+              <CodeBlock
+                borderless
+                code={code}
+                language="tsx"
+                showLineNumbers
+              />
             ) : (
               <div className="p-4 text-muted-foreground text-sm">
                 Loading code...

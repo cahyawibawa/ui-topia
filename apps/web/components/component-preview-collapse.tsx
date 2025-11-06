@@ -62,6 +62,7 @@ export function ComponentCollapse({
             classNameComponentContainer={classNameComponentContainer}
             hasReTrigger={hasReTrigger}
             name={name}
+            showV0Button={false}
           />
         </div>
         <CollapsibleTrigger asChild>
@@ -81,7 +82,14 @@ export function ComponentCollapse({
           {error ? (
             <div className="p-4 text-destructive text-sm">{error}</div>
           ) : code ? (
-            <CodeBlock code={code} language="tsx" />
+            <div className="bg-code-surface rounded-b-lg">
+              <CodeBlock
+                borderless
+                code={code}
+                language="tsx"
+                showLineNumbers
+              />
+            </div>
           ) : (
             <div className="p-4 text-muted-foreground text-sm">
               Loading code...

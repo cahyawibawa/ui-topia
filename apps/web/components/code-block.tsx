@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { CopyButton } from "@/components/copy-button";
 import { highlightCode } from "@/lib/highlight-code";
+import { cn } from "@/lib/utils";
 import { getIconForLanguageExtension } from "@/registry/components/icons";
 
 export function CodeBlock({
@@ -11,12 +12,16 @@ export function CodeBlock({
   title,
   copyButton = true,
   showLineNumbers = false,
+  borderless = false,
+  fullHeight = false,
 }: {
   code: string;
   language?: string;
   title?: string;
   copyButton?: boolean;
   showLineNumbers?: boolean;
+  borderless?: boolean;
+  fullHeight?: boolean;
 }) {
   const [highlightedCode, setHighlightedCode] = useState<string>("");
 
@@ -35,7 +40,14 @@ export function CodeBlock({
   const icon = getIconForLanguageExtension(language);
 
   return (
-    <figure data-rehype-pretty-code-figure="" className="!m-0 !mt-0 relative">
+    <figure
+      data-rehype-pretty-code-figure=""
+      className={cn(
+        "!m-0 !mt-0 relative",
+        borderless && "!border-0",
+        fullHeight && "flex h-full min-h-0 flex-col",
+      )}
+    >
       {title && (
         <figcaption
           data-rehype-pretty-code-title=""
@@ -47,7 +59,13 @@ export function CodeBlock({
         </figcaption>
       )}
       {copyButton && <CopyButton value={code} />}
-      <div dangerouslySetInnerHTML={{ __html: highlightedCode }} />
+      <div
+        className={cn(
+          fullHeight &&
+            "flex-1 min-h-0 overflow-auto [&_pre]:h-full [&_pre]:min-h-full",
+        )}
+        dangerouslySetInnerHTML={{ __html: highlightedCode }}
+      />
     </figure>
   );
 }

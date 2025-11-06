@@ -15,7 +15,7 @@ export function ComponentPreview({
   hasReTrigger = false,
   classNameComponentContainer,
   className,
-  showV0Button = true,
+  showV0Button = false,
 }: ComponentPreviewProps & {
   align?: "center" | "start" | "end";
   className?: string;
@@ -67,11 +67,11 @@ export function ComponentPreview({
         </div>
       </Tabs>
 
-      <div data-tab={tab} className="relative rounded-xl border">
+      <div data-tab={tab} className="relative">
         <div
           data-slot="preview"
           data-active={tab === "preview"}
-          className="relative data-[active=false]:hidden"
+          className="relative rounded-xl border data-[active=false]:hidden"
         >
           <div
             data-align={align}
@@ -92,13 +92,15 @@ export function ComponentPreview({
         <div
           data-slot="code"
           data-active={tab === "code"}
-          className="h-[350px] data-[active=false]:hidden [&_figure]:m-0 [&_pre]:h-[350px] [&_pre]:rounded-xl [&_pre]:border-0"
+          className="flex h-[350px] min-h-0 flex-col rounded-xl border data-[active=false]:hidden"
         >
           {error ? (
             <div className="p-4 text-destructive text-sm">{error}</div>
           ) : code ? (
             <CodeBlock
+              borderless
               code={code}
+              fullHeight
               language="tsx"
               copyButton={true}
               showLineNumbers={true}
