@@ -82,7 +82,7 @@ export function ComponentCollapse({
           {error ? (
             <div className="p-4 text-destructive text-sm">{error}</div>
           ) : code ? (
-            <div className="bg-code-surface rounded-b-lg">
+            <div className="rounded-b-lg bg-code-surface">
               <CodeBlock
                 borderless
                 code={code}

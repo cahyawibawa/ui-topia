@@ -382,7 +382,7 @@ article {
 }
 
 .dark [data-line-numbers] [data-line]::before {
-  background-color: var(--shiki-dark-bg);
+  background-color: var(--code-surface);
 }
 
 [data-rehype-pretty-code-title] {
@@ -394,6 +394,10 @@ article {
   padding-inline: calc(var(--spacing) * 4);
   font-family: var(--font-mono);
   color: var(--color-code-foreground);
+}
+
+[data-rehype-pretty-code-figure] pre:has([data-line-numbers]) {
+  padding-left: 0;
 }
 
 [data-line-numbers] {
@@ -413,12 +417,14 @@ article {
   content: counter(line);
   display: inline-block;
   width: calc(var(--spacing) * 12);
-  padding-right: calc(var(--spacing) * 6);
+  padding-right: calc(var(--spacing) * 5);
+  padding-left: calc(var(--spacing) * 1.5);
   text-align: right;
   color: var(--color-muted-foreground);
-  background-color: var(--shiki-light-bg);
+  background-color: var(--code-surface);
   position: sticky;
   left: 0;
+  z-index: 2;
 }
 
 [data-line-numbers] [data-highlighted-line][data-line]::before {
@@ -428,6 +434,7 @@ article {
 [data-line] {
   padding-top: calc(var(--spacing) * 0.5);
   padding-bottom: calc(var(--spacing) * 0.5);
+  /* padding-left: calc(var(--spacing) * 2); */
   min-height: calc(var(--spacing) * 1);
   width: 100%;
   display: inline-block;

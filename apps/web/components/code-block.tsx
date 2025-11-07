@@ -62,7 +62,7 @@ export function CodeBlock({
       <div
         className={cn(
           fullHeight &&
-            "flex-1 min-h-0 overflow-auto [&_pre]:h-full [&_pre]:min-h-full",
+            "min-h-0 flex-1 overflow-auto [&_pre]:h-full [&_pre]:min-h-full",
         )}
         dangerouslySetInnerHTML={{ __html: highlightedCode }}
       />
