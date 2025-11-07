@@ -20,13 +20,11 @@ links:
 
 <ComponentCli name="toast" />
 
-<Step>Add the `ToastProvider` to your app.</Step>
+Add the `ToastProvider` to your app.
 
 <span data-lib="base-ui">
 ```tsx title="app/layout.tsx"
-// [!code word:import { ToastProvider } from "@/components/ui/toast"]
-// [!code word:<ToastProvider>]
-// [!code word:</ToastProvider>]
+// [!code highlight]
 import { ToastProvider } from "@/components/ui/toast"
 
 export default function RootLayout({ children }) {
@@ -34,8 +32,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head />
       <body>
+        // [!code highlight]
         <ToastProvider>
           <main>{children}</main>
+        // [!code highlight]
         </ToastProvider>
       </body>
     </html>
@@ -66,9 +66,7 @@ npm install @base-ui-components/react
 
 <span data-lib="base-ui">
 ```tsx title="app/layout.tsx"
-// [!code word:import { ToastProvider } from "@/rcomponents/ui/toast"]
-// [!code word:<ToastProvider>]
-// [!code word:</ToastProvider>]
+// [!code highlight]
 import { ToastProvider } from "@/rcomponents/ui/toast"
 
 export default function RootLayout({ children }) {
@@ -76,8 +74,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head />
       <body>
+        // [!code highlight]
         <ToastProvider>
           <main>{children}</main>
+        // [!code highlight]
         </ToastProvider>
       </body>
     </html>
