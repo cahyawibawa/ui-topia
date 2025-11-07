@@ -2,18 +2,18 @@
 
 import {
   ArrowDown01Icon,
-  Tick02Icon,
   Copy01Icon,
+  Tick02Icon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
 import { Button } from "@/registry/ui/button";
 import {
-  Menu,
   MenuPopup as DropdownMenuContent,
   MenuItem as DropdownMenuItem,
   MenuTrigger as DropdownMenuTrigger,
+  Menu,
 } from "@/registry/ui/menu";
 import { Popover, PopoverContent, PopoverTrigger } from "@/registry/ui/popover";
 import { Separator } from "@/registry/ui/separator";
@@ -38,7 +38,7 @@ const menuItems = {
         xmlns="http://www.w3.org/2000/svg"
         fill="currentColor"
         viewBox="0 0 147 70"
-        className="size-4.5 -translate-x-px"
+        className="-translate-x-px size-4.5"
       >
         <path d="M56 50.203V14h14v46.156C70 65.593 65.593 70 60.156 70c-2.596 0-5.158-1-7-2.843L0 14h19.797L56 50.203ZM147 56h-14V23.953L100.953 56H133v14H96.687C85.814 70 77 61.186 77 50.312V14h14v32.156L123.156 14H91V0h36.312C138.186 0 147 8.814 147 19.688V56Z" />
       </svg>
@@ -98,7 +98,7 @@ export function DocsCopyPage({ page, url }: { page: string; url: string }) {
 
   return (
     <Popover>
-      <div className="bg-secondary group/buttons relative flex rounded-lg *:[[data-slot=button]]:focus-visible:relative *:[[data-slot=button]]:focus-visible:z-10">
+      <div className="group/buttons relative flex rounded-lg bg-secondary *:[[data-slot=button]]:focus-visible:relative *:[[data-slot=button]]:focus-visible:z-10">
         <Button
           variant="secondary"
           size="xs"
@@ -119,7 +119,10 @@ export function DocsCopyPage({ page, url }: { page: string; url: string }) {
           <DropdownMenuTrigger className="hidden sm:flex">
             {trigger}
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="shadow-none">
+          <DropdownMenuContent
+            align="end"
+            className="w-fit min-w-0 shadow-none"
+          >
             {Object.entries(menuItems).map(([key, value]) => (
               <DropdownMenuItem key={key}>{value(url)}</DropdownMenuItem>
             ))}
@@ -127,13 +130,13 @@ export function DocsCopyPage({ page, url }: { page: string; url: string }) {
         </Menu>
         <PopoverTrigger className="flex sm:hidden">{trigger}</PopoverTrigger>
         <PopoverContent
-          className="bg-background/70 dark:bg-background/60 w-52 !origin-center rounded-lg p-1 shadow-sm backdrop-blur-sm"
+          className="!origin-center w-fit min-w-0 rounded-lg bg-background/70 p-1 shadow-sm backdrop-blur-sm dark:bg-background/60"
           align="start"
         >
           {Object.entries(menuItems).map(([key, value]) => (
             <div
               key={key}
-              className="*:[svg]:text-muted-foreground w-full justify-start text-base font-normal flex items-center gap-2 p-2 rounded-md hover:bg-accent"
+              className="flex w-full items-center justify-start gap-2 rounded-md p-2 font-normal text-base hover:bg-accent *:[svg]:text-muted-foreground"
             >
               {value(url)}
             </div>

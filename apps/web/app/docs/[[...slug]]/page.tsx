@@ -78,11 +78,12 @@ export default async function Page(props: {
         <MDX components={getMDXComponents()} />
       </DocsBody>
       {(neighbours?.previous || neighbours?.next) && (
-        <div className="hidden items-center gap-2 pt-8 sm:flex">
+        <div className="flex items-center gap-2 pt-8">
           {neighbours?.previous && (
             <Button
               className="shadow-none"
               variant="outline"
+              size="sm"
               render={
                 <Link href={neighbours.previous.url}>
                   <HugeiconsIcon icon={ArrowLeft02Icon} strokeWidth={2} />{" "}
@@ -95,6 +96,7 @@ export default async function Page(props: {
             <Button
               className="ms-auto shadow-none"
               variant="outline"
+              size="sm"
               render={
                 <Link href={neighbours.next.url}>
                   {neighbours.next.name}{" "}
@@ -127,6 +129,7 @@ export async function generateMetadata(props: {
   const description = page.data.description ?? siteConfig.description;
 
   const imageParams = new URLSearchParams();
+  imageParams.set("title", page.data.title);
   imageParams.set("description", description);
 
   const image = {
