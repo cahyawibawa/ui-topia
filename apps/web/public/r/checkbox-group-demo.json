@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "registry/components/checkbox-group-demo.tsx",
-      "content": "import { Checkbox } from \"@/registry/ui/checkbox\"\nimport { CheckboxGroup } from \"@/registry/ui/checkbox-group\"\nimport { Label } from \"@/registry/ui/label\"\n\nexport default function CheckboxGroupDemo() {\n  return (\n    <CheckboxGroup aria-label=\"Select frameworks\" defaultValue={[\"next\"]}>\n      <Label>\n        <Checkbox value=\"next\" />\n        Next.js\n      </Label>\n      <Label>\n        <Checkbox value=\"vite\" />\n        Vite\n      </Label>\n      <Label>\n        <Checkbox value=\"astro\" />\n        Astro\n      </Label>\n    </CheckboxGroup>\n  )\n}\n",
+      "content": "import { Checkbox } from \"@/registry/ui/checkbox\";\nimport { CheckboxGroup } from \"@/registry/ui/checkbox-group\";\nimport { Label } from \"@/registry/ui/label\";\n\nexport default function CheckboxGroupDemo() {\n  return (\n    <CheckboxGroup aria-label=\"Select frameworks\" defaultValue={[\"next\"]}>\n      <Label>\n        <Checkbox value=\"next\" />\n        Next.js\n      </Label>\n      <Label>\n        <Checkbox value=\"vite\" />\n        Vite\n      </Label>\n      <Label>\n        <Checkbox value=\"astro\" />\n        Astro\n      </Label>\n    </CheckboxGroup>\n  );\n}\n",
       "type": "registry:example"
     }
   ],

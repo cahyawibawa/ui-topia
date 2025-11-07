@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "registry/components/checkbox-with-description.tsx",
-      "content": "import * as React from \"react\"\n\nimport { Checkbox } from \"@/registry/ui/checkbox\"\nimport { Label } from \"@/registry/ui/label\"\n\nexport default function CheckboxWithDescriptionDemo() {\n  const id = React.useId()\n\n  return (\n    <div className=\"flex items-start gap-2\">\n      <Checkbox id={id} defaultChecked />\n      <div className=\"flex flex-col gap-1\">\n        <Label htmlFor={id}>Accept terms and conditions</Label>\n        <p className=\"text-xs text-muted-foreground\">\n          By clicking this checkbox, you agree to the terms and conditions.\n        </p>\n      </div>\n    </div>\n  )\n}\n",
+      "content": "import * as React from \"react\";\n\nimport { Checkbox } from \"@/registry/ui/checkbox\";\nimport { Label } from \"@/registry/ui/label\";\n\nexport default function CheckboxWithDescriptionDemo() {\n  const id = React.useId();\n\n  return (\n    <div className=\"flex items-start gap-2\">\n      <Checkbox id={id} defaultChecked />\n      <div className=\"flex flex-col gap-1\">\n        <Label htmlFor={id}>Accept terms and conditions</Label>\n        <p className=\"text-muted-foreground text-xs\">\n          By clicking this checkbox, you agree to the terms and conditions.\n        </p>\n      </div>\n    </div>\n  );\n}\n",
       "type": "registry:example"
     }
   ],

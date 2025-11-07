@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "registry/components/switch-demo.tsx",
-      "content": "import { Label } from \"@/registry/ui/label\"\nimport { Switch } from \"@/registry/ui/switch\"\n\nexport default function SwitchWithLabel() {\n  return (\n    <Label>\n      <Switch />\n      Marketing emails\n    </Label>\n  )\n}\n",
+      "content": "import { Label } from \"@/registry/ui/label\";\nimport { Switch } from \"@/registry/ui/switch\";\n\nexport default function SwitchWithLabel() {\n  return (\n    <Label>\n      <Switch />\n      Marketing emails\n    </Label>\n  );\n}\n",
       "type": "registry:example"
     }
   ],

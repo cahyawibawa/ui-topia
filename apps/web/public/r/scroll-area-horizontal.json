@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/components/scroll-area-horizontal.tsx",
-      "content": "import { ScrollArea } from \"@/registry/ui/scroll-area\"\n\nexport default function ScrollAreaHorizontal() {\n  return (\n    <ScrollArea className=\"max-w-96 rounded-md border\" orientation=\"horizontal\">\n      <div className=\"flex w-max gap-4 p-4\">\n        {Array.from({ length: 20 }).map((_, i) => (\n          <div\n            key={i}\n            className=\"flex h-20 w-32 shrink-0 items-center justify-center rounded-md bg-muted\"\n          >\n            <span className=\"text-sm font-medium\">Item {i + 1}</span>\n          </div>\n        ))}\n      </div>\n    </ScrollArea>\n  )\n}\n",
+      "content": "import { ScrollArea } from \"@/registry/ui/scroll-area\";\n\nexport default function ScrollAreaHorizontal() {\n  return (\n    <ScrollArea className=\"max-w-96 rounded-md border\" orientation=\"horizontal\">\n      <div className=\"flex w-max gap-4 p-4\">\n        {Array.from({ length: 20 }).map((_, i) => (\n          <div\n            key={i}\n            className=\"flex h-20 w-32 shrink-0 items-center justify-center rounded-md bg-muted\"\n          >\n            <span className=\"font-medium text-sm\">Item {i + 1}</span>\n          </div>\n        ))}\n      </div>\n    </ScrollArea>\n  );\n}\n",
       "type": "registry:example"
     }
   ],

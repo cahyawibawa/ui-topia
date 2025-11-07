@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "registry/components/group-with-input.tsx",
-      "content": "import { CopyIcon } from \"lucide-react\"\n\nimport { Button } from \"@/registry/ui/button\"\nimport { Group, GroupItem, GroupSeparator } from \"@/registry/ui/group\"\nimport { Input } from \"@/registry/ui/input\"\n\nexport default function GroupWithInput() {\n  return (\n    <Group>\n      <GroupItem\n        render={<Input type=\"text\" defaultValue=\"https://base-ui.com\" />}\n      />\n      <GroupSeparator />\n      <GroupItem\n        render={<Button variant=\"outline\" size=\"icon\" aria-label=\"Copy\" />}\n      >\n        <CopyIcon />\n      </GroupItem>\n    </Group>\n  )\n}\n",
+      "content": "import { CopyIcon } from \"lucide-react\";\n\nimport { Button } from \"@/registry/ui/button\";\nimport { Group, GroupItem, GroupSeparator } from \"@/registry/ui/group\";\nimport { Input } from \"@/registry/ui/input\";\n\nexport default function GroupWithInput() {\n  return (\n    <Group>\n      <GroupItem\n        render={<Input type=\"text\" defaultValue=\"https://base-ui.com\" />}\n      />\n      <GroupSeparator />\n      <GroupItem\n        render={<Button variant=\"outline\" size=\"icon\" aria-label=\"Copy\" />}\n      >\n        <CopyIcon />\n      </GroupItem>\n    </Group>\n  );\n}\n",
       "type": "registry:example"
     }
   ],

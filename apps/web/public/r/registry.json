@@ -11,8 +11,47 @@
         "@uitopia/alert",
         "@uitopia/alert-dialog",
         "@uitopia/autocomplete",
+        "@uitopia/avatar",
         "@uitopia/badge",
-        "@uitopia/button"
+        "@uitopia/breadcrumb",
+        "@uitopia/button",
+        "@uitopia/card",
+        "@uitopia/checkbox",
+        "@uitopia/checkbox-group",
+        "@uitopia/collapsible",
+        "@uitopia/combobox",
+        "@uitopia/dialog",
+        "@uitopia/empty",
+        "@uitopia/field",
+        "@uitopia/fieldset",
+        "@uitopia/form",
+        "@uitopia/frame",
+        "@uitopia/group",
+        "@uitopia/input",
+        "@uitopia/label",
+        "@uitopia/menu",
+        "@uitopia/meter",
+        "@uitopia/number-field",
+        "@uitopia/pagination",
+        "@uitopia/popover",
+        "@uitopia/preview-card",
+        "@uitopia/progress",
+        "@uitopia/radio-group",
+        "@uitopia/scroll-area",
+        "@uitopia/select",
+        "@uitopia/separator",
+        "@uitopia/sheet",
+        "@uitopia/skeleton",
+        "@uitopia/slider",
+        "@uitopia/switch",
+        "@uitopia/table",
+        "@uitopia/tabs",
+        "@uitopia/textarea",
+        "@uitopia/toast",
+        "@uitopia/toggle",
+        "@uitopia/toggle-group",
+        "@uitopia/toolbar",
+        "@uitopia/tooltip"
       ]
     },
     {
@@ -4012,6 +4051,59 @@
         "form",
         "field",
         "button"
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "dependencies": [
+        "@base-ui-components/react"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table-demo",
+      "description": "Basic table",
+      "type": "registry:example",
+      "registryDependencies": [
+        "@uitopia/table",
+        "@uitopia/badge"
+      ],
+      "files": [
+        {
+          "path": "registry/components/table-demo.tsx",
+          "type": "registry:example"
+        }
+      ],
+      "categories": [
+        "table",
+        "badge"
+      ]
+    },
+    {
+      "name": "table-framed",
+      "description": "Framed table",
+      "type": "registry:example",
+      "registryDependencies": [
+        "@uitopia/table",
+        "@uitopia/badge",
+        "@uitopia/frame"
+      ],
+      "files": [
+        {
+          "path": "registry/components/table-framed.tsx",
+          "type": "registry:example"
+        }
+      ],
+      "categories": [
+        "table",
+        "badge",
+        "frame"
       ]
     },
     {

@@ -18,7 +18,7 @@
   "files": [
     {
       "path": "registry/components/button-outline.tsx",
-      "content": "import { Button } from \"@/registry/ui/button\"\n\nexport default function ButtonOutline() {\n  return <Button variant=\"outline\">Outline</Button>\n}\n",
+      "content": "import { Button } from \"@/registry/ui/button\";\n\nexport default function ButtonOutline() {\n  return <Button variant=\"outline\">Outline</Button>;\n}\n",
       "type": "registry:component",
       "target": "components/button-outline.tsx"
     }

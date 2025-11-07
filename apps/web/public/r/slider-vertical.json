@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/components/slider-vertical.tsx",
-      "content": "import { Slider } from \"@/registry/ui/slider\"\n\nexport default function SliderVertical() {\n  return <Slider orientation=\"vertical\" defaultValue={50} />\n}\n",
+      "content": "import { Slider } from \"@/registry/ui/slider\";\n\nexport default function SliderVertical() {\n  return <Slider orientation=\"vertical\" defaultValue={50} />;\n}\n",
       "type": "registry:example"
     }
   ],

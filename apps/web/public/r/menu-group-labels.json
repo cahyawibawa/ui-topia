@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "registry/components/menu-group-labels.tsx",
-      "content": "import { Button } from \"@/registry/ui/button\"\nimport {\n  Menu,\n  MenuGroup,\n  MenuGroupLabel,\n  MenuItem,\n  MenuPopup,\n  MenuSeparator,\n  MenuTrigger,\n} from \"@/registry/ui/menu\"\n\nexport default function MenuGroupLabelsDemo() {\n  return (\n    <Menu>\n      <MenuTrigger render={<Button variant=\"outline\" />}>Open menu</MenuTrigger>\n      <MenuPopup>\n        <MenuGroup>\n          <MenuGroupLabel>Account</MenuGroupLabel>\n          <MenuItem>Profile</MenuItem>\n          <MenuItem>Billing</MenuItem>\n        </MenuGroup>\n        <MenuSeparator />\n        <MenuGroup>\n          <MenuGroupLabel>Support</MenuGroupLabel>\n          <MenuItem>Docs</MenuItem>\n          <MenuItem>Contact</MenuItem>\n        </MenuGroup>\n      </MenuPopup>\n    </Menu>\n  )\n}\n",
+      "content": "import { Button } from \"@/registry/ui/button\";\nimport {\n  Menu,\n  MenuGroup,\n  MenuGroupLabel,\n  MenuItem,\n  MenuPopup,\n  MenuSeparator,\n  MenuTrigger,\n} from \"@/registry/ui/menu\";\n\nexport default function MenuGroupLabelsDemo() {\n  return (\n    <Menu>\n      <MenuTrigger render={<Button variant=\"outline\" />}>Open menu</MenuTrigger>\n      <MenuPopup>\n        <MenuGroup>\n          <MenuGroupLabel>Account</MenuGroupLabel>\n          <MenuItem>Profile</MenuItem>\n          <MenuItem>Billing</MenuItem>\n        </MenuGroup>\n        <MenuSeparator />\n        <MenuGroup>\n          <MenuGroupLabel>Support</MenuGroupLabel>\n          <MenuItem>Docs</MenuItem>\n          <MenuItem>Contact</MenuItem>\n        </MenuGroup>\n      </MenuPopup>\n    </Menu>\n  );\n}\n",
       "type": "registry:example"
     }
   ],

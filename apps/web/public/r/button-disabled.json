@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/components/button-disabled.tsx",
-      "content": "import { Button } from \"@/registry/ui/button\"\n\nexport default function ButtonDisabled() {\n  return <Button disabled>Button</Button>\n}\n",
+      "content": "import { Button } from \"@/registry/ui/button\";\n\nexport default function ButtonDisabled() {\n  return <Button disabled>Button</Button>;\n}\n",
       "type": "registry:example"
     }
   ],

@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "registry/components/field-switch.tsx",
-      "content": "import { Field, FieldLabel } from \"@/registry/ui/field\"\nimport { Switch } from \"@/registry/ui/switch\"\n\nexport default function FieldSwitchDemo() {\n  return (\n    <Field>\n      <FieldLabel>\n        <Switch />\n        Email notifications\n      </FieldLabel>\n    </Field>\n  )\n}\n",
+      "content": "import { Field, FieldLabel } from \"@/registry/ui/field\";\nimport { Switch } from \"@/registry/ui/switch\";\n\nexport default function FieldSwitchDemo() {\n  return (\n    <Field>\n      <FieldLabel>\n        <Switch />\n        Email notifications\n      </FieldLabel>\n    </Field>\n  );\n}\n",
       "type": "registry:example"
     }
   ],

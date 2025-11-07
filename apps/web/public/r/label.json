@@ -5,7 +5,7 @@
   "files": [
     {
       "path": "registry/ui/label.tsx",
-      "content": "import * as React from \"react\"\n\nimport { cn } from \"@/lib/utils\"\n\nfunction Label({ className, ...props }: React.ComponentProps<\"label\">) {\n  return (\n    <label\n      data-slot=\"label\"\n      className={cn(\"inline-flex items-center gap-2 text-sm/4\", className)}\n      {...props}\n    />\n  )\n}\n\nexport { Label }\n",
+      "content": "import type * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction Label({ className, ...props }: React.ComponentProps<\"label\">) {\n  return (\n    <label\n      data-slot=\"label\"\n      className={cn(\"inline-flex items-center gap-2 text-sm/4\", className)}\n      {...props}\n    />\n  );\n}\n\nexport { Label };\n",
       "type": "registry:ui"
     }
   ]

@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "registry/components/group-demo.tsx",
-      "content": "import { EllipsisIcon, FilesIcon, FilmIcon } from \"lucide-react\"\n\nimport { Button } from \"@/registry/ui/button\"\nimport { Group, GroupItem, GroupSeparator } from \"@/registry/ui/group\"\n\nexport default function GroupDemo() {\n  return (\n    <Group>\n      <GroupItem render={<Button variant=\"outline\" />}>\n        <FilesIcon />\n        Files\n      </GroupItem>\n      <GroupSeparator />\n      <GroupItem render={<Button variant=\"outline\" />}>\n        <FilmIcon />\n        Media\n      </GroupItem>\n      <GroupSeparator />\n      <GroupItem\n        render={<Button variant=\"outline\" size=\"icon\" aria-label=\"Menu\" />}\n      >\n        <EllipsisIcon />\n      </GroupItem>\n    </Group>\n  )\n}\n",
+      "content": "import { EllipsisIcon, FilesIcon, FilmIcon } from \"lucide-react\";\n\nimport { Button } from \"@/registry/ui/button\";\nimport { Group, GroupItem, GroupSeparator } from \"@/registry/ui/group\";\n\nexport default function GroupDemo() {\n  return (\n    <Group>\n      <GroupItem render={<Button variant=\"outline\" />}>\n        <FilesIcon />\n        Files\n      </GroupItem>\n      <GroupSeparator />\n      <GroupItem render={<Button variant=\"outline\" />}>\n        <FilmIcon />\n        Media\n      </GroupItem>\n      <GroupSeparator />\n      <GroupItem\n        render={<Button variant=\"outline\" size=\"icon\" aria-label=\"Menu\" />}\n      >\n        <EllipsisIcon />\n      </GroupItem>\n    </Group>\n  );\n}\n",
       "type": "registry:example"
     }
   ],

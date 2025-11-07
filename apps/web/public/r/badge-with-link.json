@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/components/badge-with-link.tsx",
-      "content": "import Link from \"next/link\"\n\nimport { Badge } from \"@/registry/ui/badge\"\n\nexport default function BadgeWithLink() {\n  return <Badge render={<Link href=\"/\" />}>Badge</Badge>\n}\n",
+      "content": "import Link from \"next/link\";\n\nimport { Badge } from \"@/registry/ui/badge\";\n\nexport default function BadgeWithLink() {\n  return <Badge render={<Link href=\"/\" />}>Badge</Badge>;\n}\n",
       "type": "registry:example"
     }
   ],

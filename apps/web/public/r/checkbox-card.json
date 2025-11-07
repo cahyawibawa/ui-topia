@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "registry/components/checkbox-card.tsx",
-      "content": "import { Checkbox } from \"@/registry/ui/checkbox\"\nimport { Label } from \"@/registry/ui/label\"\n\nexport default function CheckboxCardDemo() {\n  return (\n    <Label className=\"flex items-start gap-2 rounded-lg border p-3 hover:bg-accent/50 has-data-checked:border-primary/48 has-data-checked:bg-accent/50\">\n      <Checkbox defaultChecked />\n      <div className=\"flex flex-col gap-1\">\n        <p className=\"text-sm leading-4\">Enable notifications</p>\n        <p className=\"text-xs text-muted-foreground\">\n          You can enable or disable notifications at any time.\n        </p>\n      </div>\n    </Label>\n  )\n}\n",
+      "content": "import { Checkbox } from \"@/registry/ui/checkbox\";\nimport { Label } from \"@/registry/ui/label\";\n\nexport default function CheckboxCardDemo() {\n  return (\n    <Label className=\"flex items-start gap-2 rounded-lg border p-3 hover:bg-accent/50 has-data-checked:border-primary/48 has-data-checked:bg-accent/50\">\n      <Checkbox defaultChecked />\n      <div className=\"flex flex-col gap-1\">\n        <p className=\"text-sm leading-4\">Enable notifications</p>\n        <p className=\"text-muted-foreground text-xs\">\n          You can enable or disable notifications at any time.\n        </p>\n      </div>\n    </Label>\n  );\n}\n",
       "type": "registry:example"
     }
   ],

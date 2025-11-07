@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/components/meter-simple.tsx",
-      "content": "import { Meter } from \"@/registry/ui/meter\"\n\nexport default function MeterSimpleDemo() {\n  return <Meter value={50} />\n}\n",
+      "content": "import { Meter } from \"@/registry/ui/meter\";\n\nexport default function MeterSimpleDemo() {\n  return <Meter value={50} />;\n}\n",
       "type": "registry:example"
     }
   ],

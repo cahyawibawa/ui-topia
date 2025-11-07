@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/components/badge-secondary.tsx",
-      "content": "import { Badge } from \"@/registry/ui/badge\"\n\nexport default function BadgeSecondary() {\n  return <Badge variant=\"secondary\">Badge</Badge>\n}\n",
+      "content": "import { Badge } from \"@/registry/ui/badge\";\n\nexport default function BadgeSecondary() {\n  return <Badge variant=\"secondary\">Badge</Badge>;\n}\n",
       "type": "registry:example"
     }
   ],

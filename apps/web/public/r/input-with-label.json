@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "registry/components/input-with-label.tsx",
-      "content": "import { useId } from \"react\"\n\nimport { Input } from \"@/registry/ui/input\"\nimport { Label } from \"@/registry/ui/label\"\n\nexport default function InputWithLabel() {\n  const id = useId()\n  return (\n    <div className=\"flex flex-col items-start gap-2\">\n      <Label htmlFor={id}>Email</Label>\n      <Input\n        id={id}\n        type=\"email\"\n        placeholder=\"you@example.com\"\n        aria-label=\"Email\"\n      />\n    </div>\n  )\n}\n",
+      "content": "import { useId } from \"react\";\n\nimport { Input } from \"@/registry/ui/input\";\nimport { Label } from \"@/registry/ui/label\";\n\nexport default function InputWithLabel() {\n  const id = useId();\n  return (\n    <div className=\"flex flex-col items-start gap-2\">\n      <Label htmlFor={id}>Email</Label>\n      <Input\n        id={id}\n        type=\"email\"\n        placeholder=\"you@example.com\"\n        aria-label=\"Email\"\n      />\n    </div>\n  );\n}\n",
       "type": "registry:example"
     }
   ],

@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "registry/components/menu-checkbox.tsx",
-      "content": "import { Button } from \"@/registry/ui/button\"\nimport {\n  Menu,\n  MenuCheckboxItem,\n  MenuPopup,\n  MenuTrigger,\n} from \"@/registry/ui/menu\"\n\nexport default function MenuCheckboxDemo() {\n  return (\n    <Menu>\n      <MenuTrigger render={<Button variant=\"outline\" />}>Open menu</MenuTrigger>\n      <MenuPopup>\n        <MenuCheckboxItem defaultChecked>Auto save</MenuCheckboxItem>\n        <MenuCheckboxItem>Notifications</MenuCheckboxItem>\n      </MenuPopup>\n    </Menu>\n  )\n}\n",
+      "content": "import { Button } from \"@/registry/ui/button\";\nimport {\n  Menu,\n  MenuCheckboxItem,\n  MenuPopup,\n  MenuTrigger,\n} from \"@/registry/ui/menu\";\n\nexport default function MenuCheckboxDemo() {\n  return (\n    <Menu>\n      <MenuTrigger render={<Button variant=\"outline\" />}>Open menu</MenuTrigger>\n      <MenuPopup>\n        <MenuCheckboxItem defaultChecked>Auto save</MenuCheckboxItem>\n        <MenuCheckboxItem>Notifications</MenuCheckboxItem>\n      </MenuPopup>\n    </Menu>\n  );\n}\n",
       "type": "registry:example"
     }
   ],

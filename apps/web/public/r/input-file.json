@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/components/input-file.tsx",
-      "content": "import { Input } from \"@/registry/ui/input\"\n\nexport default function InputFile() {\n  return <Input type=\"file\" aria-label=\"File\" />\n}\n",
+      "content": "import { Input } from \"@/registry/ui/input\";\n\nexport default function InputFile() {\n  return <Input type=\"file\" aria-label=\"File\" />;\n}\n",
       "type": "registry:example"
     }
   ],

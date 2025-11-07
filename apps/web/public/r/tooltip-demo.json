@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "registry/components/tooltip-demo.tsx",
-      "content": "import { Button } from \"@/registry/ui/button\"\nimport {\n  Tooltip,\n  TooltipPopup,\n  TooltipTrigger,\n} from \"@/registry/ui/tooltip\"\n\nexport default function TooltipDemo() {\n  return (\n    <Tooltip>\n      <TooltipTrigger render={<Button variant=\"outline\" />}>\n        Hover me\n      </TooltipTrigger>\n      <TooltipPopup>Helpful hint</TooltipPopup>\n    </Tooltip>\n  )\n}\n",
+      "content": "import { Button } from \"@/registry/ui/button\";\nimport { Tooltip, TooltipPopup, TooltipTrigger } from \"@/registry/ui/tooltip\";\n\nexport default function TooltipDemo() {\n  return (\n    <Tooltip>\n      <TooltipTrigger render={<Button variant=\"outline\" />}>\n        Hover me\n      </TooltipTrigger>\n      <TooltipPopup>Helpful hint</TooltipPopup>\n    </Tooltip>\n  );\n}\n",
       "type": "registry:example"
     }
   ],

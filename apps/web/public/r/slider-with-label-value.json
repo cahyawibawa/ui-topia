@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "registry/components/slider-with-label-value.tsx",
-      "content": "import { Label } from \"@/registry/ui/label\"\nimport { Slider, SliderValue } from \"@/registry/ui/slider\"\n\nexport default function SliderWithLabelValue() {\n  return (\n    <Slider defaultValue={50}>\n      <div className=\"mb-2 flex items-center justify-between gap-1\">\n        <Label className=\"text-sm font-medium\">Opacity</Label>\n        <SliderValue />\n      </div>\n    </Slider>\n  )\n}\n",
+      "content": "import { Label } from \"@/registry/ui/label\";\nimport { Slider, SliderValue } from \"@/registry/ui/slider\";\n\nexport default function SliderWithLabelValue() {\n  return (\n    <Slider defaultValue={50}>\n      <div className=\"mb-2 flex items-center justify-between gap-1\">\n        <Label className=\"font-medium text-sm\">Opacity</Label>\n        <SliderValue />\n      </div>\n    </Slider>\n  );\n}\n",
       "type": "registry:example"
     }
   ],

@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "registry/components/checkbox-demo.tsx",
-      "content": "import { Checkbox } from \"@/registry/ui/checkbox\"\nimport { Label } from \"@/registry/ui/label\"\n\nexport default function CheckboxDemo() {\n  return (\n    <Label>\n      <Checkbox />\n      Accept terms and conditions\n    </Label>\n  )\n}\n",
+      "content": "import { Checkbox } from \"@/registry/ui/checkbox\";\nimport { Label } from \"@/registry/ui/label\";\n\nexport default function CheckboxDemo() {\n  return (\n    <Label>\n      <Checkbox />\n      Accept terms and conditions\n    </Label>\n  );\n}\n",
       "type": "registry:example"
     }
   ],

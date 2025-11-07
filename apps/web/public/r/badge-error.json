@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/components/badge-error.tsx",
-      "content": "import { Badge } from \"@/registry/ui/badge\"\n\nexport default function BadgeError() {\n  return <Badge variant=\"error\">Badge</Badge>\n}\n",
+      "content": "import { Badge } from \"@/registry/ui/badge\";\n\nexport default function BadgeError() {\n  return <Badge variant=\"error\">Badge</Badge>;\n}\n",
       "type": "registry:example"
     }
   ],

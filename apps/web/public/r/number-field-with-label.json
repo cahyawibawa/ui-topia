@@ -13,7 +13,7 @@
   "files": [
     {
       "path": "registry/components/number-field-with-label.tsx",
-      "content": "import * as React from \"react\"\n\nimport { Label } from \"@/registry/ui/label\"\nimport {\n  NumberField,\n  NumberFieldDecrement,\n  NumberFieldGroup,\n  NumberFieldIncrement,\n  NumberFieldInput,\n} from \"@/registry/ui/number-field\"\n\nexport default function NumberFieldWithLabel() {\n  const id = React.useId()\n  return (\n    <div className=\"flex flex-col items-start gap-2\">\n      <Label htmlFor={id}>Quantity</Label>\n      <NumberField id={id} defaultValue={0}>\n        <NumberFieldGroup>\n          <NumberFieldDecrement />\n          <NumberFieldInput />\n          <NumberFieldIncrement />\n        </NumberFieldGroup>\n      </NumberField>\n    </div>\n  )\n}\n",
+      "content": "import * as React from \"react\";\n\nimport { Label } from \"@/registry/ui/label\";\nimport {\n  NumberField,\n  NumberFieldDecrement,\n  NumberFieldGroup,\n  NumberFieldIncrement,\n  NumberFieldInput,\n} from \"@/registry/ui/number-field\";\n\nexport default function NumberFieldWithLabel() {\n  const id = React.useId();\n  return (\n    <div className=\"flex flex-col items-start gap-2\">\n      <Label htmlFor={id}>Quantity</Label>\n      <NumberField id={id} defaultValue={0}>\n        <NumberFieldGroup>\n          <NumberFieldDecrement />\n          <NumberFieldInput />\n          <NumberFieldIncrement />\n        </NumberFieldGroup>\n      </NumberField>\n    </div>\n  );\n}\n",
       "type": "registry:example"
     }
   ],

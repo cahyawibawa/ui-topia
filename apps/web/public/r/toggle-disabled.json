@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/components/toggle-disabled.tsx",
-      "content": "import { Toggle } from \"@/registry/ui/toggle\"\n\nexport default function ToggleDisabled() {\n  return (\n    <Toggle variant=\"outline\" disabled>\n      Disabled\n    </Toggle>\n  )\n}\n",
+      "content": "import { Toggle } from \"@/registry/ui/toggle\";\n\nexport default function ToggleDisabled() {\n  return (\n    <Toggle variant=\"outline\" disabled>\n      Disabled\n    </Toggle>\n  );\n}\n",
       "type": "registry:example"
     }
   ],

@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/components/toggle-sm.tsx",
-      "content": "import { Toggle } from \"@/registry/ui/toggle\"\n\nexport default function ToggleSm() {\n  return (\n    <Toggle variant=\"outline\" size=\"sm\">\n      Small\n    </Toggle>\n  )\n}\n",
+      "content": "import { Toggle } from \"@/registry/ui/toggle\";\n\nexport default function ToggleSm() {\n  return (\n    <Toggle variant=\"outline\" size=\"sm\">\n      Small\n    </Toggle>\n  );\n}\n",
       "type": "registry:example"
     }
   ],

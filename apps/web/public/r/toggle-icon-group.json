@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/components/toggle-icon-group.tsx",
-      "content": "import { BoldIcon, ItalicIcon, UnderlineIcon } from \"lucide-react\"\n\nimport { Toggle } from \"@/registry/ui/toggle\"\n\nexport default function ToggleIconGroup() {\n  return (\n    <div className=\"flex items-center gap-1\">\n      <Toggle variant=\"outline\" aria-label=\"Toggle bold\">\n        <BoldIcon />\n      </Toggle>\n      <Toggle variant=\"outline\" aria-label=\"Toggle italic\">\n        <ItalicIcon />\n      </Toggle>\n      <Toggle variant=\"outline\" aria-label=\"Toggle underline\">\n        <UnderlineIcon />\n      </Toggle>\n    </div>\n  )\n}\n",
+      "content": "import { BoldIcon, ItalicIcon, UnderlineIcon } from \"lucide-react\";\n\nimport { Toggle } from \"@/registry/ui/toggle\";\n\nexport default function ToggleIconGroup() {\n  return (\n    <div className=\"flex items-center gap-1\">\n      <Toggle variant=\"outline\" aria-label=\"Toggle bold\">\n        <BoldIcon />\n      </Toggle>\n      <Toggle variant=\"outline\" aria-label=\"Toggle italic\">\n        <ItalicIcon />\n      </Toggle>\n      <Toggle variant=\"outline\" aria-label=\"Toggle underline\">\n        <UnderlineIcon />\n      </Toggle>\n    </div>\n  );\n}\n",
       "type": "registry:example"
     }
   ],

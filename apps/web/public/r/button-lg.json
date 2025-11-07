@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/components/button-lg.tsx",
-      "content": "import { Button } from \"@/registry/ui/button\"\n\nexport default function ButtonLg() {\n  return <Button size=\"lg\">Button</Button>\n}\n",
+      "content": "import { Button } from \"@/registry/ui/button\";\n\nexport default function ButtonLg() {\n  return <Button size=\"lg\">Button</Button>;\n}\n",
       "type": "registry:example"
     }
   ],

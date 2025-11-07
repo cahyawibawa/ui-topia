@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/components/toggle-demo.tsx",
-      "content": "import { Toggle } from \"@/registry/ui/toggle\"\n\nexport default function ToggleDemo() {\n  return <Toggle>Toggle</Toggle>\n}\n",
+      "content": "import { Toggle } from \"@/registry/ui/toggle\";\n\nexport default function ToggleDemo() {\n  return <Toggle>Toggle</Toggle>;\n}\n",
       "type": "registry:example"
     }
   ],

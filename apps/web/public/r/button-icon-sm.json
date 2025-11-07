@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/components/button-icon-sm.tsx",
-      "content": "import { PlusIcon } from \"lucide-react\"\n\nimport { Button } from \"@/registry/ui/button\"\n\nexport default function ButtonIconSm() {\n  return (\n    <Button size=\"icon-sm\">\n      <PlusIcon />\n    </Button>\n  )\n}\n",
+      "content": "import { PlusIcon } from \"lucide-react\";\n\nimport { Button } from \"@/registry/ui/button\";\n\nexport default function ButtonIconSm() {\n  return (\n    <Button size=\"icon-sm\">\n      <PlusIcon />\n    </Button>\n  );\n}\n",
       "type": "registry:example"
     }
   ],

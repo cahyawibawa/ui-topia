@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "registry/components/field-textarea.tsx",
-      "content": "\"use client\"\n\nimport {\n  Field,\n  FieldControl,\n  FieldDescription,\n  FieldLabel,\n} from \"@/registry/ui/field\"\nimport { Textarea } from \"@/registry/ui/textarea\"\n\nexport default function FieldTextareaDemo() {\n  return (\n    <Field>\n      <FieldLabel>Bio</FieldLabel>\n      <FieldControl\n        render={(props) => (\n          <Textarea placeholder=\"Tell us about yourself…\" {...props} />\n        )}\n      />\n      <FieldDescription>\n        Write a short bio. Maximum 500 characters.\n      </FieldDescription>\n    </Field>\n  )\n}\n",
+      "content": "\"use client\";\n\nimport {\n  Field,\n  FieldControl,\n  FieldDescription,\n  FieldLabel,\n} from \"@/registry/ui/field\";\nimport { Textarea } from \"@/registry/ui/textarea\";\n\nexport default function FieldTextareaDemo() {\n  return (\n    <Field>\n      <FieldLabel>Bio</FieldLabel>\n      <FieldControl\n        render={(props) => (\n          // @ts-ignore\n          <Textarea placeholder=\"Tell us about yourself…\" {...props} />\n        )}\n      />\n      <FieldDescription>\n        Write a short bio. Maximum 500 characters.\n      </FieldDescription>\n    </Field>\n  );\n}\n",
       "type": "registry:example"
     }
   ],

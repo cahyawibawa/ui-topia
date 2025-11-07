@@ -18,7 +18,7 @@
   "files": [
     {
       "path": "registry/components/button-destructive.tsx",
-      "content": "import { Button } from \"@/registry/ui/button\"\n\nexport default function ButtonDestructive() {\n  return <Button variant=\"destructive\">Delete</Button>\n}\n",
+      "content": "import { Button } from \"@/registry/ui/button\";\n\nexport default function ButtonDestructive() {\n  return <Button variant=\"destructive\">Delete</Button>;\n}\n",
       "type": "registry:component",
       "target": "components/button-destructive.tsx"
     }

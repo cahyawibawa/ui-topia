@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/components/toggle-lg.tsx",
-      "content": "import { Toggle } from \"@/registry/ui/toggle\"\n\nexport default function ToggleLg() {\n  return (\n    <Toggle variant=\"outline\" size=\"lg\">\n      Large\n    </Toggle>\n  )\n}\n",
+      "content": "import { Toggle } from \"@/registry/ui/toggle\";\n\nexport default function ToggleLg() {\n  return (\n    <Toggle variant=\"outline\" size=\"lg\">\n      Large\n    </Toggle>\n  );\n}\n",
       "type": "registry:example"
     }
   ],

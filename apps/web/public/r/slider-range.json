@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/components/slider-range.tsx",
-      "content": "import { Slider } from \"@/registry/ui/slider\"\n\nexport default function SliderDemo() {\n  return <Slider defaultValue={[25, 75]} />\n}\n",
+      "content": "import { Slider } from \"@/registry/ui/slider\";\n\nexport default function SliderDemo() {\n  return <Slider defaultValue={[25, 75]} />;\n}\n",
       "type": "registry:example"
     }
   ],

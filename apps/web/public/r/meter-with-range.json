@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/components/meter-with-range.tsx",
-      "content": "\"use client\"\n\nimport {\n  Meter,\n  MeterIndicator,\n  MeterLabel,\n  MeterTrack,\n  MeterValue,\n} from \"@/registry/ui/meter\"\n\nexport default function MeterWithRangeDemo() {\n  return (\n    <Meter value={700} min={500} max={1000}>\n      <div className=\"flex items-center justify-between gap-2\">\n        <MeterLabel>Bandwidth (Mbps)</MeterLabel>\n        <MeterValue>{(_formatted, value) => value}</MeterValue>\n      </div>\n      <MeterTrack>\n        <MeterIndicator />\n      </MeterTrack>\n    </Meter>\n  )\n}\n",
+      "content": "\"use client\";\n\nimport {\n  Meter,\n  MeterIndicator,\n  MeterLabel,\n  MeterTrack,\n  MeterValue,\n} from \"@/registry/ui/meter\";\n\nexport default function MeterWithRangeDemo() {\n  return (\n    <Meter value={700} min={500} max={1000}>\n      <div className=\"flex items-center justify-between gap-2\">\n        <MeterLabel>Bandwidth (Mbps)</MeterLabel>\n        <MeterValue>{(_formatted, value) => value}</MeterValue>\n      </div>\n      <MeterTrack>\n        <MeterIndicator />\n      </MeterTrack>\n    </Meter>\n  );\n}\n",
       "type": "registry:example"
     }
   ],

@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "registry/components/radio-group-demo.tsx",
-      "content": "import { Label } from \"@/registry/ui/label\"\nimport { Radio, RadioGroup } from \"@/registry/ui/radio-group\"\n\nexport default function RadioGroupDemo() {\n  return (\n    <RadioGroup defaultValue=\"next\">\n      <Label>\n        <Radio value=\"next\" /> Next.js\n      </Label>\n      <Label>\n        <Radio value=\"vite\" /> Vite\n      </Label>\n      <Label>\n        <Radio value=\"astro\" /> Astro\n      </Label>\n    </RadioGroup>\n  )\n}\n",
+      "content": "import { Label } from \"@/registry/ui/label\";\nimport { Radio, RadioGroup } from \"@/registry/ui/radio-group\";\n\nexport default function RadioGroupDemo() {\n  return (\n    <RadioGroup defaultValue=\"next\">\n      <Label>\n        <Radio value=\"next\" /> Next.js\n      </Label>\n      <Label>\n        <Radio value=\"vite\" /> Vite\n      </Label>\n      <Label>\n        <Radio value=\"astro\" /> Astro\n      </Label>\n    </RadioGroup>\n  );\n}\n",
       "type": "registry:example"
     }
   ],
