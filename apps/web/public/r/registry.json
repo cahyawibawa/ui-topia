@@ -57,9 +57,7 @@
     {
       "name": "accordion",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/accordion.tsx",
@@ -71,87 +69,66 @@
       "name": "accordion-demo",
       "description": "Basic accordion",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/accordion"
-      ],
+      "registryDependencies": ["@uitopia/accordion"],
       "files": [
         {
           "path": "registry/components/accordion-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "accordion"
-      ]
+      "categories": ["accordion"]
     },
     {
       "name": "accordion-controlled",
       "description": "Controlled accordion",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/accordion",
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/accordion", "@uitopia/button"],
       "files": [
         {
           "path": "registry/components/accordion-controlled.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "accordion"
-      ]
+      "categories": ["accordion"]
     },
     {
       "name": "accordion-demo",
       "description": "Basic accordion",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/accordion"
-      ],
+      "registryDependencies": ["@uitopia/accordion"],
       "files": [
         {
           "path": "registry/components/accordion-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "accordion"
-      ]
+      "categories": ["accordion"]
     },
     {
       "name": "accordion-multiple",
       "description": "Accordion allowing multiple panels open",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/accordion"
-      ],
+      "registryDependencies": ["@uitopia/accordion"],
       "files": [
         {
           "path": "registry/components/accordion-multiple.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "accordion"
-      ]
+      "categories": ["accordion"]
     },
     {
       "name": "accordion-single",
       "description": "Accordion with one panel open",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/accordion"
-      ],
+      "registryDependencies": ["@uitopia/accordion"],
       "files": [
         {
           "path": "registry/components/accordion-single.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "accordion"
-      ]
+      "categories": ["accordion"]
     },
     {
       "name": "alert",
@@ -187,132 +164,97 @@
       "name": "alert-demo",
       "description": "Basic alert",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/alert"
-      ],
+      "registryDependencies": ["@uitopia/alert"],
       "files": [
         {
           "path": "registry/components/alert-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "alert"
-      ]
+      "categories": ["alert"]
     },
     {
       "name": "alert-with-icon",
       "description": "Alert with icon",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/alert"
-      ],
+      "registryDependencies": ["@uitopia/alert"],
       "files": [
         {
           "path": "registry/components/alert-with-icon.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "alert"
-      ]
+      "categories": ["alert"]
     },
     {
       "name": "alert-with-icon-action",
       "description": "Alert with icon and action buttons",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/alert",
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/alert", "@uitopia/button"],
       "files": [
         {
           "path": "registry/components/alert-with-icon-action.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "alert"
-      ]
+      "categories": ["alert"]
     },
     {
       "name": "alert-info",
       "description": "Info alert",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/alert"
-      ],
+      "registryDependencies": ["@uitopia/alert"],
       "files": [
         {
           "path": "registry/components/alert-info.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "alert",
-        "info"
-      ]
+      "categories": ["alert", "info"]
     },
     {
       "name": "alert-success",
       "description": "Success alert",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/alert"
-      ],
+      "registryDependencies": ["@uitopia/alert"],
       "files": [
         {
           "path": "registry/components/alert-success.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "alert",
-        "success"
-      ]
+      "categories": ["alert", "success"]
     },
     {
       "name": "alert-warning",
       "description": "Warning alert",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/alert"
-      ],
+      "registryDependencies": ["@uitopia/alert"],
       "files": [
         {
           "path": "registry/components/alert-warning.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "alert",
-        "warning"
-      ]
+      "categories": ["alert", "warning"]
     },
     {
       "name": "alert-error",
       "description": "Error alert",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/alert"
-      ],
+      "registryDependencies": ["@uitopia/alert"],
       "files": [
         {
           "path": "registry/components/alert-error.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "alert",
-        "error"
-      ]
+      "categories": ["alert", "error"]
     },
     {
       "name": "alert-dialog",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/alert-dialog.tsx",
@@ -324,30 +266,20 @@
       "name": "alert-dialog-demo",
       "description": "Alert dialog",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/alert-dialog",
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/alert-dialog", "@uitopia/button"],
       "files": [
         {
           "path": "registry/components/alert-dialog-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "dialog"
-      ]
+      "categories": ["dialog"]
     },
     {
       "name": "autocomplete",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
-      "registryDependencies": [
-        "@uitopia/input",
-        "@uitopia/scroll-area"
-      ],
+      "dependencies": ["@base-ui-components/react"],
+      "registryDependencies": ["@uitopia/input", "@uitopia/scroll-area"],
       "files": [
         {
           "path": "registry/ui/autocomplete.tsx",
@@ -359,220 +291,157 @@
       "name": "autocomplete-demo",
       "description": "Basic autocomplete",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/autocomplete"
-      ],
+      "registryDependencies": ["@uitopia/autocomplete"],
       "files": [
         {
           "path": "registry/components/autocomplete-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "autocomplete",
-        "input"
-      ]
+      "categories": ["autocomplete", "input"]
     },
     {
       "name": "autocomplete-disabled",
       "description": "Disabled autocomplete",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/autocomplete"
-      ],
+      "registryDependencies": ["@uitopia/autocomplete"],
       "files": [
         {
           "path": "registry/components/autocomplete-disabled.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "autocomplete",
-        "input",
-        "disabled"
-      ]
+      "categories": ["autocomplete", "input", "disabled"]
     },
     {
       "name": "autocomplete-sm",
       "description": "Small autocomplete",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/autocomplete"
-      ],
+      "registryDependencies": ["@uitopia/autocomplete"],
       "files": [
         {
           "path": "registry/components/autocomplete-sm.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "autocomplete",
-        "input"
-      ]
+      "categories": ["autocomplete", "input"]
     },
     {
       "name": "autocomplete-lg",
       "description": "Large autocomplete",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/autocomplete"
-      ],
+      "registryDependencies": ["@uitopia/autocomplete"],
       "files": [
         {
           "path": "registry/components/autocomplete-lg.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "autocomplete",
-        "input"
-      ]
+      "categories": ["autocomplete", "input"]
     },
     {
       "name": "autocomplete-with-label",
       "description": "Autocomplete with label",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/autocomplete",
-        "@uitopia/label"
-      ],
+      "registryDependencies": ["@uitopia/autocomplete", "@uitopia/label"],
       "files": [
         {
           "path": "registry/components/autocomplete-with-label.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "autocomplete",
-        "input"
-      ]
+      "categories": ["autocomplete", "input"]
     },
     {
       "name": "autocomplete-inline",
       "description": "Autocomplete autofilling the input with the highlighted item",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/autocomplete"
-      ],
+      "registryDependencies": ["@uitopia/autocomplete"],
       "files": [
         {
           "path": "registry/components/autocomplete-inline.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "autocomplete",
-        "input"
-      ]
+      "categories": ["autocomplete", "input"]
     },
     {
       "name": "autocomplete-autohighlight",
       "description": "Autocomplete auto highlighting the first option",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/autocomplete"
-      ],
+      "registryDependencies": ["@uitopia/autocomplete"],
       "files": [
         {
           "path": "registry/components/autocomplete-autohighlight.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "autocomplete",
-        "input"
-      ]
+      "categories": ["autocomplete", "input"]
     },
     {
       "name": "autocomplete-with-clear",
       "description": "Autocomplete with clear button",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/autocomplete"
-      ],
+      "registryDependencies": ["@uitopia/autocomplete"],
       "files": [
         {
           "path": "registry/components/autocomplete-with-clear.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "autocomplete",
-        "input"
-      ]
+      "categories": ["autocomplete", "input"]
     },
     {
       "name": "autocomplete-with-trigger-clear",
       "description": "Autocomplete with trigger and clear buttons",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/autocomplete"
-      ],
+      "registryDependencies": ["@uitopia/autocomplete"],
       "files": [
         {
           "path": "registry/components/autocomplete-with-trigger-clear.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "autocomplete",
-        "input"
-      ]
+      "categories": ["autocomplete", "input"]
     },
     {
       "name": "autocomplete-grouped",
       "description": "Autocomplete with grouped items",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/autocomplete"
-      ],
+      "registryDependencies": ["@uitopia/autocomplete"],
       "files": [
         {
           "path": "registry/components/autocomplete-grouped.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "autocomplete",
-        "input"
-      ]
+      "categories": ["autocomplete", "input"]
     },
     {
       "name": "autocomplete-limit",
       "description": "Autocomplete with limited number of results",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/autocomplete"
-      ],
+      "registryDependencies": ["@uitopia/autocomplete"],
       "files": [
         {
           "path": "registry/components/autocomplete-limit.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "autocomplete",
-        "input"
-      ]
+      "categories": ["autocomplete", "input"]
     },
     {
       "name": "autocomplete-async",
       "description": "Autocomplete with async items loading",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/autocomplete"
-      ],
+      "registryDependencies": ["@uitopia/autocomplete"],
       "files": [
         {
           "path": "registry/components/autocomplete-async.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "autocomplete",
-        "input",
-        "async"
-      ]
+      "categories": ["autocomplete", "input", "async"]
     },
     {
       "name": "autocomplete-form",
@@ -589,18 +458,12 @@
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "autocomplete",
-        "input",
-        "form"
-      ]
+      "categories": ["autocomplete", "input", "form"]
     },
     {
       "name": "avatar",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/avatar.tsx",
@@ -612,94 +475,71 @@
       "name": "avatar-demo",
       "description": "Avatar with image and fallback",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/avatar"
-      ],
+      "registryDependencies": ["@uitopia/avatar"],
       "files": [
         {
           "path": "registry/components/avatar-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "avatar"
-      ]
+      "categories": ["avatar"]
     },
     {
       "name": "avatar-fallback",
       "description": "Fallback-only avatar",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/avatar"
-      ],
+      "registryDependencies": ["@uitopia/avatar"],
       "files": [
         {
           "path": "registry/components/avatar-fallback.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "avatar"
-      ]
+      "categories": ["avatar"]
     },
     {
       "name": "avatar-group",
       "description": "Overlapping avatar group",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/avatar"
-      ],
+      "registryDependencies": ["@uitopia/avatar"],
       "files": [
         {
           "path": "registry/components/avatar-group.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "avatar",
-        "avatar group"
-      ]
+      "categories": ["avatar", "avatar group"]
     },
     {
       "name": "avatar-radius",
       "description": "Avatars with different radii",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/avatar"
-      ],
+      "registryDependencies": ["@uitopia/avatar"],
       "files": [
         {
           "path": "registry/components/avatar-radius.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "avatar"
-      ]
+      "categories": ["avatar"]
     },
     {
       "name": "avatar-size",
       "description": "Avatars with different sizes",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/avatar"
-      ],
+      "registryDependencies": ["@uitopia/avatar"],
       "files": [
         {
           "path": "registry/components/avatar-size.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "avatar"
-      ]
+      "categories": ["avatar"]
     },
     {
       "name": "badge",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/badge.tsx",
@@ -731,218 +571,162 @@
       "name": "badge-demo",
       "description": "Basic badge",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/badge"
-      ],
+      "registryDependencies": ["@uitopia/badge"],
       "files": [
         {
           "path": "registry/components/badge-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "badge"
-      ]
+      "categories": ["badge"]
     },
     {
       "name": "badge-outline",
       "description": "Outline badge",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/badge"
-      ],
+      "registryDependencies": ["@uitopia/badge"],
       "files": [
         {
           "path": "registry/components/badge-outline.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "badge"
-      ]
+      "categories": ["badge"]
     },
     {
       "name": "badge-secondary",
       "description": "Secondary badge",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/badge"
-      ],
+      "registryDependencies": ["@uitopia/badge"],
       "files": [
         {
           "path": "registry/components/badge-secondary.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "badge"
-      ]
+      "categories": ["badge"]
     },
     {
       "name": "badge-destructive",
       "description": "Destructive badge",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/badge"
-      ],
+      "registryDependencies": ["@uitopia/badge"],
       "files": [
         {
           "path": "registry/components/badge-destructive.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "badge",
-        "destructive",
-        "error"
-      ]
+      "categories": ["badge", "destructive", "error"]
     },
     {
       "name": "badge-info",
       "description": "Info badge",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/badge"
-      ],
+      "registryDependencies": ["@uitopia/badge"],
       "files": [
         {
           "path": "registry/components/badge-info.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "badge",
-        "info"
-      ]
+      "categories": ["badge", "info"]
     },
     {
       "name": "badge-success",
       "description": "Success badge",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/badge"
-      ],
+      "registryDependencies": ["@uitopia/badge"],
       "files": [
         {
           "path": "registry/components/badge-success.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "badge",
-        "success"
-      ]
+      "categories": ["badge", "success"]
     },
     {
       "name": "badge-warning",
       "description": "Warning badge",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/badge"
-      ],
+      "registryDependencies": ["@uitopia/badge"],
       "files": [
         {
           "path": "registry/components/badge-warning.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "badge",
-        "warning"
-      ]
+      "categories": ["badge", "warning"]
     },
     {
       "name": "badge-error",
       "description": "Error badge",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/badge"
-      ],
+      "registryDependencies": ["@uitopia/badge"],
       "files": [
         {
           "path": "registry/components/badge-error.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "badge",
-        "error"
-      ]
+      "categories": ["badge", "error"]
     },
     {
       "name": "badge-sm",
       "description": "Small badge",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/badge"
-      ],
+      "registryDependencies": ["@uitopia/badge"],
       "files": [
         {
           "path": "registry/components/badge-sm.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "badge"
-      ]
+      "categories": ["badge"]
     },
     {
       "name": "badge-lg",
       "description": "Large badge",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/badge"
-      ],
+      "registryDependencies": ["@uitopia/badge"],
       "files": [
         {
           "path": "registry/components/badge-lg.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "badge"
-      ]
+      "categories": ["badge"]
     },
     {
       "name": "badge-with-icon",
       "description": "Badge with icon",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/badge"
-      ],
+      "registryDependencies": ["@uitopia/badge"],
       "files": [
         {
           "path": "registry/components/badge-with-icon.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "badge"
-      ]
+      "categories": ["badge"]
     },
     {
       "name": "badge-with-link",
       "description": "Badge with link",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/badge"
-      ],
+      "registryDependencies": ["@uitopia/badge"],
       "files": [
         {
           "path": "registry/components/badge-with-link.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "badge"
-      ]
+      "categories": ["badge"]
     },
     {
       "name": "breadcrumb",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/breadcrumb.tsx",
@@ -954,44 +738,32 @@
       "name": "breadcrumb-demo",
       "description": "Breadcrumb with menu example",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/breadcrumb",
-        "@uitopia/menu"
-      ],
+      "registryDependencies": ["@uitopia/breadcrumb", "@uitopia/menu"],
       "files": [
         {
           "path": "registry/components/breadcrumb-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "breadcrumb",
-        "menu"
-      ]
+      "categories": ["breadcrumb", "menu"]
     },
     {
       "name": "breadcrumb-custom-separator",
       "description": "Breadcrumb with custom separator",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/breadcrumb"
-      ],
+      "registryDependencies": ["@uitopia/breadcrumb"],
       "files": [
         {
           "path": "registry/components/breadcrumb-custom-separator.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "breadcrumb"
-      ]
+      "categories": ["breadcrumb"]
     },
     {
       "name": "button",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/button.tsx",
@@ -1011,312 +783,235 @@
       "name": "button-demo",
       "description": "Default button",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/button"],
       "files": [
         {
           "path": "registry/components/button-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "button"
-      ]
+      "categories": ["button"]
     },
     {
       "name": "button-secondary",
       "description": "Secondary button",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/button"],
       "files": [
         {
           "path": "registry/components/button-secondary.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "button"
-      ]
+      "categories": ["button"]
     },
     {
       "name": "button-destructive",
       "description": "Destructive button",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/button"],
       "files": [
         {
           "path": "registry/components/button-destructive.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "button",
-        "delete",
-        "destructive"
-      ]
+      "categories": ["button", "delete", "destructive"]
     },
     {
       "name": "button-destructive-outline",
       "description": "Destructive outline button",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/button"],
       "files": [
         {
           "path": "registry/components/button-destructive-outline.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "button",
-        "delete"
-      ]
+      "categories": ["button", "delete"]
     },
     {
       "name": "button-outline",
       "description": "Outline button",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/button"],
       "files": [
         {
           "path": "registry/components/button-outline.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "button"
-      ]
+      "categories": ["button"]
     },
     {
       "name": "button-ghost",
       "description": "Ghost button",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/button"],
       "files": [
         {
           "path": "registry/components/button-ghost.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "button"
-      ]
+      "categories": ["button"]
     },
     {
       "name": "button-link",
       "description": "Link button",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/button"],
       "files": [
         {
           "path": "registry/components/button-link.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "button"
-      ]
+      "categories": ["button"]
     },
     {
       "name": "button-xs",
       "description": "Extra-small button",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/button"],
       "files": [
         {
           "path": "registry/components/button-xs.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "button"
-      ]
+      "categories": ["button"]
     },
     {
       "name": "button-sm",
       "description": "Small button",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/button"],
       "files": [
         {
           "path": "registry/components/button-sm.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "button"
-      ]
+      "categories": ["button"]
     },
     {
       "name": "button-lg",
       "description": "Large button",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/button"],
       "files": [
         {
           "path": "registry/components/button-lg.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "button"
-      ]
+      "categories": ["button"]
     },
     {
       "name": "button-xl",
       "description": "Extra-large button",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/button"],
       "files": [
         {
           "path": "registry/components/button-xl.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "button"
-      ]
+      "categories": ["button"]
     },
     {
       "name": "button-disabled",
       "description": "Disabled button",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/button"],
       "files": [
         {
           "path": "registry/components/button-disabled.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "button",
-        "disabled"
-      ]
+      "categories": ["button", "disabled"]
     },
     {
       "name": "button-icon",
       "description": "Icon button",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/button"],
       "files": [
         {
           "path": "registry/components/button-icon.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "button"
-      ]
+      "categories": ["button"]
     },
     {
       "name": "button-icon-sm",
       "description": "Small icon button",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/button"],
       "files": [
         {
           "path": "registry/components/button-icon-sm.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "button"
-      ]
+      "categories": ["button"]
     },
     {
       "name": "button-icon-lg",
       "description": "Large icon button",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/button"],
       "files": [
         {
           "path": "registry/components/button-icon-lg.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "button"
-      ]
+      "categories": ["button"]
     },
     {
       "name": "button-with-icon",
       "description": "Button with icon",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/button"],
       "files": [
         {
           "path": "registry/components/button-with-icon.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "button"
-      ]
+      "categories": ["button"]
     },
     {
       "name": "button-with-link",
       "description": "Link rendered as button",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/button"],
       "files": [
         {
           "path": "registry/components/button-with-link.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "button"
-      ]
+      "categories": ["button"]
     },
     {
       "name": "button-loading",
       "description": "Loading button",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/button"],
       "files": [
         {
           "path": "registry/components/button-loading.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "button",
-        "loading"
-      ]
+      "categories": ["button", "loading"]
     },
     {
       "name": "card",
@@ -1346,21 +1041,12 @@
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "card",
-        "button",
-        "input",
-        "select",
-        "form",
-        "field"
-      ]
+      "categories": ["card", "button", "input", "select", "form", "field"]
     },
     {
       "name": "checkbox",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/checkbox.tsx",
@@ -1372,40 +1058,27 @@
       "name": "checkbox-demo",
       "description": "Basic checkbox",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/checkbox",
-        "@uitopia/label"
-      ],
+      "registryDependencies": ["@uitopia/checkbox", "@uitopia/label"],
       "files": [
         {
           "path": "registry/components/checkbox-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "checkbox",
-        "label"
-      ]
+      "categories": ["checkbox", "label"]
     },
     {
       "name": "checkbox-disabled",
       "description": "Disabled checkbox",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/checkbox",
-        "@uitopia/label"
-      ],
+      "registryDependencies": ["@uitopia/checkbox", "@uitopia/label"],
       "files": [
         {
           "path": "registry/components/checkbox-disabled.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "checkbox",
-        "disabled",
-        "label"
-      ]
+      "categories": ["checkbox", "disabled", "label"]
     },
     {
       "name": "checkbox-form",
@@ -1423,39 +1096,25 @@
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "checkbox",
-        "form",
-        "button",
-        "label"
-      ]
+      "categories": ["checkbox", "form", "button", "label"]
     },
     {
       "name": "checkbox-card",
       "description": "Card-style checkbox",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/checkbox",
-        "@uitopia/label"
-      ],
+      "registryDependencies": ["@uitopia/checkbox", "@uitopia/label"],
       "files": [
         {
           "path": "registry/components/checkbox-card.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "checkbox",
-        "card",
-        "label"
-      ]
+      "categories": ["checkbox", "card", "label"]
     },
     {
       "name": "checkbox-group",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/checkbox-group.tsx",
@@ -1478,10 +1137,7 @@
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "checkbox group",
-        "checkbox"
-      ]
+      "categories": ["checkbox group", "checkbox"]
     },
     {
       "name": "checkbox-group-disabled",
@@ -1498,11 +1154,7 @@
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "checkbox group",
-        "checkbox",
-        "disabled"
-      ]
+      "categories": ["checkbox group", "checkbox", "disabled"]
     },
     {
       "name": "checkbox-group-form",
@@ -1546,11 +1198,7 @@
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "checkbox group",
-        "checkbox",
-        "label"
-      ]
+      "categories": ["checkbox group", "checkbox", "label"]
     },
     {
       "name": "checkbox-group-parent",
@@ -1567,39 +1215,25 @@
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "checkbox group",
-        "checkbox",
-        "label"
-      ]
+      "categories": ["checkbox group", "checkbox", "label"]
     },
     {
       "name": "checkbox-with-description",
       "description": "Checkbox with helper text",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/checkbox",
-        "@uitopia/label"
-      ],
+      "registryDependencies": ["@uitopia/checkbox", "@uitopia/label"],
       "files": [
         {
           "path": "registry/components/checkbox-with-description.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "checkbox",
-        "label",
-        "helper",
-        "hint"
-      ]
+      "categories": ["checkbox", "label", "helper", "hint"]
     },
     {
       "name": "collapsible",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/collapsible.tsx",
@@ -1611,29 +1245,20 @@
       "name": "collapsible-demo",
       "description": "Basic collapsible",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/collapsible"
-      ],
+      "registryDependencies": ["@uitopia/collapsible"],
       "files": [
         {
           "path": "registry/components/collapsible-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "collapsible"
-      ]
+      "categories": ["collapsible"]
     },
     {
       "name": "combobox",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
-      "registryDependencies": [
-        "@uitopia/input",
-        "@uitopia/scroll-area"
-      ],
+      "dependencies": ["@base-ui-components/react"],
+      "registryDependencies": ["@uitopia/input", "@uitopia/scroll-area"],
       "files": [
         {
           "path": "registry/ui/combobox.tsx",
@@ -1645,184 +1270,131 @@
       "name": "combobox-demo",
       "description": "Basic combobox",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/combobox"
-      ],
+      "registryDependencies": ["@uitopia/combobox"],
       "files": [
         {
           "path": "registry/components/combobox-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "combobox",
-        "input"
-      ]
+      "categories": ["combobox", "input"]
     },
     {
       "name": "combobox-disabled",
       "description": "Disabled combobox",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/combobox"
-      ],
+      "registryDependencies": ["@uitopia/combobox"],
       "files": [
         {
           "path": "registry/components/combobox-disabled.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "combobox",
-        "input",
-        "disabled"
-      ]
+      "categories": ["combobox", "input", "disabled"]
     },
     {
       "name": "combobox-sm",
       "description": "Small combobox",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/combobox"
-      ],
+      "registryDependencies": ["@uitopia/combobox"],
       "files": [
         {
           "path": "registry/components/combobox-sm.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "combobox",
-        "input"
-      ]
+      "categories": ["combobox", "input"]
     },
     {
       "name": "combobox-lg",
       "description": "Large combobox",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/combobox"
-      ],
+      "registryDependencies": ["@uitopia/combobox"],
       "files": [
         {
           "path": "registry/components/combobox-lg.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "combobox",
-        "input"
-      ]
+      "categories": ["combobox", "input"]
     },
     {
       "name": "combobox-with-label",
       "description": "Combobox with label",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/combobox",
-        "@uitopia/label"
-      ],
+      "registryDependencies": ["@uitopia/combobox", "@uitopia/label"],
       "files": [
         {
           "path": "registry/components/combobox-with-label.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "combobox",
-        "input"
-      ]
+      "categories": ["combobox", "input"]
     },
     {
       "name": "combobox-autohighlight",
       "description": "Combobox auto highlighting the first option",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/combobox"
-      ],
+      "registryDependencies": ["@uitopia/combobox"],
       "files": [
         {
           "path": "registry/components/combobox-autohighlight.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "combobox",
-        "input"
-      ]
+      "categories": ["combobox", "input"]
     },
     {
       "name": "combobox-grouped",
       "description": "Combobox with grouped items",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/combobox"
-      ],
+      "registryDependencies": ["@uitopia/combobox"],
       "files": [
         {
           "path": "registry/components/combobox-grouped.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "combobox",
-        "input"
-      ]
+      "categories": ["combobox", "input"]
     },
     {
       "name": "combobox-with-clear",
       "description": "Combobox with clear button",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/combobox"
-      ],
+      "registryDependencies": ["@uitopia/combobox"],
       "files": [
         {
           "path": "registry/components/combobox-with-clear.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "combobox",
-        "input"
-      ]
+      "categories": ["combobox", "input"]
     },
     {
       "name": "combobox-multiple",
       "description": "Combobox with multiple selection",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/combobox"
-      ],
+      "registryDependencies": ["@uitopia/combobox"],
       "files": [
         {
           "path": "registry/components/combobox-multiple.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "combobox",
-        "input"
-      ]
+      "categories": ["combobox", "input"]
     },
     {
       "name": "combobox-with-inner-input",
       "description": "Combobox with popup",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/combobox",
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/combobox", "@uitopia/button"],
       "files": [
         {
           "path": "registry/components/combobox-with-inner-input.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "combobox",
-        "input"
-      ]
+      "categories": ["combobox", "input"]
     },
     {
       "name": "combobox-form",
@@ -1840,11 +1412,7 @@
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "combobox",
-        "input",
-        "form"
-      ]
+      "categories": ["combobox", "input", "form"]
     },
     {
       "name": "combobox-multiple-form",
@@ -1862,19 +1430,12 @@
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "combobox",
-        "input",
-        "form",
-        "multiple"
-      ]
+      "categories": ["combobox", "input", "form", "multiple"]
     },
     {
       "name": "dialog",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/dialog.tsx",
@@ -1898,12 +1459,7 @@
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "dialog",
-        "form",
-        "field",
-        "button"
-      ]
+      "categories": ["dialog", "form", "field", "button"]
     },
     {
       "name": "dialog-close-confirmation",
@@ -1947,11 +1503,7 @@
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "dialog",
-        "menu",
-        "button"
-      ]
+      "categories": ["dialog", "menu", "button"]
     },
     {
       "name": "dialog-nested",
@@ -1968,11 +1520,7 @@
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "dialog",
-        "field",
-        "button"
-      ]
+      "categories": ["dialog", "field", "button"]
     },
     {
       "name": "empty",
@@ -1988,26 +1536,19 @@
       "name": "empty-demo",
       "description": "Basic empty state with icon",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/empty",
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/empty", "@uitopia/button"],
       "files": [
         {
           "path": "registry/components/empty-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "empty"
-      ]
+      "categories": ["empty"]
     },
     {
       "name": "field",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/field.tsx",
@@ -2027,41 +1568,27 @@
       "name": "field-demo",
       "description": "Field with description",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/field"
-      ],
+      "registryDependencies": ["@uitopia/field"],
       "files": [
         {
           "path": "registry/components/field-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "field",
-        "label",
-        "helper",
-        "hint"
-      ]
+      "categories": ["field", "label", "helper", "hint"]
     },
     {
       "name": "field-checkbox",
       "description": "Field with checkbox",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/field",
-        "@uitopia/checkbox"
-      ],
+      "registryDependencies": ["@uitopia/field", "@uitopia/checkbox"],
       "files": [
         {
           "path": "registry/components/field-checkbox.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "field",
-        "label",
-        "checkbox"
-      ]
+      "categories": ["field", "label", "checkbox"]
     },
     {
       "name": "field-checkbox-group",
@@ -2079,13 +1606,7 @@
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "field",
-        "checkbox group",
-        "checkbox",
-        "fieldset",
-        "label"
-      ]
+      "categories": ["field", "checkbox group", "checkbox", "fieldset", "label"]
     },
     {
       "name": "field-complete-form",
@@ -2119,128 +1640,79 @@
       "name": "field-disabled",
       "description": "Field in disabled state",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/field"
-      ],
+      "registryDependencies": ["@uitopia/field"],
       "files": [
         {
           "path": "registry/components/field-disabled.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "field",
-        "label",
-        "disabled",
-        "helper",
-        "hint"
-      ]
+      "categories": ["field", "label", "disabled", "helper", "hint"]
     },
     {
       "name": "field-error",
       "description": "Field showing validation error",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/field"
-      ],
+      "registryDependencies": ["@uitopia/field"],
       "files": [
         {
           "path": "registry/components/field-error.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "field",
-        "label",
-        "error"
-      ]
+      "categories": ["field", "label", "error"]
     },
     {
       "name": "field-autocomplete",
       "description": "Field with autocomplete",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/field",
-        "@uitopia/autocomplete"
-      ],
+      "registryDependencies": ["@uitopia/field", "@uitopia/autocomplete"],
       "files": [
         {
           "path": "registry/components/field-autocomplete.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "field",
-        "input",
-        "autocomplete",
-        "label"
-      ]
+      "categories": ["field", "input", "autocomplete", "label"]
     },
     {
       "name": "field-combobox",
       "description": "Field with combobox",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/field",
-        "@uitopia/combobox"
-      ],
+      "registryDependencies": ["@uitopia/field", "@uitopia/combobox"],
       "files": [
         {
           "path": "registry/components/field-combobox.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "field",
-        "input",
-        "combobox",
-        "label"
-      ]
+      "categories": ["field", "input", "combobox", "label"]
     },
     {
       "name": "field-combobox-multiple",
       "description": "Field with multiple selection combobox",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/field",
-        "@uitopia/combobox"
-      ],
+      "registryDependencies": ["@uitopia/field", "@uitopia/combobox"],
       "files": [
         {
           "path": "registry/components/field-combobox-multiple.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "field",
-        "input",
-        "combobox",
-        "label",
-        "multiple"
-      ]
+      "categories": ["field", "input", "combobox", "label", "multiple"]
     },
     {
       "name": "field-number-field",
       "description": "Field with number field",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/field",
-        "@uitopia/number-field"
-      ],
+      "registryDependencies": ["@uitopia/field", "@uitopia/number-field"],
       "files": [
         {
           "path": "registry/components/field-number-field.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "field",
-        "input",
-        "label",
-        "number",
-        "helper",
-        "hint"
-      ]
+      "categories": ["field", "input", "label", "number", "helper", "hint"]
     },
     {
       "name": "field-radio",
@@ -2257,143 +1729,90 @@
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "field",
-        "radio",
-        "label",
-        "fieldset",
-        "helper",
-        "hint"
-      ]
+      "categories": ["field", "radio", "label", "fieldset", "helper", "hint"]
     },
     {
       "name": "field-required",
       "description": "Field with required indicator",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/field"
-      ],
+      "registryDependencies": ["@uitopia/field"],
       "files": [
         {
           "path": "registry/components/field-required.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "field",
-        "label",
-        "required"
-      ]
+      "categories": ["field", "label", "required"]
     },
     {
       "name": "field-select",
       "description": "Field with select",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/field",
-        "@uitopia/select"
-      ],
+      "registryDependencies": ["@uitopia/field", "@uitopia/select"],
       "files": [
         {
           "path": "registry/components/field-select.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "field",
-        "select",
-        "label",
-        "helper",
-        "hint"
-      ]
+      "categories": ["field", "select", "label", "helper", "hint"]
     },
     {
       "name": "field-slider",
       "description": "Field with slider",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/field",
-        "@uitopia/slider"
-      ],
+      "registryDependencies": ["@uitopia/field", "@uitopia/slider"],
       "files": [
         {
           "path": "registry/components/field-slider.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "field",
-        "slider",
-        "label",
-        "helper",
-        "hint"
-      ]
+      "categories": ["field", "slider", "label", "helper", "hint"]
     },
     {
       "name": "field-switch",
       "description": "Field with toggle switch",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/field",
-        "@uitopia/switch"
-      ],
+      "registryDependencies": ["@uitopia/field", "@uitopia/switch"],
       "files": [
         {
           "path": "registry/components/field-switch.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "field",
-        "switch",
-        "label"
-      ]
+      "categories": ["field", "switch", "label"]
     },
     {
       "name": "field-textarea",
       "description": "Field with textarea",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/field",
-        "@uitopia/textarea"
-      ],
+      "registryDependencies": ["@uitopia/field", "@uitopia/textarea"],
       "files": [
         {
           "path": "registry/components/field-textarea.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "field",
-        "textarea",
-        "label",
-        "helper",
-        "hint"
-      ]
+      "categories": ["field", "textarea", "label", "helper", "hint"]
     },
     {
       "name": "field-validity",
       "description": "Show field validity state",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/field"
-      ],
+      "registryDependencies": ["@uitopia/field"],
       "files": [
         {
           "path": "registry/components/field-validity.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "field"
-      ]
+      "categories": ["field"]
     },
     {
       "name": "fieldset",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/fieldset.tsx",
@@ -2405,30 +1824,19 @@
       "name": "fieldset-demo",
       "description": "Fieldset with legend and labeled fields",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/fieldset",
-        "@uitopia/field"
-      ],
+      "registryDependencies": ["@uitopia/fieldset", "@uitopia/field"],
       "files": [
         {
           "path": "registry/components/fieldset-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "fieldset",
-        "field",
-        "label",
-        "input",
-        "helper"
-      ]
+      "categories": ["fieldset", "field", "label", "input", "helper"]
     },
     {
       "name": "form",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/form.tsx",
@@ -2451,12 +1859,7 @@
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "form",
-        "field",
-        "button",
-        "input"
-      ]
+      "categories": ["form", "field", "button", "input"]
     },
     {
       "name": "form-zod",
@@ -2467,23 +1870,14 @@
         "@uitopia/field",
         "@uitopia/button"
       ],
-      "dependencies": [
-        "zod"
-      ],
+      "dependencies": ["zod"],
       "files": [
         {
           "path": "registry/components/form-zod.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "form",
-        "field",
-        "button",
-        "validation",
-        "label",
-        "zod"
-      ]
+      "categories": ["form", "field", "button", "validation", "label", "zod"]
     },
     {
       "name": "frame",
@@ -2499,28 +1893,20 @@
       "name": "frame-demo",
       "description": "Frame example",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/frame"
-      ],
+      "registryDependencies": ["@uitopia/frame"],
       "files": [
         {
           "path": "registry/components/frame-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "frame"
-      ]
+      "categories": ["frame"]
     },
     {
       "name": "group",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
-      "registryDependencies": [
-        "@uitopia/separator"
-      ],
+      "dependencies": ["@base-ui-components/react"],
+      "registryDependencies": ["@uitopia/separator"],
       "files": [
         {
           "path": "registry/ui/group.tsx",
@@ -2532,19 +1918,14 @@
       "name": "group-demo",
       "description": "Group example",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/group",
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/group", "@uitopia/button"],
       "files": [
         {
           "path": "registry/components/group-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "group"
-      ]
+      "categories": ["group"]
     },
     {
       "name": "group-with-input",
@@ -2561,16 +1942,12 @@
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "group"
-      ]
+      "categories": ["group"]
     },
     {
       "name": "input",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/input.tsx",
@@ -2582,126 +1959,92 @@
       "name": "input-demo",
       "description": "Basic input component without label",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/input"
-      ],
+      "registryDependencies": ["@uitopia/input"],
       "files": [
         {
           "path": "registry/components/input-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "input"
-      ]
+      "categories": ["input"]
     },
     {
       "name": "input-sm",
       "description": "Small input",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/input"
-      ],
+      "registryDependencies": ["@uitopia/input"],
       "files": [
         {
           "path": "registry/components/input-sm.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "input"
-      ]
+      "categories": ["input"]
     },
     {
       "name": "input-lg",
       "description": "Large input",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/input"
-      ],
+      "registryDependencies": ["@uitopia/input"],
       "files": [
         {
           "path": "registry/components/input-lg.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "input"
-      ]
+      "categories": ["input"]
     },
     {
       "name": "input-disabled",
       "description": "Input with disabled state",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/input"
-      ],
+      "registryDependencies": ["@uitopia/input"],
       "files": [
         {
           "path": "registry/components/input-disabled.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "input",
-        "disabled"
-      ]
+      "categories": ["input", "disabled"]
     },
     {
       "name": "input-file",
       "description": "Input type set to file",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/input"
-      ],
+      "registryDependencies": ["@uitopia/input"],
       "files": [
         {
           "path": "registry/components/input-file.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "input",
-        "file"
-      ]
+      "categories": ["input", "file"]
     },
     {
       "name": "input-with-label",
       "description": "Input with label",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/input",
-        "@uitopia/label"
-      ],
+      "registryDependencies": ["@uitopia/input", "@uitopia/label"],
       "files": [
         {
           "path": "registry/components/input-with-label.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "input",
-        "label"
-      ]
+      "categories": ["input", "label"]
     },
     {
       "name": "input-with-button",
       "description": "Input with button",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/input",
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/input", "@uitopia/button"],
       "files": [
         {
           "path": "registry/components/input-with-button.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "input",
-        "button"
-      ]
+      "categories": ["input", "button"]
     },
     {
       "name": "label",
@@ -2716,9 +2059,7 @@
     {
       "name": "menu",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/menu.tsx",
@@ -2738,156 +2079,110 @@
       "name": "menu-demo",
       "description": "Basic menu",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/menu",
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/menu", "@uitopia/button"],
       "files": [
         {
           "path": "registry/components/menu-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "menu"
-      ]
+      "categories": ["menu"]
     },
     {
       "name": "menu-checkbox",
       "description": "Menu with checkbox items",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/menu",
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/menu", "@uitopia/button"],
       "files": [
         {
           "path": "registry/components/menu-checkbox.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "menu",
-        "checkbox"
-      ]
+      "categories": ["menu", "checkbox"]
     },
     {
       "name": "menu-close-on-click",
       "description": "Close menu when items are clicked",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/menu",
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/menu", "@uitopia/button"],
       "files": [
         {
           "path": "registry/components/menu-close-on-click.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "menu"
-      ]
+      "categories": ["menu"]
     },
     {
       "name": "menu-group-labels",
       "description": "Menu items grouped with labels",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/menu",
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/menu", "@uitopia/button"],
       "files": [
         {
           "path": "registry/components/menu-group-labels.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "menu",
-        "label"
-      ]
+      "categories": ["menu", "label"]
     },
     {
       "name": "menu-hover",
       "description": "Open the menu on hover",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/menu",
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/menu", "@uitopia/button"],
       "files": [
         {
           "path": "registry/components/menu-hover.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "menu"
-      ]
+      "categories": ["menu"]
     },
     {
       "name": "menu-link",
       "description": "Menu items as links",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/menu",
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/menu", "@uitopia/button"],
       "files": [
         {
           "path": "registry/components/menu-link.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "menu",
-        "link"
-      ]
+      "categories": ["menu", "link"]
     },
     {
       "name": "menu-nested",
       "description": "Menu with submenu",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/menu",
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/menu", "@uitopia/button"],
       "files": [
         {
           "path": "registry/components/menu-nested.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "menu"
-      ]
+      "categories": ["menu"]
     },
     {
       "name": "menu-radio-group",
       "description": "Menu with radio options",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/menu",
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/menu", "@uitopia/button"],
       "files": [
         {
           "path": "registry/components/menu-radio-group.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "menu",
-        "radio"
-      ]
+      "categories": ["menu", "radio"]
     },
     {
       "name": "meter",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/meter.tsx",
@@ -2899,76 +2194,58 @@
       "name": "meter-demo",
       "description": "Basic meter",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/meter"
-      ],
+      "registryDependencies": ["@uitopia/meter"],
       "files": [
         {
           "path": "registry/components/meter-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "meter"
-      ]
+      "categories": ["meter"]
     },
     {
       "name": "meter-simple",
       "description": "Meter without label and value",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/meter"
-      ],
+      "registryDependencies": ["@uitopia/meter"],
       "files": [
         {
           "path": "registry/components/meter-simple.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "meter"
-      ]
+      "categories": ["meter"]
     },
     {
       "name": "meter-with-formatted-value",
       "description": "Meter with a custom formatted value",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/meter"
-      ],
+      "registryDependencies": ["@uitopia/meter"],
       "files": [
         {
           "path": "registry/components/meter-with-formatted-value.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "meter"
-      ]
+      "categories": ["meter"]
     },
     {
       "name": "meter-with-range",
       "description": "Meter with min and max values",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/meter"
-      ],
+      "registryDependencies": ["@uitopia/meter"],
       "files": [
         {
           "path": "registry/components/meter-with-range.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "meter"
-      ]
+      "categories": ["meter"]
     },
     {
       "name": "number-field",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/number-field.tsx",
@@ -2980,71 +2257,53 @@
       "name": "number-field-demo",
       "description": "A number field",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/number-field"
-      ],
+      "registryDependencies": ["@uitopia/number-field"],
       "files": [
         {
           "path": "registry/components/number-field-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "number field"
-      ]
+      "categories": ["number field"]
     },
     {
       "name": "number-field-sm",
       "description": "Small number field",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/number-field"
-      ],
+      "registryDependencies": ["@uitopia/number-field"],
       "files": [
         {
           "path": "registry/components/number-field-sm.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "number field"
-      ]
+      "categories": ["number field"]
     },
     {
       "name": "number-field-lg",
       "description": "Large number field",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/number-field"
-      ],
+      "registryDependencies": ["@uitopia/number-field"],
       "files": [
         {
           "path": "registry/components/number-field-lg.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "number field"
-      ]
+      "categories": ["number field"]
     },
     {
       "name": "number-field-disabled",
       "description": "A disabled number field",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/number-field"
-      ],
+      "registryDependencies": ["@uitopia/number-field"],
       "files": [
         {
           "path": "registry/components/number-field-disabled.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "number field",
-        "disabled",
-        "label"
-      ]
+      "categories": ["number field", "disabled", "label"]
     },
     {
       "name": "number-field-form",
@@ -3062,113 +2321,79 @@
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "number field",
-        "field",
-        "form",
-        "button"
-      ]
+      "categories": ["number field", "field", "form", "button"]
     },
     {
       "name": "number-field-with-formatted-value",
       "description": "A number field with formatted value",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/number-field"
-      ],
+      "registryDependencies": ["@uitopia/number-field"],
       "files": [
         {
           "path": "registry/components/number-field-with-formatted-value.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "number field"
-      ]
+      "categories": ["number field"]
     },
     {
       "name": "number-field-with-label",
       "description": "A number field with an external label",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/number-field",
-        "@uitopia/label"
-      ],
-      "dependencies": [
-        "@radix-ui/react-label"
-      ],
+      "registryDependencies": ["@uitopia/number-field", "@uitopia/label"],
+      "dependencies": ["@radix-ui/react-label"],
       "files": [
         {
           "path": "registry/components/number-field-with-label.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "number field",
-        "label"
-      ]
+      "categories": ["number field", "label"]
     },
     {
       "name": "number-field-with-range",
       "description": "A number field with min/max constraints",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/number-field"
-      ],
+      "registryDependencies": ["@uitopia/number-field"],
       "files": [
         {
           "path": "registry/components/number-field-with-range.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "number field",
-        "range"
-      ]
+      "categories": ["number field", "range"]
     },
     {
       "name": "number-field-with-scrub",
       "description": "A number field with a scrub area",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/number-field"
-      ],
+      "registryDependencies": ["@uitopia/number-field"],
       "files": [
         {
           "path": "registry/components/number-field-with-scrub.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "number field"
-      ]
+      "categories": ["number field"]
     },
     {
       "name": "number-field-with-step",
       "description": "A number field with step",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/number-field"
-      ],
+      "registryDependencies": ["@uitopia/number-field"],
       "files": [
         {
           "path": "registry/components/number-field-with-step.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "number field"
-      ]
+      "categories": ["number field"]
     },
     {
       "name": "pagination",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
-      "registryDependencies": [
-        "@uitopia/button"
-      ],
+      "dependencies": ["@base-ui-components/react"],
+      "registryDependencies": ["@uitopia/button"],
       "files": [
         {
           "path": "registry/ui/pagination.tsx",
@@ -3180,25 +2405,19 @@
       "name": "pagination-demo",
       "description": "Pagination example",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/pagination"
-      ],
+      "registryDependencies": ["@uitopia/pagination"],
       "files": [
         {
           "path": "registry/components/pagination-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "pagination"
-      ]
+      "categories": ["pagination"]
     },
     {
       "name": "popover",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/popover.tsx",
@@ -3223,39 +2442,25 @@
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "popover",
-        "button",
-        "textarea",
-        "form",
-        "field"
-      ]
+      "categories": ["popover", "button", "textarea", "form", "field"]
     },
     {
       "name": "popover-with-close",
       "description": "Popover with close button",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/popover",
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/popover", "@uitopia/button"],
       "files": [
         {
           "path": "registry/components/popover-with-close.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "popover",
-        "button"
-      ]
+      "categories": ["popover", "button"]
     },
     {
       "name": "preview-card",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/preview-card.tsx",
@@ -3267,27 +2472,19 @@
       "name": "preview-card-demo",
       "description": "Preview card example",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/preview-card",
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/preview-card", "@uitopia/button"],
       "files": [
         {
           "path": "registry/components/preview-card-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "preview card",
-        "button"
-      ]
+      "categories": ["preview card", "button"]
     },
     {
       "name": "progress",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/progress.tsx",
@@ -3299,60 +2496,45 @@
       "name": "progress-demo",
       "description": "Animated progress bar",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/progress"
-      ],
+      "registryDependencies": ["@uitopia/progress"],
       "files": [
         {
           "path": "registry/components/progress-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "progress"
-      ]
+      "categories": ["progress"]
     },
     {
       "name": "progress-with-formatted-value",
       "description": "Progress with a custom formatted value",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/progress"
-      ],
+      "registryDependencies": ["@uitopia/progress"],
       "files": [
         {
           "path": "registry/components/progress-with-formatted-value.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "progress"
-      ]
+      "categories": ["progress"]
     },
     {
       "name": "progress-with-label-value",
       "description": "Progress with label and value",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/progress"
-      ],
+      "registryDependencies": ["@uitopia/progress"],
       "files": [
         {
           "path": "registry/components/progress-with-label-value.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "progress",
-        "label"
-      ]
+      "categories": ["progress", "label"]
     },
     {
       "name": "radio-group",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/radio-group.tsx",
@@ -3364,58 +2546,40 @@
       "name": "radio-group-demo",
       "description": "Basic radio group",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/radio-group",
-        "@uitopia/label"
-      ],
+      "registryDependencies": ["@uitopia/radio-group", "@uitopia/label"],
       "files": [
         {
           "path": "registry/components/radio-group-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "radio",
-        "label"
-      ]
+      "categories": ["radio", "label"]
     },
     {
       "name": "radio-group-card",
       "description": "Card-style radio options",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/radio-group",
-        "@uitopia/label"
-      ],
+      "registryDependencies": ["@uitopia/radio-group", "@uitopia/label"],
       "files": [
         {
           "path": "registry/components/radio-group-card.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "radio",
-        "label"
-      ]
+      "categories": ["radio", "label"]
     },
     {
       "name": "radio-group-disabled",
       "description": "Radio group with one option disabled",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/radio-group",
-        "@uitopia/label"
-      ],
+      "registryDependencies": ["@uitopia/radio-group", "@uitopia/label"],
       "files": [
         {
           "path": "registry/components/radio-group-disabled.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "radio",
-        "label"
-      ]
+      "categories": ["radio", "label"]
     },
     {
       "name": "radio-group-form",
@@ -3434,41 +2598,25 @@
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "radio",
-        "field",
-        "fieldset",
-        "form",
-        "button"
-      ]
+      "categories": ["radio", "field", "fieldset", "form", "button"]
     },
     {
       "name": "radio-group-with-description",
       "description": "Radio options with helper text",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/radio-group",
-        "@uitopia/label"
-      ],
+      "registryDependencies": ["@uitopia/radio-group", "@uitopia/label"],
       "files": [
         {
           "path": "registry/components/radio-group-with-description.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "radio",
-        "label",
-        "helper",
-        "hint"
-      ]
+      "categories": ["radio", "label", "helper", "hint"]
     },
     {
       "name": "scroll-area",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/scroll-area.tsx",
@@ -3480,59 +2628,45 @@
       "name": "scroll-area-demo",
       "description": "Scroll area - vertical",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/scroll-area"
-      ],
+      "registryDependencies": ["@uitopia/scroll-area"],
       "files": [
         {
           "path": "registry/components/scroll-area-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "scroll area"
-      ]
+      "categories": ["scroll area"]
     },
     {
       "name": "scroll-area-horizontal",
       "description": "Scroll area - horizontal",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/scroll-area"
-      ],
+      "registryDependencies": ["@uitopia/scroll-area"],
       "files": [
         {
           "path": "registry/components/scroll-area-horizontal.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "scroll area"
-      ]
+      "categories": ["scroll area"]
     },
     {
       "name": "scroll-area-both",
       "description": "Scroll area - both horizontal and vertical",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/scroll-area"
-      ],
+      "registryDependencies": ["@uitopia/scroll-area"],
       "files": [
         {
           "path": "registry/components/scroll-area-both.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "scroll area"
-      ]
+      "categories": ["scroll area"]
     },
     {
       "name": "select",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/select.tsx",
@@ -3544,121 +2678,92 @@
       "name": "select-demo",
       "description": "A basic select",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/select"
-      ],
+      "registryDependencies": ["@uitopia/select"],
       "files": [
         {
           "path": "registry/components/select-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "select"
-      ]
+      "categories": ["select"]
     },
     {
       "name": "select-sm",
       "description": "A select with small size",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/select"
-      ],
+      "registryDependencies": ["@uitopia/select"],
       "files": [
         {
           "path": "registry/components/select-sm.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "select"
-      ]
+      "categories": ["select"]
     },
     {
       "name": "select-lg",
       "description": "A select with large size",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/select"
-      ],
+      "registryDependencies": ["@uitopia/select"],
       "files": [
         {
           "path": "registry/components/select-lg.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "select"
-      ]
+      "categories": ["select"]
     },
     {
       "name": "select-disabled",
       "description": "A disabled select",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/select"
-      ],
+      "registryDependencies": ["@uitopia/select"],
       "files": [
         {
           "path": "registry/components/select-disabled.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "select",
-        "disabled"
-      ]
+      "categories": ["select", "disabled"]
     },
     {
       "name": "select-without-alignment",
       "description": "Select popup not aligned to trigger",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/select"
-      ],
+      "registryDependencies": ["@uitopia/select"],
       "files": [
         {
           "path": "registry/components/select-without-alignment.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "select"
-      ]
+      "categories": ["select"]
     },
     {
       "name": "select-with-groups",
       "description": "Select items grouped with labels",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/select"
-      ],
+      "registryDependencies": ["@uitopia/select"],
       "files": [
         {
           "path": "registry/components/select-with-groups.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "select"
-      ]
+      "categories": ["select"]
     },
     {
       "name": "select-multiple",
       "description": "Multiple selection with formatted value",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/select"
-      ],
+      "registryDependencies": ["@uitopia/select"],
       "files": [
         {
           "path": "registry/components/select-multiple.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "select"
-      ]
+      "categories": ["select"]
     },
     {
       "name": "select-form",
@@ -3676,20 +2781,12 @@
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "select",
-        "form",
-        "field",
-        "helper",
-        "hint"
-      ]
+      "categories": ["select", "form", "field", "helper", "hint"]
     },
     {
       "name": "separator",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/separator.tsx",
@@ -3701,28 +2798,20 @@
       "name": "separator-demo",
       "description": "Separator with horizontal and vertical orientations",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/separator"
-      ],
+      "registryDependencies": ["@uitopia/separator"],
       "files": [
         {
           "path": "registry/components/separator-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "separator"
-      ]
+      "categories": ["separator"]
     },
     {
       "name": "sheet",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
-      "registryDependencies": [
-        "@uitopia/dialog"
-      ],
+      "dependencies": ["@base-ui-components/react"],
+      "registryDependencies": ["@uitopia/dialog"],
       "files": [
         {
           "path": "registry/ui/sheet.tsx",
@@ -3746,28 +2835,20 @@
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "sheet",
-        "dialog"
-      ]
+      "categories": ["sheet", "dialog"]
     },
     {
       "name": "sheet-position",
       "description": "Sheet position",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/sheet",
-        "@uitopia/button"
-      ],
+      "registryDependencies": ["@uitopia/sheet", "@uitopia/button"],
       "files": [
         {
           "path": "registry/components/sheet-position.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "sheet"
-      ]
+      "categories": ["sheet"]
     },
     {
       "name": "skeleton",
@@ -3806,33 +2887,25 @@
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "skeleton"
-      ]
+      "categories": ["skeleton"]
     },
     {
       "name": "skeleton-only",
       "description": "Skeleton only",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/skeleton"
-      ],
+      "registryDependencies": ["@uitopia/skeleton"],
       "files": [
         {
           "path": "registry/components/skeleton-only.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "skeleton"
-      ]
+      "categories": ["skeleton"]
     },
     {
       "name": "slider",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/slider.tsx",
@@ -3844,73 +2917,53 @@
       "name": "slider-demo",
       "description": "Basic slider",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/slider"
-      ],
+      "registryDependencies": ["@uitopia/slider"],
       "files": [
         {
           "path": "registry/components/slider-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "slider"
-      ]
+      "categories": ["slider"]
     },
     {
       "name": "slider-with-label-value",
       "description": "Slider with label and value",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/slider",
-        "@uitopia/label"
-      ],
+      "registryDependencies": ["@uitopia/slider", "@uitopia/label"],
       "files": [
         {
           "path": "registry/components/slider-with-label-value.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "slider",
-        "label"
-      ]
+      "categories": ["slider", "label"]
     },
     {
       "name": "slider-range",
       "description": "Two-thumb range slider",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/slider"
-      ],
+      "registryDependencies": ["@uitopia/slider"],
       "files": [
         {
           "path": "registry/components/slider-range.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "slider",
-        "range slider"
-      ]
+      "categories": ["slider", "range slider"]
     },
     {
       "name": "slider-vertical",
       "description": "Vertical slider",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/slider"
-      ],
+      "registryDependencies": ["@uitopia/slider"],
       "files": [
         {
           "path": "registry/components/slider-vertical.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "slider",
-        "vertical slider"
-      ]
+      "categories": ["slider", "vertical slider"]
     },
     {
       "name": "slider-form",
@@ -3928,21 +2981,12 @@
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "slider",
-        "form",
-        "field",
-        "button",
-        "helper",
-        "hint"
-      ]
+      "categories": ["slider", "form", "field", "button", "helper", "hint"]
     },
     {
       "name": "switch",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/switch.tsx",
@@ -3954,81 +2998,53 @@
       "name": "switch-demo",
       "description": "Basic switch",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/switch",
-        "@uitopia/label"
-      ],
+      "registryDependencies": ["@uitopia/switch", "@uitopia/label"],
       "files": [
         {
           "path": "registry/components/switch-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "switch",
-        "label"
-      ]
+      "categories": ["switch", "label"]
     },
     {
       "name": "switch-disabled",
       "description": "Disabled switch",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/switch",
-        "@uitopia/label"
-      ],
+      "registryDependencies": ["@uitopia/switch", "@uitopia/label"],
       "files": [
         {
           "path": "registry/components/switch-disabled.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "switch",
-        "label",
-        "disabled"
-      ]
+      "categories": ["switch", "label", "disabled"]
     },
     {
       "name": "switch-with-description",
       "description": "Switch with description",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/switch",
-        "@uitopia/label"
-      ],
+      "registryDependencies": ["@uitopia/switch", "@uitopia/label"],
       "files": [
         {
           "path": "registry/components/switch-with-description.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "switch",
-        "label",
-        "helper",
-        "hint"
-      ]
+      "categories": ["switch", "label", "helper", "hint"]
     },
     {
       "name": "switch-card",
       "description": "Card-style switch",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/switch",
-        "@uitopia/label"
-      ],
+      "registryDependencies": ["@uitopia/switch", "@uitopia/label"],
       "files": [
         {
           "path": "registry/components/switch-card.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "switch",
-        "label",
-        "card"
-      ]
+      "categories": ["switch", "label", "card"]
     },
     {
       "name": "switch-form",
@@ -4046,19 +3062,12 @@
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "switch",
-        "form",
-        "field",
-        "button"
-      ]
+      "categories": ["switch", "form", "field", "button"]
     },
     {
       "name": "table",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/table.tsx",
@@ -4070,20 +3079,14 @@
       "name": "table-demo",
       "description": "Basic table",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/table",
-        "@uitopia/badge"
-      ],
+      "registryDependencies": ["@uitopia/table", "@uitopia/badge"],
       "files": [
         {
           "path": "registry/components/table-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "table",
-        "badge"
-      ]
+      "categories": ["table", "badge"]
     },
     {
       "name": "table-framed",
@@ -4100,18 +3103,12 @@
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "table",
-        "badge",
-        "frame"
-      ]
+      "categories": ["table", "badge", "frame"]
     },
     {
       "name": "tabs",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/tabs.tsx",
@@ -4123,78 +3120,58 @@
       "name": "tabs-demo",
       "description": "Tabs with default indicator",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/tabs"
-      ],
+      "registryDependencies": ["@uitopia/tabs"],
       "files": [
         {
           "path": "registry/components/tabs-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "tabs"
-      ]
+      "categories": ["tabs"]
     },
     {
       "name": "tabs-underline",
       "description": "Tabs with underline indicator",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/tabs"
-      ],
+      "registryDependencies": ["@uitopia/tabs"],
       "files": [
         {
           "path": "registry/components/tabs-underline.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "tabs"
-      ]
+      "categories": ["tabs"]
     },
     {
       "name": "tabs-vertical",
       "description": "Tabs with vertical layout",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/tabs"
-      ],
+      "registryDependencies": ["@uitopia/tabs"],
       "files": [
         {
           "path": "registry/components/tabs-vertical.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "tabs",
-        "vertical tabs"
-      ]
+      "categories": ["tabs", "vertical tabs"]
     },
     {
       "name": "tabs-underline-vertical",
       "description": "Underline tabs with vertical layout",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/tabs"
-      ],
+      "registryDependencies": ["@uitopia/tabs"],
       "files": [
         {
           "path": "registry/components/tabs-underline-vertical.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "tabs",
-        "vertical tabs"
-      ]
+      "categories": ["tabs", "vertical tabs"]
     },
     {
       "name": "textarea",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/textarea.tsx",
@@ -4206,90 +3183,66 @@
       "name": "textarea-demo",
       "description": "Basic textarea",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/textarea"
-      ],
+      "registryDependencies": ["@uitopia/textarea"],
       "files": [
         {
           "path": "registry/components/textarea-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "textarea"
-      ]
+      "categories": ["textarea"]
     },
     {
       "name": "textarea-sm",
       "description": "Small textarea",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/textarea"
-      ],
+      "registryDependencies": ["@uitopia/textarea"],
       "files": [
         {
           "path": "registry/components/textarea-sm.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "textarea"
-      ]
+      "categories": ["textarea"]
     },
     {
       "name": "textarea-lg",
       "description": "Large textarea",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/textarea"
-      ],
+      "registryDependencies": ["@uitopia/textarea"],
       "files": [
         {
           "path": "registry/components/textarea-lg.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "textarea"
-      ]
+      "categories": ["textarea"]
     },
     {
       "name": "textarea-disabled",
       "description": "Disabled textarea",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/textarea"
-      ],
+      "registryDependencies": ["@uitopia/textarea"],
       "files": [
         {
           "path": "registry/components/textarea-disabled.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "textarea",
-        "disabled"
-      ]
+      "categories": ["textarea", "disabled"]
     },
     {
       "name": "textarea-with-label",
       "description": "Textarea labelled with Field",
       "type": "registry:example",
-      "registryDependencies": [
-        "@uitopia/textarea",
-        "@uitopia/label"
-      ],
+      "registryDependencies": ["@uitopia/textarea", "@uitopia/label"],
       "files": [
         {
           "path": "registry/components/textarea-with-label.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "textarea",
-        "field",
-        "label"
-      ]
+      "categories": ["textarea", "field", "label"]
     },
     {
       "name": "textarea-form",
@@ -4307,22 +3260,13 @@
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "textarea",
-        "form",
-        "field",
-        "button"
-      ]
+      "categories": ["textarea", "form", "field", "button"]
     },
     {
       "name": "toast",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
-      "registryDependencies": [
-        "@/button"
-      ],
+      "dependencies": ["@base-ui-components/react"],
+      "registryDependencies": ["@/button"],
       "files": [
         {
           "path": "registry/ui/toast.tsx",
@@ -4334,116 +3278,84 @@
       "name": "toast-demo",
       "description": "Status toast",
       "type": "registry:example",
-      "registryDependencies": [
-        "@/toast"
-      ],
+      "registryDependencies": ["@/toast"],
       "files": [
         {
           "path": "registry/components/toast-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "toast",
-        "button"
-      ]
+      "categories": ["toast", "button"]
     },
     {
       "name": "toast-loading",
       "description": "Loading toast",
       "type": "registry:example",
-      "registryDependencies": [
-        "@/toast"
-      ],
+      "registryDependencies": ["@/toast"],
       "files": [
         {
           "path": "registry/components/toast-loading.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "toast",
-        "button",
-        "loading"
-      ]
+      "categories": ["toast", "button", "loading"]
     },
     {
       "name": "toast-promise",
       "description": "Drive toasts from promise states",
       "type": "registry:example",
-      "registryDependencies": [
-        "@/toast"
-      ],
+      "registryDependencies": ["@/toast"],
       "files": [
         {
           "path": "registry/components/toast-promise.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "toast",
-        "button"
-      ]
+      "categories": ["toast", "button"]
     },
     {
       "name": "toast-with-action",
       "description": "Toast with an action button",
       "type": "registry:example",
-      "registryDependencies": [
-        "@/toast"
-      ],
+      "registryDependencies": ["@/toast"],
       "files": [
         {
           "path": "registry/components/toast-with-action.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "toast",
-        "button"
-      ]
+      "categories": ["toast", "button"]
     },
     {
       "name": "toast-with-status",
       "description": "Success toast",
       "type": "registry:example",
-      "registryDependencies": [
-        "@/toast"
-      ],
+      "registryDependencies": ["@/toast"],
       "files": [
         {
           "path": "registry/components/toast-with-status.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "toast",
-        "button"
-      ]
+      "categories": ["toast", "button"]
     },
     {
       "name": "toast-heights",
       "description": "Toast with varying heights",
       "type": "registry:example",
-      "registryDependencies": [
-        "@/toast"
-      ],
+      "registryDependencies": ["@/toast"],
       "files": [
         {
           "path": "registry/components/toast-heights.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "toast"
-      ]
+      "categories": ["toast"]
     },
     {
       "name": "toggle",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/toggle.tsx",
@@ -4454,13 +3366,8 @@
     {
       "name": "toggle-group",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
-      "registryDependencies": [
-        "@/separator",
-        "@/toggle"
-      ],
+      "dependencies": ["@base-ui-components/react"],
+      "registryDependencies": ["@/separator", "@/toggle"],
       "files": [
         {
           "path": "registry/ui/toggle-group.tsx",
@@ -4472,274 +3379,201 @@
       "name": "toggle-demo",
       "description": "Basic toggle",
       "type": "registry:example",
-      "registryDependencies": [
-        "@/toggle"
-      ],
+      "registryDependencies": ["@/toggle"],
       "files": [
         {
           "path": "registry/components/toggle-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "toggle"
-      ]
+      "categories": ["toggle"]
     },
     {
       "name": "toggle-disabled",
       "description": "Disabled toggle",
       "type": "registry:example",
-      "registryDependencies": [
-        "@/toggle"
-      ],
+      "registryDependencies": ["@/toggle"],
       "files": [
         {
           "path": "registry/components/toggle-disabled.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "toggle",
-        "disabled"
-      ]
+      "categories": ["toggle", "disabled"]
     },
     {
       "name": "toggle-group-demo",
       "description": "Toggle group",
       "type": "registry:example",
-      "registryDependencies": [
-        "@/toggle-group"
-      ],
+      "registryDependencies": ["@/toggle-group"],
       "files": [
         {
           "path": "registry/components/toggle-group-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "toggle group",
-        "toggle"
-      ]
+      "categories": ["toggle group", "toggle"]
     },
     {
       "name": "toggle-group-sm",
       "description": "Toggle group with small toggles",
       "type": "registry:example",
-      "registryDependencies": [
-        "@/toggle-group"
-      ],
+      "registryDependencies": ["@/toggle-group"],
       "files": [
         {
           "path": "registry/components/toggle-group-sm.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "toggle group",
-        "toggle"
-      ]
+      "categories": ["toggle group", "toggle"]
     },
     {
       "name": "toggle-group-lg",
       "description": "Toggle group with large toggles",
       "type": "registry:example",
-      "registryDependencies": [
-        "@/toggle-group"
-      ],
+      "registryDependencies": ["@/toggle-group"],
       "files": [
         {
           "path": "registry/components/toggle-group-lg.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "toggle group",
-        "toggle"
-      ]
+      "categories": ["toggle group", "toggle"]
     },
     {
       "name": "toggle-group-outline",
       "description": "Toggle group with outline toggles",
       "type": "registry:example",
-      "registryDependencies": [
-        "@/toggle-group"
-      ],
+      "registryDependencies": ["@/toggle-group"],
       "files": [
         {
           "path": "registry/components/toggle-group-outline.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "toggle group",
-        "toggle"
-      ]
+      "categories": ["toggle group", "toggle"]
     },
     {
       "name": "toggle-group-outline-with-separator",
       "description": "Toggle group with outline toggles and separator",
       "type": "registry:example",
-      "registryDependencies": [
-        "@/toggle-group"
-      ],
+      "registryDependencies": ["@/toggle-group"],
       "files": [
         {
           "path": "registry/components/toggle-group-outline-with-separator.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "toggle group",
-        "toggle"
-      ]
+      "categories": ["toggle group", "toggle"]
     },
     {
       "name": "toggle-group-disabled",
       "description": "Disabled toggle group",
       "type": "registry:example",
-      "registryDependencies": [
-        "@/toggle-group"
-      ],
+      "registryDependencies": ["@/toggle-group"],
       "files": [
         {
           "path": "registry/components/toggle-group-disabled.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "toggle group",
-        "toggle",
-        "disabled"
-      ]
+      "categories": ["toggle group", "toggle", "disabled"]
     },
     {
       "name": "toggle-group-multiple",
       "description": "Toggle group with multiple selection",
       "type": "registry:example",
-      "registryDependencies": [
-        "@/toggle-group"
-      ],
+      "registryDependencies": ["@/toggle-group"],
       "files": [
         {
           "path": "registry/components/toggle-group-multiple.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "toggle group",
-        "toggle"
-      ]
+      "categories": ["toggle group", "toggle"]
     },
     {
       "name": "toggle-group-with-disabled-item",
       "description": "Toggle group with disabled item",
       "type": "registry:example",
-      "registryDependencies": [
-        "@/toggle-group"
-      ],
+      "registryDependencies": ["@/toggle-group"],
       "files": [
         {
           "path": "registry/components/toggle-group-with-disabled-item.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "toggle group",
-        "toggle",
-        "disabled"
-      ]
+      "categories": ["toggle group", "toggle", "disabled"]
     },
     {
       "name": "toggle-icon-group",
       "description": "Multiple toggles",
       "type": "registry:example",
-      "registryDependencies": [
-        "@/toggle"
-      ],
+      "registryDependencies": ["@/toggle"],
       "files": [
         {
           "path": "registry/components/toggle-icon-group.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "toggle"
-      ]
+      "categories": ["toggle"]
     },
     {
       "name": "toggle-lg",
       "description": "Large toggle",
       "type": "registry:example",
-      "registryDependencies": [
-        "@/toggle"
-      ],
+      "registryDependencies": ["@/toggle"],
       "files": [
         {
           "path": "registry/components/toggle-lg.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "toggle"
-      ]
+      "categories": ["toggle"]
     },
     {
       "name": "toggle-outline",
       "description": "Outline toggle",
       "type": "registry:example",
-      "registryDependencies": [
-        "@/toggle"
-      ],
+      "registryDependencies": ["@/toggle"],
       "files": [
         {
           "path": "registry/components/toggle-outline.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "toggle"
-      ]
+      "categories": ["toggle"]
     },
     {
       "name": "toggle-sm",
       "description": "Small toggle",
       "type": "registry:example",
-      "registryDependencies": [
-        "@/toggle"
-      ],
+      "registryDependencies": ["@/toggle"],
       "files": [
         {
           "path": "registry/components/toggle-sm.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "toggle"
-      ]
+      "categories": ["toggle"]
     },
     {
       "name": "toggle-with-icon",
       "description": "Toggle with icon",
       "type": "registry:example",
-      "registryDependencies": [
-        "@/toggle"
-      ],
+      "registryDependencies": ["@/toggle"],
       "files": [
         {
           "path": "registry/components/toggle-with-icon.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "toggle"
-      ]
+      "categories": ["toggle"]
     },
     {
       "name": "toolbar",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/toolbar.tsx",
@@ -4764,20 +3598,12 @@
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "toolbar",
-        "button",
-        "select",
-        "toggle",
-        "tooltip"
-      ]
+      "categories": ["toolbar", "button", "select", "toggle", "tooltip"]
     },
     {
       "name": "tooltip",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui-components/react"
-      ],
+      "dependencies": ["@base-ui-components/react"],
       "files": [
         {
           "path": "registry/ui/tooltip.tsx",
@@ -4789,40 +3615,27 @@
       "name": "tooltip-demo",
       "description": "Basic tooltip",
       "type": "registry:example",
-      "registryDependencies": [
-        "@/tooltip",
-        "@/button"
-      ],
+      "registryDependencies": ["@/tooltip", "@/button"],
       "files": [
         {
           "path": "registry/components/tooltip-demo.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "tooltip",
-        "button"
-      ]
+      "categories": ["tooltip", "button"]
     },
     {
       "name": "tooltip-grouped",
       "description": "Toggle group with grouped tooltips",
       "type": "registry:example",
-      "registryDependencies": [
-        "@/tooltip",
-        "@/toggle-group"
-      ],
+      "registryDependencies": ["@/tooltip", "@/toggle-group"],
       "files": [
         {
           "path": "registry/components/tooltip-grouped.tsx",
           "type": "registry:example"
         }
       ],
-      "categories": [
-        "tooltip",
-        "toggle group",
-        "toggle"
-      ]
+      "categories": ["tooltip", "toggle group", "toggle"]
     },
     {
       "name": "sidebar",
@@ -4894,9 +3707,7 @@
     {
       "name": "tooltip",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-tooltip"
-      ],
+      "dependencies": ["@radix-ui/react-tooltip"],
       "files": [
         {
           "path": "registry/ui/tooltip.tsx",
@@ -5004,10 +3815,7 @@
     {
       "name": "stack",
       "type": "registry:ui",
-      "dependencies": [
-        "clsx",
-        "tailwind-merge"
-      ],
+      "dependencies": ["clsx", "tailwind-merge"],
       "files": [
         {
           "type": "registry:ui",
@@ -5019,9 +3827,7 @@
     {
       "name": "icons",
       "type": "registry:component",
-      "dependencies": [
-        "lucide-react"
-      ],
+      "dependencies": ["lucide-react"],
       "files": [
         {
           "type": "registry:component",
@@ -5053,10 +3859,7 @@
     {
       "name": "utils",
       "type": "registry:lib",
-      "dependencies": [
-        "clsx",
-        "tailwind-merge"
-      ],
+      "dependencies": ["clsx", "tailwind-merge"],
       "files": [
         {
           "path": "registry/lib/utils.ts",
@@ -5070,12 +3873,7 @@
       "type": "registry:component",
       "title": "Action Search Input",
       "description": "Search input that show command menu when focused.",
-      "dependencies": [
-        "lucide-react",
-        "motion",
-        "react",
-        "usehooks-ts"
-      ],
+      "dependencies": ["lucide-react", "motion", "react", "usehooks-ts"],
       "registryDependencies": [
         "https://uitopia.vercel.app/r/input.json",
         "https://uitopia.vercel.app/r/use-debounce.json"
@@ -5087,26 +3885,15 @@
           "path": "registry/components/action-search-input-demo.tsx"
         }
       ],
-      "categories": [
-        "motion",
-        "react",
-        "tailwindcss"
-      ]
+      "categories": ["motion", "react", "tailwindcss"]
     },
     {
       "name": "family-wallets-demo",
       "type": "registry:component",
       "title": "Family Wallets",
       "description": "An interactive interaction from Family wallets interface featuring smooth layout transitions and animations. Each wallet card can expand to show additional details and controls while collapsing others into a compact view.",
-      "dependencies": [
-        "lucide-react",
-        "motion",
-        "react",
-        "usehooks-ts"
-      ],
-      "registryDependencies": [
-        "https://uitopia.vercel.app/r/icons.json"
-      ],
+      "dependencies": ["lucide-react", "motion", "react", "usehooks-ts"],
+      "registryDependencies": ["https://uitopia.vercel.app/r/icons.json"],
       "files": [
         {
           "type": "registry:component",
@@ -5114,22 +3901,14 @@
           "path": "registry/components/family-wallets-demo.tsx"
         }
       ],
-      "categories": [
-        "motion",
-        "react",
-        "tailwindcss"
-      ]
+      "categories": ["motion", "react", "tailwindcss"]
     },
     {
       "name": "cd-demo",
       "type": "registry:component",
       "title": "Disc",
       "description": "CD demo component.",
-      "dependencies": [
-        "@number-flow/react",
-        "motion",
-        "react"
-      ],
+      "dependencies": ["@number-flow/react", "motion", "react"],
       "files": [
         {
           "type": "registry:component",
@@ -5143,10 +3922,7 @@
       "type": "registry:component",
       "title": "Clip Path",
       "description": "Clip path component.",
-      "dependencies": [
-        "motion",
-        "react"
-      ],
+      "dependencies": ["motion", "react"],
       "files": [
         {
           "type": "registry:component",
@@ -5160,11 +3936,7 @@
       "type": "registry:component",
       "title": "Expandable Tabs",
       "description": "Expandable tabs component.",
-      "dependencies": [
-        "motion",
-        "react",
-        "usehooks-ts"
-      ],
+      "dependencies": ["motion", "react", "usehooks-ts"],
       "files": [
         {
           "type": "registry:component",
@@ -5178,11 +3950,7 @@
       "type": "registry:component",
       "title": "Inline Dropdown",
       "description": "Inline dropdown component.",
-      "dependencies": [
-        "motion",
-        "react",
-        "react-icons"
-      ],
+      "dependencies": ["motion", "react", "react-icons"],
       "files": [
         {
           "type": "registry:component",
@@ -5196,11 +3964,7 @@
       "type": "registry:component",
       "title": "Transaction",
       "description": "Transaction button component.",
-      "dependencies": [
-        "motion",
-        "react",
-        "usehooks-ts"
-      ],
+      "dependencies": ["motion", "react", "usehooks-ts"],
       "files": [
         {
           "type": "registry:component",
@@ -5214,14 +3978,8 @@
       "type": "registry:component",
       "title": "Paper Fold",
       "description": "A paper folding animation.",
-      "dependencies": [
-        "@remixicon/react",
-        "clsx",
-        "tailwind-merge"
-      ],
-      "registryDependencies": [
-        "https://uitopia.vercel.app/r/utils.json"
-      ],
+      "dependencies": ["@remixicon/react", "clsx", "tailwind-merge"],
+      "registryDependencies": ["https://uitopia.vercel.app/r/utils.json"],
       "files": [
         {
           "type": "registry:component",
@@ -5229,20 +3987,14 @@
           "path": "registry/components/paper-fold-demo.tsx"
         }
       ],
-      "categories": [
-        "react",
-        "tailwindcss"
-      ]
+      "categories": ["react", "tailwindcss"]
     },
     {
       "name": "text-loop",
       "type": "registry:component",
       "title": "Text Loop",
       "description": "text loop base",
-      "dependencies": [
-        "motion",
-        "react"
-      ],
+      "dependencies": ["motion", "react"],
       "files": [
         {
           "type": "registry:ui",
@@ -5250,24 +4002,15 @@
           "path": "registry/ui/text-loop.tsx"
         }
       ],
-      "categories": [
-        "motion",
-        "react",
-        "tailwindcss"
-      ]
+      "categories": ["motion", "react", "tailwindcss"]
     },
     {
       "name": "text-loop-demo",
       "type": "registry:component",
       "title": "Text Loop",
       "description": "Text animation that transitions between multiple items, creating an engaging looping effect",
-      "dependencies": [
-        "motion",
-        "react"
-      ],
-      "registryDependencies": [
-        "https://uitopia.vercel.app/r/text-loop.json"
-      ],
+      "dependencies": ["motion", "react"],
+      "registryDependencies": ["https://uitopia.vercel.app/r/text-loop.json"],
       "files": [
         {
           "type": "registry:component",
@@ -5275,21 +4018,14 @@
           "path": "registry/components/text-loop-demo.tsx"
         }
       ],
-      "categories": [
-        "motion",
-        "react",
-        "tailwindcss"
-      ]
+      "categories": ["motion", "react", "tailwindcss"]
     },
     {
       "name": "css-box-demo",
       "type": "registry:component",
       "title": "CSS Box",
       "description": "CSS box component.",
-      "dependencies": [
-        "motion",
-        "react"
-      ],
+      "dependencies": ["motion", "react"],
       "files": [
         {
           "type": "registry:component",
@@ -5297,21 +4033,14 @@
           "path": "registry/components/css-box-demo.tsx"
         }
       ],
-      "categories": [
-        "motion",
-        "react",
-        "tailwindcss"
-      ]
+      "categories": ["motion", "react", "tailwindcss"]
     },
     {
       "name": "text-type",
       "type": "registry:component",
       "title": "Text Type",
       "description": "text type base",
-      "dependencies": [
-        "motion",
-        "react"
-      ],
+      "dependencies": ["motion", "react"],
       "files": [
         {
           "type": "registry:component",
@@ -5319,24 +4048,15 @@
           "path": "registry/ui/text-type.tsx"
         }
       ],
-      "categories": [
-        "motion",
-        "react",
-        "tailwindcss"
-      ]
+      "categories": ["motion", "react", "tailwindcss"]
     },
     {
       "name": "text-type-demo",
       "type": "registry:component",
       "title": "Typewriter",
       "description": "text type",
-      "dependencies": [
-        "motion",
-        "react"
-      ],
-      "registryDependencies": [
-        "https://uitopia.vercel.app/r/text-type.json"
-      ],
+      "dependencies": ["motion", "react"],
+      "registryDependencies": ["https://uitopia.vercel.app/r/text-type.json"],
       "files": [
         {
           "type": "registry:component",
@@ -5344,11 +4064,7 @@
           "path": "registry/components/text-type-demo.tsx"
         }
       ],
-      "categories": [
-        "motion",
-        "react",
-        "tailwindcss"
-      ]
+      "categories": ["motion", "react", "tailwindcss"]
     },
     {
       "name": "login-03",
@@ -5375,9 +4091,7 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "authentication"
-      ]
+      "categories": ["authentication"]
     },
     {
       "name": "login-04",
@@ -5404,9 +4118,7 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "authentication"
-      ]
+      "categories": ["authentication"]
     },
     {
       "name": "login-05",
@@ -5434,9 +4146,7 @@
           "type": "registry:component"
         }
       ],
-      "categories": [
-        "authentication"
-      ]
+      "categories": ["authentication"]
     }
   ]
 }
