@@ -7,6 +7,11 @@ export const geistSans = Geist({
   subsets: ["latin"],
 });
 
+export const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
 export const inter = localFont({
   src: [
     {
@@ -22,11 +27,6 @@ export const inter = localFont({
   ],
   variable: "--font-inter",
   display: "swap",
-});
-
-export const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
 });
 
 export const Redaction = localFont({

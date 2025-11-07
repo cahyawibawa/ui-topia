@@ -1,85 +1,91 @@
-import { readFileSync } from "fs";
 import { ImageResponse } from "next/og";
-import type { NextRequest } from "next/server";
-import { join } from "path";
 import { Icons } from "@/registry/components/icons";
 
-export async function GET(req: NextRequest) {
-  try {
-    const { searchParams } = req.nextUrl;
-    const title = searchParams.get("title");
-    const description = searchParams.get("description");
+async function loadAssets(): Promise<
+  { name: string; data: Buffer; weight: 400 | 600; style: "normal" }[]
+> {
+  const [
+    { base64Font: normal },
+    { base64Font: mono },
+    { base64Font: semibold },
+  ] = await Promise.all([
+    import("./geist-regular-otf.json").then((mod) => mod.default || mod),
+    import("./geistmono-regular-otf.json").then((mod) => mod.default || mod),
+    import("./geist-semibold-otf.json").then((mod) => mod.default || mod),
+  ]);
 
-    const fontPath = join(process.cwd(), "assets", "fonts", "Geist-Medium.otf");
-    const fontData = readFileSync(fontPath);
+  return [
+    {
+      name: "Geist",
+      data: Buffer.from(normal, "base64"),
+      weight: 400 as const,
+      style: "normal" as const,
+    },
+    {
+      name: "Geist Mono",
+      data: Buffer.from(mono, "base64"),
+      weight: 400 as const,
+      style: "normal" as const,
+    },
+    {
+      name: "Geist",
+      data: Buffer.from(semibold, "base64"),
+      weight: 600 as const,
+      style: "normal" as const,
+    },
+  ];
+}
 
-    return new ImageResponse(
-      <div
-        style={{
-          alignItems: "flex-start",
-          background: "white",
-          display: "flex",
-          flexDirection: "column",
-          fontWeight: 500,
-          height: "100%",
-          justifyContent: "center",
-          letterSpacing: "-.02em",
-          width: "100%",
-        }}
-      >
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const title = searchParams.get("title") || "ui/topia";
+  const description =
+    searchParams.get("description") ||
+    (title ? `Learn about the ${title} component.` : "A modern UI library");
+
+  const [fonts] = await Promise.all([loadAssets()]);
+
+  return new ImageResponse(
+    <div
+      tw="flex h-full w-full bg-white text-black"
+      style={{ fontFamily: "Geist Sans" }}
+    >
+      <div tw="flex border absolute border-neutral-200 border-dashed inset-y-0 left-16 w-[1px]" />
+      <div tw="flex border absolute border-neutral-200 border-dashed inset-y-0 right-16 w-[1px]" />
+      <div tw="flex border absolute border-neutral-200 inset-x-0 h-[1px] top-16" />
+      <div tw="flex border absolute border-neutral-200 inset-x-0 h-[1px] bottom-16" />
+      <div tw="flex absolute flex-row bottom-24 right-24">
+        <Icons.logo className="size-40" />
+      </div>
+      <div tw="flex flex-col absolute w-[896px] justify-center inset-32">
         <div
+          tw="tracking-tight flex-grow-1 flex flex-col justify-center leading-[1.1]"
           style={{
-            alignItems: "center",
-            display: "flex",
-            left: 42,
-            position: "absolute",
-            top: 42,
-          }}
-        >
-          <Icons.logo />
-          <span
-            style={{
-              fontSize: 24,
-              marginLeft: 8,
-            }}
-          >
-            ui/topia
-          </span>
-        </div>
-        <div
-          style={{
+            textWrap: "balance",
+            fontWeight: 600,
+            fontSize: 70,
+            letterSpacing: "-0.04em",
             color: "black",
-            display: "flex",
-            flexDirection: "column",
-            fontStyle: "normal",
-            letterSpacing: "-0.05em",
-            lineHeight: 1.5,
-            marginLeft: 42,
-            marginRight: 42,
-            whiteSpace: "pre-wrap",
           }}
         >
-          <div style={{ color: "black", fontSize: 48 }}>{title}</div>
-          <br />
-          <div style={{ color: "gray", fontSize: 36 }}>{description}</div>
+          {title}
         </div>
-      </div>,
-      {
-        fonts: [
-          {
-            data: fontData,
-            name: "Geist",
-            style: "normal",
-          },
-        ],
-        height: 630,
-        width: 1200,
-      },
-    );
-  } catch (error) {
-    console.error("Failed to generate the image:", error);
-    return new Response(`Failed to generate the image: ${error}`, {
-      status: 500,
-    });
-  }
+        <div
+          tw="text-[32px] leading-[1.5] flex-grow-1"
+          style={{
+            fontWeight: 500,
+            textWrap: "balance",
+            color: "#9ca3af",
+          }}
+        >
+          {description}
+        </div>
+      </div>
+    </div>,
+    {
+      width: 1200,
+      height: 628,
+      fonts,
+    },
+  );
 }
