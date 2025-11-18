@@ -31,7 +31,7 @@ export function CodeBlockCommand({
   }, [__npm__, __pnpm__, __yarn__, __bun__]);
 
   return (
-    <div className="not-prose relative overflow-hidden rounded-lg border border-border bg-code-surface">
+    <div className="not-prose relative overflow-hidden rounded-lg border border-muted-foreground/10 bg-code-surface">
       <Tabs
         value={packageManager}
         onValueChange={(value) => {

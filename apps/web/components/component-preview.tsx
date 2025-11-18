@@ -71,7 +71,7 @@ export function ComponentPreview({
         <div
           data-slot="preview"
           data-active={tab === "preview"}
-          className="relative rounded-xl border data-[active=false]:hidden"
+          className="relative rounded-xl border border-muted-foreground/10  data-[active=false]:hidden"
         >
           <div
             data-align={align}
@@ -92,7 +92,7 @@ export function ComponentPreview({
         <div
           data-slot="code"
           data-active={tab === "code"}
-          className="flex h-[350px] min-h-0 flex-col rounded-xl border data-[active=false]:hidden"
+          className="flex h-[350px] min-h-0 flex-col rounded-xl data-[active=false]:hidden"
         >
           {error ? (
             <div className="p-4 text-destructive text-sm">{error}</div>
