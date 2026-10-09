@@ -8,19 +8,19 @@ import { useMediaQuery } from "@/hooks/use-media-query";
 import type { RegistryItem } from "@/lib/registry";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/registry/components/icons";
+import { Button } from "@/registry/ui/button";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/registry/ui/drawer";
 import {
   Sheet,
   SheetContent,
   SheetTitle,
   SheetTrigger,
 } from "@/registry/ui/sheet";
-import { Button } from "@/uitopia/button";
-import {
-  Drawer,
-  DrawerContent,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/uitopia/drawer";
 
 interface CodeViewerProps {
   children: React.ReactNode;
@@ -53,14 +53,16 @@ export function CodeViewer({ component, children }: CodeViewerProps) {
   if (!isDesktop) {
     return (
       <Drawer>
-        <DrawerTrigger asChild>
-          <Button
-            className="h-6 rounded-[6px] border bg-transparent px-2 text-foreground text-xs shadow-none hover:bg-muted dark:text-foreground"
-            size="sm"
-            variant="outline"
-          >
-            View Code
-          </Button>
+        <DrawerTrigger
+          render={
+            <Button
+              className="h-6 rounded-[6px] border bg-transparent px-2 text-foreground text-xs shadow-none hover:bg-muted dark:text-foreground"
+              size="sm"
+              variant="outline"
+            />
+          }
+        >
+          View Code
         </DrawerTrigger>
         <DrawerContent className="flex max-h-[80vh] flex-col sm:max-h-[90vh]">
           <DrawerTitle className="sr-only">Code</DrawerTitle>

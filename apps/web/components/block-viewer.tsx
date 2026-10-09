@@ -14,6 +14,11 @@ import {
 import * as React from "react";
 import type { ImperativePanelHandle } from "react-resizable-panels";
 import { CodeBlock } from "@/components/code-block";
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/resizable";
 import { V0Button } from "@/components/v0-button";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
 import type { RegistryItem } from "@/lib/registry";
@@ -24,6 +29,13 @@ import {
   getFileTarget,
 } from "@/lib/registry";
 import { Icons } from "@/registry/components/icons";
+import { Button } from "@/registry/ui/button";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/registry/ui/collapsible";
+import { Separator } from "@/registry/ui/separator";
 import {
   Sidebar,
   SidebarGroup,
@@ -36,18 +48,6 @@ import {
   SidebarProvider,
 } from "@/registry/ui/sidebar";
 import { Tabs, TabsList, TabsTrigger } from "@/registry/ui/tabs";
-import { Button } from "@/uitopia/button";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/uitopia/collapsible";
-import {
-  ResizableHandle,
-  ResizablePanel,
-  ResizablePanelGroup,
-} from "@/uitopia/resizable";
-import { Separator } from "@/uitopia/separator";
 
 type BlockViewerContext = {
   item: RegistryItem;
@@ -493,19 +493,21 @@ function Tree({ item, index }: { item: FileTree; index: number }) {
         className="group/collapsible [&[data-state=open]>button>svg:first-child]:rotate-90"
         defaultOpen
       >
-        <CollapsibleTrigger asChild>
-          <SidebarMenuButton
-            className="whitespace-nowrap rounded-none pl-[--index] hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground active:bg-accent active:text-accent-foreground data-[active=true]:bg-accent data-[active=true]:text-accent-foreground data-[state=open]:hover:bg-accent data-[state=open]:hover:text-accent-foreground dark:data-[active=true]:bg-zinc-700 dark:data-[active=true]:text-white dark:active:bg-zinc-700 dark:active:text-white dark:focus-visible:bg-zinc-700 dark:focus-visible:text-white dark:hover:bg-zinc-700 dark:hover:text-white dark:data-[state=open]:hover:bg-zinc-700 dark:data-[state=open]:hover:text-white"
-            style={
-              {
-                "--index": `${index * 1.25}rem`,
-              } as React.CSSProperties
-            }
-          >
-            <ChevronRight className="h-4 w-4 transition-transform" />
-            <FolderOpen className="h-4 w-4" />
-            {item.name}
-          </SidebarMenuButton>
+        <CollapsibleTrigger
+          render={
+            <SidebarMenuButton
+              className="whitespace-nowrap rounded-none pl-[--index] hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground active:bg-accent active:text-accent-foreground data-[active=true]:bg-accent data-[active=true]:text-accent-foreground data-[state=open]:hover:bg-accent data-[state=open]:hover:text-accent-foreground dark:data-[active=true]:bg-zinc-700 dark:data-[active=true]:text-white dark:active:bg-zinc-700 dark:active:text-white dark:focus-visible:bg-zinc-700 dark:focus-visible:text-white dark:hover:bg-zinc-700 dark:hover:text-white dark:data-[state=open]:hover:bg-zinc-700 dark:data-[state=open]:hover:text-white"
+              style={
+                {
+                  "--index": `${index * 1.25}rem`,
+                } as React.CSSProperties
+              }
+            />
+          }
+        >
+          <ChevronRight className="h-4 w-4 transition-transform" />
+          <FolderOpen className="h-4 w-4" />
+          {item.name}
         </CollapsibleTrigger>
         <CollapsibleContent>
           <SidebarMenuSub className="m-0 w-full border-none p-0">

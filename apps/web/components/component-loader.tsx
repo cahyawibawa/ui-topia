@@ -2,16 +2,16 @@ import React, { useEffect, useState } from "react";
 import { V0Button } from "@/components/v0-button";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/registry/components/icons";
-import type {
-  ComponentDisplayProps,
-  ComponentLoaderProps,
-} from "@/types/component";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/uitopia/tooltip";
+} from "@/registry/ui/tooltip";
+import type {
+  ComponentDisplayProps,
+  ComponentLoaderProps,
+} from "@/types/component";
 
 export function ComponentLoader({
   name,

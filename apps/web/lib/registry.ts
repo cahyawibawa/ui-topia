@@ -24,7 +24,6 @@ const PATH_MAPPINGS = {
   "@/registry/hooks": "@/hooks",
   "@/registry/lib": "@/lib",
   "@/registry/ui": "@/components/ui",
-  "@/uitopia/": "@/components/ui/",
 } as const;
 
 export interface FileTree {

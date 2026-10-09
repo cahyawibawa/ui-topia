@@ -1,16 +1,15 @@
 import Link from "next/link";
 import { BlocksNav } from "@/components/blocks-nav";
-import { createMetadata } from "@/lib/metadata";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/registry/ui/button";
-import registry from "@/registry.json" with { type: "json" };
-
 import {
   PageActions,
   PageHeader,
   PageHeaderDescription,
   PageHeaderHeading,
-} from "@/uitopia/page-header";
+} from "@/components/page-header";
+import { createMetadata } from "@/lib/metadata";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/registry/ui/button";
+import registry from "@/registry.json" with { type: "json" };
 
 export const metadata = createMetadata({
   description:

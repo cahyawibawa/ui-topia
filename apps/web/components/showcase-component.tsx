@@ -6,7 +6,7 @@ import { ComponentLoader } from "@/components/component-loader";
 import type { RegistryItem } from "@/lib/registry";
 import { convertRegistryPaths, getComponentsByName } from "@/lib/registry";
 import { cn } from "@/lib/utils";
-import { Badge } from "@/uitopia/badge";
+import { Badge } from "@/registry/ui/badge";
 import { CodeViewer } from "./showcase-code-viewer";
 
 interface ShowcaseComponentProps {
