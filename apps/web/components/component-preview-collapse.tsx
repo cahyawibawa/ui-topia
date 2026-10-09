@@ -7,12 +7,12 @@ import type { RegistryItem } from "@/lib/registry";
 import { convertRegistryPaths, getComponentsByName } from "@/lib/registry";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/registry/components/icons";
-import type { ComponentPreviewProps } from "@/types/component";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/uitopia/collapsible";
+} from "@/registry/ui/collapsible";
+import type { ComponentPreviewProps } from "@/types/component";
 
 export function ComponentCollapse({
   name,
@@ -65,16 +65,17 @@ export function ComponentCollapse({
             showV0Button={false}
           />
         </div>
-        <CollapsibleTrigger asChild>
-          <div className="flex cursor-pointer items-center gap-2 rounded-b-md border-t bg-secondary px-4 py-2 text-muted-foreground text-sm hover:text-foreground">
-            <Icons.chevronDown
-              className={cn(
-                "h-4 w-4 transition-transform duration-200",
-                isOpen && "rotate-180",
-              )}
-            />
-            {isOpen ? "Hide" : "Show"} code
-          </div>
+        <CollapsibleTrigger
+          className="flex cursor-pointer items-center gap-2 rounded-b-md border-t bg-secondary px-4 py-2 text-muted-foreground text-sm hover:text-foreground"
+          render={<div />}
+        >
+          <Icons.chevronDown
+            className={cn(
+              "h-4 w-4 transition-transform duration-200",
+              isOpen && "rotate-180",
+            )}
+          />
+          {isOpen ? "Hide" : "Show"} code
         </CollapsibleTrigger>
       </div>
       <CollapsibleContent>

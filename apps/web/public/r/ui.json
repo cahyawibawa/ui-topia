@@ -17,6 +17,7 @@
     "@uitopia/collapsible",
     "@uitopia/combobox",
     "@uitopia/dialog",
+    "@uitopia/drawer",
     "@uitopia/empty",
     "@uitopia/field",
     "@uitopia/fieldset",

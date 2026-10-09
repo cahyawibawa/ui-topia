@@ -15,7 +15,7 @@ This is a **monorepo** powered by:
 - **[bun](https://bun.sh/)** for development.  
 - **[Turborepo](https://turbo.build/repo)** for efficient builds.
 
-We use a **registry system** for organizing and exporting components. The source code for components is located in `packages/ui/registry/index.ts`, and they are categorized by type. All components are **ESM-only** and distributed via the registry.
+We use a **registry system** for organizing and exporting components. The source code for distributable components is located in `apps/web/registry`, categorized by type and declared in `apps/web/registry.json`. All components are **ESM-only** and distributed via the registry.
 
 
 ## Structure
@@ -29,13 +29,11 @@ apps
     ├── components
     ├── content
         └── docs
-
-packages
-└── ui
-    ├── src
-    ├── components
     ├── registry
-        └── index.ts
+        ├── ui
+        ├── hooks
+        ├── lib
+        └── blocks
 
 ```
 
@@ -45,7 +43,6 @@ packages
 | `apps/web/app`        | The Next.js application for the website. |
 | `apps/web/content/docs`    | The content for the website.             |
 | `apps/web/registry` |  ui component distribution via shadcn registry.json    |
-| `packages/ui`   | Shared UI components package.         |
 
 ## Development
 

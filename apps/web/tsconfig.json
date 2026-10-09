@@ -3,8 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
-      "@/uitopia/*": ["../../packages/ui/src/components/*"]
+      "@/*": ["./*"]
     },
     "plugins": [
       {

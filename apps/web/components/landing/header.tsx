@@ -1,3 +1,5 @@
+import { WordTiles } from "./word-tiles/word-tiles";
+
 export const Header = () => {
   return (
     <header className="header">
@@ -88,9 +90,10 @@ export const Header = () => {
               uitopia
             </a>
           </div>
-          <p className="mt-2 font-sans text-sm">
-            Small laboratory for experimental blocks and distinctive components.
-          </p>
+          <WordTiles
+            className="mt-2"
+            words={["design", "is", "how", "it", "works"]}
+          />
           <div className="mt-4 flex flex-row gap-2">
             <a
               href="/docs/ui"

@@ -3,13 +3,13 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
+import { Button } from "@/registry/ui/button";
 import {
   Collapsible,
   CollapsiblePanel,
   CollapsibleTrigger,
 } from "@/registry/ui/collapsible";
 import { Separator } from "@/registry/ui/separator";
-import { Button } from "@/uitopia/button";
 
 export function CodeCollapsibleWrapper({
   className,

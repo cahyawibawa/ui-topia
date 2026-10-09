@@ -21,6 +21,7 @@
         "@uitopia/collapsible",
         "@uitopia/combobox",
         "@uitopia/dialog",
+        "@uitopia/drawer",
         "@uitopia/empty",
         "@uitopia/field",
         "@uitopia/fieldset",
@@ -2820,6 +2821,18 @@
       ]
     },
     {
+      "name": "drawer",
+      "type": "registry:ui",
+      "dependencies": ["@base-ui-components/react"],
+      "registryDependencies": ["@uitopia/dialog"],
+      "files": [
+        {
+          "path": "registry/ui/drawer.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "sheet-demo",
       "description": "Basic sheet",
       "type": "registry:example",
@@ -3641,7 +3654,7 @@
       "name": "sidebar",
       "type": "registry:ui",
       "dependencies": [
-        "@radix-ui/react-slot",
+        "@base-ui-components/react",
         "class-variance-authority",
         "lucide-react"
       ],
