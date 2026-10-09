@@ -33,7 +33,7 @@
     "jotai": "^2.11.0",
     "lucide-react": "^0.548.0",
     "motion": "^11.14.4",
-    "next": "16",
+    "next": "16.4.0",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "react-icons": "^5.5.0",
@@ -49,7 +49,7 @@
     "zod": "^4.1.12"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^15.1.4",
+    "@next/bundle-analyzer": "16.4.0",
     "@tailwindcss/postcss": "^4.0.3",
     "@types/mdx": "^2.0.13",
     "@types/node": "^22.10.5",
