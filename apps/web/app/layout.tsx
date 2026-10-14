@@ -1,7 +1,7 @@
 import { Analytics } from "@vercel/analytics/react";
-import { RootProvider } from "fumadocs-ui/provider/next";
 import type { Viewport } from "next";
 import Script from "next/script";
+import { Providers } from "@/components/providers";
 import { fontVariables } from "@/lib/fonts";
 import { createMetadata } from "@/lib/metadata";
 import { ToastProvider } from "@/registry/ui/toast";
@@ -34,23 +34,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
         )}
       </head>
       <body className="min-h-svh bg-background font-sans antialiased">
-        <RootProvider
-          search={{
-            hotKey: [
-              {
-                display: "/",
-                key: "/",
-              },
-            ],
-          }}
-        >
+        <Providers>
           <ToastProvider>
             <div className="relative flex min-h-svh flex-col bg-background">
               {children}
             </div>
             <Analytics />
           </ToastProvider>
-        </RootProvider>
+        </Providers>
       </body>
     </html>
   );

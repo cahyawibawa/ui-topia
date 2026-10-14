@@ -1,14 +1,3 @@
-import { createGenerator } from "fumadocs-typescript";
-import { AutoTypeTable } from "fumadocs-typescript/ui";
-import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
-import { Callout } from "fumadocs-ui/components/callout";
-import { Card, Cards } from "fumadocs-ui/components/card";
-import { CodeBlock, Pre } from "fumadocs-ui/components/codeblock";
-import { File, Files, Folder } from "fumadocs-ui/components/files";
-import { ImageZoom } from "fumadocs-ui/components/image-zoom";
-import { Step, Steps } from "fumadocs-ui/components/steps";
-import { TypeTable } from "fumadocs-ui/components/type-table";
-import defaultComponents from "fumadocs-ui/mdx";
 import type { MDXComponents } from "mdx/types";
 import ComponentCli from "@/components/cli-commands";
 import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper";
@@ -16,38 +5,18 @@ import { CodeTabs } from "@/components/code-tabs";
 import { ComponentPreview } from "@/components/component-preview";
 import { ComponentCollapse } from "@/components/component-preview-collapse";
 import { ComponentSource } from "@/components/component-source";
+import { Callout, DocsPre, Step, Steps } from "@/components/docs/mdx";
 import { InstallCommand } from "@/components/install-command";
 import { cn } from "@/lib/utils";
 import { getIconForLanguageExtension } from "@/registry/components/icons";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/registry/ui/tabs";
 
-const generator = createGenerator();
-
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
   return {
-    ...defaultComponents,
-    Accordion,
-    Accordions,
     CodeCollapsibleWrapper,
-    AutoTypeTable: (props) => (
-      <AutoTypeTable generator={generator} {...props} />
-    ),
-    // InstallTabs: ({
-    //   items,
-    //   children,
-    // }: {
-    //   items: string[];
-    //   children: ReactNode;
-    // }) => (
-    //   <Tabs items={items} id="package-manager">
-    //     {children}
-    //   </Tabs>
-    // ),
     blockquote: (props) => <Callout>{props.children}</Callout>,
 
     Callout,
-    Card,
-    Cards,
     ComponentCli,
     CodeTabs,
     InstallCommand,
@@ -72,15 +41,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     >) => {
       return <ComponentSource name={name} title={title} {...props} />;
     },
-    File,
-    Files,
-    Folder,
-    ImageZoom,
-    pre: ({ ref: _ref, ...props }) => (
-      <CodeBlock {...props}>
-        <Pre>{props.children}</Pre>
-      </CodeBlock>
-    ),
+    pre: DocsPre,
     figure: ({ className, ...props }: React.ComponentProps<"figure">) => (
       <figure className={className} {...props} />
     ),
@@ -134,7 +95,6 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
       // Default codeblock.
       return <code {...props} />;
     },
-    TypeTable,
     ...components,
     Tabs: ({ className, ...props }: React.ComponentProps<typeof Tabs>) => {
       return <Tabs className={cn(className)} {...props} />;

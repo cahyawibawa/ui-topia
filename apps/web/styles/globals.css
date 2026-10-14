@@ -1,11 +1,7 @@
 @import "tailwindcss";
-@import "fumadocs-ui/css/neutral.css";
-@import "fumadocs-ui/css/preset.css";
-@import "fumadocs-twoslash/twoslash.css";
 
 @custom-variant dark (&:is(.dark *));
 
-@source '../../../node_modules/fumadocs-ui/dist/**/*.js';
 @source '../../../node_modules/@ui/topia/dist/**/*.js';
 
 @plugin 'tailwindcss-animate';
@@ -58,9 +54,6 @@
   --color-code: var(--code);
   --color-code-foreground: var(--code-foreground);
   --color-code-highlight: var(--code-highlight);
-
-  --color-fd-card: var(--fd-card);
-  --color-fd-background: var(--background);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -149,7 +142,6 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
   --nav-height: 57px !important;
-  --fd-layout-width: 1400px;
   --sidebar-width: 16rem;
   --sidebar-width-icon: 3rem;
   --code: oklch(1 0 0);
@@ -316,56 +308,8 @@
   }
 }
 
-/* Fix Fumadocs theme toggle icons */
-[data-theme-toggle] svg {
-  @apply fill-none;
-}
-
-/* Remove borders from sidebar and nav */
-#nd-sidebar,
-#nd-subnav > div,
-#nd-tocnav {
-  @apply border-none;
-}
-
-/* Sidebar separator styling */
-#nd-sidebar p.inline-flex {
-  @apply font-medium;
-}
-
-article {
-  max-width: 1120px;
-  padding-left: 28px;
-  font-family:
-    var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
+.docs-article {
   font-feature-settings: "cv11";
-
-  h1 {
-    font-weight: 600;
-    font-size: 24px;
-    line-height: normal;
-    letter-spacing: -0.24px;
-    font-family: var(--font-sans);
-    font-feature-settings: "cv11" 1;
-    margin-bottom: 48px;
-    color: var(--color-foreground);
-  }
-
-  h2 {
-    font-size: 20px;
-    font-family: var(--font-sans);
-    font-weight: 600;
-    line-height: 22.67px;
-    letter-spacing: -0.33px;
-    color: var(--color-foreground);
-  }
-
-  p {
-    line-height: 24px;
-    letter-spacing: -0.24px;
-    color: var(--color-fd-foreground);
-  }
 }
 
 @layer utilities {
@@ -426,7 +370,7 @@ article {
   position: relative;
 
   &:has([data-rehype-pretty-code-title]) [data-slot="copy-button"] {
-    top: calc(var(--spacing) * 1.5) !important;
+    top: calc(var(--spacing) * 1) !important;
   }
 
   :where(*[data-tab="code"]) & {
@@ -444,11 +388,14 @@ article {
 }
 
 [data-rehype-pretty-code-title] {
-  min-height: calc(var(--spacing) * 8);
+  display: flex;
+  align-items: center;
+  height: calc(var(--spacing) * 10);
   border-bottom: --alpha(var(--border) / 64%);
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  padding-block: calc(var(--spacing) * 1.75);
+  padding-block: 0;
+  padding-right: calc(var(--spacing) * 12);
   padding-inline: calc(var(--spacing) * 4);
   font-family: var(--font-mono);
   color: var(--color-code-foreground);
@@ -574,15 +521,114 @@ article {
   }
 }
 
-/* Step spacing */
-.fd-steps > div:not(:first-child) {
-  margin-top: 1.5rem;
+/* Docs prose — small, quiet body copy; emphasis carries the hierarchy. */
+.docs-prose {
+  color: var(--muted-foreground);
+  font-size: 14px;
+  line-height: 1.8;
+  text-wrap: pretty;
 }
 
-/* Remove border from native code blocks (Usage section) */
+.docs-prose > :first-child {
+  margin-top: 0;
+}
 
-/* Override Fumadocs code block background - keep border */
-.prose figure.bg-fd-card {
-  background-color: transparent !important;
-  box-shadow: none !important;
+.docs-prose h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: normal;
+  color: var(--foreground);
+  scroll-margin-top: 5rem;
+}
+
+.docs-prose h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--foreground);
+  scroll-margin-top: 5rem;
+}
+
+.docs-prose p,
+.docs-prose ul,
+.docs-prose ol {
+  margin-block: 1rem;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: normal;
+  color: inherit;
+}
+
+.docs-prose ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.docs-prose ol {
+  list-style: decimal;
+  padding-left: 1.25rem;
+}
+
+.docs-prose li + li {
+  margin-top: 0.5rem;
+}
+
+.docs-prose strong {
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.docs-prose a:not([data-slot]) {
+  margin-inline: -0.25rem;
+  border-radius: var(--radius-sm);
+  padding: 0.1875rem 0.25rem;
+  color: var(--foreground);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--foreground) 20%, transparent);
+  text-underline-offset: 4px;
+  transition-property: color, background-color, text-decoration-color;
+  transition-duration: 150ms;
+}
+
+.docs-prose a:not([data-slot]):hover {
+  background-color: var(--accent);
+  text-decoration-color: transparent;
+}
+
+.docs-prose hr {
+  margin-block: 2.5rem;
+  border-color: var(--border);
+}
+
+.docs-prose :not(pre) > code {
+  margin-inline: 0.1875rem;
+  border-radius: 3px;
+  background-color: color-mix(in oklab, var(--foreground) 7%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--foreground) 8%, transparent);
+  padding: 0.125rem 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+  color: var(--foreground);
+}
+
+.docs-prose table {
+  margin-block: 1.5rem;
+  width: 100%;
+  font-size: 0.8125rem;
+}
+
+.docs-prose th,
+.docs-prose td {
+  border-bottom: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.docs-prose th {
+  font-weight: 500;
+  color: var(--foreground);
 }
