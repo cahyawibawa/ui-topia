@@ -1,4 +1,4 @@
-import { type BundledLanguage, codeToHast } from "shiki";
+import { bundledLanguages, codeToHast } from "shiki";
 
 type HastNode = {
   type: string;
@@ -24,7 +24,7 @@ function classesOf(node: HastNode): string[] {
 
 function languageFrom(node: HastNode) {
   const match = classesOf(node).find((name) => name.startsWith("language-"));
-  return match?.slice("language-".length) as BundledLanguage | undefined;
+  return match?.slice("language-".length);
 }
 
 function titleFrom(meta?: string) {
@@ -61,7 +61,11 @@ export function rehypeSyntaxHighlight() {
       const code = node.children?.[0];
 
       if (node.tagName === "pre" && code?.tagName === "code") {
-        const lang = languageFrom(code) ?? ("text" as BundledLanguage);
+        const requestedLang = languageFrom(code);
+        const lang =
+          requestedLang && Object.hasOwn(bundledLanguages, requestedLang)
+            ? requestedLang
+            : "text";
         const source = textContent(code).replace(/\n$/, "");
         const pre = await highlight(source, lang);
 

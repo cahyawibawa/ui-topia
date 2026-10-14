@@ -51,7 +51,7 @@ function sectionOf(doc: Doc) {
 
 export function getDoc(slug: string[]) {
   const url = ["/docs", ...slug].join("/");
-  return allDocs.find((doc) => doc.url === url);
+  return allDocs.find((doc) => doc.status !== "draft" && doc.url === url);
 }
 
 export function getGroups() {
