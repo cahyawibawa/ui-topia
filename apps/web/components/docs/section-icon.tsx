@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 const icons = {
   "getting-started": { icon: BookOpen, color: "text-orange-500" },
   components: { icon: Blocks, color: "text-blue-500" },
-  notes: { icon: NotebookPen, color: "text-rose-500" },
+  vault: { icon: NotebookPen, color: "text-rose-500" },
   ui: { icon: SquareAsterisk, color: "text-foreground" },
   motion: { icon: SquareM, color: "text-violet-500" },
 } as const;

@@ -21,8 +21,8 @@ const GROUPS: DocGroup[] = [
     description: "A collection of Motion animations.",
   },
   {
-    id: "notes",
-    title: "Notes",
+    id: "vault",
+    title: "Vault",
     description: "Learning in public: notes on building components.",
   },
 ];
@@ -41,7 +41,7 @@ function compare(a: Doc, b: Doc) {
 
 function sectionOf(doc: Doc) {
   if (doc.slug.includes("components")) return "Components";
-  return doc.group === "notes" ? "Notes" : "Getting Started";
+  return doc.group === "vault" ? "Vault" : "Getting Started";
 }
 
 /** Everything except drafts: nav, sitemap and static params read this. */
