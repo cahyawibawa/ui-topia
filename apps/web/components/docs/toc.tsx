@@ -14,8 +14,18 @@ export function Toc({ items }: { items: TocItem[] }) {
       .filter((el): el is HTMLElement => el !== null);
     if (elements.length === 0) return;
 
+    // The last heading may never reach the observed band on short pages.
+    const atBottom = () =>
+      window.innerHeight + window.scrollY >=
+      document.documentElement.scrollHeight - 2;
+    const last = elements.at(-1);
+
     const observer = new IntersectionObserver(
       (entries) => {
+        if (atBottom() && last) {
+          setActive(last.id);
+          return;
+        }
         const visible = entries.find((entry) => entry.isIntersecting);
         if (visible) setActive(visible.target.id);
       },
@@ -23,14 +33,10 @@ export function Toc({ items }: { items: TocItem[] }) {
     );
     for (const el of elements) observer.observe(el);
 
-    // The last heading may never reach the observed band on short pages.
     const onScroll = () => {
-      const atBottom =
-        window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight - 2;
-      const last = elements.at(-1);
-      if (atBottom && last) setActive(last.id);
+      if (atBottom() && last) setActive(last.id);
     };
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       observer.disconnect();

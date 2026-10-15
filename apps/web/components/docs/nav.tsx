@@ -22,7 +22,13 @@ function useActiveGroup(groups: NavGroup[]) {
   return { pathname, group: groups.find((g) => g.id === id) ?? groups[0] };
 }
 
-export function GroupTabs({ groups }: { groups: NavGroup[] }) {
+export function GroupTabs({
+  groups,
+  onNavigate,
+}: {
+  groups: NavGroup[];
+  onNavigate?: () => void;
+}) {
   const { group } = useActiveGroup(groups);
 
   return (
@@ -33,6 +39,7 @@ export function GroupTabs({ groups }: { groups: NavGroup[] }) {
           className="flex items-center gap-1.5 rounded-lg px-2 py-1 text-muted-foreground text-sm transition-colors hover:text-foreground aria-[current=true]:bg-accent aria-[current=true]:text-foreground"
           href={item.href}
           key={item.id}
+          onClick={onNavigate}
         >
           {item.title}
         </Link>

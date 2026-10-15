@@ -25,18 +25,18 @@ export function DocsSearch({ items }: { items: SearchItem[] }) {
         (event.key === "/" && !typing)
       ) {
         event.preventDefault();
-        setOpen((value) => {
-          if (value) {
-            setQuery("");
-            setActive(0);
-          }
-          return !value;
-        });
+        if (open) {
+          setOpen(false);
+          setQuery("");
+          setActive(0);
+        } else {
+          setOpen(true);
+        }
       }
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, []);
+  }, [open]);
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase();

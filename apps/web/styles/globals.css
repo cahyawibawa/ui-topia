@@ -564,7 +564,11 @@
 }
 
 .docs-prose [data-slot="callout"] > p {
-  margin: 0;
+  margin-block: 0;
+}
+
+.docs-prose [data-slot="callout"] > p + p {
+  margin-top: 0.75rem;
 }
 
 .docs-prose ul {

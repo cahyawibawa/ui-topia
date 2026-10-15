@@ -53,7 +53,9 @@ export function getDoc(slug: string[]) {
 }
 
 export function getGroups() {
-  return GROUPS.filter((group) => allDocs.some((d) => d.group === group.id));
+  return GROUPS.filter((group) =>
+    publishedDocs.some((d) => d.group === group.id),
+  );
 }
 
 export function getGroup(id: string) {

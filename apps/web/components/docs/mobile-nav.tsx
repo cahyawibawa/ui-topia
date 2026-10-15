@@ -31,7 +31,7 @@ export function MobileNav({ groups }: { groups: NavGroup[] }) {
       <SheetPopup side="left">
         <SheetTitle className="sr-only">Navigation</SheetTitle>
         <div className="p-4 pb-0">
-          <GroupTabs groups={groups} />
+          <GroupTabs groups={groups} onNavigate={() => setOpen(false)} />
         </div>
         <SidebarNav
           className="overflow-y-auto p-4"
