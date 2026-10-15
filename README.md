@@ -19,7 +19,7 @@ Check out our [Contributing Guide](/CONTRIBUTING.md) for details—it’s a simp
 
 - **`apps/web/`** - Main website
 - **`apps/web/registry`** - ui component distribution via shadcn registry.json
-- **`apps/web/content`** - content documentation via fumadocs
+- **`apps/web/content`** - documentation (content-collections + MDX)
 - **`packages/tsconfig/`** - TypeScript configurations
 
 

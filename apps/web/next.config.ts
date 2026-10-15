@@ -1,5 +1,5 @@
+import { withContentCollections } from "@content-collections/next";
 import createBundleAnalyzer from "@next/bundle-analyzer";
-import { createMDX } from "fumadocs-mdx/next";
 import type { NextConfig } from "next";
 
 const withAnalyzer = createBundleAnalyzer({
@@ -12,8 +12,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-const withMDX = createMDX({
-  configPath: "./source.config.ts",
-});
-
-export default withMDX(nextConfig as any);
+export default withContentCollections(withAnalyzer(nextConfig as any) as any);

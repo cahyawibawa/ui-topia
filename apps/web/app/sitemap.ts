@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { source } from "@/lib/source";
+import { publishedDocs } from "@/lib/docs";
 
 export const revalidate = false;
 
@@ -18,13 +18,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
       url: url("/docs"),
     },
-    ...source.getPages().map<MetadataRoute.Sitemap[number]>((page) => ({
+    ...publishedDocs.map<MetadataRoute.Sitemap[number]>((doc) => ({
       changeFrequency: "weekly",
-      lastModified: page.data.lastModified
-        ? new Date(page.data.lastModified)
-        : undefined,
       priority: 0.5,
-      url: url(page.url),
+      url: url(doc.url),
     })),
   ];
 }

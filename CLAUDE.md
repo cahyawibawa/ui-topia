@@ -4,12 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-UI/TOPIA — a curated component library built on **Base UI** (`@base-ui-components/react`) and **Motion**, distributed via a **shadcn registry** (`registry.json`, custom namespace `@uitopia`). The `apps/web` site (Next.js) both hosts the docs (Fumadocs) and serves as the registry source/distribution point at `/r/{name}.json`.
+UI/TOPIA — a curated component library built on **Base UI** (`@base-ui-components/react`) and **Motion**, distributed via a **shadcn registry** (`registry.json`, custom namespace `@uitopia`). The `apps/web` site (Next.js) both hosts the docs (custom content-collections stack) and serves as the registry source/distribution point at `/r/{name}.json`.
 
 ## Monorepo layout
 
 - Turborepo + Bun workspaces (`bun@1.2.12`), workspaces: `apps/*`, `packages/*`.
-- `apps/web/` — Next.js 16 app: marketing site, docs (Fumadocs, MDX in `apps/web/content/docs`), and the **registry source of truth** in `apps/web/registry/{ui,hooks,lib,blocks,components}`.
+- `apps/web/` — Next.js 16 app: marketing site, docs (custom, content-collections + MDX in `apps/web/content/docs`), and the **registry source of truth** in `apps/web/registry/{ui,hooks,lib,blocks,components}`.
 - `apps/web/registry.json` — shadcn registry manifest; every distributable item (component, hook, lib util, block, example) is declared here with its `type` (`registry:ui`, `registry:hook`, `registry:lib`, `registry:example`, `registry:block`) and `files` paths. Building it (`registry:build` → `shadcn build`) emits the public JSON files (`apps/web/public/r/*.json`, git-tracked) consumed by `bun x shadcn add`.
 - `apps/web/registry/{ui,hooks,lib,blocks,components}` is the **only** component source in this repo — there is no separate installable npm package, and no separate internal component set. The site's own marketing/showcase UI (landing page, block viewer, etc.) imports directly from `apps/web/registry/ui/*` (via `@/registry/ui/*`), same as anything shipped through the registry. Every component is Base UI-based (`@base-ui-components/react/*`) — don't reach for Radix primitives. Consumption from any other project is via `bun x`/`npx shadcn add @uitopia/<name>` (or `shadcn init`), resolved against `https://uitopia.vercel.app/r/{name}.json` per the `registries` config in `apps/web/components.json` (the repo's only `components.json`).
 - `packages/tsconfig/` — shared `tsconfig` bases (`base.json`, `nextjs.json`, `react-library.json`) consumed via `@uitopia/tsconfig`.
@@ -30,7 +30,7 @@ bun run check            # biome check --fix .
 Inside `apps/web/`:
 ```bash
 next dev --turbo         # dev server
-next build                # build (also runs fumadocs-mdx via postinstall)
+next build                # build (content-collections generates .content-collections/ automatically)
 ANALYZE=true next build   # bundle analyzer
 bun x shadcn build        # rebuild registry.json's public JSON output (registry:build script)
 bun x shadcn add <name>   # pull a registry component into a consuming project
@@ -47,17 +47,22 @@ This is the most common task in this repo. Follow `CONTRIBUTING.md`'s process:
 1. Component source goes in `apps/web/registry/ui/<name>.tsx` (or `registry/hooks`, `registry/lib`, `registry/blocks/<block-name>/` as appropriate). Components use Base UI primitives (`@base-ui-components/react/*`) + `class-variance-authority` for variants + `cn` from `@/lib/utils` — follow the pattern in `apps/web/registry/ui/button.tsx`.
 2. Register it as an item in `apps/web/registry.json` with the correct `type` and `files[].path`/`type`, and add it to any relevant `registryDependencies` arrays (e.g. the umbrella `"ui"` item) and `categories`.
 3. Add usage examples as separate `registry:example` items when relevant (source files typically live alongside demos, e.g. `registry/components/<name>-demo.tsx`), default-exported.
-4. Write docs as MDX under `apps/web/content/docs/ui/components/<name>.mdx` (or `content/docs/motion/components/` for motion-focused docs), and update the section's `meta.json` if adding a new nav entry.
+4. Write docs as MDX under `apps/web/content/docs/ui/components/<name>.mdx` (or `apps/web/content/docs/motion/components/` for motion-focused docs). Nav is derived from the folder; no `meta.json` to update.
 5. Run `bun x shadcn build` (or `bun run registry:build` in `apps/web`) to regenerate the public registry JSON under `apps/web/public/r/`.
 
 Commit messages follow conventional-commit-style categories (`feat`, `fix`, `refactor`, `docs`, `build`, `test`, `ci`, `chore`), e.g. `feat(components): add new button component`.
 
-## Docs architecture (Fumadocs)
+## Docs architecture (content-collections)
 
-- `apps/web/source.config.ts` defines the MDX doc collection (`defineDocs`, dir `content/docs`) with an extended frontmatter schema (`preview`, `index`, `method`, `links.doc`/`links.api`) and a meta schema with `description`. Custom rehype/remark pipeline: Shiki-based code highlighting with `transformerTwoslash`, `remark-install` (persisted package-manager tabs), and `remarkDocGen`/`fileGenerator` for generated code snippets.
-- Two doc sections exist under `content/docs`: `ui/` (component docs) and `motion/` (Motion-based animation docs), each with their own `meta.json` nav config.
-- Routing: `apps/web/app/docs/[[...slug]]/` renders MDX content; `apps/web/app/(home)` is the marketing/landing page; `apps/web/app/blocks/preview` renders standalone block previews (used for `apps/web/registry/blocks/*` such as `login-03/04/05`).
-- `apps/web/app/api/search/route.ts` powers docs search; `apps/web/app/api/og/route.tsx` generates OG images (uses embedded Geist font JSON files in the same directory).
+Docs are a custom, Craft-style stack — no docs framework.
+
+- `apps/web/content-collections.ts` defines one `docs` collection over `content/docs/**/*.mdx` (frontmatter: `title`, `description`, `links.doc`, `links.api`, `order`, `publishedAt`, `status`). It compiles MDX with `rehype-slug` + `lib/rehype-syntax-highlight.ts` (shiki, dual themes, fence `title="..."`) and derives `slug`, `url`, `group` (first folder), `toc`, `raw`. Output is generated to `.content-collections/` (gitignored, imported as `content-collections`).
+- `lib/docs.ts` is the central helper over `allDocs` (it also exports `publishedDocs`, which hides `status: draft`): groups/tabs (`ui` → Base, `motion`, `notes`), sidebar sections (`Getting Started` / `Components` / `Notes`, derived from folder — there are no `meta.json` files), prev/next, search index.
+- `app/docs/layout.tsx` (header, group tabs, sidebar, search, theme toggle) and `app/docs/[[...slug]]/page.tsx` (title, copy page, MDX, TOC, pager). `/docs` redirects to `/docs/ui`.
+- MDX component map: `components/mdx-components.tsx` (+ `components/docs/mdx.tsx` for `Steps`, `Callout`, `pre`). Component previews/source still load from the registry (`component-preview.tsx`, `component-source.tsx`).
+- Theme: `next-themes` via `components/providers.tsx`. Search is a client-side filter over `getSearchIndex()` (`components/docs/search.tsx`).
+- `NEXT_PUBLIC_APP_URL` must be set to build (sitemap).
+- Add a page = drop an `.mdx` under `content/docs/<group>/`. New group = add it to `GROUPS` in `lib/docs.ts`.
 
 ## Styling
 

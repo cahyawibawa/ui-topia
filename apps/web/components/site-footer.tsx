@@ -1,7 +1,7 @@
 "use client";
 
-import { ThemeToggle } from "fumadocs-ui/components/layout/theme-toggle";
 import Link from "next/link";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { Icons } from "@/registry/components/icons";
 
 const footerColumns: Array<{
@@ -29,9 +29,9 @@ const footerColumns: Array<{
 export function SiteFooter() {
   return (
     <>
-      <footer className="relative rounded-3xl bg-muted/50 px-6 py-10 sm:px-8 overflow-hidden">
+      <footer className="relative overflow-hidden rounded-3xl bg-muted/50 px-6 py-10 sm:px-8">
         <div className="grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
-          <div className="flex flex-col gap-5 items-start">
+          <div className="flex flex-col items-start gap-5">
             <Icons.logo className="h-6 w-auto text-foreground" />
             <p className="max-w-md text-muted-foreground text-sm leading-relaxed">
               ui/topia is an experimental space for UI components, motion, and
@@ -75,10 +75,7 @@ export function SiteFooter() {
 
         <div className="mt-8 flex flex-col gap-4 text-muted-foreground text-xs sm:flex-row sm:items-center sm:justify-between">
           {/* <p>© {new Date().getFullYear()} ui/topia. a tiny corner of the web.</p> */}
-          <ThemeToggle
-            className="w-fit border border-border/60 bg-background/80"
-            mode="light-dark-system"
-          />
+          <ThemeToggle className="w-fit bg-background/80" />
         </div>
       </footer>
 
@@ -91,7 +88,7 @@ export function SiteFooter() {
         }}
       >
         <div
-          className="relative transition-opacity duration-1000 ease"
+          className="ease relative transition-opacity duration-1000"
           style={{
             height: "12px",
             maxWidth: "100%",
@@ -100,7 +97,7 @@ export function SiteFooter() {
           }}
         >
           <div
-            className="absolute left-0 right-0 bottom-0 rounded"
+            className="absolute right-0 bottom-0 left-0 rounded"
             style={{
               height: "4px",
               backgroundImage:
@@ -114,7 +111,7 @@ export function SiteFooter() {
           />
         </div>
         <div
-          className="relative transition-opacity duration-1000 ease"
+          className="ease relative transition-opacity duration-1000"
           style={{
             height: "12px",
             maxWidth: "100%",
@@ -124,7 +121,7 @@ export function SiteFooter() {
           }}
         >
           <div
-            className="absolute left-0 right-0 bottom-0 rounded"
+            className="absolute right-0 bottom-0 left-0 rounded"
             style={{
               height: "4px",
               backgroundImage:
@@ -138,7 +135,7 @@ export function SiteFooter() {
           />
         </div>
         <div
-          className="relative transition-opacity duration-1000 ease"
+          className="ease relative transition-opacity duration-1000"
           style={{
             height: "12px",
             maxWidth: "100%",
@@ -148,7 +145,7 @@ export function SiteFooter() {
           }}
         >
           <div
-            className="absolute left-0 right-0 bottom-0 rounded"
+            className="absolute right-0 bottom-0 left-0 rounded"
             style={{
               height: "4px",
               backgroundImage:
@@ -162,7 +159,7 @@ export function SiteFooter() {
           />
         </div>
         <div
-          className="relative transition-opacity duration-1000 ease"
+          className="ease relative transition-opacity duration-1000"
           style={{
             height: "12px",
             maxWidth: "100%",
@@ -172,7 +169,7 @@ export function SiteFooter() {
           }}
         >
           <div
-            className="absolute left-0 right-0 bottom-0 rounded"
+            className="absolute right-0 bottom-0 left-0 rounded"
             style={{
               height: "4px",
               backgroundImage:

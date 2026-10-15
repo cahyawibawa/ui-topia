@@ -10,6 +10,7 @@ node_modules
 .map.ts
 dist
 .source
+.content-collections
 
 
 # testing
