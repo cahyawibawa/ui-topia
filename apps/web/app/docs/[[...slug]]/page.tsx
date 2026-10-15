@@ -14,7 +14,7 @@ import { DocsCopyPage } from "@/components/docs-copy-page";
 import { getMDXComponents } from "@/components/mdx-components";
 import { SiteFooter } from "@/components/site-footer";
 import { siteConfig } from "@/config/site";
-import { getDoc, getNeighbours, publishedDocs } from "@/lib/docs";
+import { getDoc, getGroups, getNeighbours, publishedDocs } from "@/lib/docs";
 import { createMetadata } from "@/lib/metadata";
 import { Button } from "@/registry/ui/button";
 
@@ -22,7 +22,11 @@ type Params = { params: Promise<{ slug?: string[] }> };
 
 export default async function Page(props: Params) {
   const { slug = [] } = await props.params;
-  if (slug.length === 0) redirect("/docs/ui");
+  if (slug.length === 0) {
+    const [first] = getGroups();
+    if (!first) notFound();
+    redirect(`/docs/${first.id}`);
+  }
 
   const doc = getDoc(slug);
   if (!doc) notFound();
