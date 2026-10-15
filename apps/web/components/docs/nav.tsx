@@ -29,8 +29,8 @@ export function GroupTabs({ groups }: { groups: NavGroup[] }) {
     <nav aria-label="Sections" className="flex flex-wrap items-center gap-1">
       {groups.map((item) => (
         <Link
-          aria-current={item.id === group?.id ? "page" : undefined}
-          className="flex items-center gap-1.5 rounded-lg px-2 py-1 text-muted-foreground text-sm transition-colors hover:text-foreground aria-[current=page]:bg-accent aria-[current=page]:text-foreground"
+          aria-current={item.id === group?.id ? "true" : undefined}
+          className="flex items-center gap-1.5 rounded-lg px-2 py-1 text-muted-foreground text-sm transition-colors hover:text-foreground aria-[current=true]:bg-accent aria-[current=true]:text-foreground"
           href={item.href}
           key={item.id}
         >

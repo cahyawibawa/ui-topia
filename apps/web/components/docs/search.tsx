@@ -25,7 +25,13 @@ export function DocsSearch({ items }: { items: SearchItem[] }) {
         (event.key === "/" && !typing)
       ) {
         event.preventDefault();
-        setOpen((value) => !value);
+        setOpen((value) => {
+          if (value) {
+            setQuery("");
+            setActive(0);
+          }
+          return !value;
+        });
       }
     };
     window.addEventListener("keydown", onKeyDown);
@@ -47,8 +53,14 @@ export function DocsSearch({ items }: { items: SearchItem[] }) {
       .slice(0, 20);
   }, [items, query]);
 
-  function go(url: string) {
+  function close() {
     setOpen(false);
+    setQuery("");
+    setActive(0);
+  }
+
+  function go(url: string) {
+    close();
     router.push(url);
   }
 
@@ -67,8 +79,8 @@ export function DocsSearch({ items }: { items: SearchItem[] }) {
       </button>
       <Dialog
         onOpenChange={(next) => {
-          setOpen(next);
-          if (!next) setQuery("");
+          if (next) setOpen(true);
+          else close();
         }}
         open={open}
       >
@@ -113,6 +125,11 @@ export function DocsSearch({ items }: { items: SearchItem[] }) {
                   )}
                   onClick={() => go(item.url)}
                   onMouseMove={() => setActive(index)}
+                  ref={
+                    index === active
+                      ? (el) => el?.scrollIntoView({ block: "nearest" })
+                      : undefined
+                  }
                   type="button"
                 >
                   <span>{item.title}</span>

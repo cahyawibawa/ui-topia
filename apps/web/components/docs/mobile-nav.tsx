@@ -2,7 +2,7 @@
 
 import { Menu } from "lucide-react";
 import { useState } from "react";
-import { type NavGroup, SidebarNav } from "@/components/docs/nav";
+import { GroupTabs, type NavGroup, SidebarNav } from "@/components/docs/nav";
 import { Button } from "@/registry/ui/button";
 import {
   Sheet,
@@ -30,6 +30,9 @@ export function MobileNav({ groups }: { groups: NavGroup[] }) {
       </SheetTrigger>
       <SheetPopup side="left">
         <SheetTitle className="sr-only">Navigation</SheetTitle>
+        <div className="p-4 pb-0">
+          <GroupTabs groups={groups} />
+        </div>
         <SidebarNav
           className="overflow-y-auto p-4"
           groups={groups}

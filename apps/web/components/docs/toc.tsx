@@ -22,7 +22,20 @@ export function Toc({ items }: { items: TocItem[] }) {
       { rootMargin: "0px 0px -70% 0px" },
     );
     for (const el of elements) observer.observe(el);
-    return () => observer.disconnect();
+
+    // The last heading may never reach the observed band on short pages.
+    const onScroll = () => {
+      const atBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 2;
+      const last = elements.at(-1);
+      if (atBottom && last) setActive(last.id);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
   }, [items]);
 
   if (items.length === 0) return null;

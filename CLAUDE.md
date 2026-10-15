@@ -47,7 +47,7 @@ This is the most common task in this repo. Follow `CONTRIBUTING.md`'s process:
 1. Component source goes in `apps/web/registry/ui/<name>.tsx` (or `registry/hooks`, `registry/lib`, `registry/blocks/<block-name>/` as appropriate). Components use Base UI primitives (`@base-ui-components/react/*`) + `class-variance-authority` for variants + `cn` from `@/lib/utils` — follow the pattern in `apps/web/registry/ui/button.tsx`.
 2. Register it as an item in `apps/web/registry.json` with the correct `type` and `files[].path`/`type`, and add it to any relevant `registryDependencies` arrays (e.g. the umbrella `"ui"` item) and `categories`.
 3. Add usage examples as separate `registry:example` items when relevant (source files typically live alongside demos, e.g. `registry/components/<name>-demo.tsx`), default-exported.
-4. Write docs as MDX under `apps/web/content/docs/ui/components/<name>.mdx` (or `content/docs/motion/components/` for motion-focused docs). Nav is derived from the folder; no `meta.json` to update.
+4. Write docs as MDX under `apps/web/content/docs/ui/components/<name>.mdx` (or `apps/web/content/docs/motion/components/` for motion-focused docs). Nav is derived from the folder; no `meta.json` to update.
 5. Run `bun x shadcn build` (or `bun run registry:build` in `apps/web`) to regenerate the public registry JSON under `apps/web/public/r/`.
 
 Commit messages follow conventional-commit-style categories (`feat`, `fix`, `refactor`, `docs`, `build`, `test`, `ci`, `chore`), e.g. `feat(components): add new button component`.
@@ -56,8 +56,8 @@ Commit messages follow conventional-commit-style categories (`feat`, `fix`, `ref
 
 Docs are a custom, Craft-style stack — no docs framework.
 
-- `apps/web/content-collections.ts` defines one `docs` collection over `content/docs/**/*.mdx` (frontmatter: `title`, `description`, `links.doc`, `order`, `publishedAt`, `status`). It compiles MDX with `rehype-slug` + `lib/rehype-syntax-highlight.ts` (shiki, dual themes, fence `title="..."`) and derives `slug`, `url`, `group` (first folder), `toc`, `raw`. Output is generated to `.content-collections/` (gitignored, imported as `content-collections`).
-- `lib/docs.ts` is the only reader of `allDocs`: groups/tabs (`ui` → Base, `motion`, `notes`), sidebar sections (`Getting Started` / `Components` / `Notes`, derived from folder — there are no `meta.json` files), prev/next, search index.
+- `apps/web/content-collections.ts` defines one `docs` collection over `content/docs/**/*.mdx` (frontmatter: `title`, `description`, `links.doc`, `links.api`, `order`, `publishedAt`, `status`). It compiles MDX with `rehype-slug` + `lib/rehype-syntax-highlight.ts` (shiki, dual themes, fence `title="..."`) and derives `slug`, `url`, `group` (first folder), `toc`, `raw`. Output is generated to `.content-collections/` (gitignored, imported as `content-collections`).
+- `lib/docs.ts` is the central helper over `allDocs` (it also exports `publishedDocs`, which hides `status: draft`): groups/tabs (`ui` → Base, `motion`, `notes`), sidebar sections (`Getting Started` / `Components` / `Notes`, derived from folder — there are no `meta.json` files), prev/next, search index.
 - `app/docs/layout.tsx` (header, group tabs, sidebar, search, theme toggle) and `app/docs/[[...slug]]/page.tsx` (title, copy page, MDX, TOC, pager). `/docs` redirects to `/docs/ui`.
 - MDX component map: `components/mdx-components.tsx` (+ `components/docs/mdx.tsx` for `Steps`, `Callout`, `pre`). Component previews/source still load from the registry (`component-preview.tsx`, `component-source.tsx`).
 - Theme: `next-themes` via `components/providers.tsx`. Search is a client-side filter over `getSearchIndex()` (`components/docs/search.tsx`).

@@ -6,8 +6,6 @@ export type DocGroup = {
   id: string;
   title: string;
   description: string;
-  /** CSS color used for the group's tab accent. */
-  color: string;
 };
 
 /** Top-level folders of `content/docs`, in tab order. */
@@ -16,19 +14,16 @@ const GROUPS: DocGroup[] = [
     id: "ui",
     title: "Base",
     description: "A collection of Base UI components.",
-    color: "var(--foreground)",
   },
   {
     id: "motion",
     title: "Motion",
     description: "A collection of Motion animations.",
-    color: "var(--foreground)",
   },
   {
     id: "notes",
     title: "Notes",
     description: "Learning in public: notes on building components.",
-    color: "var(--foreground)",
   },
 ];
 
@@ -49,9 +44,12 @@ function sectionOf(doc: Doc) {
   return doc.group === "notes" ? "Notes" : "Getting Started";
 }
 
+/** Everything except drafts: nav, sitemap and static params read this. */
+export const publishedDocs = allDocs.filter((doc) => doc.status !== "draft");
+
 export function getDoc(slug: string[]) {
   const url = ["/docs", ...slug].join("/");
-  return allDocs.find((doc) => doc.status !== "draft" && doc.url === url);
+  return publishedDocs.find((doc) => doc.url === url);
 }
 
 export function getGroups() {
@@ -67,7 +65,9 @@ export type DocSection = { title: string; icon: string; docs: Doc[] };
 export function getSections(groupId: string): DocSection[] {
   const sections = new Map<string, Doc[]>();
 
-  for (const doc of allDocs.filter((d) => d.group === groupId).sort(compare)) {
+  for (const doc of publishedDocs
+    .filter((d) => d.group === groupId)
+    .sort(compare)) {
     const title = sectionOf(doc);
     sections.set(title, [...(sections.get(title) ?? []), doc]);
   }
@@ -90,14 +90,12 @@ export function getNeighbours(doc: Doc) {
 }
 
 export function getSearchIndex() {
-  return allDocs
-    .filter((doc) => doc.status !== "draft")
-    .map((doc) => ({
-      title: doc.title,
-      description: doc.description ?? "",
-      url: doc.url,
-      group: getGroup(doc.group)?.title ?? doc.group,
-    }));
+  return publishedDocs.map((doc) => ({
+    title: doc.title,
+    description: doc.description ?? "",
+    url: doc.url,
+    group: getGroup(doc.group)?.title ?? doc.group,
+  }));
 }
 
 export type SearchItem = ReturnType<typeof getSearchIndex>[number];

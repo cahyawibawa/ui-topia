@@ -29,7 +29,7 @@ function extractToc(markdown: string): TocItem[] {
     }
     if (inFence) continue;
 
-    const match = /^(#{1,4})\s+(.+?)\s*#*\s*$/.exec(line);
+    const match = /^ {0,3}(#{1,4})\s+(.+?)(?:\s+#+)?\s*$/.exec(line);
     if (!match) continue;
 
     const [, hashes = "", text = ""] = match;

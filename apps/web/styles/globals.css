@@ -563,6 +563,10 @@
   color: inherit;
 }
 
+.docs-prose [data-slot="callout"] > p {
+  margin: 0;
+}
+
 .docs-prose ul {
   list-style: disc;
   padding-left: 1.25rem;
@@ -616,6 +620,8 @@
 }
 
 .docs-prose table {
+  display: block;
+  overflow-x: auto;
   margin-block: 1.5rem;
   width: 100%;
   font-size: 0.8125rem;

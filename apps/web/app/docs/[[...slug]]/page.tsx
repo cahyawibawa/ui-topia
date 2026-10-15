@@ -14,7 +14,7 @@ import { DocsCopyPage } from "@/components/docs-copy-page";
 import { getMDXComponents } from "@/components/mdx-components";
 import { SiteFooter } from "@/components/site-footer";
 import { siteConfig } from "@/config/site";
-import { allDocs, getDoc, getNeighbours } from "@/lib/docs";
+import { getDoc, getNeighbours, publishedDocs } from "@/lib/docs";
 import { createMetadata } from "@/lib/metadata";
 import { Button } from "@/registry/ui/button";
 
@@ -108,7 +108,7 @@ export default async function Page(props: Params) {
 }
 
 export function generateStaticParams() {
-  return [{ slug: [] }, ...allDocs.map((doc) => ({ slug: doc.slug }))];
+  return [{ slug: [] }, ...publishedDocs.map((doc) => ({ slug: doc.slug }))];
 }
 
 export async function generateMetadata(props: Params): Promise<Metadata> {

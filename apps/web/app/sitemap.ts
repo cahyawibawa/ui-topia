@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { allDocs } from "@/lib/docs";
+import { publishedDocs } from "@/lib/docs";
 
 export const revalidate = false;
 
@@ -18,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
       url: url("/docs"),
     },
-    ...allDocs.map<MetadataRoute.Sitemap[number]>((doc) => ({
+    ...publishedDocs.map<MetadataRoute.Sitemap[number]>((doc) => ({
       changeFrequency: "weekly",
       priority: 0.5,
       url: url(doc.url),

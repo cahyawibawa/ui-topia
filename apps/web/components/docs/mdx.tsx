@@ -5,8 +5,9 @@ import { getIconForLanguageExtension } from "@/registry/components/icons";
 export function Callout({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
+      data-slot="callout"
       className={cn(
-        "my-6 rounded-xl border bg-muted/50 px-4 py-3 text-sm [&>p]:m-0",
+        "my-6 rounded-xl border bg-muted/50 px-4 py-3 text-sm",
         className,
       )}
       {...props}
