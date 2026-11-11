@@ -41,7 +41,14 @@ function compare(a: Doc, b: Doc) {
 
 function sectionOf(doc: Doc) {
   if (doc.slug.includes("components")) return "Components";
-  return doc.group === "vault" ? "Vault" : "Getting Started";
+  if (doc.group === "vault") {
+    // vault/<topic>/<note> → section named after the topic folder
+    const topic = doc.slug[1];
+    return topic && doc.slug.length > 2
+      ? topic.charAt(0).toUpperCase() + topic.slice(1)
+      : "Vault";
+  }
+  return "Getting Started";
 }
 
 /** Everything except drafts: nav, sitemap and static params read this. */
@@ -83,7 +90,9 @@ export function getSections(groupId: string): DocSection[] {
 
 /** Reading order within a group, used for prev/next. */
 export function getNeighbours(doc: Doc) {
-  const ordered = getSections(doc.group).flatMap((s) => s.docs);
+  const ordered = getSections(doc.group)
+    .flatMap((s) => s.docs)
+    .filter((d) => d.status !== "soon" || d.url === doc.url);
   const index = ordered.findIndex((d) => d.url === doc.url);
   return {
     previous: index > 0 ? ordered[index - 1] : undefined,

@@ -15,7 +15,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     sections: getSections(group.id).map((section) => ({
       title: section.title,
       icon: section.icon,
-      items: section.docs.map((doc) => ({ title: doc.title, url: doc.url })),
+      items: section.docs.map((doc) => ({
+        title: doc.title,
+        url: doc.url,
+        soon: doc.status === "soon",
+      })),
     })),
   }));
 

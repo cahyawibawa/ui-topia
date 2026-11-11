@@ -1,0 +1,28 @@
+---
+title: Building a Button
+description: What I learned making a button feel right on top of Base UI.
+order: 1
+status: soon
+---
+
+Start from the primitive, add only what the design needs, and keep state in data attributes instead of JS.
+
+## Start from the primitive
+
+Base UI ships behavior without opinions. Focus, keyboard handling and the `disabled` semantics come for free, so styling is the only part left to own.
+
+## State lives in data attributes
+
+Base UI exposes state as attributes such as `data-pressed` and `data-disabled`. Style against them with Tailwind variants and the component needs no conditional class logic.
+
+```tsx
+<button className="bg-primary data-[pressed]:bg-primary/90" />
+```
+
+## Press feedback
+
+A small scale on `:active` is enough. Anything more reads as a toy.
+
+```tsx
+<button className="transition-transform active:scale-[0.97]" />
+```

@@ -1,0 +1,54 @@
+---
+title: Concentric Radius
+description: Nested rounded corners should share a center.
+order: 1
+resources:
+  - url: https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius
+    title: border-radius
+    description: Syntax and behavior of rounded corners on MDN.
+  - url: https://tailwindcss.com/docs/border-radius
+    title: Border radius in Tailwind
+    description: The rounded utilities and how they scale.
+---
+
+When a rounded element sits inside another one with padding, using the same radius on both makes the corners look pinched. The gap between the two curves is thin at the corner and wide along the edges.
+
+The fix is a rule of one line:
+
+> outer radius = inner radius + padding
+
+Drag the padding slider, then flip between the two modes:
+
+<ConcentricPlaygroundDemo />
+
+With the rule applied, both curves share one center, so the gap stays the same width all the way around.
+
+## In a real card
+
+This is where it shows up most: an image or inner surface inside a padded card.
+
+<ConcentricCardDemo />
+
+## Usage
+
+```html title="Tailwind"
+<!-- padding 8px + inner radius 12px = outer radius 20px -->
+<div class="rounded-[20px] p-2">
+  <div class="rounded-xl"></div>
+</div>
+```
+
+```css title="CSS"
+.card {
+  --padding: 8px;
+  --inner-radius: 12px;
+  padding: var(--padding);
+  border-radius: calc(var(--inner-radius) + var(--padding));
+}
+
+.card > .media {
+  border-radius: var(--inner-radius);
+}
+```
+
+When the padding is large compared to the radius, the two curves drift apart anyway. At that point a separate, unrelated radius reads better than a forced match.

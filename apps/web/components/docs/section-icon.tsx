@@ -1,9 +1,13 @@
 import {
   Blocks,
   BookOpen,
+  Droplet,
+  LayoutGrid,
   NotebookPen,
+  PencilRuler,
   SquareAsterisk,
   SquareM,
+  Type,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -12,6 +16,10 @@ const icons = {
   components: { icon: Blocks, color: "text-blue-500" },
   vault: { icon: NotebookPen, color: "text-rose-500" },
   ui: { icon: SquareAsterisk, color: "text-foreground" },
+  craft: { icon: PencilRuler, color: "text-orange-500" },
+  typography: { icon: Type, color: "text-blue-500" },
+  color: { icon: Droplet, color: "text-rose-500" },
+  layout: { icon: LayoutGrid, color: "text-amber-500" },
   motion: { icon: SquareM, color: "text-violet-500" },
 } as const;
 

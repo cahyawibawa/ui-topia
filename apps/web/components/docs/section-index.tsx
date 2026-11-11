@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { SectionIcon } from "@/components/docs/section-icon";
+import { VaultCard } from "@/components/docs/vault-card";
 import { getSections } from "@/lib/docs";
 
 /** Craft-style index: each section as an icon heading over a card grid. */
@@ -28,24 +28,13 @@ export function SectionIndex({
           <ul className="grid gap-3 sm:grid-cols-2">
             {section.docs.map((doc) => (
               <li key={doc.url}>
-                <Link
-                  className="flex h-full flex-col gap-1 rounded-xl p-4 shadow-[0_0_0_1px_color-mix(in_oklab,var(--foreground)_8%,transparent)] transition-colors hover:bg-accent/50"
+                <VaultCard
+                  description={doc.description}
                   href={doc.url}
-                >
-                  <span className="flex items-center justify-between gap-2 font-medium text-sm">
-                    {doc.title}
-                    {doc.status === "soon" && (
-                      <span className="rounded-full border border-dashed px-1.5 py-px font-normal text-[10px] text-muted-foreground">
-                        Soon
-                      </span>
-                    )}
-                  </span>
-                  {doc.description && (
-                    <span className="line-clamp-2 text-muted-foreground text-xs leading-relaxed">
-                      {doc.description}
-                    </span>
-                  )}
-                </Link>
+                  slug={doc.slug.at(-1) ?? ""}
+                  soon={doc.status === "soon"}
+                  title={doc.title}
+                />
               </li>
             ))}
           </ul>

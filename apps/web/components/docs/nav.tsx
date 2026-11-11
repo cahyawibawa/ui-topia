@@ -12,7 +12,7 @@ export type NavGroup = {
   sections: {
     title: string;
     icon: string;
-    items: { title: string; url: string }[];
+    items: { title: string; url: string; soon?: boolean }[];
   }[];
 };
 
@@ -71,14 +71,23 @@ export function SidebarNav({
           <ul className="flex flex-col gap-px">
             {section.items.map((item) => (
               <li key={item.url}>
-                <Link
-                  aria-current={pathname === item.url ? "page" : undefined}
-                  className="block rounded-lg px-2 py-1.5 text-muted-foreground transition-colors hover:text-foreground aria-[current=page]:bg-accent aria-[current=page]:text-foreground"
-                  href={item.url}
-                  onClick={onNavigate}
-                >
-                  {item.title}
-                </Link>
+                {item.soon ? (
+                  <span
+                    aria-disabled="true"
+                    className="block cursor-not-allowed rounded-lg px-2 py-1.5 text-muted-foreground/50"
+                  >
+                    {item.title}
+                  </span>
+                ) : (
+                  <Link
+                    aria-current={pathname === item.url ? "page" : undefined}
+                    className="block rounded-lg px-2 py-1.5 text-muted-foreground transition-colors hover:text-foreground aria-[current=page]:bg-accent aria-[current=page]:text-foreground"
+                    href={item.url}
+                    onClick={onNavigate}
+                  >
+                    {item.title}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>

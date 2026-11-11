@@ -8,11 +8,11 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
+import { Resources } from "@/components/docs/resources";
 import { SectionIndex } from "@/components/docs/section-index";
 import { Toc } from "@/components/docs/toc";
 import { DocsCopyPage } from "@/components/docs-copy-page";
 import { getMDXComponents } from "@/components/mdx-components";
-import { SiteFooter } from "@/components/site-footer";
 import { siteConfig } from "@/config/site";
 import { getDoc, getGroups, getNeighbours, publishedDocs } from "@/lib/docs";
 import { createMetadata } from "@/lib/metadata";
@@ -67,6 +67,7 @@ export default async function Page(props: Params) {
         <div className="docs-prose">
           <MDXContent code={doc.mdx} components={getMDXComponents()} />
         </div>
+        <Resources items={doc.resources} />
         {doc.slug.length === 1 && (
           <SectionIndex group={doc.group} current={doc.url} />
         )}
@@ -100,9 +101,7 @@ export default async function Page(props: Params) {
             )}
           </div>
         )}
-        <div className="mt-10 pb-16 sm:pb-24">
-          <SiteFooter />
-        </div>
+        <div className="pb-16 sm:pb-24" />
       </article>
       <aside className="sticky top-14 hidden h-fit w-56 justify-self-end pt-6 md:col-start-3 md:row-start-1 xl:block">
         <Toc items={doc.toc} />

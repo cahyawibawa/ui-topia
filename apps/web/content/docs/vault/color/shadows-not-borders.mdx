@@ -1,0 +1,16 @@
+---
+title: Shadows, Not Borders
+description: Use a ring shadow for edges that blend with what's behind them.
+order: 2
+status: soon
+---
+
+A `border` takes up layout space and has a hard, flat edge. A zero-blur shadow draws the same line without affecting layout, and it can be layered with real depth shadows.
+
+```tsx
+<div className="shadow-[0_0_0_1px_rgb(0_0_0/0.08)]" />
+```
+
+The edge also adapts better. Because the shadow is translucent, it reads correctly on any background, where a solid border color has to be picked per surface.
+
+The cards in this site's Vault index use this: a hairline ring built from `color-mix` on the foreground color.

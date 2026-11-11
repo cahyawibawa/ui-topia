@@ -1,0 +1,16 @@
+---
+title: Image Outlines
+description: A faint outline keeps images from bleeding into the page.
+order: 1
+status: soon
+---
+
+An image whose edge matches the background, like a white product shot on a white card, loses its shape.
+
+A one-pixel inset outline at low opacity restores the edge without looking like a border.
+
+```tsx
+<img className="rounded-lg outline outline-1 -outline-offset-1 outline-black/10 dark:outline-white/10" />
+```
+
+Use a negative offset so the outline sits inside the image and doesn't change its size. Tint it with black in light mode and white in dark mode, and keep opacity near 10%.
