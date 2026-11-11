@@ -7,6 +7,9 @@ const withAnalyzer = createBundleAnalyzer({
 });
 
 const nextConfig: NextConfig = {
+  experimental: {
+    agentUpgrade: "security",
+  },
   outputFileTracingIncludes: {
     registry: ["./registry/**/*"],
   },
