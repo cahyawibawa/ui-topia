@@ -1,0 +1,55 @@
+---
+title: Tabular Numbers
+description: Steady digits for values that change.
+order: 1
+resources:
+  - url: https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-numeric
+    title: font-variant-numeric
+    description: Syntax, examples and browser support on MDN.
+  - url: https://learn.microsoft.com/en-us/typography/opentype/otspec190/features_pt#tag-tnum
+    title: OpenType tabular figures
+    description: How the tnum feature maps digits to uniform widths.
+  - url: https://wakamaifondue.com
+    title: Wakamai Fondue
+    description: Drop in a font file to see every OpenType feature it supports.
+---
+
+Digits can have two kinds of widths.
+
+**Proportional figures** use the natural width of each shape: `1` is narrow, while `8` is wide. **Tabular figures** give every digit the same width.
+
+<TabularNumsDemo />
+
+Use proportional figures when numbers sit inside a sentence. They read more naturally. Use tabular figures when changing values need to stay steady or align vertically.
+
+## Changing values
+
+A timer made with proportional figures changes width as it runs, and everything beside it moves too. Watch the blue edge:
+
+<TabularTimerDemo />
+
+Tabular figures turn every character into a stable slot. Use them for clocks, counters, scores, prices and live metrics.
+
+The usual instinct is to reach for a monospace font, but you don't need to. A mono font changes the voice of the whole interface. Most of the time you only need tabular figures.
+
+## Tables
+
+In a numeric column, equal-width digits form a vertical grid. Repeated places line up, so differences are easier to scan.
+
+<TabularTableDemo />
+
+Right-align numeric columns too. It keeps numbers of different lengths anchored to the same edge.
+
+## Usage
+
+```html title="Tailwind"
+<span class="tabular-nums">12:45</span>
+```
+
+```css title="CSS"
+.numeric-column {
+  font-variant-numeric: tabular-nums;
+}
+```
+
+The font must include tabular figures for this to work. If `tabular-nums` makes no visible difference, drop the font file into [Wakamai Fondue](https://wakamaifondue.com) and check that it lists `tnum` among its features.

@@ -1,0 +1,18 @@
+---
+title: Optical Alignment
+description: Align to what looks centered, not what measures centered.
+order: 2
+status: soon
+---
+
+Geometric centering is a starting point. Some shapes carry visual weight to one side, so measured alignment looks off.
+
+A play triangle in a circle needs a nudge toward its pointed side. An icon next to text often wants a pixel or two of offset so the glyph and the label share a baseline.
+
+```tsx
+<span className="translate-x-px">
+  <PlayIcon />
+</span>
+```
+
+Trust your eye over the inspector. Make the adjustment on the asset itself when you can, so every use gets it for free.

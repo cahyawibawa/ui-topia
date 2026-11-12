@@ -12,6 +12,7 @@
     "format": "biome format --write .",
     "check": "biome check --fix .",
     "shadcn": "bun x shadcn@latest add",
+    "previews": "node scripts/record-previews.mjs",
     "registry:build": "shadcn build"
   },
   "dependencies": {
@@ -55,6 +56,7 @@
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
     "@uitopia/tsconfig": "workspace:*",
+    "playwright-core": "^1.65.0",
     "postcss": "^8.5.3",
     "tailwindcss": "^4.1.4",
     "typescript": "^5.7.3"

@@ -1,0 +1,24 @@
+---
+title: Text Wrapping
+description: Balance headings, tidy paragraphs.
+order: 3
+status: soon
+---
+
+Default wrapping happily leaves a single word alone on the last line. Two CSS values fix most cases.
+
+## Balance for headings
+
+`text-wrap: balance` evens out line lengths. It works on short blocks (browsers cap it at a few lines), so it suits headings and captions.
+
+```tsx
+<h1 className="text-balance">A heading that wraps evenly</h1>
+```
+
+## Pretty for paragraphs
+
+`text-wrap: pretty` avoids orphans at the end of a paragraph without reshaping the whole block.
+
+```tsx
+<p className="text-pretty">Body copy that avoids a lonely last word.</p>
+```

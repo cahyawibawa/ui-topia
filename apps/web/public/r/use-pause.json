@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-pause",
+  "type": "registry:hook",
+  "description": "Runs a visual only while it is on screen, the tab is visible and the user has not asked for reduced motion.",
+  "files": [
+    {
+      "path": "registry/hooks/use-pause.ts",
+      "content": "/**\n * use-pause, from design.how (https://github.com/arla6ka/design.how), MIT licensed,\n * Copyright (c) 2026 Arlan Marat. Adapted for ui/topia: see the licence in engine.ts.\n */\n\"use client\";\n\nimport { type RefObject, useEffect, useRef } from \"react\";\n\nexport function prefersReducedMotion(): boolean {\n  return (\n    typeof window !== \"undefined\" &&\n    window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches\n  );\n}\n\nexport function usePause(\n  target: RefObject<Element | null>,\n  onChange: (running: boolean) => void,\n  { threshold = 0.2 } = {},\n): RefObject<boolean> {\n  const running = useRef(false);\n  const callback = useRef(onChange);\n  useEffect(() => {\n    callback.current = onChange;\n  });\n\n  useEffect(() => {\n    const element = target.current;\n    if (!element) return;\n    let onScreen = false;\n    let hidden = document.hidden;\n    const motion = window.matchMedia(\"(prefers-reduced-motion: reduce)\");\n    const sync = () => {\n      const next = onScreen && !hidden && !motion.matches;\n      if (next === running.current) return;\n      running.current = next;\n      callback.current(next);\n    };\n    const io = new IntersectionObserver(\n      (entries) => {\n        onScreen = entries.some((entry) => entry.isIntersecting);\n        sync();\n      },\n      { threshold },\n    );\n    io.observe(element);\n    const onVisibility = () => {\n      hidden = document.hidden;\n      sync();\n    };\n    document.addEventListener(\"visibilitychange\", onVisibility);\n    motion.addEventListener(\"change\", sync);\n    return () => {\n      io.disconnect();\n      document.removeEventListener(\"visibilitychange\", onVisibility);\n      motion.removeEventListener(\"change\", sync);\n      if (running.current) {\n        running.current = false;\n        callback.current(false);\n      }\n    };\n  }, [target, threshold]);\n\n  return running;\n}\n",
+      "type": "registry:hook"
+    }
+  ]
+}

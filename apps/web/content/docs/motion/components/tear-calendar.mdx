@@ -1,0 +1,75 @@
+---
+title: Tear Calendar
+description: A wall calendar you tear a page off by pulling it away.
+order: 4
+publishedAt: "2026-11-12"
+maker: sanyam
+---
+
+<TearCalendarDemo />
+
+A tear-off calendar on a nail, a page a day. Grab a page and pull it away from the pad: slowly for a clean tear, fast for a ragged one. Let go early and it drops back, torn as far as it got. Click it, or press `Enter` on a focused page, and the calendar tears it for you. Tear a few and a button appears to bring you back to today.
+
+## How it works
+
+A page is a sheet glued under the header, with a row of holes punched across it. Tearing a page comes down to two numbers: which corner the tear started from, and how far along the holes it has run. The second only ever grows, because paper can't un-tear.
+
+- **The page is held where you grabbed it** and turns about the front of the tear toward your hand, so the grabbed point tracks the pointer. While you hold it the page follows tightly, and springs are kept for letting go and for the fall.
+- **The tear follows the turn.** It runs as far as your pull is long, and as far as the page has to turn to point at your hand. A modest twist can tear a long way.
+- **Speed decides how clean it is.** Each hole remembers how fast the hand was moving when the tear passed it. A slow pull pops the holes one by one and the paper parts along them. A yank outruns the holes and the tear wanders off them, leaving a bite of the page stuck under the header.
+- **The page can only turn so far.** The untorn part beyond the front has to bend to let the page turn, and it can only give a little. So the page hardly turns while most of it holds, and swings free as the last of it goes. What it can't reach shows as a small stretch toward your hand.
+- **Every page is the same drawing, cropped.** The page you are tearing, the one behind it, the bits left under the header and the ones in the air are all one printed sheet, so a bite left behind by a ragged tear carries that page's print.
+
+Each page carries its date, weekend colours, the moon's phase and how many days are left in the year.
+
+## Sound
+
+Turn the sound on with the speaker at the corner of the demo, then tear a page. It is off by default, and browsers keep audio locked until your first press.
+
+The sound is synthesised, with no audio files: one buffer of noise run through filters. It is made from the same holes the drawing is, so every hole the tear passes is heard once.
+
+- **A slow pull** pops the holes one at a time, short and bright.
+- **A yank** lets each one run longer and lower, and they overlap into a rip.
+- **The last of the paper letting go** is a snap, **a part-torn page dropping back** is a soft pat, and **a falling page** brushes the air as it rocks.
+
+Pass `sound` to turn it on. It lives in its own file, `tear-sound.ts`.
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+<ComponentCli name="tear-calendar"/>
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="tear-calendar" title="components/ui/tear-calendar/index.tsx" />
+
+<Step>Add the other four files next to it: `sheet.tsx`, `tear.ts`, `days.ts` and `tear-sound.ts`. Then update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import TearCalendar from "@/components/ui/tear-calendar";
+
+<TearCalendar sound={soundOn} />;
+```
+
+The calendar draws its own stage and fills the width of its container, at a fixed height of 25rem. Sound is off unless you pass `sound`. The look is ui/topia's: a near-white pad, near-black ink, the site's electric blue and red for weekends, a sticker-yellow marker behind the weekday, and the Redaction wordmark on the board. The paper colours live at the top of `sheet.tsx` and the board is in `index.tsx`, so restyle it there.

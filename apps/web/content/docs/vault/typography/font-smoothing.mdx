@@ -1,0 +1,55 @@
+---
+title: Font Smoothing
+description: Light text on dark renders heavier.
+order: 2
+resources:
+  - url: https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth
+    title: font-smooth
+    description: MDN on the non-standard smoothing properties and their browser support.
+  - url: https://dbushell.com/2024/11/05/webkit-font-smoothing/
+    title: What is -webkit-font-smoothing?
+    description: David Bushell on what the property changes and where it has no effect.
+  - url: https://www.zachleat.com/web/font-smooth/
+    title: Laissez-faire font smoothing and anti-aliasing
+    description: Zach Leatherman on what the property does and the case against using it blindly.
+  - url: https://tailwindcss.com/docs/font-smoothing
+    title: Font smoothing in Tailwind
+    description: The antialiased and subpixel-antialiased utilities.
+---
+
+Put white text on a dark surface and look closely. On a Mac, it comes out a little bolder than the same text on white. Drag the handle across the headline:
+
+<FontSmoothingCompareDemo />
+
+macOS smooths text in browsers by **thickening the edges of every glyph**. On dark backgrounds that extra thickness reads as bloom, and headings feel half a weight heavier than they did in the design file.
+
+Everything on this page only changes on a Mac. Windows ignores the property, Linux never had it, and iOS Safari doesn't do this kind of smoothing at all. If you're reading on anything else, both sides will look the same.
+
+<FontSmoothingDemo />
+
+The fix is `-webkit-font-smoothing: antialiased`. It skips the thickening and uses plain **grayscale antialiasing**, which renders each glyph at the weight the font was drawn with.
+
+## Thin weights
+
+The thickening is the same for every weight, but you feel it differently. A bold heading hardly needs it. A light weight can lean on it: 300 sometimes only looks readable on dark because the renderer has been quietly fattening it.
+
+<FontSmoothingWeightsDemo />
+
+From 400 up, the antialiased side just looks cleaner. At 300 the text comes out lighter than you meant, and at 200 the strokes start to fall apart. If your body text is 300 or lighter on dark surfaces, check it on a non-Retina display before turning this on everywhere.
+
+## Usage
+
+```html title="Tailwind"
+<body class="antialiased">
+  ...
+</body>
+```
+
+```css title="CSS"
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+```
+
+Set it once on the root, not per component. It has no effect outside macOS, so there is no downside to making it global. This site does exactly that in its root layout.

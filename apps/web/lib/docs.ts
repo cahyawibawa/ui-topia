@@ -39,8 +39,21 @@ function compare(a: Doc, b: Doc) {
   );
 }
 
+/** Folder names that read better as a section title than their capitalised selves. */
+const SECTION_TITLES: Record<string, string> = { type: "Kinetic Type" };
+
+/** The sections that always lead, in order; any other keeps the order it was found in. */
+const SECTION_ORDER = ["Getting Started", "Components", "Kinetic Type"];
+
 function sectionOf(doc: Doc) {
   if (doc.slug.includes("components")) return "Components";
+  // <group>/<topic>/<page> → a section named after the topic folder
+  const topic = doc.slug[1];
+  if (topic && doc.slug.length > 2) {
+    return (
+      SECTION_TITLES[topic] ?? topic.charAt(0).toUpperCase() + topic.slice(1)
+    );
+  }
   return doc.group === "vault" ? "Vault" : "Getting Started";
 }
 
@@ -74,16 +87,25 @@ export function getSections(groupId: string): DocSection[] {
     sections.set(title, [...(sections.get(title) ?? []), doc]);
   }
 
-  return [...sections].map(([title, docs]) => ({
-    title,
-    icon: title.toLowerCase().replace(/\s+/g, "-"),
-    docs,
-  }));
+  const rank = (title: string) => {
+    const i = SECTION_ORDER.indexOf(title);
+    return i === -1 ? SECTION_ORDER.length : i;
+  };
+
+  return [...sections]
+    .sort(([a], [b]) => rank(a) - rank(b))
+    .map(([title, docs]) => ({
+      title,
+      icon: title.toLowerCase().replace(/\s+/g, "-"),
+      docs,
+    }));
 }
 
 /** Reading order within a group, used for prev/next. */
 export function getNeighbours(doc: Doc) {
-  const ordered = getSections(doc.group).flatMap((s) => s.docs);
+  const ordered = getSections(doc.group)
+    .flatMap((s) => s.docs)
+    .filter((d) => d.status !== "soon" || d.url === doc.url);
   const index = ordered.findIndex((d) => d.url === doc.url);
   return {
     previous: index > 0 ? ordered[index - 1] : undefined,

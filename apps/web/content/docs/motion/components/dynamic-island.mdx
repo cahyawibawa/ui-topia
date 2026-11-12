@@ -1,0 +1,69 @@
+---
+title: Dynamic Island
+description: A pill that morphs between a compact and an expanded shape on springs.
+order: 3
+publishedAt: "2026-11-11"
+maker: sanyam
+---
+
+<DynamicIslandDemo />
+
+A phone's Dynamic Island running live activities: a timer, a song, a call, a charger and the silent switch, each one its own shape on springs. Start an activity from the list, then press the island to open it. Start a second one and it pinches off into a bubble; press the bubble to swap them. Press outside, or hit `Escape`, to close. The numbers `1` to `5` start the activities from the keyboard.
+
+## How it works
+
+The island is one black shape whose size is a function of state, and the whole model lives in a small pure file, `scene.ts`: given which activities are running, which one is open, and whether something is ringing, it returns the view to show and the size to spring to. Nothing in it knows about the DOM.
+
+- **Each axis has its own spring.** Width is slightly bouncy, height a touch stiffer, the corner radius critically damped, and the bubble loose. Damping is set as a ratio, so the numbers read the same at any stiffness. The springs live in a ref and a single frame loop writes the island's box, so nothing re-renders per frame.
+- **A second activity pinches off.** The two black shapes sit under one blur-and-threshold SVG filter, so they stretch into each other like liquid. The filter only touches the shapes; the text sits above it and stays sharp.
+- **Views replace each other.** The old content shrinks and blurs out while the new content grows and sharpens in, overlapping in one cell so the island is never briefly empty.
+- **Digits roll.** A running timer or call turns its digits over like an odometer, instead of swapping them.
+- **The bars are a visualiser.** Each bar rides its own blend of slow waves and a shared beat lifts them together, so they move like music and never repeat on a loop. Paused, they settle to a low, even rest.
+- **The island stays small until it opens.** The whole island scales about its top centre: smaller while compact, easing back toward full size as it expands, so open content stays readable.
+- **Transients flash.** Charging and silent appear for a moment, then the island goes back to what was running. An incoming call opens the island on its own.
+
+The phone is drawn at real size and scaled to fit, and the status items beside the island clear out as it widens. Under `prefers-reduced-motion` every change lands at once.
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+<ComponentCli name="dynamic-island"/>
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+<ComponentCli name="dynamic-island"/>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="dynamic-island" title="components/ui/dynamic-island/index.tsx" />
+
+<Step>Add the other four files next to it: `scene.ts`, `glyphs.tsx`, `swap.tsx` and `digits.ts`. Then update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import LiveActivities from "@/components/ui/dynamic-island";
+
+<LiveActivities />;
+```
+
+The component draws its own stage and the phone, and fills the width of its container. The wallpaper and the album art are drawn from CSS gradients in the site's candy colours, so there are no image files to carry along. Swap the `WALLPAPER` and `ALBUM` constants at the top of `index.tsx` for your own. `ISLAND_SCALE` (0.8 by default) sets how small the compact island is: 1 is full size.

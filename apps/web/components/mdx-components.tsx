@@ -5,7 +5,27 @@ import { CodeTabs } from "@/components/code-tabs";
 import { ComponentPreview } from "@/components/component-preview";
 import { ComponentCollapse } from "@/components/component-preview-collapse";
 import { ComponentSource } from "@/components/component-source";
+import { CardStackTuner } from "@/components/docs/demos/card-stack-tuner";
+import {
+  ConcentricCardDemo,
+  ConcentricPlaygroundDemo,
+} from "@/components/docs/demos/concentric-radius";
+import { DynamicIslandDemo } from "@/components/docs/demos/dynamic-island";
+import {
+  FontSmoothingCompareDemo,
+  FontSmoothingDemo,
+  FontSmoothingWeightsDemo,
+} from "@/components/docs/demos/font-smoothing";
+import { SmoothCaretDemo } from "@/components/docs/demos/smooth-caret";
+import {
+  TabularNumsDemo,
+  TabularTableDemo,
+  TabularTimerDemo,
+} from "@/components/docs/demos/tabular-numbers";
+import { TearCalendarDemo } from "@/components/docs/demos/tear-calendar";
+import { StackTypeDemo, WarpTypeDemo } from "@/components/docs/demos/type";
 import { Callout, DocsPre, Step, Steps } from "@/components/docs/mdx";
+import { ResourceGroup } from "@/components/docs/resources";
 import { InstallCommand } from "@/components/install-command";
 import { cn } from "@/lib/utils";
 import { getIconForLanguageExtension } from "@/registry/components/icons";
@@ -17,6 +37,21 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     blockquote: (props) => <Callout>{props.children}</Callout>,
 
     Callout,
+    ResourceGroup,
+    CardStackTuner,
+    ConcentricCardDemo,
+    DynamicIslandDemo,
+    SmoothCaretDemo,
+    StackTypeDemo,
+    TearCalendarDemo,
+    WarpTypeDemo,
+    ConcentricPlaygroundDemo,
+    FontSmoothingCompareDemo,
+    FontSmoothingDemo,
+    FontSmoothingWeightsDemo,
+    TabularNumsDemo,
+    TabularTableDemo,
+    TabularTimerDemo,
     ComponentCli,
     CodeTabs,
     InstallCommand,

@@ -1,0 +1,84 @@
+---
+title: Warp Type
+description: Six short sentences, half a second each, where the verb bends its own letters.
+order: 3
+publishedAt: "2026-11-12"
+maker: arlan
+---
+
+<WarpTypeDemo />
+
+Six sentences take turns, each held for about half a second and then cut hard to the next. Every one is "Design" plus a verb and a noun, and the verb changes what happens to the sentence.
+
+## How it works
+
+The sentence never changes once it is on screen. The verb changes what happens to it.
+
+- **Wave.** The letters swell and shrink along a wave.
+- **Trail.** The last word leaves a stair of smaller copies behind it.
+- **Gather.** Three lines fall together and close up.
+- **Rotate.** Two lines turn against each other.
+- **Fold.** Each word turns on its own centre, a hinge at the gap.
+- **Sort.** Neighbouring letters swap places in three rounds.
+
+Every glyph is one `fillText` under its own affine matrix, and nothing is pre-rendered. The motion is authored as 75 keys at 25 frames a second, three seconds a loop, and read at a fractional key on every animation frame, so it plays smooth at the screen's rate while the six cuts land on whole keys. The lines are laid out from the live font at mount, with pens from the widths of each prefix, so kerning is the face's own.
+
+It pauses off screen and on a hidden tab. Under reduced motion it draws one still frame, the wave at full swell, and never starts the loop. The canvas pixel ratio is capped at 2, and everything is cleaned up on unmount.
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+<ComponentCli name="warp-type"/>
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="warp-type" title="components/ui/warp-type/index.tsx" />
+
+<Step>Add `engine.ts` and `params.ts` next to it, and the `use-pause` hook. Then update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import WarpType from "@/components/ui/warp-type";
+
+<div className="aspect-video">
+  <WarpType
+    phrases={[
+      ["Design", "demands courage"],
+      ["Design", "echoes intent"],
+      ["Design", "carries", "weight"],
+      ["Design", "turns heads"],
+      ["Design", "bends habits"],
+      ["Design", "sorts chaos"],
+    ]}
+  />
+</div>;
+```
+
+The effect fills its box and is drawn for 16:9. It takes six scenes of one to three lines each, and the third scene takes three. The tables describe the deformation along a line, not the letters, so any sentences work. The type comes from `--font-sans`, and the layout is measured from the live font.
+
+| Prop | Default | What it changes |
+|-|-|-|
+| `phrases` | six "Design + verb + noun" lines | The sentences: six scenes, each a list of lines. |
+| `ground` | `#0b1a1f` | The background colour. |
+| `ink` | `#d9f5ea` | The type colour. |
+| `weight` | `500` | The weight the face is drawn at. |

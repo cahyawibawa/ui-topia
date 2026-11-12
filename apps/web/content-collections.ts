@@ -58,6 +58,17 @@ const docs = defineCollection({
         api: z.string().optional(),
       })
       .optional(),
+    resources: z
+      .array(
+        z.object({
+          url: z.string().url(),
+          title: z.string(),
+          description: z.string().optional(),
+        }),
+      )
+      .optional(),
+    /** Whose work this is, a key of `MAKERS` in lib/makers.ts. */
+    maker: z.string().optional(),
     order: z.number().default(0),
     publishedAt: z.string().optional(),
     status: z.enum(["draft", "soon", "published"]).default("published"),
