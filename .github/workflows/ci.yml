@@ -1,0 +1,80 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+# A newer push to the same branch or PR replaces the run that is still going.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Lint, build and typecheck
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      # `next build` needs it for the sitemap and metadata.
+      NEXT_PUBLIC_APP_URL: https://uitopia.vercel.app
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          # bun.lockb is written by a newer Bun than the root package.json
+          # "packageManager" field names (1.2.12), and 1.2.12 cannot read it, so
+          # CI uses the version the lockfile was written with. Keep the two in
+          # step: when the lockfile is regenerated with another Bun, bump this.
+          bun-version: 1.3.0
+
+      - name: Cache Bun's install cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.bun/install/cache
+          key: bun-${{ runner.os }}-${{ hashFiles('bun.lockb') }}
+          restore-keys: bun-${{ runner.os }}-
+
+      - name: Cache Next.js build cache
+        uses: actions/cache@v4
+        with:
+          path: apps/web/.next/cache
+          key: next-${{ runner.os }}-${{ hashFiles('bun.lockb') }}-${{ github.sha }}
+          restore-keys: next-${{ runner.os }}-${{ hashFiles('bun.lockb') }}-
+
+      - name: Install
+        run: bun install --frozen-lockfile
+
+      # Fails on errors. Warnings are allowed for now and are listed in the log.
+      - name: Biome
+        run: bunx biome ci .
+
+      # The committed registry JSON (public/r) is what `shadcn add` serves, so it
+      # has to match the source it was built from.
+      - name: Registry up to date
+        working-directory: apps/web
+        run: |
+          bun x shadcn build
+          if [ -n "$(git status --porcelain -- public/r)" ]; then
+            echo "::error::public/r is out of date. Run 'bun x shadcn build' in apps/web and commit the result."
+            git status --short -- public/r
+            git diff --stat -- public/r
+            exit 1
+          fi
+
+      # Build runs before Typecheck on purpose: it generates .content-collections,
+      # whose types `lib/docs.ts` imports, so `tsc` cannot pass on a fresh checkout
+      # without it.
+      - name: Build
+        working-directory: apps/web
+        run: bun run build
+
+      - name: Typecheck
+        working-directory: apps/web
+        run: bun run typecheck

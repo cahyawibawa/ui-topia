@@ -70,7 +70,9 @@ const tagsData: Tag[] = [
 function groupTags(tags: Tag[]): TagGroup[] {
   const groups: Record<string, Tag[]> = {};
   for (const t of tags) {
-    (groups[t.group] ??= []).push(t);
+    const bucket = groups[t.group] ?? [];
+    bucket.push(t);
+    groups[t.group] = bucket;
   }
   const order: Array<TagGroup["value"]> = ["Status", "Priority", "Team"];
   return order.map((value) => ({ value, items: groups[value] ?? [] }));

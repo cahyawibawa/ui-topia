@@ -71,7 +71,7 @@ export function ComponentPreview({
         <div
           data-slot="preview"
           data-active={tab === "preview"}
-          className="relative rounded-xl border border-muted-foreground/10  data-[active=false]:hidden"
+          className="relative rounded-xl border border-muted-foreground/10 data-[active=false]:hidden"
         >
           <div
             data-align={align}

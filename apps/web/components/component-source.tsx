@@ -89,7 +89,7 @@ export function ComponentSource({
             showLineNumbers={true}
           />
           {isFetching && (
-            <div className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-xl bg-background/60 text-xs font-medium text-muted-foreground">
+            <div className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-xl bg-background/60 font-medium text-muted-foreground text-xs">
               Updating snippet…
             </div>
           )}
