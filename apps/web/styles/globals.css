@@ -449,6 +449,7 @@
   color: var(--shiki-light);
 
   @variant dark {
+    /* biome-ignore lint/suspicious/noDuplicateProperties: a nested Tailwind variant, a separate rule rather than a duplicate */
     color: var(--shiki-dark) !important;
   }
 }

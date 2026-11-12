@@ -210,6 +210,7 @@ const CSSBox = forwardRef<CSSBoxRef, CSSBoxProps>(
     }, []);
 
     return (
+      // biome-ignore lint/a11y/noStaticElementInteractions: a drag-to-rotate surface for pointer and touch, with no keyboard equivalent to offer
       <div
         className={cn(draggable && "cursor-move", className)}
         style={{

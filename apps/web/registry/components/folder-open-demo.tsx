@@ -15,6 +15,7 @@ function InnerContent() {
   const isOpen = ctx.status === "open";
 
   return (
+    // biome-ignore lint/a11y/noStaticElementInteractions: a click-to-open demo surface; the folder is decorative
     <div
       onClick={() => {
         if (isOpen) {

@@ -14,6 +14,7 @@ function Group({
   children: React.ReactNode;
 }) {
   return (
+    // biome-ignore lint/a11y/useSemanticElements: a styled wrapper for related controls; a fieldset would bring its own layout
     <div
       data-slot="group"
       className={cn(

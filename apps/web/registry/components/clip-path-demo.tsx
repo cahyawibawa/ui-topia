@@ -42,6 +42,7 @@ export default function ClipPath() {
 
   return (
     <div>
+      {/* biome-ignore lint/a11y/noStaticElementInteractions: a pointer-tracking effect, purely decorative */}
       <div
         ref={containerRef}
         className="relative flex h-48 w-[350px] flex-col items-center justify-center p-8"
