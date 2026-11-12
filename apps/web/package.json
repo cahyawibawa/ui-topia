@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next dev --turbo",
     "build": "next build",
+    "typecheck": "tsc --noEmit",
     "lint": "next lint",
     "analyze": "ANALYZE=true next build",
     "clean": "git clean -xdf .next .turbo node_modules",
