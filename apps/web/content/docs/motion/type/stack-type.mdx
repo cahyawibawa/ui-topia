@@ -1,0 +1,77 @@
+---
+title: Stack Type
+description: One line of capitals stacked nine deep on a drum, every letter draining to one solid row on its own beat.
+order: 2
+publishedAt: "2026-11-12"
+maker: arlan
+---
+
+<StackTypeDemo />
+
+One line of capitals is stacked nine rows deep and wrapped on a shallow drum. Every letter is its own column, and each column drains to the one solid middle row on its own beat while the outlined echoes above and below scramble into other letters. Then it fills back out.
+
+## How it works
+
+The line is set nine times, one row under the next, on a 1200 by 675 scene that is scaled to its box as one unit. The whole stack is scaled about its middle row until the line runs to 24 pixels from each side, so a shorter line is set bigger.
+
+- **Every letter is a column, and a column is always one unbroken run of rows.** Its top steps down a row four times and its foot steps up a row four times, each on its own 40 ms key, until only the middle row is left. Steps fall two to four keys apart, a little slower as the column closes, and each column starts at a different key, so the stack drains unevenly from both ends.
+- **The beats are measured, not random.** There are twenty tracks, one per letter in reading order, cycling for a longer line. At every hold each letter moves seven places along the tracks, so twenty loops pass before one drains like another.
+- **Three treatments mark the middle row as the real one.** The rows wrap a still drum seen front on, so they close up, flatten, fade and narrow toward the rim. Every row but the middle is a 1.6 pixel stroke. And a cell away from the middle may show another capital, more often the further out it is, picked by a hash of its column, row and beat so it holds for 240 ms.
+- **Nothing moves between keys.** A step is a whole row, all at once, and the canvas only repaints when the key changes. The loop is 48 keys, 1.92 seconds.
+
+It pauses off screen and on a hidden tab. Under reduced motion it draws one still frame, the stack half drained, and never starts the loop. The canvas pixel ratio is capped at 2, and everything is cleaned up on unmount.
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+<ComponentCli name="stack-type"/>
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="stack-type" title="components/ui/stack-type/index.tsx" />
+
+<Step>Add `engine.ts` and `params.ts` next to it, and the `use-pause` hook. Then update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import StackType from "@/components/ui/stack-type";
+
+<div className="aspect-video">
+  <StackType text="DESIGN FOR AGENTS" ground="#e7e0ff" ink="#3a12ff" />
+</div>;
+```
+
+The effect fills its box and is drawn for 16:9, so give it a box with that ratio. Capitals read best. The type comes from the CSS variable in `fontVar` (`--font-sans` by default), and the layout is measured from the live font, so any plain grotesque works.
+
+| Prop | Default | What it changes |
+|-|-|-|
+| `text` | `"DESIGN FOR AGENTS"` | The line. |
+| `ground` | `#e7e0ff` | The ground colour. |
+| `ink` | `#3a12ff` | The letters' colour. |
+| `phrases` | none | A list of `{ text, ground?, ink? }`. The line changes at the hold, so each refill grows out of the next phrase and its colours. |
+| `look` | drum, outline and scramble | Which treatments the rows get. Any mix works; none gives the flat stack. |
+| `weight` | `500` | The weight the face is drawn at. |
+| `speed` | `1` | The loop's speed. |
+| `fontVar` | `--font-sans` | The CSS variable holding the font family. |
+
+The step beats (`TRACKS`), the drum curve (`DRUM_STEP`) and the scramble chance (`SCRAMBLE`) live in `params.ts`.

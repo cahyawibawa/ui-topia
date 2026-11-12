@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-stack",
+  "type": "registry:ui",
+  "title": "Card Stack",
+  "description": "A deck of cards that fans out on hover, with a spring you can tune.",
+  "dependencies": [
+    "motion",
+    "react"
+  ],
+  "files": [
+    {
+      "path": "registry/ui/card-stack.tsx",
+      "content": "\"use client\";\nimport { motion, useReducedMotion } from \"motion/react\";\nimport { useEffect, useRef, useState } from \"react\";\nimport { cn } from \"@/registry/lib/utils\";\n\nexport type CardStackProps = {\n  /** One node per card, back to front. */\n  children: React.ReactNode[];\n  className?: string;\n  /** Total fan angle in degrees when the deck is open. */\n  spread?: number;\n  /** Random-looking offset per card, 0 (tidy) to 1 (messy). */\n  scatter?: number;\n  /** Spring bounce, 0 (settles) to 1 (wobbles). */\n  bounce?: number;\n  /** Corner radius of each card, in px. */\n  corner?: number;\n  /** Card width and height, in px. */\n  size?: { width: number; height: number };\n};\n\n/** Stable pseudo-random value in [-1, 1] for a card index. */\nconst jitter = (index: number, salt: number) => {\n  const x = Math.sin(index * 12.9898 + salt * 78.233) * 43758.5453;\n  return (x - Math.floor(x)) * 2 - 1;\n};\n\nexport default function CardStack({\n  children,\n  className,\n  spread = 60,\n  scatter = 0,\n  bounce = 0.3,\n  corner = 14,\n  size = { width: 150, height: 200 },\n}: CardStackProps) {\n  const reduceMotion = useReducedMotion();\n  const ref = useRef<HTMLDivElement>(null);\n  const [open, setOpen] = useState(false);\n  const [hovered, setHovered] = useState<number | null>(null);\n  const [active, setActive] = useState<number | null>(null);\n\n  // Click away (or Escape) puts the chosen card back on top of the deck.\n  useEffect(() => {\n    if (active === null) return;\n    const away = (e: PointerEvent) => {\n      if (!ref.current?.contains(e.target as Node)) setActive(null);\n    };\n    const onKey = (e: KeyboardEvent) => e.key === \"Escape\" && setActive(null);\n    document.addEventListener(\"pointerdown\", away);\n    document.addEventListener(\"keydown\", onKey);\n    return () => {\n      document.removeEventListener(\"pointerdown\", away);\n      document.removeEventListener(\"keydown\", onKey);\n    };\n  }, [active]);\n\n  const count = children.length;\n  const mid = (count - 1) / 2;\n  const fanned = open || active !== null;\n\n  return (\n    <div\n      className={cn(\"relative\", className)}\n      onPointerEnter={() => setOpen(true)}\n      onPointerLeave={() => {\n        setOpen(false);\n        setHovered(null);\n      }}\n      ref={ref}\n      style={{ height: size.height * 1.4, width: size.width * 2.4 }}\n    >\n      {children.map((child, i) => {\n        const offset = i - mid;\n        const isActive = active === i;\n        const dimmed = active !== null && !isActive;\n        const step = count > 1 ? spread / (count - 1) : 0;\n\n        const rotate = isActive\n          ? 0\n          : offset * step * (fanned ? 1 : 0.15) + jitter(i, 1) * scatter * 8;\n        const x = isActive\n          ? 0\n          : offset * (fanned ? size.width * 0.28 : 3) +\n            jitter(i, 2) * scatter * 14 +\n            (dimmed ? Math.sign(offset || 1) * size.width * 0.35 : 0);\n        const y =\n          (isActive ? -size.height * 0.04 : 0) +\n          (hovered === i && !isActive ? -size.height * 0.1 : 0) +\n          jitter(i, 3) * scatter * 8;\n\n        return (\n          <motion.button\n            animate={{\n              opacity: dimmed ? 0.6 : 1,\n              rotate,\n              scale: isActive ? 1.25 : dimmed ? 0.92 : 1,\n              x,\n              y,\n            }}\n            className=\"absolute top-1/2 left-1/2 cursor-pointer overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-ring\"\n            initial={false}\n            key={i}\n            onBlur={() => setHovered(null)}\n            onClick={() => setActive(isActive ? null : i)}\n            onFocus={() => setHovered(i)}\n            onPointerEnter={() => setHovered(i)}\n            style={{\n              borderRadius: corner,\n              height: size.height,\n              marginLeft: -size.width / 2,\n              marginTop: -size.height / 2,\n              width: size.width,\n              zIndex: isActive ? count + 1 : hovered === i ? count : i,\n            }}\n            transition={\n              reduceMotion\n                ? { duration: 0 }\n                : { bounce, duration: 0.55, type: \"spring\" }\n            }\n            type=\"button\"\n          >\n            {child}\n          </motion.button>\n        );\n      })}\n    </div>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/card-stack.tsx"
+    }
+  ],
+  "categories": [
+    "motion",
+    "react",
+    "tailwindcss"
+  ]
+}

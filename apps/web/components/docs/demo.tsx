@@ -6,16 +6,15 @@ import { cn } from "@/lib/utils";
 export function Demo({
   children,
   className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
+  ...props
+}: React.ComponentProps<"figure">) {
   return (
     <figure
       className={cn(
         "not-prose my-8 flex min-h-48 flex-col items-center justify-center gap-6 px-6 py-10",
         className,
       )}
+      {...props}
     >
       {children}
     </figure>

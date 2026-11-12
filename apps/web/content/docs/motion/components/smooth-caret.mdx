@@ -1,0 +1,66 @@
+---
+title: Smooth Caret
+description: A caret that glides to where you click or type instead of jumping.
+order: 2
+publishedAt: "2026-11-11"
+maker: sanyam
+---
+
+<SmoothCaretDemo />
+
+A textarea whose caret glides to where it is going instead of jumping. Click into the note and watch it travel. Type, and the letters appear as the caret passes over them. Delete, and the caret erases them on its way back.
+
+## How it works
+
+The browser's caret can't be animated, so the native one is painted transparent and a drawn one follows a measured position. A textarea has no way to ask where its own caret is, so the position comes from a hidden mirror: a div laid out exactly like the field, with the same width, padding, font and wrapping. The mirror holds the text up to the caret, then a span holding the rest, and that span's first line box is where the caret is.
+
+- **The mirror holds the rest of the text too**, not one marker character, so the word the caret is inside wraps the way it does in the field. At the end of the text it holds a zero-width space, which has a line box and can't push a full line onto the next one.
+- **One critically damped spring drives every axis.** It is a spring and not a tween, so a key pressed mid-glide turns the caret from where it is, at the speed it already has, which keeps a run of keystrokes one smooth movement.
+- **Typed text is revealed, not shown.** The field puts a typed letter on screen at once, which would leave the caret trailing behind it. So a cover in the field's own colour runs from the caret to the new text's right edge, and the letter appears as the caret passes it.
+- **Deleted text is erased, not removed.** A deletion takes its text out of the field at once, so a caret gliding back would travel through empty space. A copy of the text stays where it was, clipped at the caret, so the caret erases it as it goes. Holding backspace erases one run of text rather than letters that each vanish on their own.
+- **Wraps and clicks are handled.** A word that wraps as you type moves to the next line in one frame, so the caret snaps with it. A caret at a soft wrap knows which line it belongs to, whether you got there by a click, `Home` or `End`. A click that focuses the field, a scroll and a blur place the caret rather than travel to it.
+- **It stays solid while it moves,** then blinks once it has been still for half a second, and it hides while text is selected. Under reduced motion every move is a jump.
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+<ComponentCli name="smooth-caret"/>
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+<ComponentCli name="smooth-caret"/>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="smooth-caret" title="components/ui/smooth-caret/index.tsx" />
+
+<Step>Add `caret.ts` next to it, then update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import SmoothCaret from "@/components/ui/smooth-caret";
+
+<SmoothCaret />;
+```
+
+The component draws its own stage and note and fills the width of its container. The measuring lives in `caret.ts` (`syncMirror` and `caretAt`) and is plain DOM, so you can reuse it to build a smooth caret around your own textarea.

@@ -11,7 +11,6 @@ const footerColumns: Array<{
   {
     title: "Resources",
     links: [
-      { label: "Blocks", href: "/blocks" },
       { label: "Craft", href: "https://cahyawibawa.com/lab" },
       { label: "Changelog", href: "/changelog" },
     ],

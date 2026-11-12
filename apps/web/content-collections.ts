@@ -67,6 +67,8 @@ const docs = defineCollection({
         }),
       )
       .optional(),
+    /** Whose work this is, a key of `MAKERS` in lib/makers.ts. */
+    maker: z.string().optional(),
     order: z.number().default(0),
     publishedAt: z.string().optional(),
     status: z.enum(["draft", "soon", "published"]).default("published"),

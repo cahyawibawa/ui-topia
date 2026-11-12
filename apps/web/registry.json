@@ -3850,6 +3850,17 @@
       ]
     },
     {
+      "name": "use-pause",
+      "type": "registry:hook",
+      "description": "Runs a visual only while it is on screen, the tab is visible and the user has not asked for reduced motion.",
+      "files": [
+        {
+          "path": "registry/hooks/use-pause.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
       "name": "use-debounce",
       "type": "registry:hook",
       "files": [
@@ -4001,6 +4012,163 @@
         }
       ],
       "categories": ["react", "tailwindcss"]
+    },
+    {
+      "name": "card-stack",
+      "type": "registry:ui",
+      "title": "Card Stack",
+      "description": "A deck of cards that fans out on hover, with a spring you can tune.",
+      "dependencies": ["motion", "react"],
+      "files": [
+        {
+          "type": "registry:ui",
+          "target": "components/ui/card-stack.tsx",
+          "path": "registry/ui/card-stack.tsx"
+        }
+      ],
+      "categories": ["motion", "react", "tailwindcss"]
+    },
+    {
+      "name": "smooth-caret",
+      "type": "registry:ui",
+      "title": "Smooth Caret",
+      "description": "A textarea whose caret glides to where it is going instead of jumping, and reveals what you type as it passes.",
+      "dependencies": ["motion", "react"],
+      "files": [
+        {
+          "type": "registry:ui",
+          "target": "components/ui/smooth-caret/index.tsx",
+          "path": "registry/ui/smooth-caret/index.tsx"
+        },
+        {
+          "type": "registry:lib",
+          "target": "components/ui/smooth-caret/caret.ts",
+          "path": "registry/ui/smooth-caret/caret.ts"
+        }
+      ],
+      "categories": ["motion", "react"]
+    },
+    {
+      "name": "dynamic-island",
+      "type": "registry:ui",
+      "title": "Dynamic Island",
+      "description": "A phone's Dynamic Island running live activities: a timer, a song, a call, a charger and the silent switch, each its own shape on springs.",
+      "dependencies": ["motion", "react"],
+      "files": [
+        {
+          "type": "registry:ui",
+          "target": "components/ui/dynamic-island/index.tsx",
+          "path": "registry/ui/dynamic-island/index.tsx"
+        },
+        {
+          "type": "registry:ui",
+          "target": "components/ui/dynamic-island/glyphs.tsx",
+          "path": "registry/ui/dynamic-island/glyphs.tsx"
+        },
+        {
+          "type": "registry:ui",
+          "target": "components/ui/dynamic-island/swap.tsx",
+          "path": "registry/ui/dynamic-island/swap.tsx"
+        },
+        {
+          "type": "registry:lib",
+          "target": "components/ui/dynamic-island/scene.ts",
+          "path": "registry/ui/dynamic-island/scene.ts"
+        },
+        {
+          "type": "registry:lib",
+          "target": "components/ui/dynamic-island/digits.ts",
+          "path": "registry/ui/dynamic-island/digits.ts"
+        }
+      ],
+      "categories": ["motion", "react"]
+    },
+    {
+      "name": "tear-calendar",
+      "type": "registry:ui",
+      "title": "Tear Calendar",
+      "description": "A tear-off wall calendar, a page a day: pull a page and it tears along the perforation.",
+      "dependencies": ["motion", "react", "react-dom", "lucide-react"],
+      "files": [
+        {
+          "type": "registry:ui",
+          "target": "components/ui/tear-calendar/index.tsx",
+          "path": "registry/ui/tear-calendar/index.tsx"
+        },
+        {
+          "type": "registry:ui",
+          "target": "components/ui/tear-calendar/sheet.tsx",
+          "path": "registry/ui/tear-calendar/sheet.tsx"
+        },
+        {
+          "type": "registry:lib",
+          "target": "components/ui/tear-calendar/tear.ts",
+          "path": "registry/ui/tear-calendar/tear.ts"
+        },
+        {
+          "type": "registry:lib",
+          "target": "components/ui/tear-calendar/days.ts",
+          "path": "registry/ui/tear-calendar/days.ts"
+        },
+        {
+          "type": "registry:lib",
+          "target": "components/ui/tear-calendar/tear-sound.ts",
+          "path": "registry/ui/tear-calendar/tear-sound.ts"
+        }
+      ],
+      "categories": ["motion", "react"]
+    },
+    {
+      "name": "stack-type",
+      "type": "registry:ui",
+      "title": "Stack Type",
+      "description": "One line of capitals stacked nine deep on a drum, every letter draining to one solid row on its own beat while the outlined echoes scramble.",
+      "dependencies": ["react"],
+      "registryDependencies": ["https://uitopia.vercel.app/r/use-pause.json"],
+      "files": [
+        {
+          "type": "registry:ui",
+          "target": "components/ui/stack-type/index.tsx",
+          "path": "registry/ui/stack-type/index.tsx"
+        },
+        {
+          "type": "registry:lib",
+          "target": "components/ui/stack-type/engine.ts",
+          "path": "registry/ui/stack-type/engine.ts"
+        },
+        {
+          "type": "registry:lib",
+          "target": "components/ui/stack-type/params.ts",
+          "path": "registry/ui/stack-type/params.ts"
+        }
+      ],
+      "categories": ["motion", "react", "type"]
+    },
+    {
+      "name": "warp-type",
+      "type": "registry:ui",
+      "title": "Warp Type",
+      "description": "Six short sentences, half a second each, where the verb bends its own letters.",
+      "dependencies": ["react"],
+      "registryDependencies": ["https://uitopia.vercel.app/r/use-pause.json"],
+      "files": [
+        {
+          "type": "registry:ui",
+          "target": "components/ui/warp-type/index.tsx",
+          "path": "registry/ui/warp-type/index.tsx"
+        },
+        {
+          "type": "registry:lib",
+          "target": "components/ui/warp-type/engine.ts",
+          "path": "registry/ui/warp-type/engine.ts"
+        },
+        {
+          "type": "registry:lib",
+          "target": "components/ui/warp-type/params.ts",
+          "path": "registry/ui/warp-type/params.ts"
+        }
+      ],
+      "categories": ["motion", "react", "type"]
     },
     {
       "name": "text-loop",

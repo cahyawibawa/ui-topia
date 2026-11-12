@@ -8,6 +8,8 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
+import { MakerCredit } from "@/components/docs/maker-credit";
+import { MotionIndex } from "@/components/docs/motion-index";
 import { Resources } from "@/components/docs/resources";
 import { SectionIndex } from "@/components/docs/section-index";
 import { Toc } from "@/components/docs/toc";
@@ -47,6 +49,7 @@ export default async function Page(props: Params) {
                 {doc.description}
               </p>
             )}
+            <MakerCredit className="mt-2" maker={doc.maker} />
           </div>
           <div className="flex items-center gap-2.5 pb-3 sm:gap-3 sm:pb-4">
             {links?.doc && (
@@ -68,9 +71,12 @@ export default async function Page(props: Params) {
           <MDXContent code={doc.mdx} components={getMDXComponents()} />
         </div>
         <Resources items={doc.resources} />
-        {doc.slug.length === 1 && (
-          <SectionIndex group={doc.group} current={doc.url} />
-        )}
+        {doc.slug.length === 1 &&
+          (doc.group === "motion" ? (
+            <MotionIndex />
+          ) : (
+            <SectionIndex group={doc.group} current={doc.url} />
+          ))}
         {(previous || next) && (
           <div className="flex items-center gap-2 pt-8">
             {previous && (

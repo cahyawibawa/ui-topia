@@ -1,0 +1,73 @@
+---
+title: Card Stack
+description: A deck of cards that fans out as you reach it.
+order: 1
+publishedAt: "2026-11-11"
+maker: cahya
+---
+
+<CardStackTuner />
+
+Drag the bars on the right. Every control maps to a prop, so what you settle on is what you paste into your code.
+
+## How it works
+
+The deck is one container with every card absolutely centered in it. Hovering the container flips a single `open` flag, and each card derives its own rotation and offset from its distance to the middle of the deck. Nothing is keyed per card, so changing **Cards** or **Spread** reflows the whole fan.
+
+Three states drive everything:
+
+- **Open:** the container is hovered, so the fan widens.
+- **Hovered:** the card under the pointer lifts a little and takes the top of the stack.
+- **Active:** a clicked card scales up into the middle while the others step aside and dim. Clicking away or pressing `Escape` sends it back.
+
+Motion animates `x`, `y`, `rotate`, `scale` and `opacity` with one spring. **Bounce** is the only physics knob: at 0 the cards settle, and past about 5 they wobble. Under `prefers-reduced-motion` the transition is instant.
+
+**Scatter** adds a fixed pseudo-random offset per card, derived from its index. It looks hand-dealt, but it never changes between renders, so there is no flicker.
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+<ComponentCli name="card-stack"/>
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+<ComponentCli name="card-stack"/>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="card-stack" title="components/ui/card-stack.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import CardStack from "@/components/ui/card-stack";
+
+<CardStack bounce={0.3} corner={14} scatter={0.2} spread={60}>
+  <img alt="" src="/one.jpg" />
+  <img alt="" src="/two.jpg" />
+  <img alt="" src="/three.jpg" />
+</CardStack>;
+```
+
+Each child fills its card, so pass anything: images, gradients or a small layout.

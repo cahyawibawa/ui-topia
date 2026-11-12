@@ -1,7 +1,7 @@
 export const siteConfig = {
   creator: "@kyuotaka",
   description:
-    "ui/topia is, a growing collection of experimental components built with shadcn/ui, Motion and Tailwind CSS.",
+    "ui/topia is a world for beautiful ui: components, motion and notes I collect and rebuild to learn, built with Base UI, Motion and Tailwind CSS.",
   keywords: [
     "Next.js",
     "React",
