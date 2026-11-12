@@ -1,4 +1,3 @@
-import { MakerStack } from "./maker-stack";
 import { WordTiles } from "./word-tiles/word-tiles";
 
 export const Header = () => {
@@ -117,7 +116,6 @@ export const Header = () => {
                 ></path>
               </svg>
             </a>
-            <MakerStack />
           </div>
         </div>
       </div>
