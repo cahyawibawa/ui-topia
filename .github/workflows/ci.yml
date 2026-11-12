@@ -28,8 +28,11 @@ jobs:
       - name: Set up Bun
         uses: oven-sh/setup-bun@v2
         with:
-          # The version in the root package.json "packageManager" field.
-          bun-version: 1.2.12
+          # bun.lockb is written by a newer Bun than the root package.json
+          # "packageManager" field names (1.2.12), and 1.2.12 cannot read it, so
+          # CI uses the version the lockfile was written with. Keep the two in
+          # step: when the lockfile is regenerated with another Bun, bump this.
+          bun-version: 1.3.0
 
       - name: Cache Bun's install cache
         uses: actions/cache@v4
