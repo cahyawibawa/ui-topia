@@ -71,13 +71,28 @@ const docs = defineCollection({
     maker: z.string().optional(),
     order: z.number().default(0),
     publishedAt: z.string().optional(),
+    /** Shows the "new" tag next to this doc in the sidebar. */
+    new: z.boolean().optional(),
     status: z.enum(["draft", "soon", "published"]).default("published"),
   }),
   transform: async (document, context) => {
-    const mdx = await compileMDX(context, document, {
-      remarkPlugins: [remarkGfm],
-      rehypePlugins: [rehypeSlug, rehypeSyntaxHighlight],
-    });
+    // The maker's credit sits under the page's first block (the showcase), so
+    // it is slotted into the compiled source only; `raw` stays as written.
+    const [first = "", ...rest] = document.content.trimStart().split(/\n\s*\n/);
+    const credited = document.maker
+      ? [first, `<MakerCredit maker="${document.maker}" />`, ...rest].join(
+          "\n\n",
+        )
+      : document.content;
+
+    const mdx = await compileMDX(
+      context,
+      { ...document, content: credited },
+      {
+        remarkPlugins: [remarkGfm],
+        rehypePlugins: [rehypeSlug, rehypeSyntaxHighlight],
+      },
+    );
 
     // `ui/components/button` -> ["ui", "components", "button"]; a trailing
     // `index` collapses to its folder (`ui/index` -> ["ui"]).

@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { playSound } from "@/lib/sounds";
 
 export function useCopyToClipboard({
   timeout = 2000,
@@ -20,6 +21,7 @@ export function useCopyToClipboard({
 
     navigator.clipboard.writeText(value).then(() => {
       setIsCopied(true);
+      playSound("success", { emphasis: "subtle" });
 
       if (onCopy) {
         onCopy();

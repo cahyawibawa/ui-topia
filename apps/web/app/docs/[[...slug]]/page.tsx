@@ -8,7 +8,6 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
-import { MakerCredit } from "@/components/docs/maker-credit";
 import { MotionIndex } from "@/components/docs/motion-index";
 import { Resources } from "@/components/docs/resources";
 import { SectionIndex } from "@/components/docs/section-index";
@@ -49,7 +48,6 @@ export default async function Page(props: Params) {
                 {doc.description}
               </p>
             )}
-            <MakerCredit className="mt-2" maker={doc.maker} />
           </div>
           <div className="flex items-center gap-2.5 pb-3 sm:gap-3 sm:pb-4">
             {links?.doc && (

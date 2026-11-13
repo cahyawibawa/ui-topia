@@ -1,8 +1,4 @@
 /**
- * Adapted from the tear-calendar lab on Sanyam Punia's site
- * (https://github.com/SanyamPunia/www), used with his permission.
- */
-/**
  * What tearing a page sounds like, synthesised rather than fetched, on the shape
  * `crack-sound.ts` sets: one context, one noise buffer, nothing requested.
  *

@@ -32,8 +32,9 @@ export function CodeCollapsibleWrapper({
       >
         {children}
       </CollapsiblePanel>
-      {/* Bottom gradient trigger - shows when collapsed */}
-      <CollapsibleTrigger className="-bottom-2 absolute inset-x-0 flex h-20 cursor-pointer items-center justify-center rounded-b-lg bg-gradient-to-b from-transparent via-50% via-background to-background font-medium text-muted-foreground text-sm transition-colors hover:text-foreground group-data-open/collapsible:hidden">
+      {/* Bottom gradient trigger - shows when collapsed. z-10 keeps the fade above
+          the code gutter's sticky line numbers (z-index 2). */}
+      <CollapsibleTrigger className="-bottom-2 absolute inset-x-0 z-10 flex h-20 cursor-pointer items-center justify-center rounded-b-lg bg-gradient-to-b from-transparent via-50% via-background to-background font-medium text-muted-foreground text-sm transition-colors hover:text-foreground group-data-open/collapsible:hidden">
         Expand
       </CollapsibleTrigger>
       {/* Collapse button - shows when expanded */}

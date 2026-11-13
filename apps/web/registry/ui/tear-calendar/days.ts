@@ -1,8 +1,4 @@
 /**
- * Adapted from the tear-calendar lab on Sanyam Punia's site
- * (https://github.com/SanyamPunia/www), used with his permission.
- */
-/**
  * What a page of the pad prints, pure and DOM-free. A page is one day of the
  * year the pad was made for, and everything on it is worked out from the date:
  * the weekday, the ISO week, where the day falls in the year and the moon.

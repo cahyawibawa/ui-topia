@@ -1,7 +1,3 @@
-/**
- * Adapted from the tear-calendar lab on Sanyam Punia's site
- * (https://github.com/SanyamPunia/www), used with his permission.
- */
 import { memo } from "react";
 import { type Day, moonPath } from "./days";
 import { HOLE_R, PERF, PITCH, SH, W } from "./tear";

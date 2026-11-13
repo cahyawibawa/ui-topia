@@ -46,7 +46,6 @@ export function MotionIndex() {
                   date={formatDate(doc.publishedAt)}
                   href={doc.url}
                   key={doc.url}
-                  maker={doc.maker}
                   slug={clips.has(slug) ? slug : undefined}
                   title={doc.title}
                 />
