@@ -1,8 +1,4 @@
 /**
- * Adapted from the tear-calendar lab on Sanyam Punia's site
- * (https://github.com/SanyamPunia/www), used with his permission.
- */
-/**
  * The calendar's geometry and the tear, pure and DOM-free, in design units.
  *
  * The calendar hangs from a nail at the origin. A page is a sheet `W` by `SH`

@@ -1,8 +1,4 @@
 /**
- * Adapted from the smooth-caret lab on Sanyam Punia's site
- * (https://github.com/SanyamPunia/www), used with his permission.
- */
-/**
  * Where a textarea's caret is, measured off a mirror of the field.
  *
  * A textarea has no `Range` into its own text, so nothing can ask the browser

@@ -1,114 +1,72 @@
-"use client";
-
-import * as React from "react";
-import { CodeBlock } from "@/components/code-block";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper";
-import type { RegistryItem } from "@/lib/registry";
+import {
+  ComponentSourceFiles,
+  type SourceFile,
+} from "@/components/component-source-files";
+import { highlightCode } from "@/lib/highlight-code";
 import { convertRegistryPaths, getComponentsByName } from "@/lib/registry";
-import { cn } from "@/lib/utils";
 import type { ComponentSourceProps } from "@/types/component";
 
-const componentCodeCache = new Map<string, string>();
+type RegistryFile = { path: string; target?: string };
 
-export function ComponentSource({
+// Highlighting happens here, on the server, so switching to the Manual tab only
+// swaps finished HTML: no fetch of /r/<name>.json and no Shiki in the browser.
+// Every file of the item gets its own tab (the old version showed only the first
+// and listed the rest in prose).
+export async function ComponentSource({
   name,
   title,
   collapsible = true,
   className,
+  // Props the old client version forwarded; the collapsible doesn't use them.
+  expandButtonTitle: _expandButtonTitle,
+  defaultExpanded: _defaultExpanded,
+  maxHeight: _maxHeight,
   ...props
 }: ComponentSourceProps & {
   title?: string;
   collapsible?: boolean;
 }) {
-  const [_component, setComponent] = React.useState<RegistryItem | null>(null);
-  const [code, setCode] = React.useState<string | null>(null);
-  const [error, setError] = React.useState<string | null>(null);
-  const [isFetching, setIsFetching] = React.useState(false);
+  const item = getComponentsByName(name);
+  const registryFiles = (item?.files ?? []) as RegistryFile[];
 
-  React.useEffect(() => {
-    const registryComponent = getComponentsByName(name);
-    setComponent(registryComponent);
-
-    const cachedCode = componentCodeCache.get(name);
-    if (cachedCode) {
-      setCode(cachedCode);
-      setError(null);
-      setIsFetching(false);
-      return;
-    }
-
-    setIsFetching(true);
-    let isCurrent = true;
-
-    async function loadComponentCode() {
-      try {
-        const response = await fetch(`/r/${name}.json`);
-        const data = (await response.json()) as RegistryItem;
-        const codeContent = data.files?.[0]?.content;
-
-        if (!codeContent) {
-          throw new Error("No code content found");
-        }
-
-        const converted = convertRegistryPaths(codeContent);
-        componentCodeCache.set(name, converted);
-        if (!isCurrent) return;
-        setCode(converted);
-        setError(null);
-      } catch (err) {
-        console.error("Error loading component:", err);
-        if (!isCurrent) return;
-        setCode(null);
-        setError("Failed to load component code");
-      } finally {
-        if (isCurrent) {
-          setIsFetching(false);
-        }
-      }
-    }
-
-    loadComponentCode();
-    return () => {
-      isCurrent = false;
-    };
-  }, [name]);
-
-  const codeBlock = (() => {
-    if (error) {
-      return <div className="p-4 text-destructive text-sm">{error}</div>;
-    }
-
-    if (code) {
-      return (
-        <div className="relative rounded-xl bg-code-surface">
-          <CodeBlock
-            borderless
-            code={code}
-            language="tsx"
-            title={title}
-            showLineNumbers={true}
-          />
-          {isFetching && (
-            <div className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-xl bg-background/60 font-medium text-muted-foreground text-xs">
-              Updating snippet…
-            </div>
-          )}
-        </div>
-      );
-    }
-
+  if (registryFiles.length === 0) {
     return (
-      <div className="p-4 text-muted-foreground text-sm">Loading code...</div>
+      <div className="p-4 text-destructive text-sm">
+        Failed to load component code
+      </div>
     );
-  })();
+  }
 
-  if (!collapsible) {
-    return <div className={cn("relative", className)}>{codeBlock}</div>;
+  const files: SourceFile[] = await Promise.all(
+    registryFiles.map(async (file, index) => {
+      const raw = convertRegistryPaths(
+        await readFile(path.join(process.cwd(), file.path), "utf8"),
+      );
+      const language = path.extname(file.path).slice(1) || "tsx";
+      const target = file.target ?? file.path;
+      return {
+        name: path.basename(target),
+        // The MDX-provided title describes the main file only.
+        title: index === 0 && title ? title : target,
+        language,
+        raw,
+        html: await highlightCode(raw, language, { showLineNumbers: true }),
+      };
+    }),
+  );
+
+  const block = <ComponentSourceFiles files={files} />;
+
+  if (collapsible === false) {
+    return <div className={className}>{block}</div>;
   }
 
   return (
     <CodeCollapsibleWrapper className={className} {...props}>
-      {codeBlock}
+      {block}
     </CodeCollapsibleWrapper>
   );
 }

@@ -1,10 +1,10 @@
 "use client";
 
-import { ComputerTerminal02Icon } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
 import * as React from "react";
 import { CopyButton } from "@/components/copy-button";
+import { PackageManagerIcon } from "@/components/package-manager-icon";
 import { useConfig } from "@/hooks/use-config";
+import { playSound } from "@/lib/sounds";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/registry/ui/tabs";
 
 export function CodeBlockCommand({
@@ -31,10 +31,11 @@ export function CodeBlockCommand({
   }, [__npm__, __pnpm__, __yarn__, __bun__]);
 
   return (
-    <div className="not-prose relative overflow-hidden rounded-lg border border-muted-foreground/10 bg-code-surface">
+    <div className="not-prose relative overflow-hidden rounded-[17px] border border-muted-foreground/10 bg-code-surface">
       <Tabs
         value={packageManager}
         onValueChange={(value) => {
+          playSound("select");
           setConfig({
             ...config,
             packageManager: value as "pnpm" | "npm" | "yarn" | "bun",
@@ -42,20 +43,17 @@ export function CodeBlockCommand({
         }}
         className="gap-0"
       >
-        <div className="flex items-center gap-2 border-border/64 border-b bg-muted/50 px-4 py-1 font-mono">
-          <HugeiconsIcon
-            icon={ComputerTerminal02Icon}
-            strokeWidth={2}
-            className="size-5 text-code-foreground sm:size-4"
-          />
-          <TabsList className="bg-transparent p-0 *:data-[slot=tab-indicator]:rounded-lg *:data-[slot=tab-indicator]:bg-accent *:data-[slot=tab-indicator]:shadow-none">
-            {Object.entries(tabs).map(([key]) => {
-              return (
-                <TabsTab key={key} value={key} className="rounded-lg">
-                  {key}
-                </TabsTab>
-              );
-            })}
+        <div className="flex items-center border-border/64 border-b px-2 py-2 font-mono">
+          <TabsList
+            activateOnFocus
+            className="bg-transparent p-0 *:data-[slot=tab-indicator]:rounded-lg *:data-[slot=tab-indicator]:bg-accent *:data-[slot=tab-indicator]:shadow-none"
+          >
+            {Object.keys(tabs).map((key) => (
+              <TabsTab className="gap-1.5 rounded-lg" key={key} value={key}>
+                <PackageManagerIcon name={key} />
+                {key}
+              </TabsTab>
+            ))}
           </TabsList>
         </div>
         <div className="no-scrollbar overflow-x-auto bg-code-surface">
@@ -79,7 +77,10 @@ export function CodeBlockCommand({
           })}
         </div>
       </Tabs>
-      <CopyButton value={tabs[packageManager] || ""} />
+      <CopyButton
+        className="top-2 right-2"
+        value={tabs[packageManager] || ""}
+      />
     </div>
   );
 }

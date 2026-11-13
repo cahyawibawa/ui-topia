@@ -1,7 +1,3 @@
-/**
- * Adapted from the live-activities lab on Sanyam Punia's site
- * (https://github.com/SanyamPunia/www), used with his permission.
- */
 /*
  * The platform's rolling numbers for a clock written straight to its node.
  * Each character sits in its own cell, and only the cells whose character

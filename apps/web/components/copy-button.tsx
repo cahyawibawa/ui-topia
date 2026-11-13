@@ -1,7 +1,7 @@
 "use client";
 
-import { Check, Clipboard } from "lucide-react";
-import type * as React from "react";
+import * as React from "react";
+import { CopyIcon } from "@/components/copy-icon";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
 import { cn } from "@/lib/utils";
 import { Button } from "@/registry/ui/button";
@@ -21,9 +21,13 @@ export function CopyButton({
   src?: string;
 }) {
   const { isCopied, copyToClipboard } = useCopyToClipboard();
+  // Always controlled: hover/focus opens it, and a fresh copy keeps it open to
+  // show "Copied". Switching between undefined and a value would flip it
+  // between uncontrolled and controlled, which Base UI warns about.
+  const [hovered, setHovered] = React.useState(false);
 
   return (
-    <Tooltip open={isCopied ? true : undefined}>
+    <Tooltip onOpenChange={setHovered} open={hovered || isCopied}>
       <TooltipTrigger
         render={
           <Button
@@ -38,11 +42,7 @@ export function CopyButton({
             {...props}
           >
             <span className="sr-only">Copy</span>
-            {isCopied ? (
-              <Check className="size-4" />
-            ) : (
-              <Clipboard className="size-4" />
-            )}
+            <CopyIcon copied={isCopied} />
           </Button>
         }
       />

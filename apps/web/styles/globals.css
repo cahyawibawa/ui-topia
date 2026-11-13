@@ -54,6 +54,7 @@
   --color-code: var(--code);
   --color-code-foreground: var(--code-foreground);
   --color-code-highlight: var(--code-highlight);
+  --color-code-surface: var(--code-surface);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -642,4 +643,157 @@
 .docs-prose th {
   font-weight: 500;
   color: var(--foreground);
+}
+
+/* Docs mobile menu (components/docs/mobile-nav.tsx). No sheet: the page blurs
+   progressively, strongest under the links on the left and fading out to the
+   right, while the rows drift in over it. Base UI flags the first/last frame
+   with data-starting-style / data-ending-style. */
+@layer components {
+  .nav-blur-layer {
+    position: absolute;
+    inset: 0;
+    /* Each layer owns a band measured from the right edge and ramps over its
+       neighbours, so the blur steps up smoothly towards the links. */
+    mask-image: linear-gradient(
+      to left,
+      transparent calc(var(--band) - 12.5%),
+      black var(--band),
+      black calc(var(--band) + 12.5%),
+      transparent calc(var(--band) + 25%)
+    );
+    backdrop-filter: blur(var(--blur));
+    transition: backdrop-filter 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .nav-tint {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      color-mix(in oklab, var(--background) 85%, transparent),
+      color-mix(in oklab, var(--background) 50%, transparent) 45%,
+      transparent
+    );
+    transition: opacity 400ms ease-out;
+  }
+
+  .nav-backdrop[data-starting-style] .nav-blur-layer,
+  .nav-backdrop[data-ending-style] .nav-blur-layer {
+    backdrop-filter: blur(0);
+  }
+  .nav-backdrop[data-starting-style] .nav-tint,
+  .nav-backdrop[data-ending-style] .nav-tint {
+    opacity: 0;
+  }
+  .nav-backdrop[data-ending-style] .nav-blur-layer,
+  .nav-backdrop[data-ending-style] .nav-tint {
+    transition-duration: 250ms;
+  }
+
+  /* Rows: staggered top to bottom, capped so long lists don't drag. */
+  .nav-reveal [data-reveal] {
+    transition-property: opacity, translate, filter;
+    transition-duration: 450ms;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: calc(min(var(--reveal-i, 0), 18) * 12ms + 60ms);
+  }
+  .nav-reveal[data-starting-style] [data-reveal] {
+    opacity: 0;
+    translate: -24px 0;
+    filter: blur(6px);
+  }
+
+  /* Leaving: the whole list goes at once, quicker than it came in. */
+  .nav-reveal {
+    transition-property: opacity, translate, filter;
+    transition-duration: 250ms;
+    transition-timing-function: ease-in;
+  }
+  .nav-reveal[data-ending-style] {
+    opacity: 0;
+    translate: -12px 0;
+    filter: blur(4px);
+  }
+
+  /* Mobile header: stacked blur, strongest at the top, fading out below. */
+  .header-blur-layer {
+    position: absolute;
+    inset: 0;
+    mask-image: linear-gradient(
+      to top,
+      transparent var(--start),
+      black var(--end)
+    );
+    backdrop-filter: blur(var(--blur));
+  }
+
+  .header-tint {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--background) 85%, transparent),
+      color-mix(in oklab, var(--background) 50%, transparent) 55%,
+      transparent
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-reveal [data-reveal],
+  .nav-reveal {
+    translate: none !important;
+    filter: none !important;
+    transition-delay: 0ms !important;
+  }
+}
+
+/* Dual-tone copy icon (components/copy-icon.tsx). */
+.copy-icon {
+  --copy-front: var(--muted-foreground);
+  --copy-back: color-mix(in oklab, var(--muted-foreground) 45%, transparent);
+  overflow: visible;
+}
+
+[data-slot="copy-button"]:hover .copy-icon {
+  --copy-front: var(--foreground);
+}
+
+.copy-icon .copy-front,
+.copy-icon .copy-back {
+  transition: opacity 150ms ease-out;
+}
+
+/* The circle grows out of where the front square sits (centre 10.5,10.5)
+   to cover the whole 16px icon, as in Aave's checked state. */
+.copy-icon .copy-badge {
+  opacity: 0;
+  transform: translate(2.5px, 2.5px) scale(0.6875);
+  transform-box: view-box;
+  transform-origin: 8px 8px;
+  transition:
+    transform 250ms cubic-bezier(0.23, 1, 0.32, 1),
+    opacity 150ms ease-out;
+}
+
+.copy-icon .copy-check {
+  opacity: 0;
+  transform: rotate(45deg);
+  transform-box: view-box;
+  transform-origin: 4.8px 8.36px;
+  transition:
+    transform 250ms cubic-bezier(0.23, 1, 0.32, 1),
+    opacity 150ms ease-out;
+}
+
+.copy-icon[data-copied="true"] .copy-front,
+.copy-icon[data-copied="true"] .copy-back {
+  opacity: 0;
+}
+
+.copy-icon[data-copied="true"] .copy-badge,
+.copy-icon[data-copied="true"] .copy-check {
+  opacity: 1;
+  transform: none;
 }

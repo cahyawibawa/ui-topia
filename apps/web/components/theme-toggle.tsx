@@ -3,6 +3,7 @@
 import { Monitor, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { playSound } from "@/lib/sounds";
 import { cn } from "@/lib/utils";
 
 const modes = [
@@ -31,7 +32,10 @@ export function ThemeToggle({ className }: { className?: string }) {
           aria-label={label}
           className="inline-flex size-6 items-center justify-center rounded-full text-muted-foreground transition-colors hover:text-foreground aria-pressed:bg-accent aria-pressed:text-foreground"
           key={value}
-          onClick={() => setTheme(value)}
+          onClick={() => {
+            playSound("toggle");
+            setTheme(value);
+          }}
           type="button"
         >
           <Icon className="size-3.5" />

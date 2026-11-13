@@ -1,7 +1,3 @@
-/**
- * Adapted from the live-activities lab on Sanyam Punia's site
- * (https://github.com/SanyamPunia/www), used with his permission.
- */
 /*
  * What the island shows, as a pure function of the activity state.
  *

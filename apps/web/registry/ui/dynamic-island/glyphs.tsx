@@ -1,7 +1,3 @@
-/**
- * Adapted from the live-activities lab on Sanyam Punia's site
- * (https://github.com/SanyamPunia/www), used with his permission.
- */
 import { motion } from "motion/react";
 import type React from "react";
 import { useId } from "react";
