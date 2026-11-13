@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import { MakerCredit } from "@/components/docs/maker-credit";
 
 /**
  * A showcase tile: a looping preview clip with the title and date underneath.
@@ -13,24 +12,19 @@ import { MakerCredit } from "@/components/docs/maker-credit";
  * is a pulsing block, and the clip fades in over it. Under reduced motion it
  * never plays and shows its poster.
  *
- * Without a clip (`slug` omitted) the tile shows a quiet placeholder. The maker's
- * credit sits on the tile as its own link, so the card is one link stretched
- * across it rather than a link around another link.
+ * Without a clip (`slug` omitted) the tile shows a quiet placeholder.
  */
 export function VideoCard({
   href,
   title,
   date,
   slug,
-  maker,
 }: {
   href: string;
   title: string;
   date?: string;
   /** Clip name in /public/previews, when one has been recorded. */
   slug?: string;
-  /** Whose work this is, a key of `MAKERS`. */
-  maker?: string;
 }) {
   const box = useRef<HTMLDivElement>(null);
   const video = useRef<HTMLVideoElement>(null);
@@ -114,13 +108,6 @@ export function VideoCard({
           aria-hidden
           className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-foreground/8 ring-inset transition-shadow duration-200 group-hover:ring-foreground/15"
         />
-        {maker && (
-          <MakerCredit
-            className="pointer-events-auto absolute bottom-1.5 left-1.5 z-10"
-            maker={maker}
-            variant="avatar"
-          />
-        )}
       </div>
       <div className="pointer-events-none flex items-baseline justify-between gap-3 text-sm">
         <span className="truncate lowercase">{title}</span>

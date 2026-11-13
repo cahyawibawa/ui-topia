@@ -1,10 +1,14 @@
 import Link from "next/link";
+import {
+  GithubButton,
+  SoundToggle,
+  ThemeCycleButton,
+} from "@/components/docs/header-actions";
 import { MobileNav } from "@/components/docs/mobile-nav";
 import { GroupTabs, type NavGroup, SidebarNav } from "@/components/docs/nav";
 import { DocsSearch } from "@/components/docs/search";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { siteConfig } from "@/config/site";
-import { getGroups, getSearchIndex, getSections } from "@/lib/docs";
+import { getGroups, getSearchIndex, getSections, isNew } from "@/lib/docs";
 import { Icons } from "@/registry/components/icons";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -19,24 +23,52 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         title: doc.title,
         url: doc.url,
         soon: doc.status === "soon",
+        isNew: isNew(doc),
       })),
     })),
   }));
 
   return (
     <div className="container-wrapper">
-      <header className="sticky top-0 z-40 flex h-14 items-center gap-4 bg-background/80 px-4 backdrop-blur md:px-6">
-        <MobileNav groups={groups} />
-        <Link className="flex items-center gap-2" href="/">
-          <Icons.logo />
-          <span className="font-semibold text-sm">{siteConfig.name}</span>
-          <span className="select-none rounded-full bg-secondary px-1.5 py-px font-medium text-[10px]">
-            beta
-          </span>
-        </Link>
-        <div className="ml-auto flex items-center gap-3">
+      <header className="sticky top-0 z-40 grid h-14 grid-cols-[1fr_auto_1fr] items-center gap-4 px-4 md:bg-background/80 md:px-6 md:backdrop-blur">
+        {/* Mobile only: progressive blur, strongest at the top and fading out
+            below the header instead of a hard edge. */}
+        <div
+          aria-hidden="true"
+          className="-z-10 pointer-events-none absolute inset-x-0 top-0 h-[calc(100%+2rem)] md:hidden"
+        >
+          {[1, 2, 4, 8].map((blur, i) => (
+            <div
+              className="header-blur-layer"
+              key={blur}
+              style={
+                {
+                  "--blur": `${blur}px`,
+                  "--start": `${i * 20}%`,
+                  "--end": `${i * 20 + 30}%`,
+                } as React.CSSProperties
+              }
+            />
+          ))}
+          <div className="header-tint" />
+        </div>
+        <div className="flex items-center gap-4">
+          <MobileNav groups={groups} />
+          <Link className="flex items-center gap-2" href="/">
+            <Icons.logo />
+            <span className="font-semibold text-sm">{siteConfig.name}</span>
+            <span className="select-none rounded-full bg-secondary px-1.5 py-px font-medium text-[10px]">
+              beta
+            </span>
+          </Link>
+        </div>
+        <div className="col-start-2">
           <DocsSearch items={getSearchIndex()} />
-          <ThemeToggle className="hidden sm:inline-flex" />
+        </div>
+        <div className="col-start-3 flex items-center justify-end gap-0.5">
+          <GithubButton />
+          <ThemeCycleButton />
+          <SoundToggle />
         </div>
       </header>
       {/* From xl the content is the centre column and the sidebar/TOC sit in

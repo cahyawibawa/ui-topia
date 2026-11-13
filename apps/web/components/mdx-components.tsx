@@ -24,6 +24,7 @@ import {
 } from "@/components/docs/demos/tabular-numbers";
 import { TearCalendarDemo } from "@/components/docs/demos/tear-calendar";
 import { StackTypeDemo, WarpTypeDemo } from "@/components/docs/demos/type";
+import { MakerCredit } from "@/components/docs/maker-credit";
 import { Callout, DocsPre, Step, Steps } from "@/components/docs/mdx";
 import { ResourceGroup } from "@/components/docs/resources";
 import { InstallCommand } from "@/components/install-command";
@@ -37,6 +38,13 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     blockquote: (props) => <Callout>{props.children}</Callout>,
 
     Callout,
+    // Injected under the showcase by content-collections.ts, tucked into the
+    // gap the showcase leaves below it.
+    MakerCredit: (props) => (
+      <div className="not-prose -mt-6 flex justify-end pr-1">
+        <MakerCredit {...props} />
+      </div>
+    ),
     ResourceGroup,
     CardStackTuner,
     ConcentricCardDemo,

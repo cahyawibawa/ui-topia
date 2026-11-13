@@ -60,6 +60,11 @@ function sectionOf(doc: Doc) {
 /** Everything except drafts: nav, sitemap and static params read this. */
 export const publishedDocs = allDocs.filter((doc) => doc.status !== "draft");
 
+/** Whether the sidebar tags a doc "new": opt in with `new: true` in its frontmatter. */
+export function isNew(doc: Doc) {
+  return doc.new === true;
+}
+
 export function getDoc(slug: string[]) {
   const url = ["/docs", ...slug].join("/");
   return publishedDocs.find((doc) => doc.url === url);
