@@ -1,395 +1,355 @@
 "use client";
 
-/**
- * Adapted from the stamp-collection lab on Sanyam Punia's site
- * (https://github.com/SanyamPunia/www), used with his permission.
- */
-
+import { useMotionValue, useReducedMotion, useSpring } from "motion/react";
+import { useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 import {
-  motion,
-  useMotionValue,
-  useReducedMotion,
-  useSpring,
-  useTransform,
-} from "motion/react";
-import {
-  type ReactNode,
-  type PointerEvent as ReactPointerEvent,
-  useCallback,
-  useEffect,
-  useId,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react";
+  HOLD,
+  liftFor,
+  offsetIn,
+  PARALLAX,
+  type Phase,
+  pose,
+  STAGE_ASPECT,
+  TILT,
+  TRAVEL,
+} from "./poses";
+import { Stamp, type StampDef } from "./stamp";
 
 /*
- * Three stamps on a table. They rest in a fanned row and lift when you reach
- * for one. Press a stamp and it comes to the front, the others settle behind
- * it, and the print slides under its own window as you move.
+ * Three stamps laid out by hand. Hovering one lifts it, clicking one brings it
+ * to the front of the stage, and the print inside a focused stamp slides under
+ * its window as the pointer moves.
  *
- * The paper is one SVG path with the perforation cut out of its edge, so the
- * shadow follows the scallops instead of the box. The lift is a tween: a
- * spring spends its last frames creeping the final pixel, which reads as lag
- * on a movement this short.
+ * The layout is poses in stage pixels, because a
+ * stamp is staged by animating its `width` and `height` and never by scaling it.
+ * A scale would take the perforated edge and the drop shadow with it, and both
+ * are the reason the paper is drawn as an SVG in the first place.
  */
 
-const W = 160;
-const H = 200;
-const FRAME = 14;
-const FOOT = 38;
-const PITCH = 14;
-const BITE = 3.4;
-
-const INK = "oklch(0.145 0 0)";
-const PAPER = "oklch(0.965 0.012 85)";
-const BLUE = "oklch(0.623 0.214 259.815)";
-const RED = "oklch(0.577 0.245 27.325)";
-const YELLOW = "oklch(0.89 0.17 96)";
-
-const LIFT = {
-  type: "tween",
-  duration: 0.2,
-  ease: [0.22, 1, 0.36, 1],
-} as const;
-const SETTLE = { type: "spring", stiffness: 240, damping: 30 } as const;
-const INSTANT = { duration: 0 } as const;
-
-/** Half circles bitten out of every edge, walked clockwise. */
-function paperPath(w: number, h: number): string {
-  const edge = (len: number) => {
-    const n = Math.round(len / PITCH);
-    return { n, step: len / n };
-  };
-  const top = edge(w);
-  const side = edge(h);
-  const d: string[] = ["M0 0"];
-
-  for (let i = 0; i < top.n; i++) {
-    const x = i * top.step + top.step / 2;
-    d.push(`L${x - BITE} 0A${BITE} ${BITE} 0 0 0 ${x + BITE} 0`);
-  }
-  d.push(`L${w} 0`);
-  for (let i = 0; i < side.n; i++) {
-    const y = i * side.step + side.step / 2;
-    d.push(`L${w} ${y - BITE}A${BITE} ${BITE} 0 0 0 ${w} ${y + BITE}`);
-  }
-  d.push(`L${w} ${h}`);
-  for (let i = top.n - 1; i >= 0; i--) {
-    const x = i * top.step + top.step / 2;
-    d.push(`L${x + BITE} ${h}A${BITE} ${BITE} 0 0 0 ${x - BITE} ${h}`);
-  }
-  d.push(`L0 ${h}`);
-  for (let i = side.n - 1; i >= 0; i--) {
-    const y = i * side.step + side.step / 2;
-    d.push(`L0 ${y + BITE}A${BITE} ${BITE} 0 0 0 0 ${y - BITE}`);
-  }
-  d.push("Z");
-  return d.join("");
-}
-
-const PAPER_PATH = paperPath(W, H);
-
-type Stamp = { id: string; value: string; label: string; print: ReactNode };
-
-const STAMPS: Stamp[] = [
+/**
+ * Denominations are real: 63, 84 and 94 yen are current Japanese rates. Titles
+ * are the print, not a language, since nothing here loads a CJK face and a
+ * missing glyph is worse than an English word.
+ */
+const STAMPS: StampDef[] = [
+  { id: "sun", title: "Rising sun", value: "84", kind: "sun", ink: "#23201c" },
   {
-    id: "dusk",
-    value: "84",
-    label: "Dusk, 84 yen",
-    print: (
-      <>
-        <rect fill={BLUE} height="150" width="140" />
-        <circle cx="70" cy="62" fill={YELLOW} r="30" />
-        <path d="M0 150V108Q70 70 140 108V150Z" fill={INK} />
-        <path
-          d="M0 118Q70 84 140 118"
-          fill="none"
-          stroke={RED}
-          strokeWidth="5"
-        />
-      </>
-    ),
-  },
-  {
-    id: "grid",
+    id: "wave",
+    title: "Wave crest",
     value: "63",
-    label: "Grid, 63 yen",
-    print: (
-      <>
-        <rect fill={INK} height="150" width="140" />
-        <rect fill={RED} height="52" width="52" x="18" y="22" />
-        <rect fill={YELLOW} height="52" width="52" x="70" y="74" />
-        <rect fill={BLUE} height="52" width="52" x="18" y="74" />
-        <circle
-          cx="96"
-          cy="48"
-          fill="none"
-          r="22"
-          stroke={PAPER}
-          strokeWidth="4"
-        />
-      </>
-    ),
+    kind: "wave",
+    ink: "#efe7d7",
   },
   {
-    id: "tide",
+    id: "kiku",
+    title: "Chrysanthemum",
     value: "94",
-    label: "Tide, 94 yen",
-    print: (
-      <>
-        <rect fill={RED} height="150" width="140" />
-        <circle cx="70" cy="75" fill={PAPER} r="52" />
-        <circle cx="70" cy="75" fill={BLUE} r="34" />
-        <circle cx="70" cy="75" fill={YELLOW} r="14" />
-      </>
-    ),
+    kind: "chrysanthemum",
+    ink: "#efe7d7",
   },
 ];
 
-/** Where each stamp rests in the fan, relative to the stage centre. */
-const FAN = [
-  { x: -1, y: 8, r: -7 },
-  { x: 0, y: -4, r: 1 },
-  { x: 1, y: 10, r: 8 },
-];
+/**
+ * A stamp travelling between poses: across the stage, and growing into focus.
+ *
+ * Not the hover lift, which the stamp drives itself so it can start on the frame
+ * the pointer arrived rather than after a render.
+ */
+const SETTLE = {
+  type: "spring",
+  stiffness: 260,
+  damping: 26,
+  mass: 0.9,
+} as const;
 
-type Size = { w: number; h: number };
+/**
+ * The print's own spring, looser than the stamp's.
+ *
+ * The stamp arrives and stops. The print keeps drifting for a moment after the
+ * pointer does, which is what makes it read as sitting behind glass rather than
+ * as being dragged.
+ */
+const DRIFT = { stiffness: 90, damping: 18, mass: 0.6 } as const;
+
+/**
+ * The lean's spring, stiffer than the print's.
+ *
+ * The stamp is the object being moved and answers the pointer almost at once.
+ * The print is behind glass and lags. Running both on one spring loses that
+ * separation and the two read as a single flat thing rotating.
+ */
+const LEAN = { stiffness: 200, damping: 22, mass: 0.5 } as const;
+
+/** width and height are not transforms, so reduced motion has to name them */
+const INSTANT = { duration: 0 } as const;
 
 export interface StampCollectionProps {
   className?: string;
 }
 
 export default function StampCollection({ className }: StampCollectionProps) {
-  const stage = useRef<HTMLDivElement>(null);
-  const reduced = useReducedMotion();
-  const grainId = `stamp-grain-${useId().replace(/:/g, "")}`;
-  const [size, setSize] = useState<Size>({ w: 640, h: 400 });
-  const [focused, setFocused] = useState<number | null>(null);
-  const [hovered, setHovered] = useState<number | null>(null);
+  const [phase, setPhase] = useState<Phase>({ kind: "fan", lead: null });
+  const [stage, setStage] = useState({ width: 0, height: 0 });
 
-  // Pointer position over the stage, -0.5 to 0.5. Two springs of different
-  // stiffness so the stamp leans and the print slides at their own pace.
-  const px = useMotionValue(0);
-  const py = useMotionValue(0);
-  const lean = { stiffness: 140, damping: 18 };
-  const slide = { stiffness: 80, damping: 16 };
-  const leanX = useSpring(px, lean);
-  const leanY = useSpring(py, lean);
-  const slideX = useSpring(px, slide);
-  const slideY = useSpring(py, slide);
-  const rotateY = useTransform(leanX, (v) => v * 14);
-  const rotateX = useTransform(leanY, (v) => v * -14);
-  const printX = useTransform(slideX, (v) => v * -26);
-  const printY = useTransform(slideY, (v) => v * -26);
+  const stageRef = useRef<HTMLDivElement>(null);
+  const step = useRef(0);
+  const reduce = useReducedMotion();
 
-  useLayoutEffect(() => {
-    const node = stage.current;
-    if (!node) {
+  /*
+   * Both journeys run in two beats through the pile, and the pile is the same
+   * arrangement either way: fan, pile, focus going in, focus, pile, fan coming
+   * out. Letting one move land before the next starts is the whole point, so the
+   * second beat is a timer rather than a chained animation callback, which would
+   * fire per property and per stamp.
+   *
+   * Reduced motion skips the middle. The sequence is choreography, and there is
+   * nothing to read in it when nothing moves.
+   */
+  const sequence = (steps: Array<{ to: Phase; after?: number }>) => {
+    window.clearTimeout(step.current);
+
+    if (reduce) {
+      const last = steps.at(-1);
+      if (last) setPhase(last.to);
       return;
     }
-    const measure = () =>
-      setSize({ w: node.clientWidth, h: node.clientHeight });
-    measure();
-    const observer = new ResizeObserver(measure);
+
+    const play = (i: number) => {
+      const current = steps[i];
+      if (!current) return;
+      setPhase(current.to);
+      const wait = current.after;
+      if (wait === undefined) return;
+      step.current = window.setTimeout(() => play(i + 1), wait);
+    };
+    play(0);
+  };
+
+  useEffect(() => () => window.clearTimeout(step.current), []);
+
+  /*
+   * The lift is armed only by a fan that has finished arriving, which the phase
+   * already says: a fan still carrying a lead is one mid-return. Nothing else
+   * needs to know, since `lift` is a prop, so a stamp crossing the pointer
+   * mid-flight is handed 0.
+   */
+  const armed = phase.kind === "fan" && phase.lead === null;
+
+  /**
+   * Puts the open stamp back, from wherever the request came.
+   *
+   * Three callers now, so it is one function: the stamp itself, Escape, and a
+   * click on the bare stage.
+   */
+  const release = (index: number) => {
+    rest();
+    /*
+     * Three beats out against two in. The stamp that was open shrinks back on
+     * top of the pile, travels to its own slot still raised, and only then tucks
+     * into the row. Going in it never has to give up any stacking, so there is
+     * nothing to cover and no third beat to spend.
+     */
+    sequence([
+      { to: { kind: "pile", lead: index }, after: HOLD },
+      { to: { kind: "fan", lead: index }, after: TRAVEL },
+      { to: { kind: "fan", lead: null } },
+    ]);
+  };
+
+  const select = (index: number) => {
+    // a click mid-sequence is ignored rather than queued. The stamps are in
+    // flight and there is nothing under the pointer that means what it looks
+    // like it means.
+    if (phase.kind === "pile") return;
+
+    if (phase.kind === "focus") {
+      release(phase.index);
+      return;
+    }
+
+    sequence([
+      { to: { kind: "pile", lead: index }, after: HOLD },
+      { to: { kind: "focus", index } },
+    ]);
+  };
+
+  useEffect(() => {
+    const node = stageRef.current;
+    if (!node) return;
+
+    const observer = new ResizeObserver(([entry]) => {
+      if (!entry) return;
+      setStage({
+        width: entry.contentRect.width,
+        height: entry.contentRect.height,
+      });
+    });
     observer.observe(node);
     return () => observer.disconnect();
   }, []);
 
+  /*
+   * One pair for the whole stage, handed to all three stamps.
+   *
+   * Only the focused one is ever driven, so a pair per stamp would be two idle
+   * springs, and swapping which pair a stamp reads would rebuild its spring on
+   * every selection.
+   */
+  const pointerX = useMotionValue(0);
+  const pointerY = useMotionValue(0);
+  const driftX = useSpring(pointerX, DRIFT);
+  const driftY = useSpring(pointerY, DRIFT);
+
+  /*
+   * The lean, off the same pointer.
+   *
+   * Two more values rather than deriving these from the drift, because the drift
+   * is already sprung and a transform of it would arrive with that lag baked in,
+   * which is the one thing separating the stamp from the print.
+   */
+  const leanX = useMotionValue(0);
+  const leanY = useMotionValue(0);
+  const tiltX = useSpring(leanX, LEAN);
+  const tiltY = useSpring(leanY, LEAN);
+
+  /* Escape leaves the stamp, since clicking it again is the only other way out
+     and a focused stamp covers most of the stage it would otherwise be clicked
+     off. */
   useEffect(() => {
-    if (focused === null) {
-      return;
-    }
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setFocused(null);
-      }
+    if (phase.kind !== "focus") return;
+
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key !== "Escape" || phase.kind !== "focus") return;
+      release(phase.index);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [focused]);
+  });
 
-  const onMove = useCallback(
-    (e: ReactPointerEvent<HTMLDivElement>) => {
-      if (focused === null || reduced) {
-        return;
-      }
-      const box = e.currentTarget.getBoundingClientRect();
-      px.set((e.clientX - box.left) / box.width - 0.5);
-      py.set((e.clientY - box.top) / box.height - 0.5);
-    },
-    [focused, reduced, px, py],
-  );
+  /*
+   * Clicking the bare table puts the stamp back, alongside clicking the stamp and
+   * Escape.
+   *
+   * Bound to the node rather than written as a JSX prop: the stage is not a
+   * control, it is a region the pointer passes through, and it has no honest interactive role to carry. As a
+   * prop it is a roleless `div` with an `onClick` and no keyboard equivalent
+   * Biome can see, since Escape lives on the window.
+   *
+   * The target test is what tells a table click from a stamp click, since the
+   * stamps are children and their clicks bubble here. A stamp reports the button,
+   * the table reports itself, and the grain layer cannot report anything, being
+   * `pointer-events-none`. Nothing needs `stopPropagation`.
+   */
+  useEffect(() => {
+    const node = stageRef.current;
+    if (!node) return;
 
-  const onLeave = useCallback(() => {
-    px.set(0);
-    py.set(0);
-  }, [px, py]);
-
-  const rowScale = Math.min(1, Math.max(0.55, size.w / 640));
-  const spread = Math.min(size.w * 0.27, 190);
-  const focusScale = Math.min((size.h * 0.86) / H, (size.w * 0.8) / W);
-
-  const poseOf = (i: number) => {
-    if (focused === null) {
-      const f = FAN[i] ?? { x: 0, y: 0, r: 0 };
-      return {
-        x: f.x * spread,
-        y: f.y - (hovered === i ? 14 : 0),
-        rotate: f.r,
-        scale: rowScale,
-      };
-    }
-    if (focused === i) {
-      return { x: 0, y: 0, rotate: 0, scale: focusScale };
-    }
-    // Settled behind the front stamp, peeking out on alternate sides.
-    const behind = i < focused ? i : i - 1;
-    const side = behind === 0 ? -1 : 1;
-    return {
-      x: side * focusScale * 46,
-      y: 14,
-      rotate: side * 9,
-      scale: focusScale * 0.9,
+    const onClick = (event: MouseEvent) => {
+      if (event.target !== node || phase.kind !== "focus") return;
+      release(phase.index);
     };
+    node.addEventListener("click", onClick);
+    return () => node.removeEventListener("click", onClick);
+  });
+
+  const onPointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    const node = stageRef.current;
+    // only a stamp that has arrived, never one still gathering
+    if (phase.kind !== "focus" || reduce || !node) return;
+
+    const rect = node.getBoundingClientRect();
+    const offset = offsetIn({ x: event.clientX, y: event.clientY }, rect);
+    // the print slides against the pointer, which is what looking through a
+    // window does
+    pointerX.set(-offset.x * PARALLAX);
+    pointerY.set(-offset.y * PARALLAX);
+
+    /*
+     * The stamp leans toward the pointer, so its near edge comes forward.
+     *
+     * Positive `rotateX` takes the bottom toward the viewer and positive
+     * `rotateY` takes the right edge away, so the pointer's own offset works
+     * unchanged on one axis and negated on the other.
+     */
+    leanX.set(offset.y * TILT);
+    leanY.set(-offset.x * TILT);
+  };
+
+  const rest = () => {
+    pointerX.set(0);
+    pointerY.set(0);
+    leanX.set(0);
+    leanY.set(0);
   };
 
   return (
     <div
-      className={className}
-      onPointerLeave={onLeave}
-      onPointerMove={onMove}
-      ref={stage}
+      ref={stageRef}
+      onPointerMove={onPointerMove}
+      onPointerLeave={rest}
+      /*
+       * A dark ground, and not because it looks better: the paper is cream, and
+       * cream on a light page would put every value within a few percent of every
+       * other, so the stamps would read as three faint rectangles. The clip is what
+       * stops a stamp's corner poking past the rounded edge mid-transition.
+       */
+      className={cn(
+        "relative w-full select-none overflow-hidden rounded-lg bg-[#0a0a0a]",
+        className,
+      )}
       style={{
-        height: "25rem",
-        position: "relative",
-        overflow: "hidden",
-        borderRadius: "var(--radius-xl, 1rem)",
-        background:
-          "radial-gradient(120% 90% at 50% 20%, oklch(0.27 0 0), oklch(0.16 0 0))",
+        aspectRatio: STAGE_ASPECT,
+        /*
+         * A light over the ground, not a second colour. Flat black read as a dead
+         * rectangle, so this is white at low alpha, brightest under the stamps and
+         * fading to the ground at the corners, which is a table with a lamp over it.
+         */
+        backgroundImage:
+          "radial-gradient(115% 90% at 50% 44%, rgb(255 255 255 / 0.075), rgb(255 255 255 / 0.025) 55%, rgb(255 255 255 / 0) 100%)",
       }}
     >
-      <button
-        aria-hidden
-        className="absolute inset-0 cursor-default"
-        onClick={() => setFocused(null)}
-        tabIndex={-1}
-        type="button"
+      {/*
+       * The grain, one inline `feTurbulence` so the page makes no request for
+       * it. `overlay` does nothing to pure black and everything to a mid tone, so
+       * it lands on the stamps and stays out of the ground, which is the right
+       * way round for a printed object on a dark table.
+       */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-40 opacity-[0.14] mix-blend-overlay"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E\")",
+        }}
       />
-      <Grain id={grainId} />
-      {STAMPS.map((stamp, i) => {
-        const pose = poseOf(i);
-        const isFront = focused === i;
-        const behindRank = focused === null ? i : isFront ? 10 : i;
-        return (
-          <motion.button
-            animate={pose}
-            aria-label={stamp.label}
-            aria-pressed={isFront}
-            className="absolute top-1/2 left-1/2 cursor-pointer outline-none focus-visible:[&>div]:ring-2 focus-visible:[&>div]:ring-[oklch(0.623_0.214_259.815)]"
-            initial={false}
-            key={stamp.id}
-            onBlur={() => setHovered((h) => (h === i ? null : h))}
-            onClick={() => setFocused((f) => (f === i ? null : i))}
-            onFocus={() => setHovered(i)}
-            onPointerEnter={() => setHovered(i)}
-            onPointerLeave={() => setHovered((h) => (h === i ? null : h))}
-            style={{
-              width: W,
-              height: H,
-              marginLeft: -W / 2,
-              marginTop: -H / 2,
-              zIndex: behindRank,
-              perspective: 900,
-            }}
-            transition={reduced ? INSTANT : { y: LIFT, default: SETTLE }}
-            type="button"
-          >
-            <motion.div
-              className="relative size-full rounded-[2px]"
-              style={{
-                rotateX: isFront && !reduced ? rotateX : 0,
-                rotateY: isFront && !reduced ? rotateY : 0,
-              }}
-            >
-              <svg
-                aria-hidden
-                className="absolute inset-0 size-full overflow-visible"
-                style={{
-                  filter:
-                    "drop-shadow(0 1px 1px rgb(0 0 0 / 0.35)) drop-shadow(0 10px 14px rgb(0 0 0 / 0.4))",
-                }}
-                viewBox={`0 0 ${W} ${H}`}
-              >
-                <path d={PAPER_PATH} fill={PAPER} />
-              </svg>
-              <div
-                className="absolute overflow-hidden"
-                style={{
-                  left: FRAME,
-                  top: FRAME,
-                  right: FRAME,
-                  bottom: FOOT,
-                  background: INK,
-                }}
-              >
-                <motion.svg
-                  aria-hidden
-                  className="absolute"
-                  style={{
-                    left: -14,
-                    top: -14,
-                    width: W - FRAME * 2 + 28,
-                    height: H - FRAME - FOOT + 28,
-                    x: isFront && !reduced ? printX : 0,
-                    y: isFront && !reduced ? printY : 0,
-                  }}
-                  viewBox="-14 -14 168 178"
-                >
-                  {stamp.print}
-                </motion.svg>
-              </div>
-              <span
-                className="absolute right-[14px] bottom-[9px] text-[20px] leading-none"
-                style={{
-                  color: INK,
-                  fontFamily: "var(--font-redaction), serif",
-                }}
-              >
-                {stamp.value}
-              </span>
-              <span
-                className="absolute bottom-[11px] left-[14px] text-[7px] uppercase leading-none tracking-[0.2em]"
-                style={{ color: INK, opacity: 0.55 }}
-              >
-                Nippon
-              </span>
-            </motion.div>
-          </motion.button>
-        );
-      })}
-    </div>
-  );
-}
 
-/** Paper grain over the table. The filter id is per instance, so two
- * collections on a page never resolve to each other's filter. */
-function Grain({ id }: { id: string }) {
-  return (
-    <svg
-      aria-hidden
-      className="pointer-events-none absolute inset-0 size-full opacity-[0.18] mix-blend-overlay"
-    >
-      <filter id={id}>
-        <feTurbulence
-          baseFrequency="0.8"
-          numOctaves="2"
-          stitchTiles="stitch"
-          type="fractalNoise"
-        />
-        <feColorMatrix type="saturate" values="0" />
-      </filter>
-      <rect filter={`url(#${id})`} height="100%" width="100%" />
-    </svg>
+      {stage.width > 0 &&
+        STAMPS.map((stamp, index) => (
+          <Stamp
+            key={stamp.id}
+            stamp={stamp}
+            focused={phase.kind === "focus" && phase.index === index}
+            transition={reduce ? INSTANT : SETTLE}
+            parallax={{ x: driftX, y: driftY }}
+            tilt={{ x: tiltX, y: tiltY }}
+            pose={pose({ index, count: STAMPS.length, phase, stage })}
+            /*
+             * The lift belongs to the fan and nowhere else. A stamp that is
+             * selected has nowhere to rise to, and one still gathering is in
+             * flight, so in both cases hovering does nothing.
+             */
+            lift={armed && phase.kind === "fan" && !reduce ? liftFor(stage) : 0}
+            onSelect={() => select(index)}
+          />
+        ))}
+
+      <p
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-3 z-50 text-center text-[11px] text-white/40 uppercase tracking-[0.18em]"
+      >
+        {phase.kind === "focus" ? "Esc to put back" : "Press a stamp"}
+      </p>
+    </div>
   );
 }

@@ -4124,11 +4124,27 @@
       "title": "Stamp Collection",
       "description": "Three perforated stamps on a table: they lift as you reach, and the one you press comes forward while its print slides under the window.",
       "dependencies": ["motion", "react"],
+      "registryDependencies": ["https://uitopia.vercel.app/r/utils.json"],
       "files": [
         {
           "type": "registry:ui",
           "target": "components/ui/stamp-collection/index.tsx",
           "path": "registry/ui/stamp-collection/index.tsx"
+        },
+        {
+          "type": "registry:ui",
+          "target": "components/ui/stamp-collection/stamp.tsx",
+          "path": "registry/ui/stamp-collection/stamp.tsx"
+        },
+        {
+          "type": "registry:ui",
+          "target": "components/ui/stamp-collection/motifs.tsx",
+          "path": "registry/ui/stamp-collection/motifs.tsx"
+        },
+        {
+          "type": "registry:lib",
+          "target": "components/ui/stamp-collection/poses.ts",
+          "path": "registry/ui/stamp-collection/poses.ts"
         }
       ],
       "categories": ["motion", "react"]

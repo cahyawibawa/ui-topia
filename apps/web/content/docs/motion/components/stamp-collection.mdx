@@ -9,14 +9,18 @@ new: true
 
 <StampCollectionDemo />
 
-Three stamps rest in a fanned row on a dark table. Reach for one and it lifts. Press it and it comes to the front while the others settle behind. With a stamp in front, move the pointer: the stamp leans toward it, and the print slides under its own window. Press the stamp again, press the table, or hit `Escape` to put them back in the row.
+Three stamps rest in a fanned row on a dark table. Reach for one and it lifts. Press it and the stamps gather into a pile, then the one you pressed grows out of it into focus. With a stamp in front, move the pointer: the stamp leans toward it, and the print slides under its own window. Press the stamp again, press the table, or hit `Escape` to put them back in the row.
 
 ## How it works
 
-- **The paper is one SVG path.** The perforation is bitten out of the edge of the path, so the shadow follows the scallops instead of the stamp's bounding box. A mask over a rectangle would shadow the box.
-- **The lift is a tween, not a spring.** The stamp rises 14px. A spring covers about a pixel and a half a frame there and spends most of its time creeping the last pixel, which reads as lag. Everything bigger, like coming forward and settling back, is a spring.
-- **Two springs, two speeds.** The lean and the print follow the same pointer through springs of different stiffness, so the print trails the stamp instead of riding it.
-- **Reduced motion** skips the lean and the parallax and makes every move instant.
+- **A stamp is staged by its size, never by scaling it.** Every pose is in stage pixels and the stamp animates its `width` and `height`. A scale would blow the perforated edge and the shadow up with the stamp, and the point of drawing the paper as an SVG is that its edge stays the same weight at any size.
+- **The paper is an SVG, with holes punched on its edge.** Half of each hole bites into the paper, so the shadow follows the scallops instead of the stamp's bounding box.
+- **Every move runs in beats through a pile.** Going in is fan, pile, focus. Coming out is focus, pile, fan, and the stamp that was open travels to its own slot still raised before it tucks into the row. The second beat starts on the tail of the first, so it reads as one gesture. A press during a beat is ignored.
+- **The lift is a tween, not a spring, and it skips React.** The stamp rises about 4% of the stage. A spring creeps the last pixel of a move that short, which reads as lag. The lift is set from the pointer event, so it starts on the frame the pointer arrives, and it only arms once the fan has stopped moving, so a stamp sliding under a still pointer doesn't lift.
+- **Two springs, two speeds.** The lean is stiff and the print drifts loosely behind it, so the print reads as sitting under glass rather than being dragged.
+- **Reduced motion** skips the beats, the lean and the parallax, and makes every move instant.
+
+The stamps that fade behind the focused one are inert, so you can't tab to or press a stamp you can't see.
 
 ## Installation
 
@@ -54,4 +58,4 @@ import StampCollection from "@/components/ui/stamp-collection";
 <StampCollection />;
 ```
 
-The collection draws its own stage and fills the width of its container, at a fixed height of 25rem. The stamps and their prints are the `STAMPS` array at the top of the file, and the colours are the constants above it, so restyle it there.
+The collection draws its own stage, a dark 3:2 table that fills the width of its container, and every pose is worked out from its size. Pass `className` to change the stage. The stamps are the `STAMPS` array in `index.tsx`, the prints are in `motifs.tsx`, and the geometry and timings are in `poses.ts`. The prints keep their own palette, since a postage stamp's colours are the object.
