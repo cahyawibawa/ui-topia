@@ -1,8 +1,8 @@
 "use client";
 
 /**
- * Inspired by the stamp-collection lab on Sanyam Punia's site
- * (https://sanyam.sh/lab/stamp-collection). Rebuilt from its behaviour.
+ * Adapted from the stamp-collection lab on Sanyam Punia's site
+ * (https://github.com/SanyamPunia/www), used with his permission.
  */
 
 import {
@@ -17,6 +17,7 @@ import {
   type PointerEvent as ReactPointerEvent,
   useCallback,
   useEffect,
+  useId,
   useLayoutEffect,
   useRef,
   useState,
@@ -162,6 +163,7 @@ export interface StampCollectionProps {
 export default function StampCollection({ className }: StampCollectionProps) {
   const stage = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
+  const grainId = `stamp-grain-${useId().replace(/:/g, "")}`;
   const [size, setSize] = useState<Size>({ w: 640, h: 400 });
   const [focused, setFocused] = useState<number | null>(null);
   const [hovered, setHovered] = useState<number | null>(null);
@@ -274,7 +276,7 @@ export default function StampCollection({ className }: StampCollectionProps) {
         tabIndex={-1}
         type="button"
       />
-      <Grain />
+      <Grain id={grainId} />
       {STAMPS.map((stamp, i) => {
         const pose = poseOf(i);
         const isFront = focused === i;
@@ -370,14 +372,15 @@ export default function StampCollection({ className }: StampCollectionProps) {
   );
 }
 
-/** Paper grain over the table, one inline turbulence filter. */
-function Grain() {
+/** Paper grain over the table. The filter id is per instance, so two
+ * collections on a page never resolve to each other's filter. */
+function Grain({ id }: { id: string }) {
   return (
     <svg
       aria-hidden
       className="pointer-events-none absolute inset-0 size-full opacity-[0.18] mix-blend-overlay"
     >
-      <filter id="stamp-grain">
+      <filter id={id}>
         <feTurbulence
           baseFrequency="0.8"
           numOctaves="2"
@@ -386,7 +389,7 @@ function Grain() {
         />
         <feColorMatrix type="saturate" values="0" />
       </filter>
-      <rect filter="url(#stamp-grain)" height="100%" width="100%" />
+      <rect filter={`url(#${id})`} height="100%" width="100%" />
     </svg>
   );
 }
