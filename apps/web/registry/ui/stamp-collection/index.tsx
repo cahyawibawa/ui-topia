@@ -232,9 +232,10 @@ export default function StampCollection({ className }: StampCollectionProps) {
    * Escape.
    *
    * Bound to the node rather than written as a JSX prop: the stage is not a
-   * control, it is a region the pointer passes through, and it has no honest interactive role to carry. As a
-   * prop it is a roleless `div` with an `onClick` and no keyboard equivalent
-   * Biome can see, since Escape lives on the window.
+   * control, it is a region the pointer passes through, and it has no honest
+   * interactive role to carry. As a prop it is a roleless `div` with an
+   * `onClick` and no keyboard equivalent Biome can see, since Escape lives on
+   * the window.
    *
    * The target test is what tells a table click from a stamp click, since the
    * stamps are children and their clicks bubble here. A stamp reports the button,

@@ -249,7 +249,6 @@ export function Stamp({
         width: pose.width,
         height: pose.height,
         zIndex: pose.zIndex,
-        y,
         // the lean, composed by Motion with the flat `rotate` the pose animates
         rotateX: tilt.x,
         rotateY: tilt.y,
@@ -265,44 +264,55 @@ export function Stamp({
       }}
       transition={transition}
     >
-      <svg
-        aria-hidden="true"
-        focusable="false"
-        viewBox={`0 0 ${VIEW.width} ${VIEW.height}`}
-        preserveAspectRatio="none"
-        className="block size-full"
-        /*
-         * Three shadows, faint each. One dark contact shadow to seat the paper,
-         * one mid layer for form, one wide ambient. A single shadow heavy enough
-         * to read at this size looks like a drop shadow rather than like light.
-         */
-        style={{
-          filter: focused
-            ? "drop-shadow(0 1px 1px rgb(0 0 0 / 0.5)) drop-shadow(0 10px 18px rgb(0 0 0 / 0.45)) drop-shadow(0 26px 50px rgb(0 0 0 / 0.4))"
-            : "drop-shadow(0 1px 1px rgb(0 0 0 / 0.45)) drop-shadow(0 5px 10px rgb(0 0 0 / 0.4)) drop-shadow(0 14px 28px rgb(0 0 0 / 0.3))",
-        }}
-      >
-        {drawing}
-      </svg>
-
       {/*
-       * Real text over the drawing rather than SVG `<text>`, so it takes the
-       * stylesheet's lowercasing and the site's own face. Sized in `cqw`, since
-       * a stamp goes from 160px wide to 236px and its lettering has to go with
-       * it.
+       * The lift moves this layer and never the button. The button is the hit
+       * area, so a lift on it carries the stamp out from under a pointer resting
+       * near its bottom edge: `pointerleave` drops it, it lands back under the
+       * pointer, `pointerenter` lifts it again, and it flickers.
        */}
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{ color: stamp.ink }}
+      <motion.span
+        className="relative block size-full [will-change:transform]"
+        style={{ y }}
       >
-        <span className="absolute top-[9.5%] right-[11%] text-[4.4cqw] leading-none tracking-wide">
-          {stamp.value}
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          viewBox={`0 0 ${VIEW.width} ${VIEW.height}`}
+          preserveAspectRatio="none"
+          className="block size-full"
+          /*
+           * Three shadows, faint each. One dark contact shadow to seat the paper,
+           * one mid layer for form, one wide ambient. A single shadow heavy enough
+           * to read at this size looks like a drop shadow rather than like light.
+           */
+          style={{
+            filter: focused
+              ? "drop-shadow(0 1px 1px rgb(0 0 0 / 0.5)) drop-shadow(0 10px 18px rgb(0 0 0 / 0.45)) drop-shadow(0 26px 50px rgb(0 0 0 / 0.4))"
+              : "drop-shadow(0 1px 1px rgb(0 0 0 / 0.45)) drop-shadow(0 5px 10px rgb(0 0 0 / 0.4)) drop-shadow(0 14px 28px rgb(0 0 0 / 0.3))",
+          }}
+        >
+          {drawing}
+        </svg>
+
+        {/*
+         * Real text over the drawing rather than SVG `<text>`, so it takes the
+         * stylesheet's lowercasing and the site's own face. Sized in `cqw`, since
+         * a stamp goes from 160px wide to 236px and its lettering has to go with
+         * it.
+         */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{ color: stamp.ink }}
+        >
+          <span className="absolute top-[9.5%] right-[11%] text-[4.4cqw] leading-none tracking-wide">
+            {stamp.value}
+          </span>
+          <span className="absolute top-[11%] left-[11.5%] text-[4cqw] leading-none tracking-[0.18em] [writing-mode:vertical-rl]">
+            {stamp.title}
+          </span>
         </span>
-        <span className="absolute top-[11%] left-[11.5%] text-[4cqw] leading-none tracking-[0.18em] [writing-mode:vertical-rl]">
-          {stamp.title}
-        </span>
-      </span>
+      </motion.span>
     </motion.button>
   );
 }
