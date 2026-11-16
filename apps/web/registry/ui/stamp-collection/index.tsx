@@ -347,7 +347,7 @@ export default function StampCollection({ className }: StampCollectionProps) {
 
       <p
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-3 z-50 text-center text-[11px] text-white/40 uppercase tracking-[0.18em]"
+        className="pointer-events-none absolute inset-x-0 bottom-1.5 z-50 text-center text-[11px] text-white/40 uppercase tracking-[0.18em]"
       >
         {phase.kind === "focus" ? "Esc to put back" : "Press a stamp"}
       </p>
