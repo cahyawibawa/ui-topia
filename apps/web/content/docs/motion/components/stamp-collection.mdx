@@ -1,0 +1,67 @@
+---
+title: Stamp Collection
+description: Three perforated stamps on a table. Press one to bring it forward.
+order: 5
+publishedAt: "2026-11-16"
+maker: sanyam
+new: true
+---
+
+<StampCollectionDemo />
+
+Three stamps rest in a fanned row on a dark table. Reach for one and it lifts. Press it and the stamps gather into a pile, then the one you pressed grows out of it into focus. With a stamp in front, move the pointer: the stamp leans toward it, and the print slides under its own window. Press the stamp again, press the table, or hit `Escape` to put them back in the row.
+
+## How it works
+
+- **A stamp is staged by its size, never by scaling it.** Every pose is in stage pixels and the stamp animates its `width` and `height`. A scale would blow the perforated edge and the shadow up with the stamp, and the point of drawing the paper as an SVG is that its edge stays the same weight at any size.
+- **The paper is an SVG, with holes punched on its edge.** Half of each hole bites into the paper, so the shadow follows the scallops instead of the stamp's bounding box.
+- **Every move runs in beats through a pile.** Going in is fan, pile, focus. Coming out is focus, pile, fan, and the stamp that was open travels to its own slot still raised before it tucks into the row. The second beat starts on the tail of the first, so it reads as one gesture. A press during a beat is ignored.
+- **The lift is a tween, not a spring, and it skips React.** The stamp rises about 4% of the stage. A spring creeps the last pixel of a move that short, which reads as lag. The lift is set from the pointer event, so it starts on the frame the pointer arrives, and it only arms once the fan has stopped moving, so a stamp sliding under a still pointer doesn't lift.
+- **Two springs, two speeds.** The lean is stiff and the print drifts loosely behind it, so the print reads as sitting under glass rather than being dragged.
+- **Reduced motion** skips the beats, the lean and the parallax, and makes every move instant.
+
+The stamps that fade behind the focused one are inert, so you can't tab to or press a stamp you can't see.
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+<ComponentCli name="stamp-collection"/>
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install motion
+```
+
+<Step>Copy and paste the following code into your project, then update the import paths to match your setup.</Step>
+
+<ComponentSource name="stamp-collection" title="components/ui/stamp-collection/index.tsx" />
+
+</Steps>
+
+</TabsPanel>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import StampCollection from "@/components/ui/stamp-collection";
+
+<StampCollection />;
+```
+
+The collection draws its own stage, a dark 3:2 table that fills the width of its container, and every pose is worked out from its size. Pass `className` to change the stage. The stamps are the `STAMPS` array in `index.tsx`, the prints are in `motifs.tsx`, and the geometry and timings are in `poses.ts`. The prints keep their own palette, since a postage stamp's colours are the object.
