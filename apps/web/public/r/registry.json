@@ -4119,6 +4119,21 @@
       "categories": ["motion", "react"]
     },
     {
+      "name": "stamp-collection",
+      "type": "registry:ui",
+      "title": "Stamp Collection",
+      "description": "Three perforated stamps on a table: they lift as you reach, and the one you press comes forward while its print slides under the window.",
+      "dependencies": ["motion", "react"],
+      "files": [
+        {
+          "type": "registry:ui",
+          "target": "components/ui/stamp-collection/index.tsx",
+          "path": "registry/ui/stamp-collection/index.tsx"
+        }
+      ],
+      "categories": ["motion", "react"]
+    },
+    {
       "name": "stack-type",
       "type": "registry:ui",
       "title": "Stack Type",

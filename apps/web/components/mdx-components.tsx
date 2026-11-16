@@ -17,6 +17,7 @@ import {
   FontSmoothingWeightsDemo,
 } from "@/components/docs/demos/font-smoothing";
 import { SmoothCaretDemo } from "@/components/docs/demos/smooth-caret";
+import { StampCollectionDemo } from "@/components/docs/demos/stamp-collection";
 import {
   TabularNumsDemo,
   TabularTableDemo,
@@ -51,6 +52,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     DynamicIslandDemo,
     SmoothCaretDemo,
     StackTypeDemo,
+    StampCollectionDemo,
     TearCalendarDemo,
     WarpTypeDemo,
     ConcentricPlaygroundDemo,

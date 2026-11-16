@@ -1,0 +1,57 @@
+---
+title: Stamp Collection
+description: Three perforated stamps on a table. Press one to bring it forward.
+order: 5
+publishedAt: "2026-11-16"
+maker: sanyam
+new: true
+---
+
+<StampCollectionDemo />
+
+Three stamps rest in a fanned row on a dark table. Reach for one and it lifts. Press it and it comes to the front while the others settle behind. With a stamp in front, move the pointer: the stamp leans toward it, and the print slides under its own window. Press the stamp again, press the table, or hit `Escape` to put them back in the row.
+
+## How it works
+
+- **The paper is one SVG path.** The perforation is bitten out of the edge of the path, so the shadow follows the scallops instead of the stamp's bounding box. A mask over a rectangle would shadow the box.
+- **The lift is a tween, not a spring.** The stamp rises 14px. A spring covers about a pixel and a half a frame there and spends most of its time creeping the last pixel, which reads as lag. Everything bigger, like coming forward and settling back, is a spring.
+- **Two springs, two speeds.** The lean and the print follow the same pointer through springs of different stiffness, so the print trails the stamp instead of riding it.
+- **Reduced motion** skips the lean and the parallax and makes every move instant.
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+<ComponentCli name="stamp-collection"/>
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project, then update the import paths to match your setup.</Step>
+
+<ComponentSource name="stamp-collection" title="components/ui/stamp-collection/index.tsx" />
+
+</Steps>
+
+</TabsPanel>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import StampCollection from "@/components/ui/stamp-collection";
+
+<StampCollection />;
+```
+
+The collection draws its own stage and fills the width of its container, at a fixed height of 25rem. The stamps and their prints are the `STAMPS` array at the top of the file, and the colours are the constants above it, so restyle it there.
